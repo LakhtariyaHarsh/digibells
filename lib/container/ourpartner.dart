@@ -88,6 +88,7 @@ class _OurpartnerState extends State<Ourpartner> {
                     fontSize:
                         deviceType == topbar.DeviceScreenType.tablet ? 30 : 40,
                     fontWeight: FontWeight.bold,
+                    color: black
                   ),
                 ),
               ],
