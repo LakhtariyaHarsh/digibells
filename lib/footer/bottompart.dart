@@ -26,7 +26,109 @@ class _BottompartState extends State<Bottompart> {
           ? EdgeInsets.all(0)
           : EdgeInsets.only(top: 20.0, right: 70, left: 90, bottom: 20),
       child: (isMobile || isTablet)
-          ? Column()
+          ? SizedBox(
+            height: 100,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    MouseRegion(
+                      onEnter: (_) {
+                        setState(() {
+                          isHovered = true;
+                        });
+                      },
+                      onExit: (_) {
+                        setState(() {
+                          isHovered = false;
+                        });
+                      },
+                      child: RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "©  ",
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white54, // Use default text color
+                              ),
+                            ),
+                            WidgetSpan(
+                              child: AnimatedDefaultTextStyle(
+                                duration: const Duration(milliseconds: 200),
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: isHovered ? blue : white,
+                                ),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    print("Hovered text clicked");
+                                  },
+                                  child: Text("Digibells Esolutions India, "),
+                                ),
+                              ),
+                            ),
+                            TextSpan(
+                              text: " @2023, All Right Reserved.",
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white54, // Use default text color
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    
+                    SizedBox(height: 10,),
+                    MouseRegion(
+                      onEnter: (_) {
+                        setState(() {
+                          isHovered = true;
+                        });
+                      },
+                      onExit: (_) {
+                        setState(() {
+                          isHovered = false;
+                        });
+                      },
+                      child: RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "Designed By  ",
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white54, // Use default text color
+                              ),
+                            ),
+                            WidgetSpan(
+                              child: AnimatedDefaultTextStyle(
+                                duration: const Duration(milliseconds: 200),
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: isHovered ? blue : white,
+                                ),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    print("Hovered text clicked");
+                                  },
+                                  child: Text("Digibells Esolutions India Pvt Ltd"),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+            ),
+          )
           : Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
