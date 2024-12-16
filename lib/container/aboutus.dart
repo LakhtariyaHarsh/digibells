@@ -121,7 +121,7 @@ class _AboutusState extends State<Aboutus> {
                                       ? 30
                                       : 40,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black, // Use default text color
+                              color: black, // Use default text color
                             ),
                           ),
                           TextSpan(
@@ -143,7 +143,7 @@ class _AboutusState extends State<Aboutus> {
                                       ? 30
                                       : 40,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black,
+                              color: black,
                             ),
                           ),
                         ],

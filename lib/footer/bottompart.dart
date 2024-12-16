@@ -1,3 +1,4 @@
+import 'package:digibells/commonfile.dart';
 import 'package:digibells/utills/constant.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -27,12 +28,12 @@ class _BottompartState extends State<Bottompart> {
           : EdgeInsets.only(top: 20.0, right: 70, left: 90, bottom: 20),
       child: (isMobile || isTablet)
           ? SizedBox(
-            height: 100,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              height: 100,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     MouseRegion(
                       onEnter: (_) {
@@ -65,7 +66,13 @@ class _BottompartState extends State<Bottompart> {
                                 ),
                                 child: GestureDetector(
                                   onTap: () {
-                                    print("Hovered text clicked");
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Commonfile(
+                                            name: 'Contact',
+                                          ), // Replace with your About Us page widget
+                                        ));
                                   },
                                   child: Text("Digibells Esolutions India, "),
                                 ),
@@ -82,8 +89,9 @@ class _BottompartState extends State<Bottompart> {
                         ),
                       ),
                     ),
-                    
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     MouseRegion(
                       onEnter: (_) {
                         setState(() {
@@ -115,9 +123,16 @@ class _BottompartState extends State<Bottompart> {
                                 ),
                                 child: GestureDetector(
                                   onTap: () {
-                                    print("Hovered text clicked");
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Commonfile(
+                                            name: 'Contact',
+                                          ), // Replace with your About Us page widget
+                                        ));
                                   },
-                                  child: Text("Digibells Esolutions India Pvt Ltd"),
+                                  child: Text(
+                                      "Digibells Esolutions India Pvt Ltd"),
                                 ),
                               ),
                             ),
@@ -127,8 +142,8 @@ class _BottompartState extends State<Bottompart> {
                     ),
                   ],
                 ),
-            ),
-          )
+              ),
+            )
           : Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -163,7 +178,13 @@ class _BottompartState extends State<Bottompart> {
                             ),
                             child: GestureDetector(
                               onTap: () {
-                                print("Hovered text clicked");
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Commonfile(
+                                        name: 'Contact',
+                                      ), // Replace with your About Us page widget
+                                    ));
                               },
                               child: Text("Digibells Esolutions India, "),
                             ),
@@ -211,7 +232,13 @@ class _BottompartState extends State<Bottompart> {
                             ),
                             child: GestureDetector(
                               onTap: () {
-                                print("Hovered text clicked");
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Commonfile(
+                                        name: 'Contact',
+                                      ), // Replace with your About Us page widget
+                                    ));
                               },
                               child: Text("Digibells Esolutions India Pvt Ltd"),
                             ),

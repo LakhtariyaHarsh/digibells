@@ -1,3 +1,6 @@
+import 'package:digibells/commonfile.dart';
+import 'package:digibells/main.dart';
+import 'package:digibells/redirectaboutus.dart';
 import 'package:flutter/material.dart';
 import 'topbarcontent.dart' as topbar;
 import 'package:digibells/utills/constant.dart';
@@ -110,6 +113,26 @@ class _AppbarforWebState extends State<AppbarforWeb> {
     );
   }
 
+  void redirectAboutUs() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => Redirectaboutus(
+                name: 'About Us',
+              )), // Replace with your About Us page widget
+    );
+  }
+
+  void redirectHomepage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => MyHomePage(
+                title: 'digibells',
+              )), // Replace with your About Us page widget
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -122,67 +145,199 @@ class _AppbarforWebState extends State<AppbarforWeb> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-              Wrap(
-                children:[
-                  Center(
-                  child: 
-                  SizedBox(
-                    width: deviceType == topbar.DeviceScreenType.tablet ?600 :950,
+            Wrap(
+              children: [
+                Center(
+                  child: SizedBox(
+                    width: screenSize.width *
+                        0.7, // Adjust width relative to screen size
                     height: 100,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        for (var text in [
-                          "Home",
-                          "About Us",
-                          "Website Designing",
-                          "Alibaba GGS Services ⮟",
-                          "Account Management Services ⮟",
-                          "Calculator ⮟",
-                          "Contact Us",
-                        ])
+                    child: SingleChildScrollView(
+                      scrollDirection:
+                          Axis.horizontal, // Enable horizontal scrolling
+                      child: Row(
+                        mainAxisAlignment:
+                            MainAxisAlignment.start, // Align items to start
+                        children: [
+                          for (var text in [
+                            "Home",
+                            "About Us",
+                            "Website Designing",
+                          ])
+                            MouseRegion(
+                              onEnter: (event) {
+                                setState(() {
+                                  hoveredText = text;
+                                });
+                              },
+                              onExit: (_) {
+                                setState(() {
+                                  hoveredText = null;
+                                });
+                              },
+                              child: GestureDetector(
+                                onTap: () {
+                                  if (text == "About Us") {
+                                    redirectAboutUs();
+                                  } else if (text == "Home") {
+                                    redirectHomepage();
+                                  } else {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Commonfile(
+                                                name:
+                                                    'Ecommerce Website Designing',
+                                              )), // Replace with your About Us page widget
+                                    );
+                                  }
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 16.0),
+                                  child: Text(
+                                    text,
+                                    style: TextStyle(
+                                      fontSize: deviceType ==
+                                              topbar.DeviceScreenType.tablet
+                                          ? 14
+                                          : 16,
+                                      fontWeight: FontWeight.bold,
+                                      color:
+                                          hoveredText == text ? black : white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          for (var text1 in [
+                            "Alibaba GGS Services ⮟",
+                            "Account Management Services ⮟",
+                            "Calculator ⮟",
+                          ])
+                            MouseRegion(
+                                onEnter: (event) {
+                                  setState(() {
+                                    hoveredText = text1;
+                                  });
+                                  showPopup(context, text1, event.position);
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    hoveredText = null;
+                                    hidePopup();
+                                  }); 
+                                },
+                                child: PopupMenuButton<String>(
+                                  onSelected: (value) {
+                                    for (var targetText in [
+                                      "Alibaba Account Management",
+                                      "Alibaba Product Listing Services",
+                                      "Alibaba Global Gold Membership",
+                                      "Amazon Account Management",
+                                      "Flipkart Account Management",
+                                      "Meesho Account Management",
+                                      "eBAY Account Management",
+                                      "Blinkit Account Management",
+                                      "Walmart Account Management",
+                                      "Amazon Seller Fees Calculator India",
+                                      "Flipkart Seller Fees Calculator",
+                                      "Jiomart Seller Fees Calculator",
+                                    ]) {
+                                      if (value == targetText) {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Commonfile(
+                                              name: targetText,
+                                            ),
+                                          ),
+                                        );
+                                        break;
+                                      }
+                                    }
+                                  },
+                                  itemBuilder: (_) => popupMenuData[text1]!
+                                      .map(
+                                        (item) => PopupMenuItem<String>(
+                                          value: item,
+                                          child: Text(item),
+                                        ),
+                                      )
+                                      .toList(),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 16.0),
+                                    child: Text(
+                                      text1,
+                                      style: TextStyle(
+                                        fontSize: deviceType ==
+                                                topbar.DeviceScreenType.tablet
+                                            ? 14
+                                            : 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: hoveredText == text1
+                                            ? black
+                                            : white,
+                                      ),
+                                    ),
+                                  ),
+                                )),
+                          // Contact Us
                           MouseRegion(
                             onEnter: (event) {
                               setState(() {
-                                hoveredText = text;
+                                hoveredText = "Contact Us";
                               });
-                              showPopup(context, text, event.position);
                             },
                             onExit: (_) {
                               setState(() {
                                 hoveredText = null;
-                                hidePopup();
                               });
                             },
-                            child: PopupMenuButton<String>(
-                              onSelected: (value) {
-                                debugPrint("Selected: $value");
-                                hidePopup();
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Commonfile(
+                                        name: 'Contact Us',
+                                      ), // Replace with your About Us page widget
+                                    ));
                               },
-                              itemBuilder: (_) => buildPopupMenu(text),
-                              child: Text(
-                                text,
-                                style: TextStyle(
-                                  fontSize:
-                                      deviceType == topbar.DeviceScreenType.tablet
-                                          ? 14
-                                          : 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: hoveredText == text ? black : white,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 16.0),
+                                child: Text(
+                                  "Contact Us",
+                                  style: TextStyle(
+                                    fontSize: deviceType ==
+                                            topbar.DeviceScreenType.tablet
+                                        ? 14
+                                        : 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: hoveredText == "Contact Us"
+                                        ? black
+                                        : white,
+                                  ),
                                 ),
                               ),
                             ),
-                          ), // Custom "Update" Item
-                      ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                ] 
-              ),
+              ],
+            ),
+
             // pay Button
             if (deviceType != topbar.DeviceScreenType.mobile)
               Padding(
-                padding: deviceType == topbar.DeviceScreenType.tablet ? EdgeInsets.only(right: 40.0) : EdgeInsets.only(right: 70.0),
+                padding: deviceType == topbar.DeviceScreenType.tablet
+                    ? EdgeInsets.only(right: 40.0)
+                    : EdgeInsets.only(right: 70.0),
                 child: Column(
                   children: [
                     Padding(
@@ -206,11 +361,13 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 2,),
                     SizedBox(
-                      height: 25,
-                      width: 80,
-                      child: Image.asset("assets/payimage.png"))
+                      height: 2,
+                    ),
+                    SizedBox(
+                        height: 25,
+                        width: 80,
+                        child: Image.asset("assets/payimage.png"))
                   ],
                 ),
               )

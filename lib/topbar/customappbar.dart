@@ -1,3 +1,6 @@
+import 'package:digibells/commonfile.dart';
+import 'package:digibells/main.dart';
+import 'package:digibells/redirectaboutus.dart';
 import 'package:digibells/utills/constant.dart';
 import 'package:flutter/material.dart';
 import 'topbarcontent.dart' as topbar;
@@ -96,11 +99,54 @@ class _CustomAppBarState extends State<CustomAppBar> {
     _overlayEntry = null;
   }
 
+  void redirectAboutUs() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => Redirectaboutus(
+                name: 'About Us',
+              )), // Replace with your About Us page widget
+    );
+  }
+
+  void redirectHomepage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => MyHomePage(
+                title: 'digibells',
+              )), // Replace with your About Us page widget
+    );
+  }
+
   // Builds a static ListTile with a title
   Widget _buildStaticTile(String title) {
     return Column(
       children: [
         ListTile(
+          onTap: () {
+            if (title == "About Us") {
+              redirectAboutUs();
+            } else if (title == "Home") {
+              redirectHomepage();
+            } else if (title == "Contact Us") {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Commonfile(
+                      name: 'Contact Us',
+                    ), // Replace with your About Us page widget
+                  ));
+            } else {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Commonfile(
+                          name: 'Ecommerce Website Designing',
+                        )), // Replace with your About Us page widget
+              );
+            }
+          },
           title: Text(title),
         ),
         Divider(),
@@ -184,9 +230,33 @@ class _CustomAppBarState extends State<CustomAppBar> {
                                       ])
                                         PopupMenuButton<String>(
                                           onSelected: (value) {
-                                            debugPrint(
-                                                "$text: $value selected");
-                                            Navigator.pop(context);
+                                            for (var targetText in [
+                                              "Alibaba Account Management",
+                                              "Alibaba Product Listing Services",
+                                              "Alibaba Global Gold Membership",
+                                              "Amazon Account Management",
+                                              "Flipkart Account Management",
+                                              "Meesho Account Management",
+                                              "eBAY Account Management",
+                                              "Blinkit Account Management",
+                                              "Walmart Account Management",
+                                              "Amazon Seller Fees Calculator India",
+                                              "Flipkart Seller Fees Calculator",
+                                              "Jiomart Seller Fees Calculator",
+                                            ]) {
+                                              if (value == targetText) {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        Commonfile(
+                                                      name: targetText,
+                                                    ),
+                                                  ),
+                                                );
+                                                break;
+                                              }
+                                            }
                                           },
                                           itemBuilder: (context) {
                                             if (popupMenuData

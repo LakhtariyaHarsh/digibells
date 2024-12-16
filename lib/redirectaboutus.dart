@@ -1,7 +1,4 @@
-import 'dart:developer';
-import 'package:digibells/app_router.dart';
-import 'package:digibells/container/cardcarousel.dart';
-import 'package:digibells/container/hoverservices.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:digibells/container/hoverteam.dart';
 import 'package:digibells/container/ourteam.dart';
 import 'package:digibells/container/services.dart' as services;
@@ -23,51 +20,24 @@ import 'footer/footer.dart' as footer;
 import 'slider/slider.dart' as slider;
 import 'package:google_fonts/google_fonts.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Redirectaboutus extends StatefulWidget {
+   final String name;
+  const Redirectaboutus({super.key, required this.name});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'DigiBells',
-      theme: ThemeData(
-        useMaterial3: true,
-        textTheme: GoogleFonts.openSansTextTheme(
-          Theme.of(context).textTheme,
-        ),
-      ),
-      routerConfig: router,
-      // routerDelegate: AppRouter.router.routerDelegate, // Use AppRouter's routerDelegate.
-      //
-      // routeInformationParser: AppRouter.router.routeInformationParser, // Use AppRouter's routeInformationParser.
-      debugShowCheckedModeBanner: false, // Disable debug banner.
-    );
-  }
+  State<Redirectaboutus> createState() => _RedirectaboutusState();
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class _RedirectaboutusState extends State<Redirectaboutus> {
   @override
   Widget build(BuildContext context) {
     var Screensize = MediaQuery.of(context).size;
     var deviceType = topbar.getDeviceType(Screensize);
 
     double containerWidth = Screensize.width * 0.9; // For mobile
-    double Height = 1700;
-    if (deviceType == topbar.DeviceScreenType.desktop || deviceType == topbar.DeviceScreenType.hubmax) {
-      Height = 980;
+    double Height = 1590;
+    if (deviceType == topbar.DeviceScreenType.desktop) {
+      Height = 960;
     } else if (deviceType == topbar.DeviceScreenType.tablet) {
       Height = 1160;
     }
@@ -124,58 +94,64 @@ class _MyHomePageState extends State<MyHomePage> {
                                 child: AppbarforWeb(),
                               )),
                 Container(
-                  width: containerWidth,
-                  height: containerHeight,
-                  child: slider.Slider(),
+                  color: black54,
+                  width: Screensize.width,
+                  height: Screensize.height * 0.4,
+                  child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      AutoSizeText(widget.name,
+                          style: TextStyle(
+                              fontSize: deviceType ==
+                                      topbar.DeviceScreenType.mobile
+                                  ? 35
+                                  : deviceType == topbar.DeviceScreenType.tablet
+                                      ? 40
+                                      : 50,
+                              fontWeight: FontWeight.bold,
+                              color: white)),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "Home  /  ",
+                              style: TextStyle(
+                                color: white,
+                                fontSize: 20 // Use default text color
+                              ),
+                            ),
+                            TextSpan(
+                              text: widget.name,
+                              style: TextStyle(
+                                color: orange,
+                                fontSize: 20 // Highlighted text
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )),
                 ),
-                Container(
-                  width: containerWidth,
-                  child: Whatdo(),
-                ),
-                Container(
-                  width: containerWidth,
-                  height: Height,
-                  // color: orange, // Background color
-                  child: about.Aboutus(),
-                ),
-                Container(
-                  width: containerWidth,
-                  child: Ourpartner(),
-                ),
+ 
                 Container(
                   width: containerWidth,
                   height: deviceType == topbar.DeviceScreenType.mobile
                       ? 1300
-                      :  deviceType == topbar.DeviceScreenType.tablet
-                      ? 700 : deviceType == topbar.DeviceScreenType.hubmax 
-                      ? Screensize.height * 0.9 : 500,
+                      : deviceType == topbar.DeviceScreenType.tablet
+                          ? 700
+                          : 500,
                   child: HoverCardPage(),
                 ),
-                Container(
+                 Container(
                   width: containerWidth,
-                  child: services.Services(),
-                ),
-                Container(
-                  width: containerWidth,
-                  height: deviceType == topbar.DeviceScreenType.mobile
-                      ? 2300
-                      : deviceType == topbar.DeviceScreenType.tablet
-                          ? 1000: deviceType == topbar.DeviceScreenType.hubmax 
-                      ? Screensize.height * 1.5 :  900,
-                  child: HoverCardServicePage(),
-                ),
-                Container(
-                  width: containerWidth,
-                  height: deviceType == topbar.DeviceScreenType.desktop || deviceType == topbar.DeviceScreenType.hubmax
-                      ? 702
-                      : deviceType == topbar.DeviceScreenType.tablet
-                          ? 940
-                          : 1250,
+                  height: Height,
                   // color: orange, // Background color
-                  child: Whychoose(),
-                ),
-                SizedBox(
-                  height: 20,
+                  child: about.Aboutus(),
                 ),
                 Container(
                   width: containerWidth,
@@ -186,21 +162,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: deviceType == topbar.DeviceScreenType.mobile
                       ? 1100
                       : deviceType == topbar.DeviceScreenType.tablet
-                          ? 650: deviceType == topbar.DeviceScreenType.hubmax 
-                      ? Screensize.height * 0.9 : 400,
+                          ? 650
+                          : 400,
                   child: Hoverteam(),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  width: containerWidth,
-                  child: Testimonial(),
-                ),
-                Container(
-                  width: containerWidth,
-                  height: 300,
-                  child: Cardcarousel(),
                 ),
                 Container(
                   width: containerWidth,

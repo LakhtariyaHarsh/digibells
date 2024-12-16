@@ -73,69 +73,71 @@ class _HoverCardState extends State<HoverCard> {
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) {
-        setState(() {
-          isHovered = true;
-        });
-      },
-      onExit: (_) {
-        setState(() {
-          isHovered = false;
-        });
-      },
-      child: AnimatedContainer(
-        duration: Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-        width: 300,
-        height: 300,
-        margin: EdgeInsets.only(bottom: isHovered ? 20 : 0),
-        decoration: BoxDecoration(
-          color: isHovered ? white : grey250,
-          boxShadow: isHovered
-              ? [
-                  BoxShadow(
-                    color: black26,
-                    blurRadius: 20,
-                    spreadRadius: 2,
-                    offset: Offset(0, 10),
-                  ),
-                ]
-              : [
-                  BoxShadow(
-                    color: white,
-                    blurRadius: 10,
-                    spreadRadius: 1,
-                    offset: Offset(0, 2),
-                  ),
-                ],
-        ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Icon(
-                widget.iconData, // Use IconData here
-                size: 80,
-                color: orange,
-              ),
-              Text(
-                widget.title,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: black,
+    return SizedBox(
+      child: MouseRegion(
+        onEnter: (_) {
+          setState(() {
+            isHovered = true;
+          });
+        },
+        onExit: (_) {
+          setState(() {
+            isHovered = false;
+          });
+        },
+        child: AnimatedContainer(
+          duration: Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+          width: 300,
+          height: 300,
+          margin: EdgeInsets.only(bottom: isHovered ? 20 : 0),
+          decoration: BoxDecoration(
+            color: isHovered ? white : grey250,
+            boxShadow: isHovered
+                ? [
+                    BoxShadow(
+                      color: black26,
+                      blurRadius: 20,
+                      spreadRadius: 2,
+                      offset: Offset(0, 10),
+                    ),
+                  ]
+                : [
+                    BoxShadow(
+                      color: white,
+                      blurRadius: 10,
+                      spreadRadius: 1,
+                      offset: Offset(0, 2),
+                    ),
+                  ],
+          ),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Icon(
+                  widget.iconData, // Use IconData here
+                  size: 80,
+                  color: orange,
                 ),
-              ),
-              Text(
-                widget.rank as String, // Display rank as text
-                style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  color: black,
+                Text(
+                  widget.title,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: black,
+                  ),
                 ),
-              ),
-            ],
+                Text(
+                  widget.rank as String, // Display rank as text
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: black,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

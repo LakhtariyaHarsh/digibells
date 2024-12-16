@@ -35,11 +35,7 @@ class _SliderState extends State<Slider> {
     }
 
     
-    double containerWidth = deviceType == topbar.DeviceScreenType.desktop
-        ? 1300
-        : deviceType == topbar.DeviceScreenType.tablet
-            ? 900
-            : 350; 
+    double containerWidth = screenSize.width * 0.9;
     return Column(
       children: [
         Stack(

@@ -1,3 +1,4 @@
+import 'package:digibells/commonfile.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:digibells/utills/constant.dart';
@@ -91,57 +92,32 @@ class _ServiceurlState extends State<Serviceurl> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            buildHoverableText(
-                              text: "Flipkart Listing Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Flipkart Faq",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Flipkart Seller Registration",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Flipkart Boost Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Flipkart Reconciliation",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "flipkart advertising Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "flipkart Catalogue Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "flipkart account management Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
+                            for (var textName in [
+                              "Flipkart Listing Services",
+                              "Flipkart Faq",
+                              "Flipkart Seller Registration",
+                              "Flipkart Boost Services",
+                              "Flipkart Reconciliation",
+                              "flipkart advertising Services",
+                              "flipkart Catalogue Services",
+                              "flipkart account management Services",
+                            ])
+                              buildHoverableText(
+                                text: textName,
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Commonfile(
+                                        name: textName,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
                           ],
                         ),
-                      ),
+                      )
                     ],
                   ),
                   SizedBox(
@@ -168,54 +144,29 @@ class _ServiceurlState extends State<Serviceurl> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            buildHoverableText(
-                              text: "Amazon Listing Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Amazon Faq",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Amazon Seller Registration",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Amazon Boost Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Amazon Reconciliation",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Amazon advertising Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Amazon Catalogue Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Amazon account management Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
+                            for (var textName in [
+                              "Amazon Listing Services",
+                              "Amazon Faq",
+                              "Amazon Seller Registration",
+                              "Amazon Boost Services",
+                              "Amazon Reconciliation",
+                              "Amazon advertising Services",
+                              "Amazon Catalogue Services",
+                              "Amazon account management Services",
+                            ])
+                              buildHoverableText(
+                                text: textName,
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Commonfile(
+                                        name: textName,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
                           ],
                         ),
                       ),
@@ -245,54 +196,29 @@ class _ServiceurlState extends State<Serviceurl> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            buildHoverableText(
-                              text: "Ebay Listing Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Ebay Faq",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Ebay Seller Registration",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Ebay Boost Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Ebay Reconciliation",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Ebay advertising Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Ebay Catalogue Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Ebay account management",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
+                            for (var textName in [
+                              "Ebay Listing Services",
+                              "Ebay Faq",
+                              "Ebay Seller Registration",
+                              "Ebay Boost Services",
+                              "Ebay Reconciliation",
+                              "Ebay advertising Services",
+                              "Ebay Catalogue Services",
+                              "Ebay account management",
+                            ])
+                              buildHoverableText(
+                                text: textName,
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Commonfile(
+                                        name: textName,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
                           ],
                         ),
                       ),
@@ -322,54 +248,29 @@ class _ServiceurlState extends State<Serviceurl> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            buildHoverableText(
-                              text: "Jiomart Listing Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Jiomart Faq",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Jiomart Seller Registration",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Jiomart Boost Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Jiomart Reconciliation",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Jiomart advertising Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Jiomart Catalogue Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Jiomart account management Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
+                            for (var textName in [
+                              "Jiomart Listing Services",
+                              "Jiomart Faq",
+                              "Jiomart Seller Registration",
+                              "Jiomart Boost Services",
+                              "Jiomart Reconciliation",
+                              "Jiomart advertising Services",
+                              "Jiomart Catalogue Services",
+                              "Jiomart account management Services",
+                            ])
+                              buildHoverableText(
+                                text: textName,
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Commonfile(
+                                        name: textName,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
                           ],
                         ),
                       ),
@@ -403,54 +304,29 @@ class _ServiceurlState extends State<Serviceurl> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                buildHoverableText(
-                                  text: "Flipkart Listing Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Flipkart Faq",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Flipkart Seller Registration",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Flipkart Boost Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Flipkart Reconciliation",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "flipkart advertising Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "flipkart Catalogue Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "flipkart account management Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
+                                for (var textName in [
+                                  "Flipkart Listing Services",
+                                  "Flipkart Faq",
+                                  "Flipkart Seller Registration",
+                                  "Flipkart Boost Services",
+                                  "Flipkart Reconciliation",
+                                  "flipkart advertising Services",
+                                  "flipkart Catalogue Services",
+                                  "flipkart account management Services",
+                                ])
+                                  buildHoverableText(
+                                    text: textName,
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Commonfile(
+                                            name: textName,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
                               ],
                             ),
                           ),
@@ -481,54 +357,29 @@ class _ServiceurlState extends State<Serviceurl> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                buildHoverableText(
-                                  text: "Amazon Listing Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Amazon Faq",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Amazon Seller Registration",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Amazon Boost Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Amazon Reconciliation",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Amazon advertising Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Amazon Catalogue Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Amazon account management Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
+                                for (var textName in [
+                                  "Amazon Listing Services",
+                                  "Amazon Faq",
+                                  "Amazon Seller Registration",
+                                  "Amazon Boost Services",
+                                  "Amazon Reconciliation",
+                                  "Amazon advertising Services",
+                                  "Amazon Catalogue Services",
+                                  "Amazon account management Services",
+                                ])
+                                  buildHoverableText(
+                                    text: textName,
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Commonfile(
+                                            name: textName,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
                               ],
                             ),
                           ),
@@ -555,61 +406,35 @@ class _ServiceurlState extends State<Serviceurl> {
                           ),
                           const SizedBox(height: 8),
                           Padding(
-                            padding: const EdgeInsets.only(left: 10.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                buildHoverableText(
-                                  text: "Ebay Listing Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Ebay Faq",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Ebay Seller Registration",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Ebay Boost Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Ebay Reconciliation",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Ebay advertising Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Ebay Catalogue Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Ebay account management",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
+                              padding: const EdgeInsets.only(left: 10.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  for (var textName in [
+                                    "Ebay Listing Services",
+                                    "Ebay Faq",
+                                    "Ebay Seller Registration",
+                                    "Ebay Boost Services",
+                                    "Ebay Reconciliation",
+                                    "Ebay advertising Services",
+                                    "Ebay Catalogue Services",
+                                    "Ebay account management",
+                                  ])
+                                    buildHoverableText(
+                                      text: textName,
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Commonfile(
+                                              name: textName,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                ],
+                              )),
                         ],
                       ),
                     ),
@@ -633,61 +458,35 @@ class _ServiceurlState extends State<Serviceurl> {
                           ),
                           const SizedBox(height: 8),
                           Padding(
-                            padding: const EdgeInsets.only(left: 10.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                buildHoverableText(
-                                  text: "Jiomart Listing Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Jiomart Faq",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Jiomart Seller Registration",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Jiomart Boost Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Jiomart Reconciliation",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Jiomart advertising Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Jiomart Catalogue Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Jiomart account management Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
+                              padding: const EdgeInsets.only(left: 10.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  for (var textName in [
+                                    "Jiomart Listing Services",
+                                    "Jiomart Faq",
+                                    "Jiomart Seller Registration",
+                                    "Jiomart Boost Services",
+                                    "Jiomart Reconciliation",
+                                    "Jiomart advertising Services",
+                                    "Jiomart Catalogue Services",
+                                    "Jiomart account management Services",
+                                  ])
+                                    buildHoverableText(
+                                      text: textName,
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Commonfile(
+                                              name: textName,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                ],
+                              )),
                         ],
                       ),
                     ),
@@ -717,61 +516,35 @@ class _ServiceurlState extends State<Serviceurl> {
                       ),
                       const SizedBox(height: 8),
                       Padding(
-                        padding: const EdgeInsets.only(left: 10.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            buildHoverableText(
-                              text: "Meesho Listing Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Meesho Faq",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Meesho Seller Registration",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Meesho Boost Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Meesho Reconciliation",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Meesho advertising Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Meesho Catalogue Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Meesho account management Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              for (var textName in [
+                                "Meesho Listing Services",
+                                "Meesho Faq",
+                                "Meesho Seller Registration",
+                                "Meesho Boost Services",
+                                "Meesho Reconciliation",
+                                "Meesho advertising Services",
+                                "Meesho Catalogue Services",
+                                "Meesho account management Services",
+                              ])
+                                buildHoverableText(
+                                  text: textName,
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Commonfile(
+                                          name: textName,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                            ],
+                          )),
                     ],
                   ),
                   SizedBox(
@@ -794,61 +567,35 @@ class _ServiceurlState extends State<Serviceurl> {
                       ),
                       const SizedBox(height: 8),
                       Padding(
-                        padding: const EdgeInsets.only(left: 10.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            buildHoverableText(
-                              text: "Blinkit Listing Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Blinkit Faq",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Blinkit Seller Registration",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Blinkit Boost Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Blinkit Reconciliation",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Blinkit advertising Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Blinkit Catalogue Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Blinkit account management Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              for (var textName in [
+                                "Blinkit Listing Services",
+                                "Blinkit Faq",
+                                "Blinkit Seller Registration",
+                                "Blinkit Boost Services",
+                                "Blinkit Reconciliation",
+                                "Blinkit advertising Services",
+                                "Blinkit Catalogue Services",
+                                "Blinkit account management Services",
+                              ])
+                                buildHoverableText(
+                                  text: textName,
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Commonfile(
+                                          name: textName,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                            ],
+                          )),
                     ],
                   ),
                   SizedBox(
@@ -875,54 +622,32 @@ class _ServiceurlState extends State<Serviceurl> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            buildHoverableText(
-                              text: "Walmart Listing Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Walmart Faq",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Walmart Seller Registration",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Walmart Boost Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Walmart Reconciliation",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Walmart advertising Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Walmart Catalogue Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Walmart account management",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
+                            ...[
+                              "Walmart Listing Services",
+                              "Walmart Faq",
+                              "Walmart Seller Registration",
+                              "Walmart Boost Services",
+                              "Walmart Reconciliation",
+                              "Walmart Advertising Services",
+                              "Walmart Catalogue Services",
+                              "Walmart Account Management"
+                            ]
+                                .map(
+                                  (text) => buildHoverableText(
+                                    text: text,
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Commonfile(
+                                            name: text,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                )
+                                .toList(),
                           ],
                         ),
                       ),
@@ -948,48 +673,35 @@ class _ServiceurlState extends State<Serviceurl> {
                       ),
                       const SizedBox(height: 8),
                       Padding(
-                        padding: const EdgeInsets.only(left: 10.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            buildHoverableText(
-                              text:
-                                  "Best Service Provider Network services in Noida",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text:
-                                  "Best Service Provider Network services in Surat",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text:
-                                  "Best Service Provider Network services in Mumbai",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text:
-                                  "Best Service Provider Network services in pune",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text:
-                                  "Best Service Provider Network services in Ahemdabad",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ...[
+                                "Best Service Provider Network services in Noida",
+                                "Best Service Provider Network services in Surat",
+                                "Best Service Provider Network services in Mumbai",
+                                "Best Service Provider Network services in Pune",
+                                "Best Service Provider Network services in Ahmedabad"
+                              ]
+                                  .map(
+                                    (text) => buildHoverableText(
+                                      text: text,
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Commonfile(
+                                              name: text,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  )
+                                  .toList(),
+                            ],
+                          )),
                     ],
                   ),
                 ],
@@ -1021,54 +733,29 @@ class _ServiceurlState extends State<Serviceurl> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                buildHoverableText(
-                                  text: "Meesho Listing Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Meesho Faq",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Meesho Seller Registration",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Meesho Boost Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Meesho Reconciliation",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Meesho advertising Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Meesho Catalogue Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Meesho account management Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
+                                for (var textName in [
+                                  "Meesho Listing Services",
+                                  "Meesho Faq",
+                                  "Meesho Seller Registration",
+                                  "Meesho Boost Services",
+                                  "Meesho Reconciliation",
+                                  "Meesho advertising Services",
+                                  "Meesho Catalogue Services",
+                                  "Meesho account management Services",
+                                ])
+                                  buildHoverableText(
+                                    text: textName,
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Commonfile(
+                                            name: textName,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
                               ],
                             ),
                           ),
@@ -1099,54 +786,29 @@ class _ServiceurlState extends State<Serviceurl> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                buildHoverableText(
-                                  text: "Blinkit Listing Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Blinkit Faq",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Blinkit Seller Registration",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Blinkit Boost Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Blinkit Reconciliation",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Blinkit advertising Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Blinkit Catalogue Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Blinkit account management Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
+                                for (var textName in [
+                                  "Blinkit Listing Services",
+                                  "Blinkit Faq",
+                                  "Blinkit Seller Registration",
+                                  "Blinkit Boost Services",
+                                  "Blinkit Reconciliation",
+                                  "Blinkit advertising Services",
+                                  "Blinkit Catalogue Services",
+                                  "Blinkit account management Services",
+                                ])
+                                  buildHoverableText(
+                                    text: textName,
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Commonfile(
+                                            name: textName,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
                               ],
                             ),
                           ),
@@ -1173,61 +835,39 @@ class _ServiceurlState extends State<Serviceurl> {
                           ),
                           const SizedBox(height: 8),
                           Padding(
-                            padding: const EdgeInsets.only(left: 10.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                buildHoverableText(
-                                  text: "Walmart Listing Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Walmart Faq",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Walmart Seller Registration",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Walmart Boost Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Walmart Reconciliation",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Walmart advertising Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Walmart Catalogue Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Walmart account management",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
+                              padding: const EdgeInsets.only(left: 10.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  ...[
+                                    "Walmart Listing Services",
+                                    "Walmart Faq",
+                                    "Walmart Seller Registration",
+                                    "Walmart Boost Services",
+                                    "Walmart Reconciliation",
+                                    "Walmart Advertising Services",
+                                    "Walmart Catalogue Services",
+                                    "Walmart Account Management"
+                                  ]
+                                      .map(
+                                        (text) => buildHoverableText(
+                                          text: text,
+                                          onTap: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    Commonfile(
+                                                  name: text,
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                      )
+                                      .toList(),
+                                ],
+                              )),
                         ],
                       ),
                     ),
@@ -1255,41 +895,29 @@ class _ServiceurlState extends State<Serviceurl> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                buildHoverableText(
-                                  text:
-                                      "Best Service Provider Network services in Noida",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text:
-                                      "Best Service Provider Network services in Surat",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text:
-                                      "Best Service Provider Network services in Mumbai",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text:
-                                      "Best Service Provider Network services in pune",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text:
-                                      "Best Service Provider Network services in Ahemdabad",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
+                                ...[
+                                  "Best Service Provider Network services in Noida",
+                                  "Best Service Provider Network services in Surat",
+                                  "Best Service Provider Network services in Mumbai",
+                                  "Best Service Provider Network services in Pune",
+                                  "Best Service Provider Network services in Ahmedabad"
+                                ]
+                                    .map(
+                                      (text) => buildHoverableText(
+                                        text: text,
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => Commonfile(
+                                                name: text,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    )
+                                    .toList(),
                               ],
                             ),
                           ),
@@ -1326,30 +954,28 @@ class _ServiceurlState extends State<Serviceurl> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            buildHoverableText(
-                              text: "PHP Development",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Wordpress Development",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "eCommerce Solution",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Website Design",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
+                            ...[
+                              "PHP Development",
+                              "Wordpress Development",
+                              "eCommerce Solution",
+                              "Website Design"
+                            ]
+                                .map(
+                                  (text) => buildHoverableText(
+                                    text: text,
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Commonfile(
+                                            name: text,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                )
+                                .toList(),
                           ],
                         ),
                       ),
@@ -1375,43 +1001,35 @@ class _ServiceurlState extends State<Serviceurl> {
                       ),
                       const SizedBox(height: 8),
                       Padding(
-                        padding: const EdgeInsets.only(left: 10.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            buildHoverableText(
-                              text: "SEO Services",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "PPC",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Social Media Marketing",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Lead Generation",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text: "Facebook Marketing",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ...[
+                                "SEO Services",
+                                "PPC",
+                                "Social Media Marketing",
+                                "Lead Generation",
+                                "Facebook Marketing"
+                              ]
+                                  .map(
+                                    (text) => buildHoverableText(
+                                      text: text,
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Commonfile(
+                                              name: text,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  )
+                                  .toList(),
+                            ],
+                          )),
                     ],
                   ),
                   SizedBox(
@@ -1434,48 +1052,35 @@ class _ServiceurlState extends State<Serviceurl> {
                       ),
                       const SizedBox(height: 8),
                       Padding(
-                        padding: const EdgeInsets.only(left: 10.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            buildHoverableText(
-                              text:
-                                  "Best Service Provider Network services in Chennai",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text:
-                                  "Best Service Provider Network services in kotchi",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text:
-                                  "Best Service Provider Network services in Jaipur",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text:
-                                  "Best Service Provider Network services in Delhi",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                            buildHoverableText(
-                              text:
-                                  "Best Service Provider Network services in Gurugram",
-                              onTap: () {
-                                print("Text clicked");
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ...[
+                                "Best Service Provider Network services in Chennai",
+                                "Best Service Provider Network services in Kotchi",
+                                "Best Service Provider Network services in Jaipur",
+                                "Best Service Provider Network services in Delhi",
+                                "Best Service Provider Network services in Gurugram"
+                              ]
+                                  .map(
+                                    (text) => buildHoverableText(
+                                      text: text,
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Commonfile(
+                                              name: text,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  )
+                                  .toList(),
+                            ],
+                          )),
                     ],
                   ),
                   SizedBox(
@@ -1506,37 +1111,35 @@ class _ServiceurlState extends State<Serviceurl> {
                           ),
                           const SizedBox(height: 8),
                           Padding(
-                            padding: const EdgeInsets.only(left: 10.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                buildHoverableText(
-                                  text: "PHP Development",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Wordpress Development",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "eCommerce Solution",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Website Design",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
+                              padding: const EdgeInsets.only(left: 10.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  ...[
+                                    "PHP Development",
+                                    "Wordpress Development",
+                                    "eCommerce Solution",
+                                    "Website Design"
+                                  ]
+                                      .map(
+                                        (text) => buildHoverableText(
+                                          text: text,
+                                          onTap: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    Commonfile(
+                                                  name: text,
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                      )
+                                      .toList(),
+                                ],
+                              )),
                         ],
                       ),
                     ),
@@ -1564,36 +1167,29 @@ class _ServiceurlState extends State<Serviceurl> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                buildHoverableText(
-                                  text: "SEO Services",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "PPC",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Social Media Marketing",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Lead Generation",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text: "Facebook Marketing",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
+                                ...[
+                                  "SEO Services",
+                                  "PPC",
+                                  "Social Media Marketing",
+                                  "Lead Generation",
+                                  "Facebook Marketing"
+                                ]
+                                    .map(
+                                      (text) => buildHoverableText(
+                                        text: text,
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => Commonfile(
+                                                name: text,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    )
+                                    .toList(),
                               ],
                             ),
                           ),
@@ -1611,10 +1207,7 @@ class _ServiceurlState extends State<Serviceurl> {
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                              fontSize:
-                                  deviceType == topbar.DeviceScreenType.desktop
-                                      ? 16
-                                      : 14,
+                              fontSize: 16,
                               color: black54,
                             ),
                           ),
@@ -1624,41 +1217,29 @@ class _ServiceurlState extends State<Serviceurl> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                buildHoverableText(
-                                  text:
-                                      "Best Service Provider Network services in Chennai",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text:
-                                      "Best Service Provider Network services in kotchi",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text:
-                                      "Best Service Provider Network services in Jaipur",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text:
-                                      "Best Service Provider Network services in Delhi",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
-                                buildHoverableText(
-                                  text:
-                                      "Best Service Provider Network services in Gurugram",
-                                  onTap: () {
-                                    print("Text clicked");
-                                  },
-                                ),
+                                ...[
+                                  "Best Service Provider Network services in Chennai",
+                                  "Best Service Provider Network services in Kotchi",
+                                  "Best Service Provider Network services in Jaipur",
+                                  "Best Service Provider Network services in Delhi",
+                                  "Best Service Provider Network services in Gurugram"
+                                ]
+                                    .map(
+                                      (text) => buildHoverableText(
+                                        text: text,
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => Commonfile(
+                                                name: text,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    )
+                                    .toList(),
                               ],
                             ),
                           ),

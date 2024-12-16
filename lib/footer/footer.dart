@@ -1,3 +1,5 @@
+import 'package:digibells/commonfile.dart';
+import 'package:digibells/redirectaboutus.dart';
 import 'package:digibells/utills/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -347,7 +349,13 @@ class _FooterState extends State<Footer> {
                       child: buildHoverable(
                         text: "About Us",
                         onTap: () {
-                          print("Text clicked");
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Redirectaboutus(
+                                      name: 'About Us',
+                                    )), // Replace with your About Us page widget
+                          );
                         },
                       ),
                     ),
@@ -368,7 +376,13 @@ class _FooterState extends State<Footer> {
                       child: buildHoverable(
                         text: "Contact Us",
                         onTap: () {
-                          print("Text clicked");
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Commonfile(
+                                  name: 'Contact Us',
+                                ), // Replace with your About Us page widget
+                              ));
                         },
                       ),
                     ),
@@ -389,7 +403,13 @@ class _FooterState extends State<Footer> {
                       child: buildHoverable(
                         text: "Our Services",
                         onTap: () {
-                          print("Text clicked");
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Commonfile(
+                                      name: 'Our Services',
+                                    )), // Replace with your About Us page widget
+                          );
                         },
                       ),
                     ),
@@ -410,7 +430,13 @@ class _FooterState extends State<Footer> {
                       child: buildHoverable(
                         text: "Alibaba Service Provider",
                         onTap: () {
-                          print("Text clicked");
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Commonfile(
+                                      name: 'Alibaba Service Provider',
+                                    )), // Replace with your About Us page widget
+                          );
                         },
                       ),
                     ),
@@ -431,7 +457,13 @@ class _FooterState extends State<Footer> {
                       child: buildHoverable(
                         text: "Terms & Condition",
                         onTap: () {
-                          print("Text clicked");
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Commonfile(
+                                      name: 'Terms & Condition',
+                                    )), // Replace with your About Us page widget
+                          );
                         },
                       ),
                     ),
@@ -452,7 +484,13 @@ class _FooterState extends State<Footer> {
                       child: buildHoverable(
                         text: "Support",
                         onTap: () {
-                          print("Text clicked");
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Commonfile(
+                                      name: 'Support',
+                                    )), // Replace with your About Us page widget
+                          );
                         },
                       ),
                     ),

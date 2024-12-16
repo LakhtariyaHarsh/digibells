@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const white = Color(0xffffffff);
 const white24 = Colors.white24;
+const white70 = Colors.white70;
 const white54 = Colors.white54;
 const red = Colors.red;
 const orange = Color(0xffffa400);
