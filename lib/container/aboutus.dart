@@ -15,10 +15,12 @@ class _AboutusState extends State<Aboutus> {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     var deviceType = topbar.getDeviceType(screenSize);
-
+    // Determine image height based on device type
+    final double imageHeight =
+        deviceType == topbar.DeviceScreenType.tablet ? 600 : 300;
     // Decide whether to use Row or Column
     bool isMobile = deviceType == topbar.DeviceScreenType.mobile;
-    bool isTablet= deviceType == topbar.DeviceScreenType.tablet;
+    bool isTablet = deviceType == topbar.DeviceScreenType.tablet;
     double containerWidth = deviceType == topbar.DeviceScreenType.desktop
         ? 600
         : deviceType == topbar.DeviceScreenType.tablet
@@ -29,47 +31,48 @@ class _AboutusState extends State<Aboutus> {
         ? Column(
             children: [
               SizedBox(
-                child:  Padding(
-                padding:
-                    const EdgeInsets.only(right: 40.0, top: 40, bottom: 40),
-                child: Stack(
-                  clipBehavior: Clip.none, // Allow elements to overflow
-                  children: [
-                    // Outer blue border
-                    Positioned(
-                      child: Container(
-                        height: 300,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.blue, // Blue border color
-                            width: 4, // Border thickness
+                child: Padding(
+                  padding:
+                      const EdgeInsets.only(right: 40.0, top: 40, bottom: 40),
+                  child: Stack(
+                    clipBehavior: Clip.none, // Allow elements to overflow
+                    children: [
+                      // Outer blue border
+                      Positioned(
+                        child: Container(
+                          height: imageHeight, // Dynamically adjust the height
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.blue, // Blue border color
+                              width: 4, // Border thickness
+                            ),
+                            borderRadius:
+                                BorderRadius.circular(12), // Rounded corners
                           ),
+                        ),
+                      ),
+                      // Main image overlay
+                      Positioned.fill(
+                        top: 40, // Adjust the vertical overlay offset
+                        left: 40, // Adjust the horizontal overlay offset
+                        right: -40, // Extend right for the overlay effect
+                        bottom: -40, // Extend bottom for the overlay effect
+                        child: ClipRRect(
                           borderRadius:
-                              BorderRadius.circular(12), // Rounded corners
+                              BorderRadius.circular(10), // Rounded corners
+                          child: Image.asset(
+                            "assets/about.jpg",
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
-                    ),
-                    // Main image overlay
-                    Positioned.fill(
-                      top: 40, // Adjust the vertical overlay offset
-                      left: 40, // Adjust the horizontal overlay offset
-                      right: -40, // Extend right for the overlay effect
-                      bottom: -40, // Extend bottom for the overlay effect
-                      child: ClipRRect(
-                        borderRadius:
-                            BorderRadius.circular(10), // Rounded corners
-                        child: Image.asset(
-                          "assets/about.jpg",
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-                          
+              SizedBox(
+                height: 30,
               ),
-              SizedBox(height: 30,),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -217,7 +220,7 @@ class _AboutusState extends State<Aboutus> {
                               "assets/team-1.jpg"), // Replace with CEO image
                         ),
                         SizedBox(width: 20), // Spacing between image and text
-                                  
+
                         // Name and Designation
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -317,7 +320,6 @@ class _AboutusState extends State<Aboutus> {
                 child: Padding(
                   padding: const EdgeInsets.only(top: 30.0, left: 40),
                   child: SizedBox(
-                    
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -361,12 +363,13 @@ class _AboutusState extends State<Aboutus> {
                           text: TextSpan(
                             children: [
                               TextSpan(
-                                text: "#1 Digital and Ecommerce Solutions With ",
+                                text:
+                                    "#1 Digital and Ecommerce Solutions With ",
                                 style: TextStyle(
-                                  fontSize:
-                                      deviceType == topbar.DeviceScreenType.tablet
-                                          ? 30
-                                          : 40,
+                                  fontSize: deviceType ==
+                                          topbar.DeviceScreenType.tablet
+                                      ? 30
+                                      : 40,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black, // Use default text color
                                 ),
@@ -374,10 +377,10 @@ class _AboutusState extends State<Aboutus> {
                               TextSpan(
                                 text: "10 Years ",
                                 style: TextStyle(
-                                  fontSize:
-                                      deviceType == topbar.DeviceScreenType.tablet
-                                          ? 30
-                                          : 40,
+                                  fontSize: deviceType ==
+                                          topbar.DeviceScreenType.tablet
+                                      ? 30
+                                      : 40,
                                   fontWeight: FontWeight.bold,
                                   color: orange, // Highlighted text
                                 ),
@@ -385,10 +388,10 @@ class _AboutusState extends State<Aboutus> {
                               TextSpan(
                                 text: "Of Experience",
                                 style: TextStyle(
-                                  fontSize:
-                                      deviceType == topbar.DeviceScreenType.tablet
-                                          ? 30
-                                          : 40,
+                                  fontSize: deviceType ==
+                                          topbar.DeviceScreenType.tablet
+                                      ? 30
+                                      : 40,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black,
                                 ),
@@ -403,7 +406,8 @@ class _AboutusState extends State<Aboutus> {
                         AutoSizeText(
                           "At Digibells, we're a team of digital and ecommerce experts with over 10 years of experience helping businesses succeed online. We understand the importance of having a strong digital presence, especially in today's ever-evolving digital landscape.",
                           style: TextStyle(
-                            fontSize: deviceType == topbar.DeviceScreenType.mobile
+                            fontSize: deviceType ==
+                                    topbar.DeviceScreenType.mobile
                                 ? 15
                                 : (deviceType == topbar.DeviceScreenType.tablet
                                     ? 15
@@ -417,7 +421,8 @@ class _AboutusState extends State<Aboutus> {
                         AutoSizeText(
                           "We offer a wide range of digital and ecommerce solutions to help businesses of all sizes grow and succeed online. Our services include website design and development, search engine optimization (SEO), pay-per-click (PPC) advertising, social media marketing, email marketing, ecommerce website development, and more.",
                           style: TextStyle(
-                            fontSize: deviceType == topbar.DeviceScreenType.mobile
+                            fontSize: deviceType ==
+                                    topbar.DeviceScreenType.mobile
                                 ? 15
                                 : (deviceType == topbar.DeviceScreenType.tablet
                                     ? 15
@@ -431,7 +436,8 @@ class _AboutusState extends State<Aboutus> {
                         AutoSizeText(
                           "With over a decade of experience in the industry, we've worked with businesses across a variety of industries and niches. We take a personalized approach to every project, working closely with our clients to understand their unique needs and goals. We're dedicated to delivering high-quality solutions that drive results and help our clients succeed online.",
                           style: TextStyle(
-                            fontSize: deviceType == topbar.DeviceScreenType.mobile
+                            fontSize: deviceType ==
+                                    topbar.DeviceScreenType.mobile
                                 ? 15
                                 : (deviceType == topbar.DeviceScreenType.tablet
                                     ? 15
@@ -445,7 +451,8 @@ class _AboutusState extends State<Aboutus> {
                         AutoSizeText(
                           "Different Products Categories need to be marketed differently with different strategies and in Digibells we understand this easily as we have core experience of ecommerce market places. No promotion or advertisement is free on these platforms so even doing experiments yourself may result in you losing your hard-earned money without generating adequate sales.",
                           style: TextStyle(
-                            fontSize: deviceType == topbar.DeviceScreenType.mobile
+                            fontSize: deviceType ==
+                                    topbar.DeviceScreenType.mobile
                                 ? 15
                                 : (deviceType == topbar.DeviceScreenType.tablet
                                     ? 15
@@ -463,8 +470,9 @@ class _AboutusState extends State<Aboutus> {
                               backgroundImage: AssetImage(
                                   "assets/team-1.jpg"), // Replace with CEO image
                             ),
-                            SizedBox(width: 20), // Spacing between image and text
-                    
+                            SizedBox(
+                                width: 20), // Spacing between image and text
+
                             // Name and Designation
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,

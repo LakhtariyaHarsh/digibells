@@ -8,7 +8,6 @@ import 'main.dart'; // Import MyHomePage from your main.dart file.
     routes: [
       GoRoute(
         path: '/',
-        name: 'home',
         builder: (context, state) => const MyHomePage(title: 'DigiBells'),
       ),
        GoRoute(

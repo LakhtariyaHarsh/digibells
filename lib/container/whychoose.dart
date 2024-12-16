@@ -15,7 +15,9 @@ class _WhychooseState extends State<Whychoose> {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     var deviceType = topbar.getDeviceType(screenSize);
-
+    // Determine image height based on device type
+    final double imageHeight =
+        deviceType == topbar.DeviceScreenType.tablet ? 600 : 300;
     // Decide whether to use Row or Column
     bool isMobile = deviceType == topbar.DeviceScreenType.mobile;
     bool isTablet = deviceType == topbar.DeviceScreenType.tablet;
@@ -285,7 +287,7 @@ class _WhychooseState extends State<Whychoose> {
                       // Outer blue border
                       Positioned(
                         child: Container(
-                          height: 300,
+                          height: imageHeight,
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: Colors.blue, // Blue border color

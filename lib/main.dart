@@ -41,9 +41,8 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routerConfig: router,
-      // routerDelegate: AppRouter.router.routerDelegate, // Use AppRouter's routerDelegate.
-      //
-      // routeInformationParser: AppRouter.router.routeInformationParser, // Use AppRouter's routeInformationParser.
+      // routerDelegate: router.routerDelegate,
+      // routeInformationParser: router.routeInformationParser, // Use AppRouter's routeInformationParser.
       debugShowCheckedModeBanner: false, // Disable debug banner.
     );
   }
@@ -69,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (deviceType == topbar.DeviceScreenType.desktop || deviceType == topbar.DeviceScreenType.hubmax) {
       Height = 980;
     } else if (deviceType == topbar.DeviceScreenType.tablet) {
-      Height = 1160;
+      Height = 1400;
     }
     // Set height dynamically
     double containerHeight = 120; // Default for mobile
@@ -169,7 +168,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: deviceType == topbar.DeviceScreenType.desktop || deviceType == topbar.DeviceScreenType.hubmax
                       ? 702
                       : deviceType == topbar.DeviceScreenType.tablet
-                          ? 940
+                          ? 1250
                           : 1250,
                   // color: orange, // Background color
                   child: Whychoose(),
