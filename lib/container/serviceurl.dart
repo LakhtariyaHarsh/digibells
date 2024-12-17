@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:digibells/utills/constant.dart';
 import 'package:digibells/topbar/topbarcontent.dart' as topbar;
+import 'package:go_router/go_router.dart';
 
 class Serviceurl extends StatefulWidget {
   const Serviceurl({super.key});
@@ -317,14 +318,8 @@ class _ServiceurlState extends State<Serviceurl> {
                                   buildHoverableText(
                                     text: textName,
                                     onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => Commonfile(
-                                            name: textName,
-                                          ),
-                                        ),
-                                      );
+                                     context.go(
+                                          '/${Uri.encodeComponent(textName)}');
                                     },
                                   ),
                               ],
@@ -370,14 +365,8 @@ class _ServiceurlState extends State<Serviceurl> {
                                   buildHoverableText(
                                     text: textName,
                                     onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => Commonfile(
-                                            name: textName,
-                                          ),
-                                        ),
-                                      );
+                                      context.go(
+                                          '/${Uri.encodeComponent(textName)}');
                                     },
                                   ),
                               ],
@@ -423,14 +412,8 @@ class _ServiceurlState extends State<Serviceurl> {
                                     buildHoverableText(
                                       text: textName,
                                       onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => Commonfile(
-                                              name: textName,
-                                            ),
-                                          ),
-                                        );
+                                        context.go(
+                                          '/${Uri.encodeComponent(textName)}');
                                       },
                                     ),
                                 ],
@@ -475,14 +458,8 @@ class _ServiceurlState extends State<Serviceurl> {
                                     buildHoverableText(
                                       text: textName,
                                       onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => Commonfile(
-                                              name: textName,
-                                            ),
-                                          ),
-                                        );
+                                        context.go(
+                                          '/${Uri.encodeComponent(textName)}');
                                       },
                                     ),
                                 ],
@@ -746,14 +723,8 @@ class _ServiceurlState extends State<Serviceurl> {
                                   buildHoverableText(
                                     text: textName,
                                     onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => Commonfile(
-                                            name: textName,
-                                          ),
-                                        ),
-                                      );
+                                      context.go(
+                                          '/${Uri.encodeComponent(textName)}');
                                     },
                                   ),
                               ],
@@ -799,14 +770,8 @@ class _ServiceurlState extends State<Serviceurl> {
                                   buildHoverableText(
                                     text: textName,
                                     onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => Commonfile(
-                                            name: textName,
-                                          ),
-                                        ),
-                                      );
+                                      context.go(
+                                          '/${Uri.encodeComponent(textName)}');
                                     },
                                   ),
                               ],
@@ -853,15 +818,8 @@ class _ServiceurlState extends State<Serviceurl> {
                                         (text) => buildHoverableText(
                                           text: text,
                                           onTap: () {
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    Commonfile(
-                                                  name: text,
-                                                ),
-                                              ),
-                                            );
+                                            context.go(
+                                                '/${Uri.encodeComponent(text)}');
                                           },
                                         ),
                                       )
@@ -906,14 +864,7 @@ class _ServiceurlState extends State<Serviceurl> {
                                       (text) => buildHoverableText(
                                         text: text,
                                         onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) => Commonfile(
-                                                name: text,
-                                              ),
-                                            ),
-                                          );
+                                          context.go('/${Uri.encodeComponent(text)}');
                                         },
                                       ),
                                     )
@@ -1125,15 +1076,8 @@ class _ServiceurlState extends State<Serviceurl> {
                                         (text) => buildHoverableText(
                                           text: text,
                                           onTap: () {
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    Commonfile(
-                                                  name: text,
-                                                ),
-                                              ),
-                                            );
+                                            context.go(
+                                                '/${Uri.encodeComponent(text)}');
                                           },
                                         ),
                                       )
@@ -1178,14 +1122,8 @@ class _ServiceurlState extends State<Serviceurl> {
                                       (text) => buildHoverableText(
                                         text: text,
                                         onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) => Commonfile(
-                                                name: text,
-                                              ),
-                                            ),
-                                          );
+                                          context.go(
+                                              '/${Uri.encodeComponent(text)}');
                                         },
                                       ),
                                     )
@@ -1228,14 +1166,8 @@ class _ServiceurlState extends State<Serviceurl> {
                                       (text) => buildHoverableText(
                                         text: text,
                                         onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) => Commonfile(
-                                                name: text,
-                                              ),
-                                            ),
-                                          );
+                                          context.go(
+                                              '/${Uri.encodeComponent(text)}');
                                         },
                                       ),
                                     )

@@ -2,6 +2,7 @@ import 'package:digibells/commonfile.dart';
 import 'package:digibells/main.dart';
 import 'package:digibells/redirectaboutus.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'topbarcontent.dart' as topbar;
 import 'package:digibells/utills/constant.dart';
 
@@ -114,23 +115,13 @@ class _AppbarforWebState extends State<AppbarforWeb> {
   }
 
   void redirectAboutUs() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-          builder: (context) => Redirectaboutus(
-                name: 'About Us',
-              )), // Replace with your About Us page widget
-    );
+    context.go(
+                                    '/about'); 
   }
 
   void redirectHomepage() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-          builder: (context) => MyHomePage(
-                title: 'digibells',
-              )), // Replace with your About Us page widget
-    );
+    // Navigate using GoRouter and pass the parameter
+    GoRouter.of(context).push('/');
   }
 
   @override
@@ -182,14 +173,8 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                                   } else if (text == "Home") {
                                     redirectHomepage();
                                   } else {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => Commonfile(
-                                                name:
-                                                    'Ecommerce Website Designing',
-                                              )), // Replace with your About Us page widget
-                                    );
+                                    context.go(
+                                        '/Ecommerce Website Designing'); // Replace with your About Us page widget
                                   }
                                 },
                                 child: Padding(
@@ -226,7 +211,7 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                                   setState(() {
                                     hoveredText = null;
                                     hidePopup();
-                                  }); 
+                                  });
                                 },
                                 child: PopupMenuButton<String>(
                                   onSelected: (value) {
@@ -245,14 +230,8 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                                       "Jiomart Seller Fees Calculator",
                                     ]) {
                                       if (value == targetText) {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => Commonfile(
-                                              name: targetText,
-                                            ),
-                                          ),
-                                        );
+                                       context.go(
+                                    '/${Uri.encodeComponent(targetText)}'); 
                                         break;
                                       }
                                     }
@@ -297,13 +276,7 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                             },
                             child: GestureDetector(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => Commonfile(
-                                        name: 'Contact Us',
-                                      ), // Replace with your About Us page widget
-                                    ));
+                                context.go('/Contect Us'); // Pass the parameter
                               },
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
