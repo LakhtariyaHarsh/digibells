@@ -141,132 +141,19 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                 Center(
                   child: SizedBox(
                     width: screenSize.width *
-                        0.7, // Adjust width relative to screen size
-                    height: 100,
-                    child: SingleChildScrollView(
-                      scrollDirection:
-                          Axis.horizontal, // Enable horizontal scrolling
-                      child: Row(
-                        mainAxisAlignment:
-                            MainAxisAlignment.start, // Align items to start
-                        children: [
-                          for (var text in [
-                            "Home",
-                            "About Us",
-                            "Website Designing",
-                          ])
-                            MouseRegion(
-                              onEnter: (event) {
-                                setState(() {
-                                  hoveredText = text;
-                                });
-                              },
-                              onExit: (_) {
-                                setState(() {
-                                  hoveredText = null;
-                                });
-                              },
-                              child: GestureDetector(
-                                onTap: () {
-                                  if (text == "About Us") {
-                                    redirectAboutUs();
-                                  } else if (text == "Home") {
-                                    redirectHomepage();
-                                  } else {
-                                    context.go(
-                                        '/Ecommerce Website Designing'); // Replace with your About Us page widget
-                                  }
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 16.0),
-                                  child: Text(
-                                    text,
-                                    style: TextStyle(
-                                      fontSize: deviceType ==
-                                              topbar.DeviceScreenType.tablet
-                                          ? 14
-                                          : 16,
-                                      fontWeight: FontWeight.bold,
-                                      color:
-                                          hoveredText == text ? black : white,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          for (var text1 in [
-                            "Alibaba GGS Services ⮟",
-                            "Account Management Services ⮟",
-                            "Calculator ⮟",
-                          ])
-                            MouseRegion(
-                                onEnter: (event) {
-                                  setState(() {
-                                    hoveredText = text1;
-                                  });
-                                  showPopup(context, text1, event.position);
-                                },
-                                onExit: (_) {
-                                  setState(() {
-                                    hoveredText = null;
-                                    hidePopup();
-                                  });
-                                },
-                                child: PopupMenuButton<String>(
-                                  onSelected: (value) {
-                                    for (var targetText in [
-                                      "Alibaba Account Management",
-                                      "Alibaba Product Listing Services",
-                                      "Alibaba Global Gold Membership",
-                                      "Amazon Account Management",
-                                      "Flipkart Account Management",
-                                      "Meesho Account Management",
-                                      "eBAY Account Management",
-                                      "Blinkit Account Management",
-                                      "Walmart Account Management",
-                                      "Amazon Seller Fees Calculator India",
-                                      "Flipkart Seller Fees Calculator",
-                                      "Jiomart Seller Fees Calculator",
-                                    ]) {
-                                      if (value == targetText) {
-                                       context.go(
-                                    '/${Uri.encodeComponent(targetText)}'); 
-                                        break;
-                                      }
-                                    }
-                                  },
-                                  itemBuilder: (_) => popupMenuData[text1]!
-                                      .map(
-                                        (item) => PopupMenuItem<String>(
-                                          value: item,
-                                          child: Text(item),
-                                        ),
-                                      )
-                                      .toList(),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 16.0),
-                                    child: Text(
-                                      text1,
-                                      style: TextStyle(
-                                        fontSize: deviceType ==
-                                                topbar.DeviceScreenType.tablet
-                                            ? 14
-                                            : 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: hoveredText == text1
-                                            ? black
-                                            : white,
-                                      ),
-                                    ),
-                                  ),
-                                )),
-                          // Contact Us
+                        0.75, // Adjust width relative to screen size
+                    // height: 100,
+                    child: Wrap( // Align items to start
+                      children: [
+                        for (var text in [
+                          "Home",
+                          "About Us",
+                          "Website Designing",
+                        ])
                           MouseRegion(
                             onEnter: (event) {
                               setState(() {
-                                hoveredText = "Contact Us";
+                                hoveredText = text;
                               });
                             },
                             onExit: (_) {
@@ -276,29 +163,136 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                             },
                             child: GestureDetector(
                               onTap: () {
-                                context.go('/Contect Us'); // Pass the parameter
+                                if (text == "About Us") {
+                                  redirectAboutUs();
+                                } else if (text == "Home") {
+                                  redirectHomepage();
+                                } else {
+                                  context.go(
+                                      '/Ecommerce Website Designing'); // Replace with your About Us page widget
+                                }
                               },
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 16.0),
                                 child: Text(
-                                  "Contact Us",
+                                  text,
                                   style: TextStyle(
                                     fontSize: deviceType ==
                                             topbar.DeviceScreenType.tablet
                                         ? 14
                                         : 16,
                                     fontWeight: FontWeight.bold,
-                                    color: hoveredText == "Contact Us"
-                                        ? black
-                                        : white,
+                                    color:
+                                        hoveredText == text ? black : white,
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                        ],
-                      ),
+                        for (var text1 in [
+                          "Alibaba GGS Services ⮟",
+                          "Account Management Services ⮟",
+                          "Calculator ⮟",
+                        ])
+                          MouseRegion(
+                              onEnter: (event) {
+                                setState(() {
+                                  hoveredText = text1;
+                                });
+                                showPopup(context, text1, event.position);
+                              },
+                              onExit: (_) {
+                                setState(() {
+                                  hoveredText = null;
+                                  hidePopup();
+                                });
+                              },
+                              child: PopupMenuButton<String>(
+                                onSelected: (value) {
+                                  for (var targetText in [
+                                    "Alibaba Account Management",
+                                    "Alibaba Product Listing Services",
+                                    "Alibaba Global Gold Membership",
+                                    "Amazon Account Management",
+                                    "Flipkart Account Management",
+                                    "Meesho Account Management",
+                                    "eBAY Account Management",
+                                    "Blinkit Account Management",
+                                    "Walmart Account Management",
+                                    "Amazon Seller Fees Calculator India",
+                                    "Flipkart Seller Fees Calculator",
+                                    "Jiomart Seller Fees Calculator",
+                                  ]) {
+                                    if (value == targetText) {
+                                     context.go(
+                                  '/${Uri.encodeComponent(targetText)}'); 
+                                      break;
+                                    }
+                                  }
+                                },
+                                itemBuilder: (_) => popupMenuData[text1]!
+                                    .map(
+                                      (item) => PopupMenuItem<String>(
+                                        value: item,
+                                        child: Text(item),
+                                      ),
+                                    )
+                                    .toList(),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 16.0),
+                                  child: Text(
+                                    text1,
+                                    style: TextStyle(
+                                      fontSize: deviceType ==
+                                              topbar.DeviceScreenType.tablet
+                                          ? 14
+                                          : 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: hoveredText == text1
+                                          ? black
+                                          : white,
+                                    ),
+                                  ),
+                                ),
+                              )),
+                        // Contact Us
+                        MouseRegion(
+                          onEnter: (event) {
+                            setState(() {
+                              hoveredText = "Contact Us";
+                            });
+                          },
+                          onExit: (_) {
+                            setState(() {
+                              hoveredText = null;
+                            });
+                          },
+                          child: GestureDetector(
+                            onTap: () {
+                              context.go('/Contect Us'); // Pass the parameter
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 16.0),
+                              child: Text(
+                                "Contact Us",
+                                style: TextStyle(
+                                  fontSize: deviceType ==
+                                          topbar.DeviceScreenType.tablet
+                                      ? 14
+                                      : 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: hoveredText == "Contact Us"
+                                      ? black
+                                      : white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
