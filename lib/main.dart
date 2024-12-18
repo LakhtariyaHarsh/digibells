@@ -41,8 +41,6 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routerConfig: router,
-      // routerDelegate: router.routerDelegate,
-      // routeInformationParser: router.routeInformationParser, // Use AppRouter's routeInformationParser.
       debugShowCheckedModeBanner: false, // Disable debug banner.
     );
   }
@@ -65,10 +63,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
     double containerWidth = Screensize.width * 0.9; // For mobile
     double Height = 1700;
-    if (deviceType == topbar.DeviceScreenType.desktop || deviceType == topbar.DeviceScreenType.hubmax) {
+    if (deviceType == topbar.DeviceScreenType.desktop) {
       Height = 980;
+    } else if (deviceType == topbar.DeviceScreenType.hubmax) {
+      Height = 1130;
     } else if (deviceType == topbar.DeviceScreenType.tablet) {
-      Height = 1400;
+      Height = 1420;
     }
     // Set height dynamically
     double containerHeight = 120; // Default for mobile
@@ -147,7 +147,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       ? 1300
                       :  deviceType == topbar.DeviceScreenType.tablet
                       ? 700 : deviceType == topbar.DeviceScreenType.hubmax 
-                      ? Screensize.height * 0.9 : 500,
+                      ? Screensize.height * 0.9 : deviceType == topbar.DeviceScreenType.desktop
+                      ? 700: 500,
                   child: HoverCardPage(),
                 ),
                 Container(
@@ -160,13 +161,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       ? 2300
                       : deviceType == topbar.DeviceScreenType.tablet
                           ? 1000: deviceType == topbar.DeviceScreenType.hubmax 
-                      ? Screensize.height * 1.5 :  900,
+                      ? Screensize.height * 1.7 : deviceType == topbar.DeviceScreenType.desktop
+                          ? 1100: 900,
                   child: HoverCardServicePage(),
                 ),
                 Container(
                   width: containerWidth,
-                  height: deviceType == topbar.DeviceScreenType.desktop || deviceType == topbar.DeviceScreenType.hubmax
-                      ? 702
+                  height: deviceType == topbar.DeviceScreenType.desktop || deviceType == topbar.DeviceScreenType.hubmax 
+                      ? 750 
                       : deviceType == topbar.DeviceScreenType.tablet
                           ? 1250
                           : 1250,

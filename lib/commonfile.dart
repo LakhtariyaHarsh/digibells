@@ -103,18 +103,19 @@ class _CommonfileState extends State<Commonfile> {
                   height: Screensize.height * 0.4,
                   child: Center(
                       child: Padding(
-                        padding: const EdgeInsets.all(18.0),
-                        child: Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
+                    padding: const EdgeInsets.all(18.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
                         AutoSizeText(widget.name,
                             style: TextStyle(
-                                fontSize: deviceType ==
-                                        topbar.DeviceScreenType.mobile
-                                    ? 35
-                                    : deviceType == topbar.DeviceScreenType.tablet
-                                        ? 40
-                                        : 50,
+                                fontSize:
+                                    deviceType == topbar.DeviceScreenType.mobile
+                                        ? 35
+                                        : deviceType ==
+                                                topbar.DeviceScreenType.tablet
+                                            ? 40
+                                            : 50,
                                 fontWeight: FontWeight.bold,
                                 color: white)),
                         SizedBox(
@@ -140,9 +141,9 @@ class _CommonfileState extends State<Commonfile> {
                             ],
                           ),
                         ),
-                                            ],
-                                          ),
-                      )),
+                      ],
+                    ),
+                  )),
                 ),
                 Container(
                   width: containerWidth,
@@ -156,7 +157,9 @@ class _CommonfileState extends State<Commonfile> {
                           ? 700
                           : deviceType == topbar.DeviceScreenType.hubmax
                               ? Screensize.height * 0.9
-                              : 500,
+                              : deviceType == topbar.DeviceScreenType.desktop
+                                  ? 700
+                                  : 500,
                   child: HoverCardPage(),
                 ),
                 Container(
