@@ -17,7 +17,10 @@ class _ServicesState extends State<Services> {
     var deviceType = topbar.getDeviceType(screenSize);
     return Center(
         child: Padding(
-      padding: const EdgeInsets.only(top: 40, bottom: 40),
+      padding: EdgeInsets.only(
+        top: MediaQuery.of(context).size.height * 0.04, // Adjust dynamically
+        bottom: MediaQuery.of(context).size.height * 0.04, // Adjust dynamically
+      ),
       child: Column(
         children: [
           Row(
@@ -85,27 +88,16 @@ class _ServicesState extends State<Services> {
                 TextSpan(
                   text: "We Focuse On Making The Best In All Sectors",
                   style: TextStyle(
-                    fontSize:
-                        deviceType == topbar.DeviceScreenType.tablet ? 30 : 40,
-                    fontWeight: FontWeight.bold,
-                    color: black
-                  ),
+                      fontSize: deviceType == topbar.DeviceScreenType.tablet
+                          ? 30
+                          : 40,
+                      fontWeight: FontWeight.bold,
+                      color: black),
                 ),
               ],
             ),
           ),
-          SizedBox(
-            height: 10,
-          ),
-          AutoSizeText(
-            "At Digibells, we're focused on delivering the best digital marketing and ecommerce solutions across all sectors. Our team of experts is committed to staying ahead of the curve and delivering innovative solutions that help businesses succeed online. Whether you're looking to improve your website's visibility in search engine results pages, drive traffic to your website, or increase your social media presence, we have the expertise and experience to help you achieve your goals. Contact us today to learn more about how we can help your business grow and succeed online.",
-            style: TextStyle(
-              fontSize: deviceType == topbar.DeviceScreenType.mobile
-                  ? 15
-                  : (deviceType == topbar.DeviceScreenType.tablet ? 15 : 17),
-              color: black54,
-            ),
-          ),
+
         ],
       ),
     ));

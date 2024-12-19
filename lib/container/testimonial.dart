@@ -17,7 +17,10 @@ class _TestimonialState extends State<Testimonial> {
     var deviceType = topbar.getDeviceType(screenSize);
     return Center(
         child: Padding(
-      padding: const EdgeInsets.only(top: 40, bottom: 40),
+      padding: EdgeInsets.only(
+        top: MediaQuery.of(context).size.height * 0.04, // Adjust dynamically
+        bottom: MediaQuery.of(context).size.height * 0.04, // Adjust dynamically
+      ),
       child: Column(
         children: [
           Row(
@@ -85,11 +88,11 @@ class _TestimonialState extends State<Testimonial> {
                 TextSpan(
                   text: "What Our Clients Say!",
                   style: TextStyle(
-                    fontSize:
-                        deviceType == topbar.DeviceScreenType.tablet ? 30 : 40,
-                    fontWeight: FontWeight.bold,
-                    color: black
-                  ),
+                      fontSize: deviceType == topbar.DeviceScreenType.tablet
+                          ? 30
+                          : 40,
+                      fontWeight: FontWeight.bold,
+                      color: black),
                 ),
               ],
             ),

@@ -17,7 +17,7 @@ class _WhychooseState extends State<Whychoose> {
     var deviceType = topbar.getDeviceType(screenSize);
     // Determine image height based on device type
     final double imageHeight =
-        deviceType == topbar.DeviceScreenType.tablet ? 600 : 300;
+        deviceType == topbar.DeviceScreenType.tablet ? 400 : 300;
     // Decide whether to use Row or Column
     bool isMobile = deviceType == topbar.DeviceScreenType.mobile;
     bool isTablet = deviceType == topbar.DeviceScreenType.tablet;
@@ -92,21 +92,7 @@ class _WhychooseState extends State<Whychoose> {
                       height: 15,
                     ),
                     AutoSizeText(
-                      "At Digibells, we've built a reputation for delivering high-quality digital marketing and ecommerce solutions that help businesses grow and succeed online. We understand that trust is a crucial factor in any business relationship, and we work hard to earn and maintain the trust of our clients.",
-                      style: TextStyle(
-                        fontSize: deviceType == topbar.DeviceScreenType.mobile
-                            ? 15
-                            : (deviceType == topbar.DeviceScreenType.tablet
-                                ? 15
-                                : 17),
-                        color: black54,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    AutoSizeText(
-                      "So, why do people trust us? For starters, we have over 10 years of experience in the industry, which has given us the expertise and knowledge to provide top-notch solutions to our clients. We have a team of experienced professionals who are passionate about what they do and are dedicated to delivering exceptional results.",
+                      "The DigitalSpark Team brings together a group of experienced eCommerce professionals who understand the unique challenges and opportunities of each platform. Our data-driven approach ensures that we tailor our strategies to meet your specific goals, whether you're a small business or a large enterprise. With our support, you can focus on what you do best—running your business—while we handle the intricacies of online management. Join us in transforming your eCommerce journey into a successful venture. Contact us today to learn more about how we can help you excel on Amazon, Flipkart, and Meesho!.",
                       style: TextStyle(
                         fontSize: deviceType == topbar.DeviceScreenType.mobile
                             ? 15
@@ -275,12 +261,15 @@ class _WhychooseState extends State<Whychoose> {
                 ),
               ),
               SizedBox(
-                height: 30,
-              ),
-              SizedBox(
                 child: Padding(
-                  padding:
-                      const EdgeInsets.only(right: 40.0, top: 40, bottom: 40),
+                  padding: EdgeInsets.only(
+                    right: MediaQuery.of(context).size.width *
+                        0.04, // Adjust dynamically
+                    top: MediaQuery.of(context).size.height *
+                        0.04, // Adjust dynamically
+                    bottom: MediaQuery.of(context).size.height *
+                        0.04, // Adjust dynamically
+                  ),
                   child: Stack(
                     clipBehavior: Clip.none, // Allow elements to overflow
                     children: [
@@ -300,10 +289,14 @@ class _WhychooseState extends State<Whychoose> {
                       ),
                       // Main image overlay
                       Positioned.fill(
-                        top: 40, // Adjust the vertical overlay offset
-                        left: 40, // Adjust the horizontal overlay offset
-                        right: -40, // Extend right for the overlay effect
-                        bottom: -40, // Extend bottom for the overlay effect
+                        top: MediaQuery.of(context).size.height *
+                        0.04, // Adjust dynamically
+                        left: MediaQuery.of(context).size.height *
+                        0.04, // Adjust dynamically
+                        right:  MediaQuery.of(context).size.height *
+                        -0.04, // Adjust dynamically
+                        bottom:  MediaQuery.of(context).size.height *
+                        -0.04, // Adjust dynamically
                         child: ClipRRect(
                           borderRadius:
                               BorderRadius.circular(10), // Rounded corners
@@ -388,22 +381,7 @@ class _WhychooseState extends State<Whychoose> {
                           height: 15,
                         ),
                         AutoSizeText(
-                          "At Digibells, we've built a reputation for delivering high-quality digital marketing and ecommerce solutions that help businesses grow and succeed online. We understand that trust is a crucial factor in any business relationship, and we work hard to earn and maintain the trust of our clients.",
-                          style: TextStyle(
-                            fontSize: deviceType ==
-                                    topbar.DeviceScreenType.mobile
-                                ? 15
-                                : (deviceType == topbar.DeviceScreenType.tablet
-                                    ? 15
-                                    : 17),
-                            color: black54,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        AutoSizeText(
-                          "So, why do people trust us? For starters, we have over 10 years of experience in the industry, which has given us the expertise and knowledge to provide top-notch solutions to our clients. We have a team of experienced professionals who are passionate about what they do and are dedicated to delivering exceptional results.",
+                          "The DigitalSpark Team brings together a group of experienced eCommerce professionals who understand the unique challenges and opportunities of each platform. Our data-driven approach ensures that we tailor our strategies to meet your specific goals, whether you're a small business or a large enterprise. With our support, you can focus on what you do best—running your business—while we handle the intricacies of online management. Join us in transforming your eCommerce journey into a successful venture. Contact us today to learn more about how we can help you excel on Amazon, Flipkart, and Meesho!",
                           style: TextStyle(
                             fontSize: deviceType ==
                                     topbar.DeviceScreenType.mobile

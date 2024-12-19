@@ -21,7 +21,7 @@ import 'slider/slider.dart' as slider;
 import 'package:google_fonts/google_fonts.dart';
 
 class Redirectaboutus extends StatefulWidget {
-   final String name;
+  final String name;
   const Redirectaboutus({super.key, required this.name});
 
   @override
@@ -35,12 +35,6 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
     var deviceType = topbar.getDeviceType(Screensize);
 
     double containerWidth = Screensize.width * 0.9; // For mobile
-    double Height = 1590;
-    if (deviceType == topbar.DeviceScreenType.desktop) {
-      Height = 960;
-    } else if (deviceType == topbar.DeviceScreenType.tablet) {
-      Height = 1160;
-    }
     // Set height dynamically
     double containerHeight = 120; // Default for mobile
     if (deviceType == topbar.DeviceScreenType.desktop) {
@@ -99,7 +93,7 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
                   height: Screensize.height * 0.4,
                   child: Center(
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       AutoSizeText(widget.name,
                           style: TextStyle(
@@ -112,7 +106,15 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
                               fontWeight: FontWeight.bold,
                               color: white)),
                       SizedBox(
-                        height: 30,
+                        height: 20,
+                      ),
+                      AutoSizeText("Welcome to DigitalSpark Team, your trusted partner in navigating the dynamic world of eCommerce!",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: white)),
+                      SizedBox(
+                        height: 20,
                       ),
                       RichText(
                         text: TextSpan(
@@ -120,16 +122,16 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
                             TextSpan(
                               text: "Home  /  ",
                               style: TextStyle(
-                                color: white,
-                                fontSize: 20 // Use default text color
-                              ),
+                                  color: white,
+                                  fontSize: 20 // Use default text color
+                                  ),
                             ),
                             TextSpan(
                               text: widget.name,
                               style: TextStyle(
-                                color: orange,
-                                fontSize: 20 // Highlighted text
-                              ),
+                                  color: orange,
+                                  fontSize: 20 // Highlighted text
+                                  ),
                             ),
                           ],
                         ),
@@ -137,7 +139,6 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
                     ],
                   )),
                 ),
- 
                 Container(
                   width: containerWidth,
                   height: deviceType == topbar.DeviceScreenType.mobile
@@ -147,9 +148,16 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
                           : 500,
                   child: HoverCardPage(),
                 ),
-                 Container(
+                Container(
                   width: containerWidth,
-                  height: Height,
+                  height: deviceType == topbar.DeviceScreenType.desktop ||
+                          deviceType == topbar.DeviceScreenType.hubmax
+                      ? 700
+                      : deviceType == topbar.DeviceScreenType.tablet
+                          ? Screensize.height * 1.1
+                          : deviceType == topbar.DeviceScreenType.mobile
+                              ? Screensize.height * 1.5
+                              : Screensize.height * 1.1,
                   // color: orange, // Background color
                   child: about.Aboutus(),
                 ),

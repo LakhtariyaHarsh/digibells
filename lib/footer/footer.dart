@@ -537,53 +537,7 @@ class _FooterState extends State<Footer> {
                 Expanded(
                   // Use Expanded to handle overflow
                   child: AutoSizeText(
-                    "H-107, Sector 63, Noida, U.P, India",
-                    style: TextStyle(color: white54, fontSize: 15),
-                    maxLines: 3, // Limit lines to avoid overflow
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Icon(
-                  Icons.location_on,
-                  color: white54,
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                  // Use Expanded to handle overflow
-                  child: AutoSizeText(
-                    "FF-107, Silver Business Hub, Surat, Gujarat, India",
-                    style: TextStyle(color: white54, fontSize: 15),
-                    maxLines: 3, // Limit lines to avoid overflow
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Icon(
-                  Icons.location_on,
-                  color: white54,
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                  // Use Expanded to handle overflow
-                  child: AutoSizeText(
-                    "5A, No-1, Newry Arcade, SH 49, Panaiyur, Chennai, Tamil Nadu 600119, India",
+                    "Office No.- 407, Sharma Market, Above PNB Bank Main Road Hoshiyarpur, Opp. Metro Piller No. 219, Sector 51, Noida",
                     style: TextStyle(color: white54, fontSize: 15),
                     maxLines: 3, // Limit lines to avoid overflow
                   ),
@@ -603,27 +557,14 @@ class _FooterState extends State<Footer> {
                 SizedBox(
                   width: 10,
                 ),
-                Column(
-                  children: [
-                    AutoSizeText(
-                      "+91 9205774999",
-                      style: TextStyle(
-                        color: white54,
-                        fontSize: 15,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    AutoSizeText(
-                      "0120-4443993",
-                      style: TextStyle(
-                        color: white54,
-                        fontSize: 15,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ],
+                AutoSizeText(
+                  "+91 8076233455",
+                  style: TextStyle(
+                    color: white54,
+                    fontSize: 15,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 )
               ],
             ),
@@ -640,7 +581,7 @@ class _FooterState extends State<Footer> {
                   width: 10,
                 ),
                 AutoSizeText(
-                  "info@digibells.in",
+                  "official@digitalsparkteam.com",
                   style: TextStyle(
                     color: white54,
                   ),

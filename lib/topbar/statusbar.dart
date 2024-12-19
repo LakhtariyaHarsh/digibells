@@ -29,7 +29,7 @@ class _StatusbarState extends State<Statusbar> {
             MouseRegion(
               onEnter: (_) {
                 setState(() {
-                  hoveredText = "+91-9205774999";
+                  hoveredText = "+91 8076233455";
                 });
               },
               onExit: (_) {
@@ -42,11 +42,11 @@ class _StatusbarState extends State<Statusbar> {
                   print("Text clicked");
                 },
                 child: Text(
-                  "+91-9205774999",
+                  "+91 8076233455",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
-                    color: hoveredText == "+91-9205774999"
+                    color: hoveredText == "+91 8076233455"
                         ? Color(0xff007dcc)
                         : Colors.blue,
                   ),
@@ -59,11 +59,17 @@ class _StatusbarState extends State<Statusbar> {
           height: 20,
         ),
         Padding(
-          padding: const EdgeInsets.only(right: 40, left: 40, bottom: 30),
+          padding: EdgeInsets.only(
+                        left: screenSize.height *
+                        0.04, // Adjust dynamically
+                        right:  screenSize.height *
+                        0.04, // Adjust dynamically
+                        bottom:  screenSize.height *
+                        0.03,),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset("assets/logo1.png"),
+              Image.asset("assets/logo.png", width: 200,),
               if (deviceType == topbar.DeviceScreenType.desktop)
                 SizedBox(
                   width: 900,
@@ -155,7 +161,7 @@ class _StatusbarState extends State<Statusbar> {
                               MouseRegion(
                                 onEnter: (_) {
                                   setState(() {
-                                    hoveredText = "9205774999";
+                                    hoveredText = "8076233455";
                                   });
                                 },
                                 onExit: (_) {
@@ -168,10 +174,10 @@ class _StatusbarState extends State<Statusbar> {
                                     print("Text clicked");
                                   },
                                   child: Text(
-                                    "9205774999",
+                                    "8076233455",
                                     style: TextStyle(
                                       fontSize: 16,
-                                      color: hoveredText == "9205774999"
+                                      color: hoveredText == "8076233455"
                                           ? Color(0xff007dcc)
                                           : Colors.blue,
                                     ),
@@ -225,7 +231,7 @@ class _StatusbarState extends State<Statusbar> {
                                   height: 7,
                                 ),
                                 Text(
-                                  "info@digibells.in",
+                                  "official@digitalsparkteam.com",
                                   style:
                                       TextStyle(color: black54, fontSize: 16),
                                 )

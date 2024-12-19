@@ -19,17 +19,17 @@ class HoverCardPage extends StatelessWidget {
               ),
               buildHoverCard(
                 title: "Team Members",
-                rank: "83",
+                rank: "27",
                 iconData: Icons.supervised_user_circle_outlined,
               ),
               buildHoverCard(
-                title: "Satisfied Clients",
-                rank: "1277",
+                title: "Clients",
+                rank: "1000",
                 iconData: Icons.supervised_user_circle,
               ),
               buildHoverCard(
-                title: "Digital Projects",
-                rank: "122",
+                title: "Projects",
+                rank: "7",
                 iconData: Icons.system_security_update_good_rounded,
               ),
             ],

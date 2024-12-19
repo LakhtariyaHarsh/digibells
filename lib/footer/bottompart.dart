@@ -74,7 +74,7 @@ class _BottompartState extends State<Bottompart> {
                                           ), // Replace with your About Us page widget
                                         ));
                                   },
-                                  child: Text("Digibells Esolutions India, "),
+                                  child: Text("Digital Spark Team, "),
                                 ),
                               ),
                             ),
@@ -132,7 +132,7 @@ class _BottompartState extends State<Bottompart> {
                                         ));
                                   },
                                   child: Text(
-                                      "Digibells Esolutions India Pvt Ltd"),
+                                      "Digital Spark Team"),
                                 ),
                               ),
                             ),
@@ -186,7 +186,7 @@ class _BottompartState extends State<Bottompart> {
                                       ), // Replace with your About Us page widget
                                     ));
                               },
-                              child: Text("Digibells Esolutions India, "),
+                              child: Text("Digital Spark Team, "),
                             ),
                           ),
                         ),
@@ -240,7 +240,7 @@ class _BottompartState extends State<Bottompart> {
                                       ), // Replace with your About Us page widget
                                     ));
                               },
-                              child: Text("Digibells Esolutions India Pvt Ltd"),
+                              child: Text("Digital Spark Team"),
                             ),
                           ),
                         ),
