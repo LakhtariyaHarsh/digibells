@@ -23,7 +23,7 @@ class _StatusbarState extends State<Statusbar> {
         Row(
           children: [
             Icon(
-              Icons.phone_enabled,
+              Icons.phone_outlined,
               color: black54,
             ),
             MouseRegion(

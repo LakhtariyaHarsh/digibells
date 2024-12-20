@@ -4,7 +4,9 @@ import 'package:digibells/utills/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'socialicon.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Footer extends StatefulWidget {
   const Footer({super.key});
@@ -349,13 +351,7 @@ class _FooterState extends State<Footer> {
                       child: buildHoverable(
                         text: "About Us",
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Redirectaboutus(
-                                      name: 'About Us',
-                                    )), // Replace with your About Us page widget
-                          );
+                          context.go('/About-Us');
                         },
                       ),
                     ),
@@ -376,13 +372,7 @@ class _FooterState extends State<Footer> {
                       child: buildHoverable(
                         text: "Contact Us",
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Commonfile(
-                                  name: 'Contact Us',
-                                ), // Replace with your About Us page widget
-                              ));
+                          context.go('/Contect-Us');
                         },
                       ),
                     ),
@@ -403,13 +393,7 @@ class _FooterState extends State<Footer> {
                       child: buildHoverable(
                         text: "Our Services",
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Commonfile(
-                                      name: 'Our Services',
-                                    )), // Replace with your About Us page widget
-                          );
+                          context.go('/Our-Services');
                         },
                       ),
                     ),
@@ -430,13 +414,7 @@ class _FooterState extends State<Footer> {
                       child: buildHoverable(
                         text: "Alibaba Service Provider",
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Commonfile(
-                                      name: 'Alibaba Service Provider',
-                                    )), // Replace with your About Us page widget
-                          );
+                          context.go('/Alibaba-Service-Provider');
                         },
                       ),
                     ),
@@ -457,13 +435,7 @@ class _FooterState extends State<Footer> {
                       child: buildHoverable(
                         text: "Terms & Condition",
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Commonfile(
-                                      name: 'Terms & Condition',
-                                    )), // Replace with your About Us page widget
-                          );
+                          context.go('/Terms-&-Condition');
                         },
                       ),
                     ),
@@ -484,13 +456,7 @@ class _FooterState extends State<Footer> {
                       child: buildHoverable(
                         text: "Support",
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Commonfile(
-                                      name: 'Support',
-                                    )), // Replace with your About Us page widget
-                          );
+                          context.go('/Support');
                         },
                       ),
                     ),
@@ -597,10 +563,58 @@ class _FooterState extends State<Footer> {
                 spacing: 10, // Horizontal spacing between buttons
                 runSpacing: 10,
                 children: [
-                  Socialicon(icon: FontAwesomeIcons.twitter, color: white54),
-                  Socialicon(icon: FontAwesomeIcons.facebook, color: white54),
-                  Socialicon(icon: FontAwesomeIcons.youtube, color: white54),
-                  Socialicon(icon: FontAwesomeIcons.linkedin, color: white54),
+                  Socialicon(
+                    icon: FontAwesomeIcons.twitter,
+                    color: white54,
+                    onTap: () async {
+                      final url = Uri.parse("https://twitter.com");
+                      if (await canLaunchUrl(url)) {
+                        await launchUrl(url,
+                            mode: LaunchMode.externalApplication);
+                      } else {
+                        throw "Could not launch $url";
+                      }
+                    },
+                  ),
+                  Socialicon(
+                    icon: FontAwesomeIcons.facebook,
+                    color: white54,
+                    onTap: () async {
+                      final url = Uri.parse("https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F");
+                      if (await canLaunchUrl(url)) {
+                        await launchUrl(url,
+                            mode: LaunchMode.externalApplication);
+                      } else {
+                        throw "Could not launch $url";
+                      }
+                    },
+                  ),
+                  Socialicon(
+                    icon: FontAwesomeIcons.youtube,
+                    color: white54,
+                    onTap: () async {
+                      final url = Uri.parse("https://www.youtube.com/");
+                      if (await canLaunchUrl(url)) {
+                        await launchUrl(url,
+                            mode: LaunchMode.externalApplication);
+                      } else {
+                        throw "Could not launch $url";
+                      }
+                    },
+                  ),
+                  Socialicon(
+                    icon: FontAwesomeIcons.linkedin,
+                    color: white54,
+                    onTap: () async {
+                      final url = Uri.parse("https://in.linkedin.com/");
+                      if (await canLaunchUrl(url)) {
+                        await launchUrl(url,
+                            mode: LaunchMode.externalApplication);
+                      } else {
+                        throw "Could not launch $url";
+                      }
+                    },
+                  ),
                 ],
               ),
             ),

@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:digibells/commendetail.dart';
 import 'package:digibells/container/cardcarousel.dart';
+import 'package:digibells/container/contactform.dart';
 import 'package:digibells/container/hoverservices.dart';
 import 'package:digibells/container/hoverteam.dart';
 import 'package:digibells/container/ourteam.dart';
@@ -161,6 +162,23 @@ class _CommonfileState extends State<Commonfile> {
                                   ? 700
                                   : 500,
                   child: HoverCardPage(),
+                ),
+                Container(
+                  width: containerWidth,
+                  height: deviceType == topbar.DeviceScreenType.desktop
+                      ? 500
+                      : deviceType == topbar.DeviceScreenType.hubmax
+                          ? Screensize.height * 1.2
+                          : deviceType == topbar.DeviceScreenType.tablet
+                              ? Screensize.height * 1.65
+                              : deviceType == topbar.DeviceScreenType.mobile
+                                  ? Screensize.height * 1.3
+                                  : Screensize.height ,
+                  // color: orange, // Background color
+                  child: Contactform(),
+                ),
+                SizedBox(
+                  height: 30,
                 ),
                 Container(
                   width: containerWidth,

@@ -1,6 +1,7 @@
 import 'package:digibells/utills/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Topbarcontent extends StatefulWidget {
   const Topbarcontent({super.key});
@@ -70,7 +71,15 @@ class _TopbarcontentState extends State<Topbarcontent> {
                 ), // Set the background color
               ),
               child: IconButton(
-                onPressed: () {}, // Add your onPressed logic here
+                onPressed:  () async {
+                      final url = Uri.parse("https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F");
+                      if (await canLaunchUrl(url)) {
+                        await launchUrl(url,
+                            mode: LaunchMode.externalApplication);
+                      } else {
+                        throw "Could not launch $url";
+                      }
+                    }, // Add your onPressed logic here
                 icon: Icon(FontAwesomeIcons.facebook),
                 color: orange,
                 iconSize: 17, // Wrap the FontAwesomeIcons in an Icon widget
@@ -86,7 +95,15 @@ class _TopbarcontentState extends State<Topbarcontent> {
                 ), // Set the background color
               ),
               child: IconButton(
-                onPressed: () {}, // Add your onPressed logic here
+                onPressed:  () async {
+                      final url = Uri.parse("https://twitter.com");
+                      if (await canLaunchUrl(url)) {
+                        await launchUrl(url,
+                            mode: LaunchMode.externalApplication);
+                      } else {
+                        throw "Could not launch $url";
+                      }
+                    }, // Add your onPressed logic here
                 icon: Icon(FontAwesomeIcons.twitter),
                 color: orange,
                 iconSize: 17, // Wrap the FontAwesomeIcons in an Icon widget
@@ -102,14 +119,30 @@ class _TopbarcontentState extends State<Topbarcontent> {
                 ), // Set the background color
               ),
               child: IconButton(
-                onPressed: () {}, // Add your onPressed logic here
+                onPressed:  () async {
+                      final url = Uri.parse("https://in.linkedin.com/");
+                      if (await canLaunchUrl(url)) {
+                        await launchUrl(url,
+                            mode: LaunchMode.externalApplication);
+                      } else {
+                        throw "Could not launch $url";
+                      }
+                    }, // Add your onPressed logic here
                 icon: Icon(FontAwesomeIcons.linkedin),
                 color: orange,
                 iconSize: 17, // Wrap the FontAwesomeIcons in an Icon widget
               ),
             ),
             IconButton(
-              onPressed: () {}, // Add your onPressed logic here
+              onPressed: () async {
+                      final url = Uri.parse("https://www.instagram.com/");
+                      if (await canLaunchUrl(url)) {
+                        await launchUrl(url,
+                            mode: LaunchMode.externalApplication);
+                      } else {
+                        throw "Could not launch $url";
+                      }
+                    }, // Add your onPressed logic here
               icon: Icon(FontAwesomeIcons.instagram),
               color: orange,
               iconSize: 17, // Wrap the FontAwesomeIcons in an Icon widget
@@ -121,17 +154,19 @@ class _TopbarcontentState extends State<Topbarcontent> {
   }
 }
 
-enum DeviceScreenType { mobile, tablet, desktop, hubmax , other}
+enum DeviceScreenType { mobile, tablet, desktop, hubmax ,isWideColumnLayout, other}
 
 DeviceScreenType getDeviceType(Size size) {
   if (size.width <= 720) {
     return DeviceScreenType.mobile;
-  } else if (size.width >720 && size.width < 1100) {
+  } else if (size.width >720 && size.width <=1100) {
     return DeviceScreenType.tablet;
-  } else if (size.width <=1280 && size.width >= 1100){
+  } else if (size.width <=1280 && size.width > 1100){
     return DeviceScreenType.hubmax;
-  } else if (size.width >1280 ){
+  } else if (size.width >1450 ){
     return DeviceScreenType.desktop;
+  } else if (size.width > 1280 && size.width <= 1450 ){
+    return DeviceScreenType.isWideColumnLayout;
   } else {
     return DeviceScreenType.other;
   }

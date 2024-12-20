@@ -14,28 +14,30 @@ class Cardcarousel extends StatefulWidget {
 class _CardcarouselState extends State<Cardcarousel> {
   final List<Map<String, String>> items = [
     {
-      'title': 'Vinay Deep',
+      'title': 'Sanjay Patel',
       'subtitle': 'Mountain Breeze',
       'description':
-          'Digibells Performance is unremarkable and they have shown a good growth in last 2 years. Our brand Mountain Breeze has shown growth unexpected.'
+         'Oasis garments is will known in offline markets and from last 4-5 years we are getting almost 50 thousand orders monthly. We are satisfied by DigitalSpark team. ' 
     },
     {
-      'title': 'Anupam Sharma',
+      'title': 'Raj Sharma',
       'subtitle': 'ADI Shoes',
       'description':
-          'We are selling on emarketplaces from last 7 years and we have seen good growth in last some years.'
+         'We are well known brand in offline markets and all super markets chains. We are present in all emarketplaces now from 4 years and getting good visibility on all e-market places. '
     },
     {
-      'title': 'Nirmala Gupta',
+      'title': 'Nirmal Chuahan',
       'subtitle': 'Garments',
       'description':
-          'Oasis garments is will known in offline markets and from last 4-5 years we are getting almost 50 thousand orders monthly. We are satisfied by digibells team. '
+          
+          'The DigitalSpark  Performance is unremarkable and they have shown a good growth in last 2 years. Our brand Mountain Breeze has shown growth unexpected.'
     },
     {
-      'title': 'Sanjeev Gupta',
+      'title': 'Jaydeep Dave',
       'subtitle': 'Food Products',
       'description':
-          'We are well known brand in offline markets and all super markets chains. We are present in all emarketplaces now from 2 years and getting good visibility on all e-market places. '
+       'We are selling on emarketplaces from last 5 years and we have seen good growth in last some years.'
+          
     },
   ];
 
