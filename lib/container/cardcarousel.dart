@@ -17,27 +17,25 @@ class _CardcarouselState extends State<Cardcarousel> {
       'title': 'Sanjay Patel',
       'subtitle': 'Mountain Breeze',
       'description':
-         'Oasis garments is will known in offline markets and from last 4-5 years we are getting almost 50 thousand orders monthly. We are satisfied by DigitalSpark team. ' 
+          'We had an amazing experience working with Digital Spark Performance. Their attention to detail, strategic planning, and ability to execute on deliverables exceeded our expectations.'
     },
     {
       'title': 'Raj Sharma',
       'subtitle': 'ADI Shoes',
       'description':
-         'We are well known brand in offline markets and all super markets chains. We are present in all emarketplaces now from 4 years and getting good visibility on all e-market places. '
+          'We highly recommend Digital Spark Performance to any business looking to amplify their digital presence and achieve impactful results!"'
     },
     {
       'title': 'Nirmal Chuahan',
       'subtitle': 'Garments',
       'description':
-          
-          'The DigitalSpark  Performance is unremarkable and they have shown a good growth in last 2 years. Our brand Mountain Breeze has shown growth unexpected.'
+          'Thanks to Digital Spark Performance, we’ve seen a significant increase in customer engagement, conversions, and overall ROI.'
     },
     {
       'title': 'Jaydeep Dave',
       'subtitle': 'Food Products',
       'description':
-       'We are selling on emarketplaces from last 5 years and we have seen good growth in last some years.'
-          
+          'We are selling on emarketplaces from last 5 years and we have seen good growth in last some years.'
     },
   ];
 
@@ -118,8 +116,10 @@ class _CardcarouselState extends State<Cardcarousel> {
         options: CarouselOptions(
           height: deviceType == topbar.DeviceScreenType.desktop
               ? 220
-              : 250, // Ensure enough space for the card and padding
-          viewportFraction: deviceType == topbar.DeviceScreenType.desktop
+              : isMobile
+                  ? 280
+                  : 280, // Ensure enough space for the card and padding
+          viewportFraction: deviceType == topbar.DeviceScreenType.desktop || deviceType == topbar.DeviceScreenType.hubmax
               ? 0.335555
               : 1, // Adjust to control how much of the next card is visible
           enableInfiniteScroll: true,

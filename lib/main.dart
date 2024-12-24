@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
     var Screensize = MediaQuery.of(context).size;
     var deviceType = topbar.getDeviceType(Screensize);
 
-    double containerWidth = Screensize.width * 0.9; // For mobile
+    double containerWidth = Screensize.width * 0.9;
     // Set height dynamically
     double containerHeight = 120; // Default for mobile
     if (deviceType == topbar.DeviceScreenType.desktop) {
