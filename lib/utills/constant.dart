@@ -9,6 +9,7 @@ const orange = Color(0xffffa400);
 const grey = Color(0xfff8f8f8);
 const black54 = Colors.black54;
 const black = Colors.black;
+const green = Colors.green;
 const darkgrey = Colors.grey;
 const black12 = Colors.black12;
 const black26 = Colors.black26;
