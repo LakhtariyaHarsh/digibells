@@ -31,7 +31,7 @@ class _SliderState extends State<Slider> {
     if (deviceType == topbar.DeviceScreenType.desktop) {
       sliderHeight = 425;
     } else if (deviceType == topbar.DeviceScreenType.tablet) {
-      sliderHeight = 200;
+      sliderHeight = 300;
     }
 
     

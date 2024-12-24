@@ -28,6 +28,7 @@ import 'topbar/topbarcontent.dart' as topbar;
 import 'footer/footer.dart' as footer;
 import 'slider/slider.dart' as slider;
 import 'package:google_fonts/google_fonts.dart';
+import 'responsive.dart' as res;
 
 void main() {
   runApp(const MyApp());
@@ -80,84 +81,214 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var Screensize = MediaQuery.of(context).size;
-    var deviceType = topbar.getDeviceType(Screensize);
+    var screenSize = MediaQuery.of(context).size;
+    var deviceType = topbar.getDeviceType(screenSize);
 
-    double containerWidth = Screensize.width * 0.9;
-    // Set height dynamically
-    double containerHeight = 120; // Default for mobile
+    double containerWidth = screenSize.width * 0.9;
+    double containerHeight = 120;
     if (deviceType == topbar.DeviceScreenType.desktop) {
       containerHeight = 425;
     } else if (deviceType == topbar.DeviceScreenType.tablet) {
-      containerHeight = 200;
+      containerHeight = 300;
     }
 
     return Scaffold(
       appBar: deviceType == topbar.DeviceScreenType.mobile
           ? PreferredSize(
-              preferredSize:
-                  Size(Screensize.width, 35), // Adjust the height as needed
-              child: CustomAppBar(), // Use your CustomAppBar widget here
+              preferredSize: Size(screenSize.width, 35),
+              child: CustomAppBar(),
             )
           : null,
-      body: Stack(
-        children: [
-          SingleChildScrollView(
-            controller: _scrollController,
-            padding: EdgeInsets.zero,
-            child: Container(
+      body: res.Responsive(
+        mobile: _buildMobileView(screenSize, containerWidth, containerHeight),
+        tablet: _buildTabletView(screenSize, containerWidth, containerHeight),
+        desktop: _buildDesktopView(screenSize, containerWidth, containerHeight),
+      ),
+    );
+  }
+
+  Widget _buildMobileView(
+      Size screenSize, double containerWidth, double containerHeight) {
+    var deviceType = topbar.getDeviceType(screenSize);
+    return Stack(children: [
+      SingleChildScrollView(
+        controller: _scrollController,
+        child: Column(
+          children: [
+            Container(
+              width: containerWidth,
+              height: containerHeight,
+              child: slider.Slider(),
+            ),
+            Container(
+              width: containerWidth,
+              child: Whatdo(),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              width: containerWidth,
+              height: screenSize.height * 1.5,
+              // color: orange, // Background color
+              child: about.Aboutus(),
+            ),
+            Container(
+              width: containerWidth,
+              child: Ourpartner(),
+            ),
+            Container(
+              width: containerWidth,
+              height: screenSize.height * 1.89,
+              child: HoverCardPage(),
+            ),
+            Container(
+              width: containerWidth,
+              child: services.Services(),
+            ),
+            _buildServiceSections(screenSize, containerWidth),
+            Container(
+              width: containerWidth,
+              height: screenSize.height * 3.5,
+              child: HoverCardServicePage(),
+            ),
+            Container(
+              width: containerWidth,
+              height: screenSize.height * 1.65,
+              // color: orange, // Background color
+              child: Whychoose(),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              width: containerWidth,
+              child: Ourteam(),
+            ),
+            Container(
+              width: containerWidth,
+              height: screenSize.height * 1.6,
+              child: Hoverteam(),
+            ),
+            Container(
+              width: containerWidth,
+              child: Testimonial(),
+            ),
+            Container(
+              width: containerWidth,
+              height: 300,
+              child: Cardcarousel(),
+            ),
+            Container(
+              width: containerWidth,
+              child: Serviceurl.Serviceurl(),
+            ),
+            _buildFooter(screenSize, containerWidth),
+          ],
+        ),
+      ),
+      // Floating Action Buttons in Stack
+      Positioned(
+        right: 20, // Position at bottom-right
+        bottom: 20,
+        child: FloatingActionButton(
+          backgroundColor: blue,
+          onPressed: () {
+            _scrollToTop();
+          },
+          tooltip: 'Scroll to Top',
+          child: const Icon(
+            Icons.arrow_upward,
+            color: white,
+          ),
+        ),
+      ),
+      Positioned(
+        left: 20, // Position at bottom-left
+        bottom: 20,
+        child: FloatingActionButton(
+          backgroundColor: black,
+          onPressed: () async {
+            final phoneNumber =
+                "tel:+91 8076233455"; // Replace with the phone number you want to call
+            final url = Uri.parse(phoneNumber);
+
+            if (await canLaunchUrl(url)) {
+              await launchUrl(url, mode: LaunchMode.externalApplication);
+            } else {
+              throw "Could not launch $url";
+            }
+          },
+          tooltip: 'Call Now',
+          child: const Icon(
+            Icons.call,
+            color: white,
+          ),
+        ),
+      ),
+      Positioned(
+        right: 20, // Position at bottom-left
+        bottom: 90,
+        child: FloatingActionButton(
+          backgroundColor: green,
+          onPressed: () async {
+            final phoneNumber =
+                "tel:+91 8076233455"; // Replace with the phone number you want to call
+            final url = Uri.parse(phoneNumber);
+
+            if (await canLaunchUrl(url)) {
+              await launchUrl(url, mode: LaunchMode.externalApplication);
+            } else {
+              throw "Could not launch $url";
+            }
+          },
+          tooltip: 'Open WhatsApp',
+          child: const Icon(
+            FontAwesomeIcons.whatsapp,
+            color: white,
+          ),
+        ),
+      ),
+    ]);
+  }
+
+  Widget _buildTabletView(
+      Size screenSize, double containerWidth, double containerHeight) {
+    var deviceType = topbar.getDeviceType(screenSize);
+    return Stack(children: [
+      SingleChildScrollView(
+          controller: _scrollController,
+          child: Column(children: [
+            Container(
               color: grey,
               child: Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.only(left: 40, right: 40),
-                    color: grey,
-                    child: (deviceType == topbar.DeviceScreenType.mobile ||
-                            deviceType == topbar.DeviceScreenType.tablet)
-                        ? null
-                        : Container(
-                            width: Screensize.width,
-                            child: topbar.Topbarcontent(),
-                          ),
-                  ),
-                  Container(
                     color: white,
-                    width: Screensize.width,
+                    width: screenSize.width,
                     child: Statusbar(),
                   ),
                   SizedBox(
-                      child: deviceType == topbar.DeviceScreenType.mobile
-                          ? null
-                          : deviceType == topbar.DeviceScreenType.tablet
-                              ? Container(
-                                  width: Screensize.width,
-                                  height: 60,
-                                  child: CustomAppBar(),
-                                )
-                              : Container(
-                                  width: Screensize.width,
-                                  // height: 100,
-                                  child: AppbarforWeb(),
-                                )),
+                      child: Container(
+                    width: screenSize.width,
+                    height: 60,
+                    child: CustomAppBar(),
+                  )),
                   Container(
                     width: containerWidth,
-                    height: containerHeight,
+                    height: screenSize.height * 0.3,
                     child: slider.Slider(),
                   ),
                   Container(
                     width: containerWidth,
                     child: Whatdo(),
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Container(
                     width: containerWidth,
-                    height: deviceType == topbar.DeviceScreenType.desktop ||
-                            deviceType == topbar.DeviceScreenType.hubmax
-                        ? 700
-                        : deviceType == topbar.DeviceScreenType.tablet
-                            ? Screensize.height * 1.1
-                            : deviceType == topbar.DeviceScreenType.mobile
-                                ? Screensize.height * 1.5
-                                : Screensize.height * 1.1,
+                    height: screenSize.height * 0.83,
                     // color: orange, // Background color
                     child: about.Aboutus(),
                   ),
@@ -167,86 +298,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: deviceType == topbar.DeviceScreenType.mobile
-                        ? 1300
-                        : deviceType == topbar.DeviceScreenType.tablet
-                            ? 700
-                            : deviceType == topbar.DeviceScreenType.hubmax
-                                ? Screensize.height * 0.9
-                                : deviceType == topbar.DeviceScreenType.desktop
-                                    ? 700
-                                    : 500,
+                    height: screenSize.height * 0.6,
                     child: HoverCardPage(),
                   ),
                   Container(
                     width: containerWidth,
                     child: services.Services(),
                   ),
+                  _buildServiceSections(screenSize, containerWidth),
                   Container(
                     width: containerWidth,
-                    height: deviceType == topbar.DeviceScreenType.desktop ||
-                            deviceType == topbar.DeviceScreenType.hubmax
-                        ? Screensize.height * 0.6
-                        : deviceType == topbar.DeviceScreenType.tablet
-                            ? Screensize.height * 0.7
-                            : Screensize.height * 0.6,
-                    // color: orange, // Background color
-                    child: Service1(),
-                  ),
-                  Container(
-                    width: containerWidth,
-                    height: deviceType == topbar.DeviceScreenType.desktop ||
-                            deviceType == topbar.DeviceScreenType.hubmax
-                        ? Screensize.height * 0.6
-                        : deviceType == topbar.DeviceScreenType.tablet
-                            ? Screensize.height * 0.7
-                            : Screensize.height * 0.6,
-                    // color: orange, // Background color
-                    child: Service2(),
-                  ),
-                  Container(
-                    width: containerWidth,
-                    height: deviceType == topbar.DeviceScreenType.desktop ||
-                            deviceType == topbar.DeviceScreenType.hubmax
-                        ? Screensize.height * 0.6
-                        : deviceType == topbar.DeviceScreenType.tablet
-                            ? Screensize.height * 0.7
-                            : Screensize.height * 0.6,
-                    // color: orange, // Background color
-                    child: Service3(),
-                  ),
-                  Container(
-                    width: containerWidth,
-                    height: deviceType == topbar.DeviceScreenType.desktop ||
-                            deviceType == topbar.DeviceScreenType.hubmax
-                        ? Screensize.height * 0.6
-                        : deviceType == topbar.DeviceScreenType.tablet
-                            ? Screensize.height * 0.7
-                            : Screensize.height * 0.7,
-                    // color: orange, // Background color
-                    child: Service4(),
-                  ),
-                  Container(
-                    width: containerWidth,
-                    height: deviceType == topbar.DeviceScreenType.mobile
-                        ? 2300
-                        : deviceType == topbar.DeviceScreenType.tablet
-                            ? 1000
-                            : deviceType == topbar.DeviceScreenType.hubmax
-                                ? Screensize.height * 1.7
-                                : deviceType == topbar.DeviceScreenType.desktop
-                                    ? 1100
-                                    : 900,
+                    height: screenSize.height,
                     child: HoverCardServicePage(),
                   ),
                   Container(
                     width: containerWidth,
-                    height: deviceType == topbar.DeviceScreenType.desktop ||
-                            deviceType == topbar.DeviceScreenType.hubmax
-                        ? 700
-                        : deviceType == topbar.DeviceScreenType.tablet
-                            ? 1000
-                            : 1200,
+                    height: screenSize.height * 0.95,
                     // color: orange, // Background color
                     child: Whychoose(),
                   ),
@@ -259,17 +326,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: deviceType == topbar.DeviceScreenType.mobile
-                        ? 1100
-                        : deviceType == topbar.DeviceScreenType.tablet
-                            ? 650
-                            : deviceType == topbar.DeviceScreenType.hubmax
-                                ? Screensize.height * 0.9
-                                : 400,
+                    height: screenSize.height * 0.6,
                     child: Hoverteam(),
-                  ),
-                  SizedBox(
-                    height: 20,
                   ),
                   Container(
                     width: containerWidth,
@@ -285,90 +343,337 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Serviceurl.Serviceurl(),
                   ),
                   SizedBox(
-                    height: 50,
+                    height: 40,
                   ),
-                  Column(
-                    mainAxisSize: MainAxisSize
-                        .min, // Ensures Column height wraps its content
-                    children: [
-                      Container(
-                        color: Colors.black,
-                        width:
-                            double.infinity, // Ensure it spans the full width
-                        child: footer.Footer(),
-                      ),
-                      Divider(
-                        color: Colors.white54,
-                        height: 0, // Ensures no spacing from the Divider
-                        thickness: 0.5, // Set divider thickness
-                      ),
-                      Container(
-                        color: Colors.black,
-                        width: double.infinity,
-                        child: Bottompart(),
-                      ),
-                    ],
-                  )
+                  _buildFooter(screenSize, containerWidth),
                 ],
               ),
             ),
+          ])),
+      // Floating Action Buttons in Stack
+      Positioned(
+        right: 20, // Position at bottom-right
+        bottom: 20,
+        child: FloatingActionButton(
+          backgroundColor: blue,
+          onPressed: () {
+            _scrollToTop();
+          },
+          tooltip: 'Scroll to Top',
+          child: const Icon(
+            Icons.arrow_upward,
+            color: white,
           ),
-
-          // Floating Action Buttons in Stack
-          Positioned(
-            right: 20, // Position at bottom-right
-            bottom: 20,
-            child: FloatingActionButton(
-               backgroundColor: blue,
-              onPressed: () {
-                _scrollToTop();
-              },
-              tooltip: 'Scroll to Top',
-              child: const Icon(Icons.arrow_upward, color: white,),
-            ),
-          ),
-          Positioned(
-            left: 20, // Position at bottom-left
-            bottom: 20,
-            child: FloatingActionButton(
-               backgroundColor: black,
-              onPressed: () async {
-                final phoneNumber =
-                    "tel:+91 8076233455"; // Replace with the phone number you want to call
-                final url = Uri.parse(phoneNumber);
-
-                if (await canLaunchUrl(url)) {
-                  await launchUrl(url, mode: LaunchMode.externalApplication);
-                } else {
-                  throw "Could not launch $url";
-                }
-              },
-              tooltip: 'Call Now',
-              child: const Icon(Icons.call, color: white,),
-            ),
-          ),
-          Positioned(
-            right: 20, // Position at bottom-left
-            bottom: 90,
-            child: FloatingActionButton(
-              backgroundColor: green,
-              onPressed: () async {
-                final phoneNumber =
-                    "tel:+91 8076233455"; // Replace with the phone number you want to call
-                final url = Uri.parse(phoneNumber);
-
-                if (await canLaunchUrl(url)) {
-                  await launchUrl(url, mode: LaunchMode.externalApplication);
-                } else {
-                  throw "Could not launch $url";
-                }
-              },
-              tooltip: 'Open WhatsApp',
-              child: const Icon(FontAwesomeIcons.whatsapp, color: white,),
-            ),
-          ),
-        ],
+        ),
       ),
+      Positioned(
+        left: 20, // Position at bottom-left
+        bottom: 20,
+        child: FloatingActionButton(
+          backgroundColor: black,
+          onPressed: () async {
+            final phoneNumber =
+                "tel:+91 8076233455"; // Replace with the phone number you want to call
+            final url = Uri.parse(phoneNumber);
+
+            if (await canLaunchUrl(url)) {
+              await launchUrl(url, mode: LaunchMode.externalApplication);
+            } else {
+              throw "Could not launch $url";
+            }
+          },
+          tooltip: 'Call Now',
+          child: const Icon(
+            Icons.call,
+            color: white,
+          ),
+        ),
+      ),
+      Positioned(
+        right: 20, // Position at bottom-left
+        bottom: 90,
+        child: FloatingActionButton(
+          backgroundColor: green,
+          onPressed: () async {
+            final phoneNumber =
+                "tel:+91 8076233455"; // Replace with the phone number you want to call
+            final url = Uri.parse(phoneNumber);
+
+            if (await canLaunchUrl(url)) {
+              await launchUrl(url, mode: LaunchMode.externalApplication);
+            } else {
+              throw "Could not launch $url";
+            }
+          },
+          tooltip: 'Open WhatsApp',
+          child: const Icon(
+            FontAwesomeIcons.whatsapp,
+            color: white,
+          ),
+        ),
+      ),
+    ]);
+  }
+
+  Widget _buildDesktopView(
+      Size screenSize, double containerWidth, double containerHeight) {
+    var deviceType = topbar.getDeviceType(screenSize);
+    return Stack(children: [
+      SingleChildScrollView(
+          controller: _scrollController,
+          child: Column(children: [
+            Container(
+              color: grey,
+              child: Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(left: 40, right: 40),
+                    color: grey,
+                    child: Container(
+                      width: screenSize.width,
+                      child: topbar.Topbarcontent(),
+                    ),
+                  ),
+                  Container(
+                    color: white,
+                    width: screenSize.width,
+                    child: Statusbar(),
+                  ),
+                  SizedBox(
+                      child: Container(
+                    width: screenSize.width,
+                    child: AppbarforWeb(),
+                  )),
+                  Container(
+                    width: containerWidth,
+                    height: containerHeight,
+                    child: slider.Slider(),
+                  ),
+                  Container(
+                    width: containerWidth,
+                    child: Whatdo(),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    width: containerWidth,
+                    height: screenSize.height * 0.7,
+                    // color: orange, // Background color
+                    child: about.Aboutus(),
+                  ),
+                  Container(
+                    width: containerWidth,
+                    child: Ourpartner(),
+                  ),
+                  Container(
+                    width: containerWidth,
+                    height: screenSize.height * 0.5,
+                    child: HoverCardPage(),
+                  ),
+                  Container(
+                    width: containerWidth,
+                    child: services.Services(),
+                  ),
+                  _buildServiceSections(screenSize, containerWidth),
+                  Container(
+                    width: containerWidth,
+                    height: screenSize.height * 1.1,
+                    child: HoverCardServicePage(),
+                  ),
+                  Container(
+                    width: containerWidth,
+                    height: screenSize.height * 0.9,
+                    // color: orange, // Background color
+                    child: Whychoose(),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    width: containerWidth,
+                    child: Ourteam(),
+                  ),
+                  Container(
+                    width: containerWidth,
+                    height: screenSize.height * 0.5,
+                    child: Hoverteam(),
+                  ),
+                  Container(
+                    width: containerWidth,
+                    child: Testimonial(),
+                  ),
+                  Container(
+                    width: containerWidth,
+                    height: 300,
+                    child: Cardcarousel(),
+                  ),
+                  Container(
+                    width: containerWidth,
+                    child: Serviceurl.Serviceurl(),
+                  ),
+                  _buildFooter(screenSize, containerWidth),
+                ],
+              ),
+            ),
+          ])),
+      // Floating Action Buttons in Stack
+      Positioned(
+        right: 20, // Position at bottom-right
+        bottom: 20,
+        child: FloatingActionButton(
+          backgroundColor: blue,
+          onPressed: () {
+            _scrollToTop();
+          },
+          tooltip: 'Scroll to Top',
+          child: const Icon(
+            Icons.arrow_upward,
+            color: white,
+          ),
+        ),
+      ),
+      Positioned(
+        left: 20, // Position at bottom-left
+        bottom: 20,
+        child: FloatingActionButton(
+          backgroundColor: black,
+          onPressed: () async {
+            final phoneNumber =
+                "tel:+91 8076233455"; // Replace with the phone number you want to call
+            final url = Uri.parse(phoneNumber);
+
+            if (await canLaunchUrl(url)) {
+              await launchUrl(url, mode: LaunchMode.externalApplication);
+            } else {
+              throw "Could not launch $url";
+            }
+          },
+          tooltip: 'Call Now',
+          child: const Icon(
+            Icons.call,
+            color: white,
+          ),
+        ),
+      ),
+      Positioned(
+        right: 20, // Position at bottom-left
+        bottom: 90,
+        child: FloatingActionButton(
+          backgroundColor: green,
+          onPressed: () async {
+            final phoneNumber =
+                "tel:+91 8076233455"; // Replace with the phone number you want to call
+            final url = Uri.parse(phoneNumber);
+
+            if (await canLaunchUrl(url)) {
+              await launchUrl(url, mode: LaunchMode.externalApplication);
+            } else {
+              throw "Could not launch $url";
+            }
+          },
+          tooltip: 'Open WhatsApp',
+          child: const Icon(
+            FontAwesomeIcons.whatsapp,
+            color: white,
+          ),
+        ),
+      ),
+    ]);
+  }
+
+  Widget _buildCommonSections(
+      Size screenSize, double containerWidth, double containerHeight) {
+    return Column(
+      children: [
+        Container(
+          width: containerWidth,
+          height: containerHeight,
+          child: slider.Slider(),
+        ),
+        Container(
+          width: containerWidth,
+          child: Whatdo(),
+        ),
+        Container(
+          width: containerWidth,
+          height: screenSize.height * 1.1,
+          child: about.Aboutus(),
+        ),
+        Container(
+          width: containerWidth,
+          child: Ourpartner(),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildServiceSections(Size screenSize, double containerWidth) {
+    var deviceType = topbar.getDeviceType(screenSize);
+    return Column(
+      children: [
+        Container(
+          width: containerWidth,
+          height: deviceType == topbar.DeviceScreenType.tablet
+              ? screenSize.height * 0.3
+              : deviceType == topbar.DeviceScreenType.mobile
+                  ? screenSize.height * 0.6
+                  : screenSize.height * 0.5,
+          child: Service1(),
+        ),
+        Container(
+          width: containerWidth,
+          height: deviceType == topbar.DeviceScreenType.tablet
+              ? screenSize.height * 0.3
+              : deviceType == topbar.DeviceScreenType.mobile
+                  ? screenSize.height * 0.6
+                  : screenSize.height * 0.5,
+          child: Service2(),
+        ),
+        Container(
+          width: containerWidth,
+          height: deviceType == topbar.DeviceScreenType.tablet
+              ? screenSize.height * 0.3
+              : deviceType == topbar.DeviceScreenType.mobile
+                  ? screenSize.height * 0.6
+                  : screenSize.height * 0.5,
+          child: Service3(),
+        ),
+        SizedBox(height:deviceType == topbar.DeviceScreenType.mobile
+                  ? 20:0,),
+        Container(
+          width: containerWidth,
+          height: deviceType == topbar.DeviceScreenType.tablet
+              ? screenSize.height * 0.3
+              : deviceType == topbar.DeviceScreenType.mobile
+                  ? screenSize.height * 0.7
+                  : screenSize.height * 0.5,
+          child: Service4(),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildFooter(Size screenSize, double containerWidth) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          color: Colors.black,
+          width: double.infinity,
+          child: footer.Footer(),
+        ),
+        Divider(
+          color: Colors.white54,
+          height: 0,
+          thickness: 0.5,
+        ),
+        Container(
+          color: Colors.black,
+          width: double.infinity,
+          child: Bottompart(),
+        ),
+      ],
     );
   }
 }

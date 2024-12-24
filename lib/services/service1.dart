@@ -18,7 +18,7 @@ class _Service1State extends State<Service1> {
     // Decide whether to use Row or Column
     bool isMobile = deviceType == topbar.DeviceScreenType.mobile;
     bool isTablet = deviceType == topbar.DeviceScreenType.tablet;
-    return (isMobile || isTablet)
+    return (isMobile)
         ? Column(
             children: [
               Flexible(
