@@ -72,7 +72,7 @@ class _StatusbarState extends State<Statusbar> {
               Image.asset("assets/logo.png", width: 200,),
               if (deviceType == topbar.DeviceScreenType.desktop || deviceType == topbar.DeviceScreenType.hubmax || deviceType == topbar.DeviceScreenType.isWideColumnLayout)
                 SizedBox(
-                  width: 900,
+                  width: screenSize.width * 0.7,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

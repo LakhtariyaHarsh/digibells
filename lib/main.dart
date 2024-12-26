@@ -460,7 +460,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: screenSize.height * 0.75,
+                    height: deviceType == DeviceScreenType.desktop ?screenSize.height * 0.8 : screenSize.height * 0.95,
                     // color: orange, // Background color
                     child: about.Aboutus(),
                   ),
