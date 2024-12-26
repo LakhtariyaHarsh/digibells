@@ -85,13 +85,14 @@ class _MyHomePageState extends State<MyHomePage> {
     var deviceType = topbar.getDeviceType(screenSize);
 
     double containerWidth = screenSize.width * 0.9;
-    double containerHeight = 120;
+    double containerHeight = screenSize.height * 0.4;
     if (deviceType == topbar.DeviceScreenType.desktop) {
       containerHeight = 425;
     } else if (deviceType == topbar.DeviceScreenType.tablet) {
       containerHeight = 300;
+    } else if (deviceType == topbar.DeviceScreenType.mobile) {
+      containerHeight = 120;
     }
-
     return Scaffold(
       appBar: deviceType == topbar.DeviceScreenType.mobile
           ? PreferredSize(
@@ -114,6 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
       SingleChildScrollView(
         controller: _scrollController,
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Container(
               width: containerWidth,
@@ -258,7 +260,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Stack(children: [
       SingleChildScrollView(
           controller: _scrollController,
-          child: Column(children: [
+          child: Column(mainAxisSize: MainAxisSize.min, children: [
             Container(
               color: grey,
               child: Column(
@@ -421,7 +423,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Stack(children: [
       SingleChildScrollView(
           controller: _scrollController,
-          child: Column(children: [
+          child: Column(mainAxisSize: MainAxisSize.min, children: [
             Container(
               color: grey,
               child: Column(
@@ -458,7 +460,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: screenSize.height * 0.7,
+                    height: screenSize.height * 0.75,
                     // color: orange, // Background color
                     child: about.Aboutus(),
                   ),
@@ -468,7 +470,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: screenSize.height * 0.5,
+                    height: deviceType == DeviceScreenType.desktop ?screenSize.height * 0.5 : screenSize.height *  0.75,
                     child: HoverCardPage(),
                   ),
                   Container(
@@ -478,7 +480,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   _buildServiceSections(screenSize, containerWidth),
                   Container(
                     width: containerWidth,
-                    height: screenSize.height * 1.1,
+                    height:deviceType == DeviceScreenType.desktop ?screenSize.height * 1.1 : screenSize.height * 1.4,
                     child: HoverCardServicePage(),
                   ),
                   Container(
@@ -496,7 +498,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: screenSize.height * 0.5,
+                    height: deviceType == DeviceScreenType.desktop ?screenSize.height * 0.5 : screenSize.height * 0.9,
                     child: Hoverteam(),
                   ),
                   Container(
@@ -639,8 +641,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   : screenSize.height * 0.5,
           child: Service3(),
         ),
-        SizedBox(height:deviceType == topbar.DeviceScreenType.mobile
-                  ? 20:0,),
+        SizedBox(
+          height: deviceType == topbar.DeviceScreenType.mobile ? 20 : 0,
+        ),
         Container(
           width: containerWidth,
           height: deviceType == topbar.DeviceScreenType.tablet
