@@ -27,13 +27,13 @@ class _SliderState extends State<Slider> {
     final deviceType = topbar.getDeviceType(screenSize);
 
     // Set height dynamically based on device type
-    double sliderHeight = screenSize.height * 0.4; // Default for mobile
+    double sliderHeight = 400; // Default for mobile
     if (deviceType == topbar.DeviceScreenType.desktop) {
       sliderHeight = 425;
     } else if (deviceType == topbar.DeviceScreenType.tablet) {
       sliderHeight = 300;
     } else if (deviceType == topbar.DeviceScreenType.mobile) {
-      sliderHeight = 120;
+      sliderHeight = 150;
     }
 
 

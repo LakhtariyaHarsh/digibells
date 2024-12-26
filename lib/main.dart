@@ -85,13 +85,13 @@ class _MyHomePageState extends State<MyHomePage> {
     var deviceType = topbar.getDeviceType(screenSize);
 
     double containerWidth = screenSize.width * 0.9;
-    double containerHeight = screenSize.height * 0.4;
+    double containerHeight = 400;
     if (deviceType == topbar.DeviceScreenType.desktop) {
       containerHeight = 425;
     } else if (deviceType == topbar.DeviceScreenType.tablet) {
       containerHeight = 300;
     } else if (deviceType == topbar.DeviceScreenType.mobile) {
-      containerHeight = 120;
+      containerHeight = 150;
     }
     return Scaffold(
       appBar: deviceType == topbar.DeviceScreenType.mobile
@@ -131,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
               width: containerWidth,
-              height: screenSize.height * 1.5,
+              height: 950,
               // color: orange, // Background color
               child: about.Aboutus(),
             ),
@@ -141,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
               width: containerWidth,
-              height: screenSize.height * 1.89,
+              height: 1500,
               child: HoverCardPage(),
             ),
             Container(
@@ -278,7 +278,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   )),
                   Container(
                     width: containerWidth,
-                    height: screenSize.height * 0.3,
+                    height: containerHeight,
                     child: slider.Slider(),
                   ),
                   Container(
@@ -290,8 +290,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: screenSize.height * 0.83,
-                    // color: orange, // Background color
+                    height: 860,
                     child: about.Aboutus(),
                   ),
                   Container(
@@ -300,7 +299,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: screenSize.height * 0.6,
+                    height: 700,
                     child: HoverCardPage(),
                   ),
                   Container(
@@ -310,7 +309,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   _buildServiceSections(screenSize, containerWidth),
                   Container(
                     width: containerWidth,
-                    height: screenSize.height,
+                    height: 1200,
                     child: HoverCardServicePage(),
                   ),
                   Container(
@@ -460,7 +459,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: deviceType == DeviceScreenType.desktop ?screenSize.height * 0.8 : screenSize.height * 0.95,
+                    height: 730,
                     // color: orange, // Background color
                     child: about.Aboutus(),
                   ),
@@ -470,7 +469,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: deviceType == DeviceScreenType.desktop ?screenSize.height * 0.5 : screenSize.height *  0.75,
+                    height: deviceType == topbar.DeviceScreenType.isWideColumnLayout ? 650 :400,
                     child: HoverCardPage(),
                   ),
                   Container(
@@ -480,7 +479,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   _buildServiceSections(screenSize, containerWidth),
                   Container(
                     width: containerWidth,
-                    height:deviceType == DeviceScreenType.desktop ?screenSize.height * 1.1 : screenSize.height * 1.4,
+                    height: 800,
                     child: HoverCardServicePage(),
                   ),
                   Container(
@@ -498,7 +497,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: deviceType == DeviceScreenType.desktop ?screenSize.height * 0.5 : screenSize.height * 0.9,
+                    height: deviceType == DeviceScreenType.desktop
+                        ? screenSize.height * 0.5
+                        : screenSize.height * 0.9,
                     child: Hoverteam(),
                   ),
                   Container(
@@ -613,44 +614,54 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _buildServiceSections(Size screenSize, double containerWidth) {
     var deviceType = topbar.getDeviceType(screenSize);
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
           width: containerWidth,
-          height: deviceType == topbar.DeviceScreenType.tablet
-              ? screenSize.height * 0.3
-              : deviceType == topbar.DeviceScreenType.mobile
-                  ? screenSize.height * 0.6
-                  : screenSize.height * 0.5,
+          height: deviceType == topbar.DeviceScreenType.tablet ||
+                  deviceType == topbar.DeviceScreenType.hubmax
+              ? 350
+              : deviceType == res.Responsive.isMobileDevice
+                  ? 600
+                  : deviceType == topbar.DeviceScreenType.desktop
+                      ? 400
+                      : 600,
           child: Service1(),
         ),
         Container(
           width: containerWidth,
-          height: deviceType == topbar.DeviceScreenType.tablet
-              ? screenSize.height * 0.3
-              : deviceType == topbar.DeviceScreenType.mobile
-                  ? screenSize.height * 0.6
-                  : screenSize.height * 0.5,
+          height: deviceType == topbar.DeviceScreenType.tablet ||
+                  deviceType == topbar.DeviceScreenType.hubmax
+              ? 300
+              : deviceType == res.Responsive.isMobileDevice
+                  ? 500
+                  : deviceType == topbar.DeviceScreenType.desktop
+                      ? 400
+                      : 500,
           child: Service2(),
         ),
         Container(
           width: containerWidth,
-          height: deviceType == topbar.DeviceScreenType.tablet
-              ? screenSize.height * 0.3
-              : deviceType == topbar.DeviceScreenType.mobile
-                  ? screenSize.height * 0.6
-                  : screenSize.height * 0.5,
+          height: deviceType == topbar.DeviceScreenType.tablet ||
+                  deviceType == topbar.DeviceScreenType.hubmax
+              ? 300
+              : deviceType == res.Responsive.isMobileDevice
+                  ? 500
+                  : deviceType == topbar.DeviceScreenType.desktop
+                      ? 400
+                      : 500,
           child: Service3(),
-        ),
-        SizedBox(
-          height: deviceType == topbar.DeviceScreenType.mobile ? 20 : 0,
         ),
         Container(
           width: containerWidth,
-          height: deviceType == topbar.DeviceScreenType.tablet
-              ? screenSize.height * 0.3
-              : deviceType == topbar.DeviceScreenType.mobile
-                  ? screenSize.height * 0.7
-                  : screenSize.height * 0.5,
+          height: deviceType == topbar.DeviceScreenType.tablet ||
+                  deviceType == topbar.DeviceScreenType.hubmax
+              ? 400
+              : deviceType == res.Responsive.isMobileDevice
+                  ? 500
+                  : deviceType == topbar.DeviceScreenType.desktop
+                      ? 400
+                      : 500,
           child: Service4(),
         ),
       ],

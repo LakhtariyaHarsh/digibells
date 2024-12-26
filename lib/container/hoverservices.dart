@@ -93,8 +93,8 @@ class _HoverServiceCardState extends State<HoverServiceCard> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
-        width: deviceType == topbar.DeviceScreenType.tablet ? 300 : 400,
-        height: deviceType == topbar.DeviceScreenType.tablet ? 300 : 350,
+        width: deviceType == topbar.DeviceScreenType.tablet ? 300 :  deviceType == topbar.DeviceScreenType.isWideColumnLayout ? 350 :400,
+        height: deviceType == topbar.DeviceScreenType.tablet? 300 :  deviceType == topbar.DeviceScreenType.isWideColumnLayout ? 350 : 350,
         margin: EdgeInsets.only(bottom: isHovered ? 20 : 0),
         decoration: BoxDecoration(
           color: white,

@@ -16,89 +16,83 @@ class _OurpartnerState extends State<Ourpartner> {
     var screenSize = MediaQuery.of(context).size;
     var deviceType = topbar.getDeviceType(screenSize);
     return Center(
-        child: Padding(
-      padding: EdgeInsets.only(
-        top: MediaQuery.of(context).size.height * 0.04, // Adjust dynamically
-        bottom: MediaQuery.of(context).size.height * 0.04, // Adjust dynamically
-      ),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Container(
-                    height: 1.5, // Divider height
-                    width: 40, // Fixed width
-                    color: blue, // Divider color
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    height: 2.5, // Divider height
-                    width: 60, // Fixed width
-                    color: blue, // Divider color
-                  ),
-                ],
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              Text(
-                "OUR PARTNERS",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: orange, // Blue title to match the design
-                ),
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    height: 1.5, // Divider height
-                    width: 40, // Fixed width
-                    color: blue, // Divider color
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    height: 2.5, // Divider height
-                    width: 60, // Fixed width
-                    color: blue, // Divider color
-                  ),
-                ],
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          RichText(
-            textAlign: TextAlign.center,
-            text: TextSpan(
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextSpan(
-                  text: "We offer Ecommerce Account \n Management Services",
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Container(
+                      height: 1.5, // Divider height
+                      width: 40, // Fixed width
+                      color: blue, // Divider color
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      height: 2.5, // Divider height
+                      width: 60, // Fixed width
+                      color: blue, // Divider color
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  "OUR PARTNERS",
                   style: TextStyle(
-                      fontSize: deviceType == topbar.DeviceScreenType.tablet
-                          ? 30
-                          : 40,
-                      fontWeight: FontWeight.bold,
-                      color: black),
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: orange, // Blue title to match the design
+                  ),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 1.5, // Divider height
+                      width: 40, // Fixed width
+                      color: blue, // Divider color
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      height: 2.5, // Divider height
+                      width: 60, // Fixed width
+                      color: blue, // Divider color
+                    ),
+                  ],
                 ),
               ],
             ),
-          ),
-        ],
-      ),
-    ));
+            SizedBox(
+              height: 10,
+            ),
+            RichText(
+              textAlign: TextAlign.center,
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: "We offer Ecommerce Account \n Management Services",
+                    style: TextStyle(
+                        fontSize: deviceType == topbar.DeviceScreenType.tablet
+                            ? 30
+                            : 40,
+                        fontWeight: FontWeight.bold,
+                        color: black),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ));
   }
 }
