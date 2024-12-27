@@ -84,7 +84,30 @@ class _MyHomePageState extends State<MyHomePage> {
     var screenSize = MediaQuery.of(context).size;
     var deviceType = topbar.getDeviceType(screenSize);
 
-    double containerWidth = screenSize.width * 0.9;
+// Dynamically adjust containerWidth based on the screen size and desktop zoom level
+    double containerWidth;
+
+// Check for desktop and apply zoom-out effect
+    if (deviceType == topbar.DeviceScreenType.desktop) {
+      containerWidth = screenSize.width *
+          0.9; // Example of reduced width at zoomed-out state
+      if (screenSize.width > 1600 && screenSize.width <=1750) {
+        containerWidth =
+            screenSize.width * 0.8; // Further adjust for larger resolutions
+      } else if (screenSize.width < 1280) {
+        containerWidth =
+            screenSize.width * 0.85; // Adjust for smaller resolutions
+      }else if (screenSize.width > 1750 && screenSize.width <=2000) {
+        containerWidth =
+            screenSize.width * 0.72; // Adjust for smaller resolutions
+      }else if (screenSize.width > 2000 && screenSize.width <=2500) {
+        containerWidth =
+            screenSize.width * 0.65; // Adjust for smaller resolutions
+      }
+    } else {
+      containerWidth = screenSize.width * 0.9; // Default for other device types
+    }
+
     double containerHeight = 400;
     if (deviceType == topbar.DeviceScreenType.desktop) {
       containerHeight = 425;
@@ -476,7 +499,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Container(
                     width: containerWidth,
                     height:
-                        deviceType == topbar.DeviceScreenType.isWideColumnLayout
+                        deviceType == topbar.DeviceScreenType.isWideColumnLayout || screenSize.width > 1600
                             ? 650
                             : 400,
                     child: HoverCardPage(),
@@ -488,7 +511,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   _buildServiceSections(screenSize, containerWidth),
                   Container(
                     width: containerWidth,
-                    height: 800,
+                    height: screenSize.width > 1600 && screenSize.width < 1908 ? 1200: screenSize.width >= 1908&& screenSize.width < 2000 ? 800 : screenSize.width >= 2000 ? 1200:800,
                     child: HoverCardServicePage(),
                   ),
                   Container(
@@ -508,9 +531,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: containerWidth,
                     height: deviceType == topbar.DeviceScreenType.desktop
                         ? 400
-                        :deviceType == topbar.DeviceScreenType.isWideColumnLayout
-                        ? 700
-                        : 500,
+                        : deviceType ==
+                                topbar.DeviceScreenType.isWideColumnLayout
+                            ? 700
+                            : screenSize.width > 1600 && screenSize.width <= 1653 ? 700:500,
                     child: Hoverteam(),
                   ),
                   Container(
@@ -526,7 +550,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: containerWidth,
                     child: Serviceurl.Serviceurl(),
                   ),
-                  SizedBox(height: 30,),
+                  SizedBox(
+                    height: 30,
+                  ),
                   _buildFooter(screenSize, containerWidth),
                 ],
               ),

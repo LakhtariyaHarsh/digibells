@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 class HoverCardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: grey,
       body: Center(
         child: Container(
+          width: screenSize.width * 0.87,
           child: Wrap(
-            spacing: 20, // Space between cards
+            spacing: 40, // Space between cards
             runSpacing: 20,
             children: [
               buildHoverCard(
