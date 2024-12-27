@@ -48,7 +48,8 @@ class _CardcarouselState extends State<Cardcarousel> {
     bool isMobile = deviceType == topbar.DeviceScreenType.mobile;
     bool isTablet = deviceType == topbar.DeviceScreenType.tablet;
     return SizedBox(
-      width: deviceType == topbar.DeviceScreenType.desktop
+      width: deviceType == topbar.DeviceScreenType.desktop ||
+              deviceType == topbar.DeviceScreenType.isWideColumnLayout
           ? 420
           : deviceType == topbar.DeviceScreenType.tablet
               ? 900
@@ -116,10 +117,14 @@ class _CardcarouselState extends State<Cardcarousel> {
         options: CarouselOptions(
           height: deviceType == topbar.DeviceScreenType.desktop
               ? 220
-              : isMobile
-                  ? 280
-                  : 280, // Ensure enough space for the card and padding
-          viewportFraction: deviceType == topbar.DeviceScreenType.desktop || deviceType == topbar.DeviceScreenType.hubmax
+              : deviceType == topbar.DeviceScreenType.isWideColumnLayout
+                  ? 240
+                  : isMobile
+                      ? 280
+                      : 280, // Ensure enough space for the card and padding
+          viewportFraction: deviceType == topbar.DeviceScreenType.desktop ||
+                  deviceType == topbar.DeviceScreenType.hubmax ||
+                  deviceType == topbar.DeviceScreenType.isWideColumnLayout
               ? 0.335555
               : 1, // Adjust to control how much of the next card is visible
           enableInfiniteScroll: true,

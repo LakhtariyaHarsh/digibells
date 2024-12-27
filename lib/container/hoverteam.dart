@@ -71,8 +71,8 @@ class _HoverCardState extends State<HoverCard> {
     bool isMobile = deviceType == topbar.DeviceScreenType.mobile;
     bool isTablet = deviceType == topbar.DeviceScreenType.tablet;
     return Container(
-        width: deviceType == topbar.DeviceScreenType.tablet ? 300 : 400,
-        height: deviceType == topbar.DeviceScreenType.tablet ? 300 : 350,
+        width: deviceType == isTablet ? 500 : 400,
+        height: deviceType == isTablet ? 700 : 350,
         color: white,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

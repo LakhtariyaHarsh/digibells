@@ -141,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
               width: containerWidth,
-              height: 1500,
+              height: 1350,
               child: HoverCardPage(),
             ),
             Container(
@@ -151,7 +151,7 @@ class _MyHomePageState extends State<MyHomePage> {
             _buildServiceSections(screenSize, containerWidth),
             Container(
               width: containerWidth,
-              height: screenSize.height * 3.5,
+              height: 2300,
               child: HoverCardServicePage(),
             ),
             Container(
@@ -171,6 +171,9 @@ class _MyHomePageState extends State<MyHomePage> {
               width: containerWidth,
               height: screenSize.height * 1.6,
               child: Hoverteam(),
+            ),
+            SizedBox(
+              height: 20,
             ),
             Container(
               width: containerWidth,
@@ -273,8 +276,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   SizedBox(
                       child: Container(
                     width: screenSize.width,
-                    height: 60,
-                    child: CustomAppBar(),
+                    child: AppbarforWeb(),
                   )),
                   Container(
                     width: containerWidth,
@@ -309,12 +311,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   _buildServiceSections(screenSize, containerWidth),
                   Container(
                     width: containerWidth,
-                    height: 1200,
+                    height: 1100,
                     child: HoverCardServicePage(),
                   ),
                   Container(
                     width: containerWidth,
-                    height: screenSize.height * 0.95,
+                    height: deviceType == topbar.DeviceScreenType.hubmax
+                        ? 750
+                        : 1000,
                     // color: orange, // Background color
                     child: Whychoose(),
                   ),
@@ -327,7 +331,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: screenSize.height * 0.6,
+                    height: deviceType == topbar.DeviceScreenType.hubmax
+                        ? 700
+                        : 1100,
                     child: Hoverteam(),
                   ),
                   Container(
@@ -469,7 +475,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: deviceType == topbar.DeviceScreenType.isWideColumnLayout ? 650 :400,
+                    height:
+                        deviceType == topbar.DeviceScreenType.isWideColumnLayout
+                            ? 650
+                            : 400,
                     child: HoverCardPage(),
                   ),
                   Container(
@@ -484,7 +493,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: screenSize.height * 0.9,
+                    height: 700,
                     // color: orange, // Background color
                     child: Whychoose(),
                   ),
@@ -497,9 +506,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: deviceType == DeviceScreenType.desktop
-                        ? screenSize.height * 0.5
-                        : screenSize.height * 0.9,
+                    height: deviceType == topbar.DeviceScreenType.desktop
+                        ? 400
+                        :deviceType == topbar.DeviceScreenType.isWideColumnLayout
+                        ? 700
+                        : 500,
                     child: Hoverteam(),
                   ),
                   Container(
@@ -515,6 +526,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: containerWidth,
                     child: Serviceurl.Serviceurl(),
                   ),
+                  SizedBox(height: 30,),
                   _buildFooter(screenSize, containerWidth),
                 ],
               ),

@@ -76,13 +76,7 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
                 SizedBox(
                     child: deviceType == topbar.DeviceScreenType.mobile
                         ? null
-                        : deviceType == topbar.DeviceScreenType.tablet
-                            ? Container(
-                                width: Screensize.width,
-                                height: 60,
-                                child: CustomAppBar(),
-                              )
-                            : Container(
+                        : Container(
                                 width: Screensize.width,
                                 height: 100,
                                 child: AppbarforWeb(),
@@ -139,13 +133,17 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
                     ],
                   )),
                 ),
-                Container(
+                 Container(
                   width: containerWidth,
                   height: deviceType == topbar.DeviceScreenType.mobile
                       ? 1300
                       : deviceType == topbar.DeviceScreenType.tablet
                           ? 700
-                          : 500,
+                          :deviceType == topbar.DeviceScreenType.isWideColumnLayout
+                          ? 650
+                          : deviceType == topbar.DeviceScreenType.desktop
+                                  ? 500
+                                  : 700,
                   child: HoverCardPage(),
                 ),
                 Container(

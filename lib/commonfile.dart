@@ -87,17 +87,11 @@ class _CommonfileState extends State<Commonfile> {
                 SizedBox(
                     child: deviceType == topbar.DeviceScreenType.mobile
                         ? null
-                        : deviceType == topbar.DeviceScreenType.tablet
-                            ? Container(
-                                width: Screensize.width,
-                                height: 60,
-                                child: CustomAppBar(),
-                              )
-                            : Container(
-                                width: Screensize.width,
-                                height: 100,
-                                child: AppbarforWeb(),
-                              )),
+                        : Container(
+                            width: Screensize.width,
+                            height: 100,
+                            child: AppbarforWeb(),
+                          )),
                 Container(
                   color: black54,
                   width: Screensize.width,
@@ -156,11 +150,11 @@ class _CommonfileState extends State<Commonfile> {
                       ? 1300
                       : deviceType == topbar.DeviceScreenType.tablet
                           ? 700
-                          : deviceType == topbar.DeviceScreenType.hubmax
-                              ? Screensize.height * 0.9
-                              : deviceType == topbar.DeviceScreenType.desktop
-                                  ? 700
-                                  : 500,
+                          :deviceType == topbar.DeviceScreenType.isWideColumnLayout
+                          ? 650
+                          : deviceType == topbar.DeviceScreenType.desktop
+                                  ? 500
+                                  : 700,
                   child: HoverCardPage(),
                 ),
                 Container(
@@ -168,12 +162,14 @@ class _CommonfileState extends State<Commonfile> {
                   height: deviceType == topbar.DeviceScreenType.desktop
                       ? 500
                       : deviceType == topbar.DeviceScreenType.hubmax
-                          ? Screensize.height * 1.2
-                          : deviceType == topbar.DeviceScreenType.tablet
-                              ? Screensize.height * 1.65
-                              : deviceType == topbar.DeviceScreenType.mobile
-                                  ? Screensize.height * 1.3
-                                  : Screensize.height ,
+                          ? 700
+                          : deviceType == topbar.DeviceScreenType.isWideColumnLayout
+                              ? 650
+                              : deviceType == topbar.DeviceScreenType.tablet
+                                  ? 1050
+                                  : deviceType == topbar.DeviceScreenType.mobile
+                                      ? Screensize.height * 1.3
+                                      : Screensize.height,
                   // color: orange, // Background color
                   child: Contactform(),
                 ),
