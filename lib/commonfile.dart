@@ -20,6 +20,8 @@ import 'package:digibells/topbar/customappbar.dart';
 import 'package:digibells/topbar/statusbar.dart';
 import 'package:digibells/utills/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'topbar/topbarcontent.dart' as topbar;
 import 'footer/footer.dart' as footer;
 import 'slider/slider.dart' as slider;
@@ -34,6 +36,22 @@ class Commonfile extends StatefulWidget {
 }
 
 class _CommonfileState extends State<Commonfile> {
+  final ScrollController _scrollController = ScrollController();
+  @override
+  void dispose() {
+    _scrollController
+        .dispose(); // Dispose the controller when the widget is removed
+    super.dispose();
+  }
+
+  void _scrollToTop() {
+    _scrollController.animateTo(
+      0, // Scroll to the top
+      duration: const Duration(seconds: 1), // Set animation duration
+      curve: Curves.easeInOut, // Set animation curve
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     var Screensize = MediaQuery.of(context).size;
@@ -62,7 +80,10 @@ class _CommonfileState extends State<Commonfile> {
                 child: CustomAppBar(), // Use your CustomAppBar widget here
               )
             : null,
-        body: SingleChildScrollView(
+        body: Stack(
+        children: [
+          SingleChildScrollView(
+          controller: _scrollController,
           padding: EdgeInsets.zero,
           child: Container(
             color: grey,
@@ -207,6 +228,62 @@ class _CommonfileState extends State<Commonfile> {
               ],
             ),
           ),
-        ));
+        ),
+          // Floating Action Buttons in Stack
+          Positioned(
+            right: 20, // Position at bottom-right
+            bottom: 20,
+            child: FloatingActionButton(
+               backgroundColor: blue,
+              onPressed: () {
+                _scrollToTop();
+              },
+              tooltip: 'Scroll to Top',
+              child: const Icon(Icons.arrow_upward, color: white,),
+            ),
+          ),
+          Positioned(
+            left: 20, // Position at bottom-left
+            bottom: 20,
+            child: FloatingActionButton(
+               backgroundColor: black,
+              onPressed: () async {
+                final phoneNumber =
+                    "tel:+91 8076233455"; // Replace with the phone number you want to call
+                final url = Uri.parse(phoneNumber);
+
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(url, mode: LaunchMode.externalApplication);
+                } else {
+                  throw "Could not launch $url";
+                }
+              },
+              tooltip: 'Call Now',
+              child: const Icon(Icons.call, color: white,),
+            ),
+          ),
+          Positioned(
+            right: 20, // Position at bottom-left
+            bottom: 90,
+            child: FloatingActionButton(
+              backgroundColor: green,
+              onPressed: () async {
+                final phoneNumber =
+                    "tel:+91 8076233455"; // Replace with the phone number you want to call
+                final url = Uri.parse(phoneNumber);
+
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(url, mode: LaunchMode.externalApplication);
+                } else {
+                  throw "Could not launch $url";
+                }
+              },
+              tooltip: 'Open WhatsApp',
+              child: const Icon(FontAwesomeIcons.whatsapp, color: white,),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
