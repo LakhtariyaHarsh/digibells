@@ -94,14 +94,14 @@ class _ServiceurlState extends State<Serviceurl> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             for (var textName in [
-                              "Flipkart Listing Services",
-                              "Flipkart Faq",
-                              "Flipkart Seller Registration",
-                              "Flipkart Boost Services",
-                              "Flipkart Reconciliation",
-                              "flipkart advertising Services",
-                              "flipkart Catalogue Services",
-                              "flipkart account management Services",
+                              "Flipkart-Listing-Services",
+                              "Flipkart-Faq",
+                              "Flipkart-Seller-Registration",
+                              "Flipkart-Boost-Services",
+                              "Flipkart-Reconciliation",
+                              "Flipkart-Advertising-Services",
+                              "Flipkart-Catalogue-Services",
+                              "Flipkart-Account-Management-Services",
                             ])
                               buildHoverableText(
                                 text: textName,
@@ -146,14 +146,14 @@ class _ServiceurlState extends State<Serviceurl> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             for (var textName in [
-                              "Amazon Listing Services",
-                              "Amazon Faq",
-                              "Amazon Seller Registration",
-                              "Amazon Boost Services",
-                              "Amazon Reconciliation",
-                              "Amazon advertising Services",
-                              "Amazon Catalogue Services",
-                              "Amazon account management Services",
+                              "Amazon-Listing-Services",
+                              "Amazon-Faq",
+                              "Amazon-Seller-Registration",
+                              "Amazon-Boost-Services",
+                              "Amazon-Reconciliation",
+                              "Amazon-advertising-Services",
+                              "Amazon-Catalogue-Services",
+                              "Amazon-account-management-Services",
                             ])
                               buildHoverableText(
                                 text: textName,
@@ -198,14 +198,14 @@ class _ServiceurlState extends State<Serviceurl> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             for (var textName in [
-                              "Ebay Listing Services",
-                              "Ebay Faq",
-                              "Ebay Seller Registration",
-                              "Ebay Boost Services",
-                              "Ebay Reconciliation",
-                              "Ebay advertising Services",
-                              "Ebay Catalogue Services",
-                              "Ebay account management",
+                              "Ebay-Listing-Services",
+                              "Ebay-Faq",
+                              "Ebay-Seller-Registration",
+                              "Ebay-Boost-Services",
+                              "Ebay-Reconciliation",
+                              "Ebay-advertising-Services",
+                              "Ebay-Catalogue-Services",
+                              "Ebay-account-management",
                             ])
                               buildHoverableText(
                                 text: textName,
@@ -250,14 +250,14 @@ class _ServiceurlState extends State<Serviceurl> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             for (var textName in [
-                              "Jiomart Listing Services",
-                              "Jiomart Faq",
-                              "Jiomart Seller Registration",
-                              "Jiomart Boost Services",
-                              "Jiomart Reconciliation",
-                              "Jiomart advertising Services",
-                              "Jiomart Catalogue Services",
-                              "Jiomart account management Services",
+                              "Jiomart-Listing-Services",
+                              "Jiomart-Faq",
+                              "Jiomart-Seller-Registration",
+                              "Jiomart-Boost-Services",
+                              "Jiomart-Reconciliation",
+                              "Jiomart-advertising-Services",
+                              "Jiomart-Catalogue-Services",
+                              "Jiomart-account-management-Services",
                             ])
                               buildHoverableText(
                                 text: textName,
@@ -306,19 +306,19 @@ class _ServiceurlState extends State<Serviceurl> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 for (var textName in [
-                                  "Flipkart Listing Services",
-                                  "Flipkart Faq",
-                                  "Flipkart Seller Registration",
-                                  "Flipkart Boost Services",
-                                  "Flipkart Reconciliation",
-                                  "flipkart advertising Services",
-                                  "flipkart Catalogue Services",
-                                  "flipkart account management Services",
+                                  "Flipkart-Listing-Services",
+                                  "Flipkart-Faq",
+                                  "Flipkart-Seller-Registration",
+                                  "Flipkart-Boost-Services",
+                                  "Flipkart-Reconciliation",
+                                  "Flipkart-Advertising-Services",
+                                  "Flipkart-Catalogue-Services",
+                                  "Flipkart-Account-management-Services",
                                 ])
                                   buildHoverableText(
                                     text: textName,
                                     onTap: () {
-                                     context.go(
+                                      context.go(
                                           '/${Uri.encodeComponent(textName)}');
                                     },
                                   ),
@@ -353,14 +353,14 @@ class _ServiceurlState extends State<Serviceurl> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 for (var textName in [
-                                  "Amazon Listing Services",
-                                  "Amazon Faq",
-                                  "Amazon Seller Registration",
-                                  "Amazon Boost Services",
-                                  "Amazon Reconciliation",
-                                  "Amazon advertising Services",
-                                  "Amazon Catalogue Services",
-                                  "Amazon account management Services",
+                                  "Amazon-Listing-Services",
+                                  "Amazon-Faq",
+                                  "Amazon-Seller-Registration",
+                                  "Amazon-Boost-Services",
+                                  "Amazon-Reconciliation",
+                                  "Amazon-advertising-Services",
+                                  "Amazon-Catalogue-Services",
+                                  "Amazon-account-management-Services",
                                 ])
                                   buildHoverableText(
                                     text: textName,
@@ -400,20 +400,20 @@ class _ServiceurlState extends State<Serviceurl> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   for (var textName in [
-                                    "Ebay Listing Services",
-                                    "Ebay Faq",
-                                    "Ebay Seller Registration",
-                                    "Ebay Boost Services",
-                                    "Ebay Reconciliation",
-                                    "Ebay advertising Services",
-                                    "Ebay Catalogue Services",
-                                    "Ebay account management",
+                                    "Ebay-Listing-Services",
+                                    "Ebay-Faq",
+                                    "Ebay-Seller-Registration",
+                                    "Ebay-Boost-Services",
+                                    "Ebay-Reconciliation",
+                                    "Ebay-advertising-Services",
+                                    "Ebay-Catalogue-Services",
+                                    "Ebay-account-management",
                                   ])
                                     buildHoverableText(
                                       text: textName,
                                       onTap: () {
                                         context.go(
-                                          '/${Uri.encodeComponent(textName)}');
+                                            '/${Uri.encodeComponent(textName)}');
                                       },
                                     ),
                                 ],
@@ -446,20 +446,20 @@ class _ServiceurlState extends State<Serviceurl> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   for (var textName in [
-                                    "Jiomart Listing Services",
-                                    "Jiomart Faq",
-                                    "Jiomart Seller Registration",
-                                    "Jiomart Boost Services",
-                                    "Jiomart Reconciliation",
-                                    "Jiomart advertising Services",
-                                    "Jiomart Catalogue Services",
-                                    "Jiomart account management Services",
+                                    "Jiomart-Listing-Services",
+                                    "Jiomart-Faq",
+                                    "Jiomart-Seller-Registration",
+                                    "Jiomart-Boost-Services",
+                                    "Jiomart-Reconciliation",
+                                    "Jiomart-advertising-Services",
+                                    "Jiomart-Catalogue-Services",
+                                    "Jiomart-account-management-Services",
                                   ])
                                     buildHoverableText(
                                       text: textName,
                                       onTap: () {
                                         context.go(
-                                          '/${Uri.encodeComponent(textName)}');
+                                            '/${Uri.encodeComponent(textName)}');
                                       },
                                     ),
                                 ],
@@ -498,14 +498,14 @@ class _ServiceurlState extends State<Serviceurl> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               for (var textName in [
-                                "Meesho Listing Services",
-                                "Meesho Faq",
-                                "Meesho Seller Registration",
-                                "Meesho Boost Services",
-                                "Meesho Reconciliation",
-                                "Meesho advertising Services",
-                                "Meesho Catalogue Services",
-                                "Meesho account management Services",
+                                "Meesho-Listing-Services",
+                                "Meesho-Faq",
+                                "Meesho-Seller-Registration",
+                                "Meesho-Boost-Services",
+                                "Meesho-Reconciliation",
+                                "Meesho-advertising-Services",
+                                "Meesho-Catalogue-Services",
+                                "Meesho-account-management-Services",
                               ])
                                 buildHoverableText(
                                   text: textName,
@@ -549,14 +549,14 @@ class _ServiceurlState extends State<Serviceurl> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               for (var textName in [
-                                "Blinkit Listing Services",
-                                "Blinkit Faq",
-                                "Blinkit Seller Registration",
-                                "Blinkit Boost Services",
-                                "Blinkit Reconciliation",
-                                "Blinkit advertising Services",
-                                "Blinkit Catalogue Services",
-                                "Blinkit account management Services",
+                                "Blinkit-Listing-Services",
+                                "Blinkit-Faq",
+                                "Blinkit-Seller-Registration",
+                                "Blinkit-Boost-Services",
+                                "Blinkit-Reconciliation",
+                                "Blinkit-advertising-Services",
+                                "Blinkit-Catalogue-Services",
+                                "Blinkit-account-management-Services",
                               ])
                                 buildHoverableText(
                                   text: textName,
@@ -600,14 +600,14 @@ class _ServiceurlState extends State<Serviceurl> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             ...[
-                              "Walmart Listing Services",
-                              "Walmart Faq",
-                              "Walmart Seller Registration",
-                              "Walmart Boost Services",
-                              "Walmart Reconciliation",
-                              "Walmart Advertising Services",
-                              "Walmart Catalogue Services",
-                              "Walmart Account Management"
+                              "Walmart-Listing-Services",
+                              "Walmart-Faq",
+                              "Walmart-Seller-Registration",
+                              "Walmart-Boost-Services",
+                              "Walmart-Reconciliation",
+                              "Walmart-Advertising-Services",
+                              "Walmart-Catalogue-Services",
+                              "Walmart-Account-Management"
                             ]
                                 .map(
                                   (text) => buildHoverableText(
@@ -655,11 +655,11 @@ class _ServiceurlState extends State<Serviceurl> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               ...[
-                                "Best Service Provider Network services in Noida",
-                                "Best Service Provider Network services in Surat",
-                                "Best Service Provider Network services in Mumbai",
-                                "Best Service Provider Network services in Pune",
-                                "Best Service Provider Network services in Ahmedabad"
+                                "Best-Service-Provider-Network-services-in-Noida",
+                                "Best-Service-Provider-Network-services-in-Surat",
+                                "Best-Service-Provider-Network-services-in-Mumbai",
+                                "Best-Service-Provider-Network-services-in-Pune",
+                                "Best-Service-Provider-Network-services-in-Ahmedabad"
                               ]
                                   .map(
                                     (text) => buildHoverableText(
@@ -711,14 +711,14 @@ class _ServiceurlState extends State<Serviceurl> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 for (var textName in [
-                                  "Meesho Listing Services",
-                                  "Meesho Faq",
-                                  "Meesho Seller Registration",
-                                  "Meesho Boost Services",
-                                  "Meesho Reconciliation",
-                                  "Meesho advertising Services",
-                                  "Meesho Catalogue Services",
-                                  "Meesho account management Services",
+                                  "Meesho-Listing-Services",
+                                  "Meesho-Faq",
+                                  "Meesho-Seller-Registration",
+                                  "Meesho-Boost-Services",
+                                  "Meesho-Reconciliation",
+                                  "Meesho-advertising-Services",
+                                  "Meesho-Catalogue-Services",
+                                  "Meesho-account-management-Services",
                                 ])
                                   buildHoverableText(
                                     text: textName,
@@ -758,14 +758,14 @@ class _ServiceurlState extends State<Serviceurl> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 for (var textName in [
-                                  "Blinkit Listing Services",
-                                  "Blinkit Faq",
-                                  "Blinkit Seller Registration",
-                                  "Blinkit Boost Services",
-                                  "Blinkit Reconciliation",
-                                  "Blinkit advertising Services",
-                                  "Blinkit Catalogue Services",
-                                  "Blinkit account management Services",
+                                  "Blinkit-Listing-Services",
+                                  "Blinkit-Faq",
+                                  "Blinkit-Seller-Registration",
+                                  "Blinkit-Boost-Services",
+                                  "Blinkit-Reconciliation",
+                                  "Blinkit-advertising-Services",
+                                  "Blinkit-Catalogue-Services",
+                                  "Blinkit-account-management-Services",
                                 ])
                                   buildHoverableText(
                                     text: textName,
@@ -805,14 +805,14 @@ class _ServiceurlState extends State<Serviceurl> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   ...[
-                                    "Walmart Listing Services",
-                                    "Walmart Faq",
-                                    "Walmart Seller Registration",
-                                    "Walmart Boost Services",
-                                    "Walmart Reconciliation",
-                                    "Walmart Advertising Services",
-                                    "Walmart Catalogue Services",
-                                    "Walmart Account Management"
+                                    "Walmart-Listing-Services",
+                                    "Walmart-Faq",
+                                    "Walmart-Seller-Registration",
+                                    "Walmart-Boost-Services",
+                                    "Walmart-Reconciliation",
+                                    "Walmart-Advertising-Services",
+                                    "Walmart-Catalogue-Services",
+                                    "Walmart-Account-Management"
                                   ]
                                       .map(
                                         (text) => buildHoverableText(
@@ -854,17 +854,18 @@ class _ServiceurlState extends State<Serviceurl> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 ...[
-                                  "Best Service Provider Network services in Noida",
-                                  "Best Service Provider Network services in Surat",
-                                  "Best Service Provider Network services in Mumbai",
-                                  "Best Service Provider Network services in Pune",
-                                  "Best Service Provider Network services in Ahmedabad"
+                                  "Best-Service-Provider-Network-services-in-Noida",
+                                  "Best-Service-Provider-Network-services-in-Surat",
+                                  "Best-Service-Provider-Network-services-in-Mumbai",
+                                  "Best-Service-Provider-Network-services-in-Pune",
+                                  "Best-Service-Provider-Network-services-in-Ahmedabad"
                                 ]
                                     .map(
                                       (text) => buildHoverableText(
                                         text: text,
                                         onTap: () {
-                                          context.go('/${Uri.encodeComponent(text)}');
+                                          context.go(
+                                              '/${Uri.encodeComponent(text)}');
                                         },
                                       ),
                                     )
@@ -906,10 +907,10 @@ class _ServiceurlState extends State<Serviceurl> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             ...[
-                              "PHP Development",
-                              "Wordpress Development",
-                              "eCommerce Solution",
-                              "Website Design"
+                              "PHP-Development",
+                              "Wordpress-Development",
+                              "eCommerce-Solution",
+                              "Website-Design"
                             ]
                                 .map(
                                   (text) => buildHoverableText(
@@ -957,11 +958,11 @@ class _ServiceurlState extends State<Serviceurl> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               ...[
-                                "SEO Services",
+                                "SEO-Services",
                                 "PPC",
-                                "Social Media Marketing",
-                                "Lead Generation",
-                                "Facebook Marketing"
+                                "Social-Media-Marketing",
+                                "Lead-Generation",
+                                "Facebook-Marketing"
                               ]
                                   .map(
                                     (text) => buildHoverableText(
@@ -1008,11 +1009,11 @@ class _ServiceurlState extends State<Serviceurl> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               ...[
-                                "Best Service Provider Network services in Chennai",
-                                "Best Service Provider Network services in Kotchi",
-                                "Best Service Provider Network services in Jaipur",
-                                "Best Service Provider Network services in Delhi",
-                                "Best Service Provider Network services in Gurugram"
+                                "Best-Service-Provider-Network-services-in-Chennai",
+                                "Best-Service-Provider-Network-services-in-kotchi",
+                                "Best-Service-Provider-Network-services-in-Jaipur",
+                                "Best-Service-Provider-Network-services-in-Delhi",
+                                "Best-Service-Provider-Network-services-in-Gurugram"
                               ]
                                   .map(
                                     (text) => buildHoverableText(
@@ -1067,10 +1068,10 @@ class _ServiceurlState extends State<Serviceurl> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   ...[
-                                    "PHP Development",
-                                    "Wordpress Development",
-                                    "eCommerce Solution",
-                                    "Website Design"
+                                    "PHP-Development",
+                                    "Wordpress-Development",
+                                    "eCommerce-Solution",
+                                    "Website-Design"
                                   ]
                                       .map(
                                         (text) => buildHoverableText(
@@ -1112,11 +1113,11 @@ class _ServiceurlState extends State<Serviceurl> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 ...[
-                                  "SEO Services",
+                                  "SEO-Services",
                                   "PPC",
-                                  "Social Media Marketing",
-                                  "Lead Generation",
-                                  "Facebook Marketing"
+                                  "Social-Media-Marketing",
+                                  "Lead-Generation",
+                                  "Facebook-Marketing"
                                 ]
                                     .map(
                                       (text) => buildHoverableText(
@@ -1156,11 +1157,11 @@ class _ServiceurlState extends State<Serviceurl> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 ...[
-                                  "Best Service Provider Network services in Chennai",
-                                  "Best Service Provider Network services in Kotchi",
-                                  "Best Service Provider Network services in Jaipur",
-                                  "Best Service Provider Network services in Delhi",
-                                  "Best Service Provider Network services in Gurugram"
+                                  "Best-Service-Provider-Network-services-in-Chennai",
+                                  "Best-Service-Provider-Network-services-in-kotchi",
+                                  "Best-Service-Provider-Network-services-in-Jaipur",
+                                  "Best-Service-Provider-Network-services-in-Delhi",
+                                  "Best-Service-Provider-Network-services-in-Gurugram"
                                 ]
                                     .map(
                                       (text) => buildHoverableText(
