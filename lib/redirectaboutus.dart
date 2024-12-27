@@ -99,7 +99,6 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
                           ? null
                           : Container(
                               width: Screensize.width,
-                              height: 100,
                               child: AppbarforWeb(),
                             )),
                   Container(

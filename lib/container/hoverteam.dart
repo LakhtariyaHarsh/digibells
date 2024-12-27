@@ -71,20 +71,16 @@ class _HoverCardState extends State<HoverCard> {
     bool isMobile = deviceType == topbar.DeviceScreenType.mobile;
     bool isTablet = deviceType == topbar.DeviceScreenType.tablet;
     return Container(
-        width: deviceType == isTablet ? 500 : 400,
-        height: deviceType == isTablet ? 700 : 350,
+        width:400,
+        height: 350,
         color: white,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ClipOval(
               child: SizedBox(
-                width: widget.deviceType == topbar.DeviceScreenType.tablet
-                    ? 200
-                    : 250, // Image width
-                height: widget.deviceType == topbar.DeviceScreenType.tablet
-                    ? 150
-                    : 200, // Image height
+                width:  250, // Image width
+                height: 200, // Image height
                 child: Image.asset(
                   widget.imagePath,
                   fit:
