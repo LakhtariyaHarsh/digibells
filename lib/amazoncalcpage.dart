@@ -1,14 +1,7 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:digibells/container/hoverteam.dart';
-import 'package:digibells/container/ourteam.dart';
-import 'package:digibells/container/services.dart' as services;
+
 import 'package:digibells/container/serviceurl.dart' as Serviceurl;
 import 'package:digibells/container/aboutus.dart' as about;
 import 'package:digibells/container/hovercard.dart';
-import 'package:digibells/container/ourpartner.dart';
-import 'package:digibells/container/testimonial.dart';
-import 'package:digibells/container/whatdo.dart';
-import 'package:digibells/container/whychoose.dart';
 import 'package:digibells/footer/bottompart.dart';
 import 'package:digibells/topbar/appbar.dart';
 import 'package:digibells/topbar/customappbar.dart';
@@ -19,18 +12,17 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'topbar/topbarcontent.dart' as topbar;
 import 'footer/footer.dart' as footer;
-import 'slider/slider.dart' as slider;
-import 'package:google_fonts/google_fonts.dart';
+import 'package:digibells/container/amazonfeecalc.dart';
 
-class Redirectaboutus extends StatefulWidget {
-  final String name;
-  const Redirectaboutus({super.key, required this.name});
+class Amazoncalcpage extends StatefulWidget {
+   final String name;
+  const Amazoncalcpage({super.key, required this.name});
 
   @override
-  State<Redirectaboutus> createState() => _RedirectaboutusState();
+  State<Amazoncalcpage> createState() => _AmazoncalcpageState();
 }
 
-class _RedirectaboutusState extends State<Redirectaboutus> {
+class _AmazoncalcpageState extends State<Amazoncalcpage> {
   final ScrollController _scrollController = ScrollController();
   @override
   void dispose() {
@@ -53,6 +45,12 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
     var deviceType = topbar.getDeviceType(Screensize);
 
     double containerWidth = Screensize.width * 0.9; // For mobile
+    double Height = 1590;
+    if (deviceType == topbar.DeviceScreenType.desktop) {
+      Height = 960;
+    } else if (deviceType == topbar.DeviceScreenType.tablet) {
+      Height = 1160;
+    }
     // Set height dynamically
     double containerHeight = 120; // Default for mobile
     if (deviceType == topbar.DeviceScreenType.desktop) {
@@ -108,64 +106,6 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
                               child: AppbarforWeb(),
                             )),
                   Container(
-                    color: black54,
-                    width: Screensize.width,
-                    height: Screensize.height * 0.4,
-                    child: Center(
-                        child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        AutoSizeText(widget.name,
-                            style: TextStyle(
-                                fontSize:
-                                    deviceType == topbar.DeviceScreenType.mobile
-                                        ? 35
-                                        : deviceType ==
-                                                topbar.DeviceScreenType.tablet
-                                            ? 40
-                                            : 50,
-                                fontWeight: FontWeight.bold,
-                                color: white)),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: AutoSizeText(
-                              "Welcome to DigitalSpark Team, your trusted partner in navigating the dynamic world of eCommerce!",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: white,
-                              )),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: "Home  /  ",
-                                style: TextStyle(
-                                    color: white,
-                                    fontSize: 20 // Use default text color
-                                    ),
-                              ),
-                              TextSpan(
-                                text: widget.name,
-                                style: TextStyle(
-                                    color: orange,
-                                    fontSize: 20 // Highlighted text
-                                    ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    )),
-                  ),
-                  Container(
                     width: containerWidth,
                     height: deviceType == topbar.DeviceScreenType.mobile
                         ? 1300
@@ -181,29 +121,24 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: deviceType == topbar.DeviceScreenType.desktop ||
-                            deviceType == topbar.DeviceScreenType.hubmax
-                        ? 700
-                        : deviceType == topbar.DeviceScreenType.tablet
-                            ? Screensize.height * 1.1
-                            : deviceType == topbar.DeviceScreenType.mobile
-                                ? Screensize.height * 1.5
-                                : Screensize.height * 1.1,
+                    height: deviceType == topbar.DeviceScreenType.desktop
+                        ? 500
+                        : deviceType == topbar.DeviceScreenType.hubmax
+                            ? 700
+                            : deviceType ==
+                                    topbar.DeviceScreenType.isWideColumnLayout
+                                ? 650
+                                : deviceType == topbar.DeviceScreenType.tablet
+                                    ? 1050
+                                    : deviceType ==
+                                            topbar.DeviceScreenType.mobile
+                                        ? Screensize.height * 1.3
+                                        : Screensize.height,
                     // color: orange, // Background color
-                    child: about.Aboutus(),
+                    child: AmazonFeeCalc(),
                   ),
-                  Container(
-                    width: containerWidth,
-                    child: Ourteam(),
-                  ),
-                  Container(
-                    width: containerWidth,
-                    height: deviceType == topbar.DeviceScreenType.mobile
-                        ? 1100
-                        : deviceType == topbar.DeviceScreenType.tablet
-                            ? 650
-                            : 400,
-                    child: Hoverteam(),
+                  SizedBox(
+                    height: 30,
                   ),
                   Container(
                     width: containerWidth,

@@ -91,16 +91,16 @@ class _MyHomePageState extends State<MyHomePage> {
     if (deviceType == topbar.DeviceScreenType.desktop) {
       containerWidth = screenSize.width *
           0.9; // Example of reduced width at zoomed-out state
-      if (screenSize.width > 1600 && screenSize.width <=1750) {
+      if (screenSize.width > 1600 && screenSize.width <= 1750) {
         containerWidth =
             screenSize.width * 0.8; // Further adjust for larger resolutions
       } else if (screenSize.width < 1280) {
         containerWidth =
             screenSize.width * 0.85; // Adjust for smaller resolutions
-      }else if (screenSize.width > 1750 && screenSize.width <=2000) {
+      } else if (screenSize.width > 1750 && screenSize.width <= 2000) {
         containerWidth =
             screenSize.width * 0.72; // Adjust for smaller resolutions
-      }else if (screenSize.width > 2000 && screenSize.width <=2500) {
+      } else if (screenSize.width > 2000 && screenSize.width <= 2500) {
         containerWidth =
             screenSize.width * 0.65; // Adjust for smaller resolutions
       }
@@ -118,11 +118,18 @@ class _MyHomePageState extends State<MyHomePage> {
     }
     return Scaffold(
       appBar: deviceType == topbar.DeviceScreenType.mobile
-          ? PreferredSize(
-              preferredSize: Size(screenSize.width, 35),
-              child: CustomAppBar(),
+          ? AppBar(
+              title: Text(
+                "MENU",
+                style: TextStyle(color: white),
+              ),
+              iconTheme: IconThemeData(
+                color: Colors.white, // Set the drawer icon color to white
+              ),
+              backgroundColor: orange,
             )
           : null,
+      drawer: CustomDrawer(),
       body: res.Responsive(
         mobile: _buildMobileView(screenSize, containerWidth, containerHeight),
         tablet: _buildTabletView(screenSize, containerWidth, containerHeight),
@@ -498,10 +505,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height:
-                        deviceType == topbar.DeviceScreenType.isWideColumnLayout || screenSize.width > 1600
-                            ? 650
-                            : 400,
+                    height: deviceType ==
+                                topbar.DeviceScreenType.isWideColumnLayout ||
+                            screenSize.width > 1600
+                        ? 650
+                        : 400,
                     child: HoverCardPage(),
                   ),
                   Container(
@@ -511,7 +519,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   _buildServiceSections(screenSize, containerWidth),
                   Container(
                     width: containerWidth,
-                    height: screenSize.width > 1600 && screenSize.width < 1908 ? 1200: screenSize.width >= 1908&& screenSize.width < 2000 ? 800 : screenSize.width >= 2000 ? 1200:800,
+                    height: screenSize.width > 1600 && screenSize.width < 1908
+                        ? 1200
+                        : screenSize.width >= 1908 && screenSize.width < 2000
+                            ? 800
+                            : screenSize.width >= 2000
+                                ? 1200
+                                : 800,
                     child: HoverCardServicePage(),
                   ),
                   Container(
@@ -534,7 +548,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         : deviceType ==
                                 topbar.DeviceScreenType.isWideColumnLayout
                             ? 700
-                            : screenSize.width > 1600 && screenSize.width <= 1653 ? 700:500,
+                            : screenSize.width > 1600 &&
+                                    screenSize.width <= 1653
+                                ? 700
+                                : 500,
                     child: Hoverteam(),
                   ),
                   Container(
@@ -621,32 +638,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     ]);
-  }
-
-  Widget _buildCommonSections(
-      Size screenSize, double containerWidth, double containerHeight) {
-    return Column(
-      children: [
-        Container(
-          width: containerWidth,
-          height: containerHeight,
-          child: slider.Slider(),
-        ),
-        Container(
-          width: containerWidth,
-          child: Whatdo(),
-        ),
-        Container(
-          width: containerWidth,
-          height: screenSize.height * 1.1,
-          child: about.Aboutus(),
-        ),
-        Container(
-          width: containerWidth,
-          child: Ourpartner(),
-        ),
-      ],
-    );
   }
 
   Widget _buildServiceSections(Size screenSize, double containerWidth) {

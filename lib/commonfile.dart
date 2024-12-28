@@ -73,179 +73,192 @@ class _CommonfileState extends State<Commonfile> {
     }
 
     return Scaffold(
-        appBar: deviceType == topbar.DeviceScreenType.mobile
-            ? PreferredSize(
-                preferredSize:
-                    Size(Screensize.width, 35), // Adjust the height as needed
-                child: CustomAppBar(), // Use your CustomAppBar widget here
-              )
-            : null,
-        body: Stack(
+      appBar: deviceType == topbar.DeviceScreenType.mobile
+          ? AppBar(
+              title: Text(
+                "MENU",
+                style: TextStyle(color: white),
+              ),
+              iconTheme: IconThemeData(
+                color: Colors.white, // Set the drawer icon color to white
+              ),
+              backgroundColor: orange,
+            )
+          : null,
+      drawer: CustomDrawer(),
+      body: Stack(
         children: [
           SingleChildScrollView(
-          controller: _scrollController,
-          padding: EdgeInsets.zero,
-          child: Container(
-            color: grey,
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.only(left: 40, right: 40),
-                  color: grey,
-                  child: (deviceType == topbar.DeviceScreenType.mobile ||
-                          deviceType == topbar.DeviceScreenType.tablet)
-                      ? null
-                      : Container(
-                          width: Screensize.width,
-                          child: topbar.Topbarcontent(),
-                        ),
-                ),
-                Container(
-                  color: white,
-                  width: Screensize.width,
-                  child: Statusbar(),
-                ),
-                SizedBox(
-                    child: deviceType == topbar.DeviceScreenType.mobile
+            controller: _scrollController,
+            padding: EdgeInsets.zero,
+            child: Container(
+              color: grey,
+              child: Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(left: 40, right: 40),
+                    color: grey,
+                    child: (deviceType == topbar.DeviceScreenType.mobile ||
+                            deviceType == topbar.DeviceScreenType.tablet)
                         ? null
                         : Container(
                             width: Screensize.width,
-                            child: AppbarforWeb(),
-                          )),
-                Container(
-                  color: black54,
-                  width: Screensize.width,
-                  height: Screensize.height * 0.4,
-                  child: Center(
-                      child: Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        AutoSizeText(widget.name,
-                            style: TextStyle(
-                                fontSize:
-                                    deviceType == topbar.DeviceScreenType.mobile
-                                        ? 35
-                                        : deviceType ==
-                                                topbar.DeviceScreenType.tablet
-                                            ? 40
-                                            : 50,
-                                fontWeight: FontWeight.bold,
-                                color: white)),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: "Home  /  ",
-                                style: TextStyle(
-                                    color: white,
-                                    fontSize: 20 // Use default text color
-                                    ),
-                              ),
-                              TextSpan(
-                                text: widget.name,
-                                style: TextStyle(
-                                    color: orange,
-                                    fontSize: 20 // Highlighted text
-                                    ),
-                              ),
-                            ],
+                            child: topbar.Topbarcontent(),
                           ),
-                        ),
-                      ],
-                    ),
-                  )),
-                ),
-                Container(
-                  width: containerWidth,
-                  child: Commendetail(),
-                ),
-                Container(
-                  width: containerWidth,
-                  height: deviceType == topbar.DeviceScreenType.mobile
-                      ? 1300
-                      : deviceType == topbar.DeviceScreenType.tablet
-                          ? 700
-                          :deviceType == topbar.DeviceScreenType.isWideColumnLayout
-                          ? 650
-                          : deviceType == topbar.DeviceScreenType.desktop
-                                  ? 500
-                                  : 700,
-                  child: HoverCardPage(),
-                ),
-                Container(
-                  width: containerWidth,
-                  height: deviceType == topbar.DeviceScreenType.desktop
-                      ? 500
-                      : deviceType == topbar.DeviceScreenType.hubmax
-                          ? 700
-                          : deviceType == topbar.DeviceScreenType.isWideColumnLayout
-                              ? 650
-                              : deviceType == topbar.DeviceScreenType.tablet
-                                  ? 1050
-                                  : deviceType == topbar.DeviceScreenType.mobile
-                                      ? Screensize.height * 1.3
-                                      : Screensize.height,
-                  // color: orange, // Background color
-                  child: Contactform(),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Container(
-                  width: containerWidth,
-                  child: Serviceurl.Serviceurl(),
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize
-                      .min, // Ensures Column height wraps its content
-                  children: [
-                    Container(
-                      color: Colors.black,
-                      width: double.infinity, // Ensure it spans the full width
-                      child: footer.Footer(),
-                    ),
-                    Divider(
-                      color: Colors.white54,
-                      height: 0, // Ensures no spacing from the Divider
-                      thickness: 0.5, // Set divider thickness
-                    ),
-                    Container(
-                      color: Colors.black,
-                      width: double.infinity,
-                      child: Bottompart(),
-                    ),
-                  ],
-                )
-              ],
+                  ),
+                  Container(
+                    color: white,
+                    width: Screensize.width,
+                    child: Statusbar(),
+                  ),
+                  SizedBox(
+                      child: deviceType == topbar.DeviceScreenType.mobile
+                          ? null
+                          : Container(
+                              width: Screensize.width,
+                              child: AppbarforWeb(),
+                            )),
+                  Container(
+                    color: black54,
+                    width: Screensize.width,
+                    height: Screensize.height * 0.4,
+                    child: Center(
+                        child: Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          AutoSizeText(widget.name,
+                              style: TextStyle(
+                                  fontSize: deviceType ==
+                                          topbar.DeviceScreenType.mobile
+                                      ? 35
+                                      : deviceType ==
+                                              topbar.DeviceScreenType.tablet
+                                          ? 40
+                                          : 50,
+                                  fontWeight: FontWeight.bold,
+                                  color: white)),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: "Home  /  ",
+                                  style: TextStyle(
+                                      color: white,
+                                      fontSize: 20 // Use default text color
+                                      ),
+                                ),
+                                TextSpan(
+                                  text: widget.name,
+                                  style: TextStyle(
+                                      color: orange,
+                                      fontSize: 20 // Highlighted text
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
+                  ),
+                  Container(
+                    width: containerWidth,
+                    child: Commendetail(),
+                  ),
+                  Container(
+                    width: containerWidth,
+                    height: deviceType == topbar.DeviceScreenType.mobile
+                        ? 1300
+                        : deviceType == topbar.DeviceScreenType.tablet
+                            ? 700
+                            : deviceType ==
+                                    topbar.DeviceScreenType.isWideColumnLayout
+                                ? 650
+                                : deviceType == topbar.DeviceScreenType.desktop
+                                    ? 500
+                                    : 700,
+                    child: HoverCardPage(),
+                  ),
+                  Container(
+                    width: containerWidth,
+                    height: deviceType == topbar.DeviceScreenType.desktop
+                        ? 500
+                        : deviceType == topbar.DeviceScreenType.hubmax
+                            ? 700
+                            : deviceType ==
+                                    topbar.DeviceScreenType.isWideColumnLayout
+                                ? 650
+                                : deviceType == topbar.DeviceScreenType.tablet
+                                    ? 1050
+                                    : deviceType ==
+                                            topbar.DeviceScreenType.mobile
+                                        ? Screensize.height * 1.3
+                                        : Screensize.height,
+                    // color: orange, // Background color
+                    child: Contactform(),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Container(
+                    width: containerWidth,
+                    child: Serviceurl.Serviceurl(),
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize
+                        .min, // Ensures Column height wraps its content
+                    children: [
+                      Container(
+                        color: Colors.black,
+                        width:
+                            double.infinity, // Ensure it spans the full width
+                        child: footer.Footer(),
+                      ),
+                      Divider(
+                        color: Colors.white54,
+                        height: 0, // Ensures no spacing from the Divider
+                        thickness: 0.5, // Set divider thickness
+                      ),
+                      Container(
+                        color: Colors.black,
+                        width: double.infinity,
+                        child: Bottompart(),
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
-        ),
           // Floating Action Buttons in Stack
           Positioned(
             right: 20, // Position at bottom-right
             bottom: 20,
             child: FloatingActionButton(
-               backgroundColor: blue,
+              backgroundColor: blue,
               onPressed: () {
                 _scrollToTop();
               },
               tooltip: 'Scroll to Top',
-              child: const Icon(Icons.arrow_upward, color: white,),
+              child: const Icon(
+                Icons.arrow_upward,
+                color: white,
+              ),
             ),
           ),
           Positioned(
             left: 20, // Position at bottom-left
             bottom: 20,
             child: FloatingActionButton(
-               backgroundColor: black,
+              backgroundColor: black,
               onPressed: () async {
                 final phoneNumber =
                     "tel:+91 8076233455"; // Replace with the phone number you want to call
@@ -258,7 +271,10 @@ class _CommonfileState extends State<Commonfile> {
                 }
               },
               tooltip: 'Call Now',
-              child: const Icon(Icons.call, color: white,),
+              child: const Icon(
+                Icons.call,
+                color: white,
+              ),
             ),
           ),
           Positioned(
@@ -278,7 +294,10 @@ class _CommonfileState extends State<Commonfile> {
                 }
               },
               tooltip: 'Open WhatsApp',
-              child: const Icon(FontAwesomeIcons.whatsapp, color: white,),
+              child: const Icon(
+                FontAwesomeIcons.whatsapp,
+                color: white,
+              ),
             ),
           ),
         ],

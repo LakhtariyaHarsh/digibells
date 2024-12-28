@@ -20,57 +20,63 @@ class _StatusbarState extends State<Statusbar> {
 
     return Column(
       children: [
-        Row(
-          children: [
-            Icon(
-              Icons.phone_outlined,
-              color: black54,
-            ),
-            MouseRegion(
-              onEnter: (_) {
-                setState(() {
-                  hoveredText = "+91 8076233455";
-                });
-              },
-              onExit: (_) {
-                setState(() {
-                  hoveredText = "";
-                });
-              },
-              child: GestureDetector(
-                onTap: () {
-                  print("Text clicked");
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+          child: Row(
+            children: [
+              Icon(
+                Icons.phone_outlined,
+                color: black54,
+              ),
+              MouseRegion(
+                onEnter: (_) {
+                  setState(() {
+                    hoveredText = "+91 8076233455";
+                  });
                 },
-                child: Text(
-                  "+91 8076233455",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                    color: hoveredText == "+91 8076233455"
-                        ? Color(0xff007dcc)
-                        : Colors.blue,
+                onExit: (_) {
+                  setState(() {
+                    hoveredText = "";
+                  });
+                },
+                child: GestureDetector(
+                  onTap: () {
+                    print("Text clicked");
+                  },
+                  child: Text(
+                    "+91 8076233455",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                      color: hoveredText == "+91 8076233455"
+                          ? Color(0xff007dcc)
+                          : Colors.blue,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         SizedBox(
           height: 20,
         ),
         Padding(
           padding: EdgeInsets.only(
-                        left: screenSize.height *
-                        0.04, // Adjust dynamically
-                        right:  screenSize.height *
-                        0.04, // Adjust dynamically
-                        bottom:  screenSize.height *
-                        0.03,),
+            left: screenSize.height * 0.04, // Adjust dynamically
+            right: screenSize.height * 0.04, // Adjust dynamically
+            bottom: screenSize.height * 0.03,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset("assets/logo.png", width: 200,),
-              if (deviceType == topbar.DeviceScreenType.desktop || deviceType == topbar.DeviceScreenType.hubmax || deviceType == topbar.DeviceScreenType.isWideColumnLayout)
+              Image.asset(
+                "assets/logo.png",
+                width: 200,
+              ),
+              if (deviceType == topbar.DeviceScreenType.desktop ||
+                  deviceType == topbar.DeviceScreenType.hubmax ||
+                  deviceType == topbar.DeviceScreenType.isWideColumnLayout)
                 SizedBox(
                   width: screenSize.width * 0.7,
                   child: Row(
@@ -108,14 +114,20 @@ class _StatusbarState extends State<Statusbar> {
                             children: [
                               Text(
                                 "Working Hours",
-                                style: TextStyle(color: black54, fontSize: 16),
+                                style: TextStyle(
+                                    color: black54,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
                               ),
                               SizedBox(
                                 height: 7,
                               ),
                               Text(
                                 "Mon - Sat, 09:30 - 6:30",
-                                style: TextStyle(color: black54, fontSize: 16),
+                                style: TextStyle(
+                                    color: black54,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
                               )
                             ],
                           )
@@ -153,7 +165,10 @@ class _StatusbarState extends State<Statusbar> {
                             children: [
                               Text(
                                 "Click to Call",
-                                style: TextStyle(color: black54, fontSize: 16),
+                                style: TextStyle(
+                                    color: black54,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
                               ),
                               SizedBox(
                                 height: 7,
@@ -177,6 +192,7 @@ class _StatusbarState extends State<Statusbar> {
                                     "8076233455",
                                     style: TextStyle(
                                       fontSize: 16,
+                                      fontWeight: FontWeight.bold,
                                       color: hoveredText == "8076233455"
                                           ? Color(0xff007dcc)
                                           : Colors.blue,
@@ -224,16 +240,20 @@ class _StatusbarState extends State<Statusbar> {
                               children: [
                                 Text(
                                   "Connect Us",
-                                  style:
-                                      TextStyle(color: black54, fontSize: 16),
+                                  style: TextStyle(
+                                      color: black54,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 SizedBox(
                                   height: 7,
                                 ),
                                 Text(
                                   "official@digitalsparkteam.com",
-                                  style:
-                                      TextStyle(color: black54, fontSize: 16),
+                                  style: TextStyle(
+                                      color: black54,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
                                 )
                               ],
                             )

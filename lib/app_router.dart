@@ -1,4 +1,6 @@
+import 'package:digibells/amazoncalcpage.dart';
 import 'package:digibells/commonfile.dart';
+import 'package:digibells/container/amazonfeecalc.dart';
 import 'package:digibells/redirectaboutus.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -13,6 +15,14 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/about',
       builder: (context, state) => const Redirectaboutus(name: 'About Us'),
+    ),
+    GoRoute(
+      path: '/calculator/:calculator',
+      builder: (context, state) {
+        final calculator =
+            Uri.decodeComponent(state.pathParameters['calculator']!);
+        return Amazoncalcpage(name: calculator);
+      },
     ),
     GoRoute(
       path: '/:name',

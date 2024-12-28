@@ -98,7 +98,6 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                   for (var text1 in [
                     "Alibaba GGS Services ⮟",
                     "Account Management Services ⮟",
-                    "Calculator ⮟",
                   ])
                     PopupMenuButton<String>(
                       onSelected: (value) {
@@ -112,9 +111,6 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                           "eBAY-Account-Management",
                           "Blinkit-Account-Management",
                           "Walmart-Account-Management",
-                          "Amazon-Seller-Fees-Calculator-India",
-                          "Flipkart-Seller-Fees-Calculator",
-                          "Jiomart-Seller-Fees-Calculator",
                         ]) {
                           if (value == targetText) {
                             context.go('/${Uri.encodeComponent(targetText)}');
@@ -145,6 +141,43 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                         ),
                       ),
                     ),
+
+                  for (var text2 in ["Calculator ⮟"])
+                    PopupMenuButton<String>(
+                      onSelected: (value) {
+                        if (value == "Amazon-Seller-Fees-Calculator-India") {
+                          // Redirect to Amazoncalcpage
+                          context
+                              .go('/calculator/${Uri.encodeComponent(value)}');
+                        } else {
+                          // Redirect to Commonfile
+                          context.go('/${Uri.encodeComponent(value)}');
+                        }
+                      },
+                      itemBuilder: (_) => popupMenuData[text2]!
+                          .map(
+                            (item) => PopupMenuItem<String>(
+                              value: item,
+                              child: Text(item),
+                            ),
+                          )
+                          .toList(),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: Text(
+                          text2,
+                          style: TextStyle(
+                            fontSize:
+                                deviceType == topbar.DeviceScreenType.tablet
+                                    ? 14
+                                    : 16,
+                            fontWeight: FontWeight.bold,
+                            color: white, // Fixed text color
+                          ),
+                        ),
+                      ),
+                    ),
+
                   // Contact Us
                   GestureDetector(
                     onTap: () {
@@ -155,10 +188,9 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                       child: Text(
                         "Contact Us",
                         style: TextStyle(
-                          fontSize:
-                              deviceType == topbar.DeviceScreenType.tablet
-                                  ? 14
-                                  : 16,
+                          fontSize: deviceType == topbar.DeviceScreenType.tablet
+                              ? 14
+                              : 16,
                           fontWeight: FontWeight.bold,
                           color: white, // Fixed text color
                         ),

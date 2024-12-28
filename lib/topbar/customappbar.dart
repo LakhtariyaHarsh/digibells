@@ -3,24 +3,17 @@ import 'package:digibells/main.dart';
 import 'package:digibells/redirectaboutus.dart';
 import 'package:digibells/utills/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'topbarcontent.dart' as topbar;
 
-class CustomAppBar extends StatefulWidget {
-  @override
-  _CustomAppBarState createState() => _CustomAppBarState();
-}
-
-class _CustomAppBarState extends State<CustomAppBar> {
-  String? hoveredText; // Track currently hovered text
-  OverlayEntry? _overlayEntry;
-
+class CustomDrawer extends StatelessWidget {
   final Map<String, List<String>> popupMenuData = {
-    "Alibaba GGS Services ⮟": [
+    "Alibaba GGS Services": [
       "Alibaba Account Management",
       "Alibaba Product Listing Services",
       "Alibaba Global Gold Membership",
     ],
-    "Account Management Services ⮟": [
+    "Account Management Services": [
       "Amazon Account Management",
       "Flipkart Account Management",
       "Meesho Account Management",
@@ -28,277 +21,76 @@ class _CustomAppBarState extends State<CustomAppBar> {
       "Blinkit Account Management",
       "Walmart Account Management",
     ],
-    "Calculator ⮟": [
+    "Calculator": [
       "Amazon Seller Fees Calculator India",
       "Flipkart Seller Fees Calculator",
       "Jiomart Seller Fees Calculator",
     ],
   };
 
-// Builds the popup menu with items from the data
-  List<PopupMenuEntry<String>> buildPopupMenu(String text) {
-    if (!popupMenuData.containsKey(text)) return [];
-    return popupMenuData[text]!
-        .map(
-          (item) => PopupMenuItem<String>(
-            value: item,
-            child: Text(item),
-          ),
-        )
-        .toList();
-  }
-
-  void showPopup(BuildContext context, String text, Offset position) {
-    if (!popupMenuData.containsKey(text)) return;
-
-    _overlayEntry = OverlayEntry(
-      builder: (context) => Positioned(
-        top: position.dy + 10,
-        left: position.dx,
-        child: Material(
-          elevation: 4,
-          borderRadius: BorderRadius.circular(8),
-          color: Colors.white,
-          child: Container(
-            padding: const EdgeInsets.all(10),
-            width: 300,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: popupMenuData[text]!
-                  .map(
-                    (item) => GestureDetector(
-                      onTap: () {
-                        debugPrint('Selected: $item');
-                        hidePopup();
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 4),
-                        child: Text(
-                          item,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black87,
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
-                  .toList(),
-            ),
-          ),
-        ),
+  void navigateTo(BuildContext context, String routeName) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => Commonfile(name: routeName),
       ),
     );
-
-    Overlay.of(context).insert(_overlayEntry!);
   }
 
-  // Function to hide the popup
-  void hidePopup() {
-    _overlayEntry?.remove();
-    _overlayEntry = null;
-  }
-
-  void redirectAboutUs() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-          builder: (context) => Redirectaboutus(
-                name: 'About Us',
-              )), // Replace with your About Us page widget
-    );
-  }
-
-  void redirectHomepage() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-          builder: (context) => MyHomePage(
-                title: 'digibells',
-              )), // Replace with your About Us page widget
-    );
-  }
-
-  // Builds a static ListTile with a title
-  Widget _buildStaticTile(String title) {
-    return Column(
-      children: [
-        ListTile(
-          onTap: () {
-            if (title == "About Us") {
-              redirectAboutUs();
-            } else if (title == "Home") {
-              redirectHomepage();
-            } else if (title == "Contact Us") {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Commonfile(
-                      name: 'Contact Us',
-                    ), // Replace with your About Us page widget
-                  ));
-            } else {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => Commonfile(
-                          name: 'Ecommerce Website Designing',
-                        )), // Replace with your About Us page widget
-              );
-            }
-          },
-          title: Text(title),
-        ),
-        Divider(),
-      ],
+  Widget buildPopupMenu(BuildContext context, String title) {
+    if (!popupMenuData.containsKey(title)) return SizedBox.shrink();
+    return ExpansionTile(
+      title: Text(title),
+      children: popupMenuData[title]!
+          .map(
+            (item) => ListTile(
+              title: Text(item),
+              onTap: () {
+                navigateTo(context, item);
+              },
+            ),
+          )
+          .toList(),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
-    var deviceType = topbar.getDeviceType(screenSize); // Get the device type
-
-    return AppBar(
-      backgroundColor: orange,
-      title: (deviceType == topbar.DeviceScreenType.mobile ||
-              deviceType == topbar.DeviceScreenType.tablet)
-          ? Row(
-              mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween, // Ensure proper spacing
-              children: [
-                Text(
-                  "MENU",
-                  style: TextStyle(
-                    color: Colors.white, // Adjust text color
-                    fontSize: 18, // Adjust text size if needed
-                  ),
-                ),
-                IconButton(
-                  icon: const Icon(
-                    Icons.menu,
-                    color: Colors
-                        .white, // Ensure the icon color matches the design
-                  ),
-                  onPressed: () {
-                    showModalBottomSheet(
-                      context: context,
-                      isScrollControlled: true,
-                      backgroundColor: Colors.transparent,
-                      builder: (_) => Align(
-                        alignment: Alignment.centerRight,
-                        child: FractionallySizedBox(
-                          heightFactor: 1,
-                          widthFactor: 0.80, // Adjust width for the modal
-                          child: Container(
-                            decoration: const BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                bottomLeft: Radius.circular(20),
-                              ),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // Close Button
-                                Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: Align(
-                                    alignment: Alignment.topRight,
-                                    child: IconButton(
-                                      icon: const Icon(Icons.close,
-                                          color: Colors.black),
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                    ),
-                                  ),
-                                ),
-                                // Navigation Items
-                                Expanded(
-                                  child: ListView(
-                                    padding: EdgeInsets.zero,
-                                    children: [
-                                      _buildStaticTile("Home"),
-                                      _buildStaticTile("About Us"),
-                                      _buildStaticTile("Website Designing"),
-                                      for (var text in [
-                                        "Alibaba GGS Services ⮟",
-                                        "Account Management Services ⮟",
-                                        "Calculator ⮟",
-                                      ])
-                                        PopupMenuButton<String>(
-                                          onSelected: (value) {
-                                            for (var targetText in [
-                                              "Alibaba Account Management",
-                                              "Alibaba Product Listing Services",
-                                              "Alibaba Global Gold Membership",
-                                              "Amazon Account Management",
-                                              "Flipkart Account Management",
-                                              "Meesho Account Management",
-                                              "eBAY Account Management",
-                                              "Blinkit Account Management",
-                                              "Walmart Account Management",
-                                              "Amazon Seller Fees Calculator India",
-                                              "Flipkart Seller Fees Calculator",
-                                              "Jiomart Seller Fees Calculator",
-                                            ]) {
-                                              if (value == targetText) {
-                                                Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        Commonfile(
-                                                      name: targetText,
-                                                    ),
-                                                  ),
-                                                );
-                                                break;
-                                              }
-                                            }
-                                          },
-                                          itemBuilder: (context) {
-                                            if (popupMenuData
-                                                .containsKey(text)) {
-                                              return popupMenuData[text]!
-                                                  .map((item) {
-                                                return PopupMenuItem<String>(
-                                                  value: item,
-                                                  child: Text(item),
-                                                );
-                                              }).toList();
-                                            }
-                                            return [];
-                                          },
-                                          child: Column(
-                                            children: [
-                                              ListTile(
-                                                title: Text(
-                                                  text,
-                                                  style: const TextStyle(
-                                                      fontSize: 16),
-                                                ),
-                                              ),
-                                              Divider(),
-                                            ],
-                                          ),
-                                        ),
-                                      _buildStaticTile("Contact Us"),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ],
-            )
-          : Container(),
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          DrawerHeader(
+            decoration: BoxDecoration(color: orange),
+            child: Text(
+              'DigiBells Menu',
+              style: TextStyle(color: Colors.white, fontSize: 24),
+            ),
+          ),
+          ListTile(
+            title: Text('Home'),
+            onTap: () {
+              GoRouter.of(context).push('/');
+            },
+          ),
+          ListTile(
+            title: Text('About Us'),
+            onTap: () {
+              // Navigate using GoRouter and pass the parameter
+              GoRouter.of(context).push('/about');
+            },
+          ),
+          ListTile(
+            title: Text('Contact Us'),
+            onTap: () {
+               GoRouter.of(context).push('/Contact-Us');
+            },
+          ),
+          buildPopupMenu(context, "Alibaba GGS Services"),
+          buildPopupMenu(context, "Account Management Services"),
+          buildPopupMenu(context, "Calculator"),
+        ],
+      ),
     );
   }
 }
