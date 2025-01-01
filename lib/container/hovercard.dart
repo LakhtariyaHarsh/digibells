@@ -5,59 +5,32 @@ class HoverCardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    return Scaffold(
-      backgroundColor: grey,
-      body: Center(
-        child: Container(
-          width: screenSize.width * 0.87,
-          child: Wrap(
-            spacing: 40, // Space between cards
-            runSpacing: 20,
-            children: [
-              buildHoverCard(
-                title: "Years Experience",
-                rank: "10",
-                iconData: Icons.wb_sunny_rounded, // Pass IconData instead
-              ),
-              buildHoverCard(
-                title: "Team Members",
-                rank: "27",
-                iconData: Icons.supervised_user_circle_outlined,
-              ),
-              buildHoverCard(
-                title: "Clients",
-                rank: "1000",
-                iconData: Icons.supervised_user_circle,
-              ),
-              buildHoverCard(
-                title: "Projects",
-                rank: "7",
-                iconData: Icons.system_security_update_good_rounded,
-              ),
-            ],
-          ),
+    return Center(
+      child: Container(
+        width: screenSize.width * 0.87,
+        child: Wrap(
+          spacing: 40, // Space between cards
+          runSpacing: 20,
+          children: [
+            buildHoverCard("Years Experience", "10", Icons.wb_sunny_rounded),
+            buildHoverCard("Team Members", "27", Icons.supervised_user_circle_outlined),
+            buildHoverCard("Clients", "1000", Icons.supervised_user_circle),
+            buildHoverCard("Projects", "7", Icons.system_security_update_good_rounded),
+          ],
         ),
       ),
     );
   }
 
-  Widget buildHoverCard({
-    required String title,
-    required String rank,
-    required IconData iconData, // Update parameter type to IconData
-  }) {
-    return HoverCard(
-      title: title,
-      rank: rank,
-      iconData: iconData,
-    );
+  Widget buildHoverCard(String title, String rank, IconData iconData) {
+    return HoverCard(title: title, rank: rank, iconData: iconData);
   }
 }
 
 class HoverCard extends StatefulWidget {
   final String title;
   final String rank;
-  final IconData iconData; // Use IconData
+  final IconData iconData;
 
   const HoverCard({
     Key? key,
@@ -75,71 +48,40 @@ class _HoverCardState extends State<HoverCard> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: MouseRegion(
-        onEnter: (_) {
-          setState(() {
-            isHovered = true;
-          });
-        },
-        onExit: (_) {
-          setState(() {
-            isHovered = false;
-          });
-        },
-        child: AnimatedContainer(
-          duration: Duration(milliseconds: 300),
-          curve: Curves.easeInOut,
-          width: 300,
-          height: 300,
-          margin: EdgeInsets.only(bottom: isHovered ? 20 : 0),
-          decoration: BoxDecoration(
-            color: isHovered ? white : grey250,
-            boxShadow: isHovered
-                ? [
-                    BoxShadow(
-                      color: black26,
-                      blurRadius: 20,
-                      spreadRadius: 2,
-                      offset: Offset(0, 10),
-                    ),
-                  ]
-                : [
-                    BoxShadow(
-                      color: white,
-                      blurRadius: 10,
-                      spreadRadius: 1,
-                      offset: Offset(0, 2),
-                    ),
-                  ],
-          ),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Icon(
-                  widget.iconData, // Use IconData here
-                  size: 80,
-                  color: orange,
-                ),
-                Text(
-                  widget.title,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: black,
-                  ),
-                ),
-                Text(
-                  widget.rank as String, // Display rank as text
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    color: black,
-                  ),
-                ),
-              ],
+    return MouseRegion(
+      onEnter: (_) => setState(() => isHovered = true),
+      onExit: (_) => setState(() => isHovered = false),
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+        width: 300,
+        height: 300,
+        margin: EdgeInsets.only(bottom: isHovered ? 20 : 0),
+        decoration: BoxDecoration(
+          color: isHovered ? white : grey250,
+          boxShadow: [
+            BoxShadow(
+              color: isHovered ? black26 : white,
+              blurRadius: isHovered ? 20 : 10,
+              spreadRadius: isHovered ? 2 : 1,
+              offset: isHovered ? Offset(0, 10) : Offset(0, 2),
             ),
+          ],
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Icon(widget.iconData, size: 80, color: orange),
+              Text(
+                widget.title,
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: black),
+              ),
+              Text(
+                widget.rank,
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: black),
+              ),
+            ],
           ),
         ),
       ),

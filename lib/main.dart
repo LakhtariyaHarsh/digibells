@@ -169,11 +169,13 @@ class _MyHomePageState extends State<MyHomePage> {
               width: containerWidth,
               child: Ourpartner(),
             ),
+            SizedBox(height: 20,),
             Container(
               width: containerWidth,
-              height: 1350,
+              // height: 1350,
               child: HoverCardPage(),
             ),
+            SizedBox(height: 20,),
             Container(
               width: containerWidth,
               child: services.Services(),
@@ -186,7 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
               width: containerWidth,
-              height: screenSize.height * 1.65,
+              height: 1000,
               // color: orange, // Background color
               child: Whychoose(),
             ),
@@ -199,7 +201,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
               width: containerWidth,
-              height: screenSize.height * 1.6,
+              height: 900,
               child: Hoverteam(),
             ),
             SizedBox(
@@ -329,9 +331,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: containerWidth,
                     child: Ourpartner(),
                   ),
+                  SizedBox(height: 20,),
                   Container(
                     width: containerWidth,
-                    height: 700,
                     child: HoverCardPage(),
                   ),
                   Container(
@@ -363,7 +365,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: containerWidth,
                     height: deviceType == topbar.DeviceScreenType.hubmax
                         ? 700
-                        : 1100,
+                        : screenSize.width > 910 && screenSize.width <= 1100
+                            ? 700
+                            : 1000,
                     child: Hoverteam(),
                   ),
                   Container(
@@ -503,15 +507,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: containerWidth,
                     child: Ourpartner(),
                   ),
+                  SizedBox(height: 60,),
                   Container(
                     width: containerWidth,
-                    height: deviceType ==
-                                topbar.DeviceScreenType.isWideColumnLayout ||
-                            screenSize.width > 1600
-                        ? 650
-                        : 400,
                     child: HoverCardPage(),
                   ),
+                  SizedBox(height: 40,),
                   Container(
                     width: containerWidth,
                     child: services.Services(),
@@ -531,7 +532,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   Container(
                     width: containerWidth,
                     height: 700,
-                    // color: orange, // Background color
                     child: Whychoose(),
                   ),
                   SizedBox(
@@ -545,13 +545,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: containerWidth,
                     height: deviceType == topbar.DeviceScreenType.desktop
                         ? 400
-                        : deviceType ==
-                                topbar.DeviceScreenType.isWideColumnLayout
-                            ? 700
-                            : screenSize.width > 1600 &&
-                                    screenSize.width <= 1653
+                        : screenSize.width >= 1378 && screenSize.width <= 1450
+                            ? 400
+                            : deviceType ==
+                                    topbar.DeviceScreenType.isWideColumnLayout
                                 ? 700
-                                : 500,
+                                : screenSize.width > 1600 &&
+                                        screenSize.width <= 1653
+                                    ? 700
+                                    : 500,
                     child: Hoverteam(),
                   ),
                   Container(

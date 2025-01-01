@@ -48,10 +48,10 @@ class _ServiceurlState extends State<Serviceurl> {
             Flexible(
               child: AutoSizeText(
                 text,
-                maxLines: 1, // Ensure text stays on a single line
-                overflow: TextOverflow.ellipsis,
+                maxLines: 4, // Ensure text stays on a single line
+                // overflow: TextOverflow.ellipsis,
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 16,
                   color: hoveredText == text ? darkblue : blue,
                 ),
               ),
@@ -81,9 +81,7 @@ class _ServiceurlState extends State<Serviceurl> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize:
-                              deviceType == topbar.DeviceScreenType.desktop
-                                  ? 16
-                                  : 14,
+                              16,
                           color: black54,
                         ),
                       ),
@@ -133,9 +131,7 @@ class _ServiceurlState extends State<Serviceurl> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize:
-                              deviceType == topbar.DeviceScreenType.desktop
-                                  ? 16
-                                  : 14,
+                              16,
                           color: black54,
                         ),
                       ),
@@ -185,9 +181,7 @@ class _ServiceurlState extends State<Serviceurl> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize:
-                              deviceType == topbar.DeviceScreenType.desktop
-                                  ? 16
-                                  : 14,
+                              16,
                           color: black54,
                         ),
                       ),
@@ -237,9 +231,7 @@ class _ServiceurlState extends State<Serviceurl> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize:
-                              deviceType == topbar.DeviceScreenType.desktop
-                                  ? 16
-                                  : 14,
+                              16,
                           color: black54,
                         ),
                       ),
@@ -281,6 +273,7 @@ class _ServiceurlState extends State<Serviceurl> {
               )
             : Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
                     child: SingleChildScrollView(
@@ -292,10 +285,7 @@ class _ServiceurlState extends State<Serviceurl> {
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                              fontSize:
-                                  deviceType == topbar.DeviceScreenType.desktop
-                                      ? 16
-                                      : 14,
+                              fontSize:16,
                               color: black54,
                             ),
                           ),
@@ -339,10 +329,7 @@ class _ServiceurlState extends State<Serviceurl> {
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                              fontSize:
-                                  deviceType == topbar.DeviceScreenType.desktop
-                                      ? 16
-                                      : 14,
+                              fontSize:16,
                               color: black54,
                             ),
                           ),
@@ -386,10 +373,7 @@ class _ServiceurlState extends State<Serviceurl> {
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                              fontSize:
-                                  deviceType == topbar.DeviceScreenType.desktop
-                                      ? 16
-                                      : 14,
+                              fontSize:16,
                               color: black54,
                             ),
                           ),
@@ -432,10 +416,7 @@ class _ServiceurlState extends State<Serviceurl> {
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                              fontSize:
-                                  deviceType == topbar.DeviceScreenType.desktop
-                                      ? 16
-                                      : 14,
+                              fontSize:16,
                               color: black54,
                             ),
                           ),
@@ -485,9 +466,7 @@ class _ServiceurlState extends State<Serviceurl> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize:
-                              deviceType == topbar.DeviceScreenType.desktop
-                                  ? 16
-                                  : 14,
+                              16,
                           color: black54,
                         ),
                       ),
@@ -536,9 +515,7 @@ class _ServiceurlState extends State<Serviceurl> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize:
-                              deviceType == topbar.DeviceScreenType.desktop
-                                  ? 16
-                                  : 14,
+                              16,
                           color: black54,
                         ),
                       ),
@@ -587,9 +564,7 @@ class _ServiceurlState extends State<Serviceurl> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize:
-                              deviceType == topbar.DeviceScreenType.desktop
-                                  ? 16
-                                  : 14,
+                              16,
                           color: black54,
                         ),
                       ),
@@ -642,9 +617,7 @@ class _ServiceurlState extends State<Serviceurl> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize:
-                              deviceType == topbar.DeviceScreenType.desktop
-                                  ? 16
-                                  : 14,
+                              16,
                           color: black54,
                         ),
                       ),
@@ -687,6 +660,7 @@ class _ServiceurlState extends State<Serviceurl> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  // Meesho services
                   Expanded(
                     child: SingleChildScrollView(
                       child: Column(
@@ -698,9 +672,7 @@ class _ServiceurlState extends State<Serviceurl> {
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               fontSize:
-                                  deviceType == topbar.DeviceScreenType.desktop
-                                      ? 16
-                                      : 14,
+                                  16, // Set a consistent font size for all text
                               color: black54,
                             ),
                           ),
@@ -734,6 +706,8 @@ class _ServiceurlState extends State<Serviceurl> {
                       ),
                     ),
                   ),
+
+                  // Blinkit services
                   Expanded(
                     child: SingleChildScrollView(
                       child: Column(
@@ -745,9 +719,7 @@ class _ServiceurlState extends State<Serviceurl> {
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               fontSize:
-                                  deviceType == topbar.DeviceScreenType.desktop
-                                      ? 16
-                                      : 14,
+                                  16, // Set a consistent font size for all text
                               color: black54,
                             ),
                           ),
@@ -781,6 +753,8 @@ class _ServiceurlState extends State<Serviceurl> {
                       ),
                     ),
                   ),
+
+                  // Walmart services
                   Expanded(
                     child: SingleChildScrollView(
                       child: Column(
@@ -792,44 +766,42 @@ class _ServiceurlState extends State<Serviceurl> {
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               fontSize:
-                                  deviceType == topbar.DeviceScreenType.desktop
-                                      ? 16
-                                      : 14,
+                                  16, // Set a consistent font size for all text
                               color: black54,
                             ),
                           ),
                           const SizedBox(height: 8),
                           Padding(
-                              padding: const EdgeInsets.only(left: 10.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  ...[
-                                    "Walmart-Listing-Services",
-                                    "Walmart-Faq",
-                                    "Walmart-Seller-Registration",
-                                    "Walmart-Boost-Services",
-                                    "Walmart-Reconciliation",
-                                    "Walmart-Advertising-Services",
-                                    "Walmart-Catalogue-Services",
-                                    "Walmart-Account-Management"
-                                  ]
-                                      .map(
-                                        (text) => buildHoverableText(
-                                          text: text,
-                                          onTap: () {
-                                            context.go(
-                                                '/${Uri.encodeComponent(text)}');
-                                          },
-                                        ),
-                                      )
-                                      .toList(),
-                                ],
-                              )),
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                for (var textName in [
+                                  "Walmart-Listing-Services",
+                                  "Walmart-Faq",
+                                  "Walmart-Seller-Registration",
+                                  "Walmart-Boost-Services",
+                                  "Walmart-Reconciliation",
+                                  "Walmart-Advertising-Services",
+                                  "Walmart-Catalogue-Services",
+                                  "Walmart-Account-Management",
+                                ])
+                                  buildHoverableText(
+                                    text: textName,
+                                    onTap: () {
+                                      context.go(
+                                          '/${Uri.encodeComponent(textName)}');
+                                    },
+                                  ),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),
                   ),
+
+                  // SPN services
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -840,9 +812,7 @@ class _ServiceurlState extends State<Serviceurl> {
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize:
-                                deviceType == topbar.DeviceScreenType.desktop
-                                    ? 16
-                                    : 14,
+                                16, // Set a consistent font size for all text
                             color: black54,
                           ),
                         ),
@@ -852,23 +822,18 @@ class _ServiceurlState extends State<Serviceurl> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              ...[
+                              for (var location in [
                                 "Best-Service-Provider-Network-services-in-Noida",
                                 "Best-Service-Provider-Network-services-in-Surat",
                                 "Best-Service-Provider-Network-services-in-Mumbai",
                                 "Best-Service-Provider-Network-services-in-Pune",
                                 "Best-Service-Provider-Network-services-in-Ahmedabad"
-                              ]
-                                  .map(
-                                    (text) => buildHoverableText(
-                                      text: text,
-                                      onTap: () {
-                                        context.go(
-                                            '/${Uri.encodeComponent(text)}');
-                                      },
-                                    ),
-                                  )
-                                  .toList(),
+                              ])
+                                buildHoverableText(
+                                  text: location,
+                                  onTap: () => context
+                                      .go('/${Uri.encodeComponent(location)}'),
+                                ),
                             ],
                           ),
                         ),
@@ -892,9 +857,7 @@ class _ServiceurlState extends State<Serviceurl> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize:
-                              deviceType == topbar.DeviceScreenType.desktop
-                                  ? 16
-                                  : 14,
+                              16,
                           color: black54,
                         ),
                       ),
@@ -943,9 +906,7 @@ class _ServiceurlState extends State<Serviceurl> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize:
-                              deviceType == topbar.DeviceScreenType.desktop
-                                  ? 16
-                                  : 14,
+                              16,
                           color: black54,
                         ),
                       ),
@@ -994,9 +955,7 @@ class _ServiceurlState extends State<Serviceurl> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize:
-                              deviceType == topbar.DeviceScreenType.desktop
-                                  ? 16
-                                  : 14,
+                              16,
                           color: black54,
                         ),
                       ),
@@ -1052,10 +1011,7 @@ class _ServiceurlState extends State<Serviceurl> {
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                              fontSize:
-                                  deviceType == topbar.DeviceScreenType.desktop
-                                      ? 16
-                                      : 14,
+                              fontSize:16,
                               color: black54,
                             ),
                           ),
@@ -1097,10 +1053,7 @@ class _ServiceurlState extends State<Serviceurl> {
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                              fontSize:
-                                  deviceType == topbar.DeviceScreenType.desktop
-                                      ? 16
-                                      : 14,
+                              fontSize:16,
                               color: black54,
                             ),
                           ),
@@ -1178,7 +1131,7 @@ class _ServiceurlState extends State<Serviceurl> {
                       ),
                     ),
                   ),
-                  // Expanded(child: Container(color: orange,))
+                  Expanded(child: Container(color: orange,))
                 ],
               ),
       ],
