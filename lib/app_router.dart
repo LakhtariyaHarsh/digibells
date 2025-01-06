@@ -13,6 +13,10 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const MyHomePage(title: 'DigiBells'),
     ),
     GoRoute(
+      path: '/home',
+      builder: (context, state) => const MyHomePage(title: 'DigiBells'),
+    ),
+    GoRoute(
       path: '/about',
       builder: (context, state) => const Redirectaboutus(name: 'About Us'),
     ),

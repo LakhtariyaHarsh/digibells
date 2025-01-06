@@ -14,28 +14,25 @@ class Cardcarousel extends StatefulWidget {
 class _CardcarouselState extends State<Cardcarousel> {
   final List<Map<String, String>> items = [
     {
-      'title': 'Sanjay Patel',
-      'subtitle': 'Mountain Breeze',
+      'title': 'Sumit Sahoo',
+      'subtitle': 'Trendy Nova',
       'description':
-          'We had an amazing experience working with Digital Spark Performance. Their attention to detail, strategic planning, and ability to execute on deliverables exceeded our expectations.'
+          "Digital Spark Team ke saath kaam karne ka experience bahut hi kamaal ka raha. Unhone mere Myntra account ko itni professionally handle kiya ki mere business ka graph hi change ho gaya. Pehle mujhe sirf 2 orders daily milte the, lekin unki expert strategies aur efforts ki wajah se ab mujhe rozana 30 orders milte hain. Unki team ka dedication aur work ethic impressive hai. Main unhe dil se recommend karta hoon un sabko jo apne online business ko grow karna chahte hain!",
+      'image': 'assets/user1.jpg',
     },
     {
-      'title': 'Raj Sharma',
-      'subtitle': 'ADI Shoes',
+      'title': 'Shubhashish Thakur',
+      'subtitle': 'Customer',
       'description':
-          'We highly recommend Digital Spark Performance to any business looking to amplify their digital presence and achieve impactful results!"'
+          'My name is Subhashish Thakur, and I have been running my account on Amazon for some time. Earlier, I used to receive 1-2 orders daily. However, after the Digital Spark Team took over the management of my account, I have seen an extraordinary transformation \n In just three months, my daily order count has skyrocketed to 70-80 orders! Their expertise in account handling, optimization, and strategic planning has significantly boosted my sales. The results speak for themselves, and I am extremely satisfied with their services. \n I wholeheartedly recommend the Digital Spark Team to anyone looking to enhance their online business performance. They are true professionals and have exceeded my expectations.',
+      'image': 'assets/user2.jpg',
     },
     {
-      'title': 'Nirmal Chuahan',
-      'subtitle': 'Garments',
+      'title': 'Sanyog Sukla',
+      'subtitle': 'Trend Spot',
       'description':
-          'Thanks to Digital Spark Performance, we’ve seen a significant increase in customer engagement, conversions, and overall ROI.'
-    },
-    {
-      'title': 'Jaydeep Dave',
-      'subtitle': 'Food Products',
-      'description':
-          'We are selling on emarketplaces from last 5 years and we have seen good growth in last some years.'
+          'Digital Spark Team ke saath kaam karna meri business journey ka ek best decision tha. Unki online services ne mera business kaafi grow kar diya hai. Pehle mujhe daily sirf 10 orders milte the, lekin unke efforts aur strategies ki wajah se ab mujhe har din 40 orders milte hain. Unka professional approach aur dedication truly remarkable hai. Agar aap apne business ko next level par le jaana chahte hain, to Digital Spark Team se zarur connect karein!',
+      'image': 'assets/user3.jpg',
     },
   ];
 
@@ -44,9 +41,6 @@ class _CardcarouselState extends State<Cardcarousel> {
     var screenSize = MediaQuery.of(context).size;
     var deviceType = topbar.getDeviceType(screenSize);
 
-    // Decide whether to use Row or Column
-    bool isMobile = deviceType == topbar.DeviceScreenType.mobile;
-    bool isTablet = deviceType == topbar.DeviceScreenType.tablet;
     return SizedBox(
       width: deviceType == topbar.DeviceScreenType.desktop ||
               deviceType == topbar.DeviceScreenType.isWideColumnLayout
@@ -54,7 +48,6 @@ class _CardcarouselState extends State<Cardcarousel> {
           : deviceType == topbar.DeviceScreenType.tablet
               ? 900
               : 350, // Fixed width
-      height: 200, // Fixed height
       child: Card(
         color: grey250,
         shape: RoundedRectangleBorder(
@@ -65,28 +58,34 @@ class _CardcarouselState extends State<Cardcarousel> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      item['title']!,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+              Row(
+                children: [
+                  CircleAvatar(
+                    radius: 30, // Fixed size for the avatar
+                    backgroundImage: AssetImage(item['image']!),
+                  ),
+                  SizedBox(width: 15),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        item['title']!,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 5),
-                    Text(
-                      item['subtitle']!,
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: black54,
+                      SizedBox(height: 5),
+                      Text(
+                        item['subtitle']!,
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: black54,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
+                ],
               ),
               SizedBox(height: 20),
               AutoSizeText(
@@ -108,20 +107,17 @@ class _CardcarouselState extends State<Cardcarousel> {
     var screenSize = MediaQuery.of(context).size;
     var deviceType = topbar.getDeviceType(screenSize);
 
-    // Decide whether to use Row or Column
-    bool isMobile = deviceType == topbar.DeviceScreenType.mobile;
-    bool isTablet = deviceType == topbar.DeviceScreenType.tablet;
     return Center(
       child: CarouselSlider.builder(
         itemCount: items.length,
         options: CarouselOptions(
-          height: deviceType == topbar.DeviceScreenType.desktop
-              ? 220
-              : deviceType == topbar.DeviceScreenType.isWideColumnLayout
-                  ? 240
-                  : isMobile
-                      ? 280
-                      : 280, // Ensure enough space for the card and padding
+          height: deviceType == topbar.DeviceScreenType.hubmax
+              ? 680
+              :  deviceType == topbar.DeviceScreenType.tablet
+              ? 390
+              : deviceType == topbar.DeviceScreenType.mobile
+              ? 700
+              :  570, // Ensure enough space for the card and padding
           viewportFraction: deviceType == topbar.DeviceScreenType.desktop ||
                   deviceType == topbar.DeviceScreenType.hubmax ||
                   deviceType == topbar.DeviceScreenType.isWideColumnLayout

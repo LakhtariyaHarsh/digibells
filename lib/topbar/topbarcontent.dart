@@ -1,6 +1,7 @@
 import 'package:digibells/utills/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Topbarcontent extends StatefulWidget {
@@ -25,30 +26,32 @@ class _TopbarcontentState extends State<Topbarcontent> {
         Row(
           children: [
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.go('/home');
+                },
                 child: Text(
                   "Home",
                   style: TextStyle(color: black54),
                 )),
             Text("/"),
             TextButton(
-                onPressed: () {},
+                onPressed: () {context.go('/Career');},
                 child: Text("Career", style: TextStyle(color: black54))),
             Text("/"),
             TextButton(
-                onPressed: () {},
+                onPressed: () {context.go('/Terms');},
                 child: Text("Terms", style: TextStyle(color: black54))),
             Text("/"),
             TextButton(
-                onPressed: () {},
+                onPressed: () {context.go('/Privacy');},
                 child: Text("Privacy", style: TextStyle(color: black54))),
             Text("/"),
             TextButton(
-                onPressed: () {},
+                onPressed: () {context.go('/Refund');},
                 child: Text("Refund", style: TextStyle(color: black54))),
             Text("/"),
             TextButton(
-                onPressed: () {},
+                onPressed: () {context.go('/Packages');},
                 child: Text("Packages", style: TextStyle(color: black54))),
           ],
         ),

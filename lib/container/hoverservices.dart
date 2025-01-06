@@ -14,12 +14,9 @@ class HoverCardServicePage extends StatelessWidget {
           spacing: 20,
           runSpacing: 20,
           children: [
-            buildHoverCard("11000 + Clients", "assets/service-1.jpg"),
+            buildHoverCard("1000 + Clients", "assets/service-1.jpg"),
             buildHoverCard("Ecommerce Packages", "assets/service-2.jpg"),
             buildHoverCard("Guaranteed Growth", "assets/service-3.jpg"),
-            buildHoverCard("Refund Policy", "assets/service-4.jpg"),
-            buildHoverCard("Strategies by Experts", "assets/service-5.jpg"),
-            buildHoverCard("Reduce Fixed Costs", "assets/service-6.jpg"),
           ],
         ),
       ),

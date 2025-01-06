@@ -3,7 +3,8 @@ import 'package:digibells/utills/constant.dart';
 import 'package:flutter/material.dart';
 
 class Commendetail extends StatefulWidget {
-  const Commendetail({super.key});
+  final String name;
+  const Commendetail({super.key, required this.name});
 
   @override
   State<Commendetail> createState() => _CommendetailState();
@@ -17,11 +18,34 @@ class _CommendetailState extends State<Commendetail> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          AutoSizeText(
-            "Grow Your Alibaba Business with Expert Account Management Services",
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
+          RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "Grow Your ",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black, // Adjust color if needed
+                  ),
+                ),
+                TextSpan(
+                  text: widget.name,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue, // Highlight this part differently
+                  ),
+                ),
+                TextSpan(
+                  text: " with Expert Account Management Services",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black, // Maintain default styling
+                  ),
+                ),
+              ],
             ),
           ),
           SizedBox(height: 5),
@@ -80,7 +104,8 @@ class _CommendetailState extends State<Commendetail> {
                         "Identify new growth opportunities and help you expand your product offerings",
                       ])
                         Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
                               Icons.circle,

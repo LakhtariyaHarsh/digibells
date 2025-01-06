@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
       title: 'Digital Spark Team',
       theme: ThemeData(
         useMaterial3: true,
-        textTheme: GoogleFonts.openSansTextTheme(
+        textTheme: GoogleFonts.poppinsTextTheme(
           Theme.of(context).textTheme,
         ),
       ),
@@ -161,21 +161,24 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
               width: containerWidth,
-              height: 950,
-              // color: orange, // Background color
+              height: 1000,
               child: about.Aboutus(),
             ),
             Container(
               width: containerWidth,
               child: Ourpartner(),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Container(
               width: containerWidth,
               // height: 1350,
               child: HoverCardPage(),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Container(
               width: containerWidth,
               child: services.Services(),
@@ -183,7 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
             _buildServiceSections(screenSize, containerWidth),
             Container(
               width: containerWidth,
-              height: 2300,
+              height: 1100,
               child: HoverCardServicePage(),
             ),
             Container(
@@ -213,7 +216,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
               width: containerWidth,
-              height: 300,
               child: Cardcarousel(),
             ),
             Container(
@@ -247,7 +249,7 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: black,
           onPressed: () async {
             final phoneNumber =
-                "tel:+91 8076233455"; // Replace with the phone number you want to call
+                "tel:+91 9643368309 / 888282222"; // Replace with the phone number you want to call
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -270,7 +272,7 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: green,
           onPressed: () async {
             final phoneNumber =
-                "tel:+91 8076233455"; // Replace with the phone number you want to call
+                "tel:+91 9643368309 / 888282222"; // Replace with the phone number you want to call
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -331,7 +333,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: containerWidth,
                     child: Ourpartner(),
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Container(
                     width: containerWidth,
                     child: HoverCardPage(),
@@ -343,7 +347,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   _buildServiceSections(screenSize, containerWidth),
                   Container(
                     width: containerWidth,
-                    height: 1100,
+                    height: screenSize.width > 1045 && screenSize.width <= 1100
+                        ? 400
+                        : deviceType == topbar.DeviceScreenType.hubmax &&
+                                screenSize.width <= 1377
+                            ? 750
+                            : 650,
                     child: HoverCardServicePage(),
                   ),
                   Container(
@@ -376,7 +385,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: 300,
                     child: Cardcarousel(),
                   ),
                   Container(
@@ -414,7 +422,7 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: black,
           onPressed: () async {
             final phoneNumber =
-                "tel:+91 8076233455"; // Replace with the phone number you want to call
+                "tel:+91 9643368309 / 888282222"; // Replace with the phone number you want to call
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -437,7 +445,7 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: green,
           onPressed: () async {
             final phoneNumber =
-                "tel:+91 8076233455"; // Replace with the phone number you want to call
+                "tel:+91 9643368309 / 888282222"; // Replace with the phone number you want to call
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -499,7 +507,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: 730,
+                    height:
+                        deviceType == topbar.DeviceScreenType.isWideColumnLayout
+                            ? 750
+                            : 680,
                     // color: orange, // Background color
                     child: about.Aboutus(),
                   ),
@@ -507,12 +518,16 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: containerWidth,
                     child: Ourpartner(),
                   ),
-                  SizedBox(height: 60,),
+                  SizedBox(
+                    height: 60,
+                  ),
                   Container(
                     width: containerWidth,
                     child: HoverCardPage(),
                   ),
-                  SizedBox(height: 40,),
+                  SizedBox(
+                    height: 40,
+                  ),
                   Container(
                     width: containerWidth,
                     child: services.Services(),
@@ -521,17 +536,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   Container(
                     width: containerWidth,
                     height: screenSize.width > 1600 && screenSize.width < 1908
-                        ? 1200
+                        ? 400
                         : screenSize.width >= 1908 && screenSize.width < 2000
-                            ? 800
+                            ? 400
                             : screenSize.width >= 2000
-                                ? 1200
-                                : 800,
+                                ? 400
+                                : screenSize.width > 1378
+                                    ? 400
+                                    : 800,
                     child: HoverCardServicePage(),
                   ),
                   Container(
                     width: containerWidth,
-                    height: 700,
+                    height:
+                        deviceType == topbar.DeviceScreenType.isWideColumnLayout
+                            ? 720
+                            : 700,
                     child: Whychoose(),
                   ),
                   SizedBox(
@@ -539,31 +559,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    child: Ourteam(),
-                  ),
-                  Container(
-                    width: containerWidth,
-                    height: deviceType == topbar.DeviceScreenType.desktop
-                        ? 400
-                        : screenSize.width >= 1378 && screenSize.width <= 1450
-                            ? 400
-                            : deviceType ==
-                                    topbar.DeviceScreenType.isWideColumnLayout
-                                ? 700
-                                : screenSize.width > 1600 &&
-                                        screenSize.width <= 1653
-                                    ? 700
-                                    : 500,
-                    child: Hoverteam(),
-                  ),
-                  Container(
-                    width: containerWidth,
                     child: Testimonial(),
                   ),
                   Container(
                     width: containerWidth,
-                    height: 300,
                     child: Cardcarousel(),
+                  ),
+                  SizedBox(
+                    height: 20,
                   ),
                   Container(
                     width: containerWidth,
@@ -600,7 +603,7 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: black,
           onPressed: () async {
             final phoneNumber =
-                "tel:+91 8076233455"; // Replace with the phone number you want to call
+                "tel:+91 9643368309 / 888282222"; // Replace with the phone number you want to call
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -623,7 +626,7 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: green,
           onPressed: () async {
             final phoneNumber =
-                "tel:+91 8076233455"; // Replace with the phone number you want to call
+                "tel:+91 9643368309"; // Replace with the phone number you want to call
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {

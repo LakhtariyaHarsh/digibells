@@ -12,9 +12,9 @@ class HoverCardPage extends StatelessWidget {
           spacing: 40, // Space between cards
           runSpacing: 20,
           children: [
-            buildHoverCard("Years Experience", "10", Icons.wb_sunny_rounded),
-            buildHoverCard("Team Members", "27", Icons.supervised_user_circle_outlined),
-            buildHoverCard("Clients", "1000", Icons.supervised_user_circle),
+            buildHoverCard("Years Experience", "2", Icons.wb_sunny_rounded),
+            buildHoverCard("Team Members", "20", Icons.supervised_user_circle_outlined),
+            buildHoverCard("Clients", "1000 +", Icons.supervised_user_circle),
             buildHoverCard("Projects", "7", Icons.system_security_update_good_rounded),
           ],
         ),

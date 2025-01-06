@@ -156,7 +156,7 @@ class _CommonfileState extends State<Commonfile> {
             ),
             Container(
               width: containerWidth,
-              child: Commendetail(),
+              child: Commendetail(name: widget.name,),
             ),
             SizedBox(height: 20,),
             Container(
@@ -201,7 +201,7 @@ class _CommonfileState extends State<Commonfile> {
           backgroundColor: black,
           onPressed: () async {
             final phoneNumber =
-                "tel:+91 8076233455"; // Replace with the phone number you want to call
+                "tel:+91 9643368309 / 888282222"; // Replace with the phone number you want to call
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -224,7 +224,7 @@ class _CommonfileState extends State<Commonfile> {
           backgroundColor: green,
           onPressed: () async {
             final phoneNumber =
-                "tel:+91 8076233455"; // Replace with the phone number you want to call
+                "tel:+91 9643368309 / 888282222"; // Replace with the phone number you want to call
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -300,7 +300,7 @@ class _CommonfileState extends State<Commonfile> {
             ),
             Container(
               width: containerWidth,
-              child: Commendetail(),
+              child: Commendetail(name: widget.name,),
             ),
             SizedBox(height: 20,),
             Container(
@@ -312,10 +312,10 @@ class _CommonfileState extends State<Commonfile> {
               width: containerWidth,
               height: deviceType == topbar.DeviceScreenType.tablet
                   ? 1050
-                  : screenSize.height,
-              // color: orange, // Background color
+                  : 650,
               child: Contactform(),
             ),
+            SizedBox(height: 40,),
             Container(
               width: containerWidth,
               child: Serviceurl.Serviceurl(),
@@ -347,7 +347,7 @@ class _CommonfileState extends State<Commonfile> {
           backgroundColor: black,
           onPressed: () async {
             final phoneNumber =
-                "tel:+91 8076233455"; // Replace with the phone number you want to call
+                "tel:+91 9643368309 / 888282222"; // Replace with the phone number you want to call
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -370,7 +370,7 @@ class _CommonfileState extends State<Commonfile> {
           backgroundColor: green,
           onPressed: () async {
             final phoneNumber =
-                "tel:+91 8076233455"; // Replace with the phone number you want to call
+                "tel:+91 9643368309 / 888282222"; // Replace with the phone number you want to call
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -464,7 +464,7 @@ class _CommonfileState extends State<Commonfile> {
             ),
             Container(
               width: containerWidth,
-              child: Commendetail(),
+              child: Commendetail(name: widget.name,),
             ),
             SizedBox(height: 20,),
             Container(
@@ -475,13 +475,12 @@ class _CommonfileState extends State<Commonfile> {
             Container(
               width: containerWidth,
               height: deviceType == topbar.DeviceScreenType.desktop
-                  ? 500
+                  ? 650
                   : deviceType == topbar.DeviceScreenType.hubmax
-                      ? 700
+                      ? 650
                       : deviceType == topbar.DeviceScreenType.isWideColumnLayout
                           ? 650
-                          : screenSize.height,
-              // color: orange, // Background color
+                          : 670,
               child: Contactform(),
             ),
             SizedBox(
@@ -521,7 +520,7 @@ class _CommonfileState extends State<Commonfile> {
           backgroundColor: black,
           onPressed: () async {
             final phoneNumber =
-                "tel:+91 8076233455"; // Replace with the phone number you want to call
+                "tel:+91 9643368309 / 888282222"; // Replace with the phone number you want to call
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -544,7 +543,7 @@ class _CommonfileState extends State<Commonfile> {
           backgroundColor: green,
           onPressed: () async {
             final phoneNumber =
-                "tel:+91 8076233455"; // Replace with the phone number you want to call
+                "tel:+91 9643368309"; // Replace with the phone number you want to call
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {

@@ -17,19 +17,19 @@ class Hoverteam extends StatelessWidget {
             runSpacing: 20,
             children: const [
               HoverCard(
-                name: "AP Singh",
+                name: "SHUSHANT RAGHAV",
+                profile: "FOUNDER",
+                imagePath: "assets/team1.jpg",
+              ),
+              HoverCard(
+                name: "NEHA",
                 profile: "CEO",
-                imagePath: "assets/team-1.jpg",
+                imagePath: "assets/team2.jpg",
               ),
               HoverCard(
-                name: "Vikas Shiva",
+                name: "DHIRAJ",
                 profile: "CTO",
-                imagePath: "assets/team-2.jpg",
-              ),
-              HoverCard(
-                name: "Ravi Kumar",
-                profile: "Founder",
-                imagePath: "assets/team-3.jpg",
+                imagePath: "assets/team3.jpg",
               ),
             ],
           ),

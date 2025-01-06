@@ -128,7 +128,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
             ),
             Container(
               width: containerWidth,
-              height:1300,
+              height:1500,
               child: AmazonFeeCalc(),
             ),
             SizedBox(
@@ -168,7 +168,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
           backgroundColor: black,
           onPressed: () async {
             final phoneNumber =
-                "tel:+91 8076233455"; // Replace with the phone number you want to call
+                "tel:+91 9643368309 / 8882822264"; // Replace with the phone number you want to call
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -191,7 +191,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
           backgroundColor: green,
           onPressed: () async {
             final phoneNumber =
-                "tel:+91 8076233455"; // Replace with the phone number you want to call
+                "tel:+91 9643368309 / 8882822264"; // Replace with the phone number you want to call
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -302,7 +302,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
           backgroundColor: black,
           onPressed: () async {
             final phoneNumber =
-                "tel:+91 8076233455"; // Replace with the phone number you want to call
+                "tel:+91 9643368309 / 8882822264"; // Replace with the phone number you want to call
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -325,7 +325,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
           backgroundColor: green,
           onPressed: () async {
             final phoneNumber =
-                "tel:+91 8076233455"; // Replace with the phone number you want to call
+                "tel:+91 9643368309 / 8882822264"; // Replace with the phone number you want to call
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -393,18 +393,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
             ),
             Container(
               width: containerWidth,
-              height: deviceType == topbar.DeviceScreenType.desktop
-                  ? 500
-                  : deviceType == topbar.DeviceScreenType.hubmax
-                      ? 700
-                      : deviceType == topbar.DeviceScreenType.isWideColumnLayout
-                          ? 650
-                          : deviceType == topbar.DeviceScreenType.tablet
-                              ? 650
-                              : deviceType == topbar.DeviceScreenType.mobile
-                                  ? 1300
-                                  : screenSize.height,
-              // color: orange, // Background color
+              height: 700,
               child: AmazonFeeCalc(),
             ),
             SizedBox(
@@ -444,7 +433,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
           backgroundColor: black,
           onPressed: () async {
             final phoneNumber =
-                "tel:+91 8076233455"; // Replace with the phone number you want to call
+                "tel:+91 9643368309 / 8882822264"; // Replace with the phone number you want to call
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -467,7 +456,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
           backgroundColor: green,
           onPressed: () async {
             final phoneNumber =
-                "tel:+91 8076233455"; // Replace with the phone number you want to call
+                "tel:+91 9643368309"; // Replace with the phone number you want to call
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {

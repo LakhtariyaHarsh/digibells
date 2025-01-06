@@ -351,7 +351,7 @@ class _FooterState extends State<Footer> {
                       child: buildHoverable(
                         text: "About Us",
                         onTap: () {
-                          context.go('/About-Us');
+                          context.go('/about');
                         },
                       ),
                     ),
@@ -372,7 +372,7 @@ class _FooterState extends State<Footer> {
                       child: buildHoverable(
                         text: "Contact Us",
                         onTap: () {
-                          context.go('/Contect-Us');
+                          context.go('/Contact-Us');
                         },
                       ),
                     ),
@@ -523,14 +523,16 @@ class _FooterState extends State<Footer> {
                 SizedBox(
                   width: 10,
                 ),
-                AutoSizeText(
-                  "+91 8076233455",
-                  style: TextStyle(
-                    color: white54,
-                    fontSize: 15,
+                Expanded(
+                  child: AutoSizeText(
+                    "+91 9643368309 / 888282222",
+                    style: TextStyle(
+                      color: white54,
+                      fontSize: 15,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
                 )
               ],
             ),
@@ -546,13 +548,15 @@ class _FooterState extends State<Footer> {
                 SizedBox(
                   width: 10,
                 ),
-                AutoSizeText(
-                  "official@digitalsparkteam.com",
-                  style: TextStyle(
-                    color: white54,
+                Expanded(
+                  child: AutoSizeText(
+                    "official@digitalsparkteam.com",
+                    style: TextStyle(
+                      color: white54,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
                 )
               ],
             ),
