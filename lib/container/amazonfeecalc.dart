@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:digibells/container/customdropdown.dart';
 import 'package:digibells/utills/constant.dart';
 import 'package:digibells/topbar/topbarcontent.dart' as topbar;
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter_spinbox/flutter_spinbox.dart';
 
 class AmazonFeeCalc extends StatefulWidget {
   const AmazonFeeCalc({super.key});
@@ -12,25 +12,28 @@ class AmazonFeeCalc extends StatefulWidget {
 }
 
 class AmazonFeeCalcState extends State<AmazonFeeCalc> {
+  // Create separate GlobalKeys for each form
+  final _firstFormKey = GlobalKey<FormState>();
+  final _secondFormKey = GlobalKey<FormState>();
+
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _messageController = TextEditingController();
+  final TextEditingController _contactNumberController =
+      TextEditingController();
+
+  String? _selectedDepartment;
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     var deviceType = topbar.getDeviceType(screenSize);
-    // Determine image height based on device type
-    // Decide whether to use Row or Column
+
     bool isMobile = deviceType == topbar.DeviceScreenType.mobile;
     bool isTablet = deviceType == topbar.DeviceScreenType.tablet;
-    bool ishub = deviceType == topbar.DeviceScreenType.hubmax;
-    bool isDesktop = deviceType == topbar.DeviceScreenType.desktop;
-    bool isWideColumnLayout =
-        deviceType == topbar.DeviceScreenType.isWideColumnLayout;
-    double containerWidth = deviceType == topbar.DeviceScreenType.desktop
-        ? 600
-        : deviceType == topbar.DeviceScreenType.tablet
-            ? 400
-            : 200;
 
-    return (isMobile)
+    return (isMobile || isTablet)
         ? Column(
             children: [
               Expanded(
@@ -42,1054 +45,20 @@ class AmazonFeeCalcState extends State<AmazonFeeCalc> {
                         width: 2,
                         color: Colors.grey.shade400,
                       )),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Center(
-                            child: Image.asset(
-                          "assets/amz.jpeg",
-                          height: 80,
-                        )),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Category",
-                                  style: TextStyle(
-                                    color: white,
-                                    fontSize: deviceType ==
-                                            topbar.DeviceScreenType.mobile
-                                        ? 15
-                                        : (deviceType ==
-                                                topbar.DeviceScreenType.tablet
-                                            ? 15
-                                            : 17),
-                                  ),
-                                ),
-                                SizedBox(height: 10),
-                                SizedBox(
-                                  width: isMobile
-                                      ? 310
-                                      : 600, // Fixed width for the TextField
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors
-                                          .white, // Set background color to white
-                                      borderRadius: BorderRadius.circular(
-                                          8), // Rounded corners
-                                    ),
-                                    child: DropdownButtonFormField<String>(
-                                      decoration: InputDecoration(
-                                        hintText:
-                                            "Clothing, Fashion, Fashion Accessories, Jewellery, Luggage, Shoes",
-                                        border: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(
-                                              8), // Rounded corners
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(
-                                              8), // Rounded corners
-                                          borderSide: BorderSide(
-                                            color: Colors.blue,
-                                            width: 2, // Blue border
-                                          ),
-                                        ),
-                                        filled: true,
-                                        fillColor: Colors
-                                            .white, // Ensure the input area is also white
-                                      ),
-                                      items: [
-                                        DropdownMenuItem(
-                                          value:
-                                              "Automative, Car & Accessories",
-                                          child: Text(
-                                            "Automative, Car & Accessories",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value:
-                                              "Baby Product, Toys & Educations",
-                                          child: Text(
-                                            "Baby Product, Toys & Educations",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value:
-                                              "Book, Movie, Music, Video Games, Entertainment",
-                                          child: Text(
-                                            "Book, Movie, Music, Video Games, Entertainment",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value:
-                                              "Industrial, Medical, Scientific Supplies & Office Product",
-                                          child: Text(
-                                            "Industrial, Medical, Scientific Supplies & Office Product",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Default",
-                                          child: Text(
-                                            "Clothing, Fashion, Fashion Accessories, Jewellery, Luggage, Shoes",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value:
-                                              "Electronics (camera, Mobile, PC, Wireless) & Accessories",
-                                          child: Text(
-                                            "Electronics (camera, Mobile, PC, Wireless) & Accessories",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Grocery, Food & Pet Supplies",
-                                          child: Text(
-                                            "Grocery, Food & Pet Supplies",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value:
-                                              "Health, Buety, Personal Care & Personal Care Appliances",
-                                          child: Text(
-                                            "Health, Buety, Personal Care & Personal Care Appliances",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value:
-                                              "Home Decure, Home improvement,Furniture, Outdoor, Lawn Garden",
-                                          child: Text(
-                                            "Home Decure, Home improvement,Furniture, Outdoor, Lawn Garden",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value:
-                                              "Kitchen, Large & Small Appliances",
-                                          child: Text(
-                                            "Kitchen, Large & Small Appliances",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value:
-                                              "Sports Gym & Sporting Equipment",
-                                          child: Text(
-                                            "Sports Gym & Sporting Equipment",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Others",
-                                          child: Text(
-                                            "Others",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                      ],
-                                      onChanged: (value) {
-                                        // Handle the selected value
-                                        print("Selected Department: $value");
-                                      },
-                                      value:
-                                          null, // Set the default value or selected value here
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Sub category",
-                                  style: TextStyle(
-                                    color: white,
-                                    fontSize: deviceType ==
-                                            topbar.DeviceScreenType.mobile
-                                        ? 15
-                                        : (deviceType ==
-                                                topbar.DeviceScreenType.tablet
-                                            ? 15
-                                            : 17),
-                                  ),
-                                ),
-                                SizedBox(height: 10),
-                                SizedBox(
-                                  width: isMobile
-                                      ? 310
-                                      : 600, // Fixed width for the TextField
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors
-                                          .white, // Set background color to white
-                                      borderRadius: BorderRadius.circular(
-                                          8), // Rounded corners
-                                    ),
-                                    child: DropdownButtonFormField<String>(
-                                      decoration: InputDecoration(
-                                        hintText: "Coin Collectibles",
-                                        border: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(
-                                              8), // Rounded corners
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(
-                                              8), // Rounded corners
-                                          borderSide: BorderSide(
-                                            color: Colors.blue,
-                                            width: 2, // Blue border
-                                          ),
-                                        ),
-                                        filled: true,
-                                        fillColor: Colors
-                                            .white, // Ensure the input area is also white
-                                      ),
-                                      items: [
-                                        DropdownMenuItem(
-                                          value: "Default",
-                                          child: Text(
-                                            "Coin Collectibles",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Silver Coins & Bars",
-                                          child: Text(
-                                            "Silver Coins & Bars",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Furniture - Other Products",
-                                          child: Text(
-                                            "Furniture - Other Products",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Toys - Other Products",
-                                          child: Text(
-                                            "Toys - Other Products",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Grocery - Other Products",
-                                          child: Text(
-                                            "Grocery - Other Products",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Office - Other Products",
-                                          child: Text(
-                                            "Office - Other Products",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value:
-                                              "Personal Care & Personal Care Appliances",
-                                          child: Text(
-                                            "Personal Care & Personal Care Appliances",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value:
-                                              "Health & Personal Care (HPC) - Other Sub Categories",
-                                          child: Text(
-                                            "Health, Buety, Personal Care & Personal Care Appliances",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value:
-                                              "Health, Personal Care - Other Household Supplies",
-                                          child: Text(
-                                            "Health, Personal Care - Other Household Supplies",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value:
-                                              "Business & Industrial Supplies - Other Product",
-                                          child: Text(
-                                            "Business & Industrial Supplies - Other Product",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value:
-                                              "Loan & Garden - Other Product",
-                                          child: Text(
-                                            "Loan & Garden - Other Product",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Luggage - Other Product",
-                                          child: Text(
-                                            "Luggage - Other Product",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Fine Art",
-                                          child: Text(
-                                            "Fine Art",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Baby Product - Other Product",
-                                          child: Text(
-                                            "Baby Product - Other Product",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Apparel - Other Product",
-                                          child: Text(
-                                            "Apparel - Other Product",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Indoor Lightings - Others",
-                                          child: Text(
-                                            "Indoor Lightings - Others",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Sports - Other Product",
-                                          child: Text(
-                                            "Sports - Other Product",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Automotive - Other Product",
-                                          child: Text(
-                                            "Automotive - Other Product",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value:
-                                              "Consumable Physical Gift Card",
-                                          child: Text(
-                                            "Consumable Physical Gift Card",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Warranty Services",
-                                          child: Text(
-                                            "Warranty Services",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Home - Other Product",
-                                          child: Text(
-                                            "Home - Other Product",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Home - Other Subcategories",
-                                          child: Text(
-                                            "Home - Other Subcategories",
-                                            overflow: TextOverflow
-                                                .ellipsis, // Add ellipsis for long text
-                                            maxLines: 3, // Limit to one line
-                                          ),
-                                        ),
-                                      ],
-                                      onChanged: (value) {
-                                        // Handle the selected value
-                                        print("Selected Department: $value");
-                                      },
-                                      value:
-                                          null, // Set the default value or selected value here
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 20),
-                        isDesktop
-                            ? Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Your Phone Number",
-                                        style: TextStyle(
-                                          color: Colors.black54,
-                                          fontSize: deviceType ==
-                                                  topbar.DeviceScreenType.mobile
-                                              ? 15
-                                              : (deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .tablet
-                                                  ? 15
-                                                  : 17),
-                                        ),
-                                      ),
-                                      SizedBox(height: 10),
-                                      SizedBox(
-                                        width: isMobile
-                                            ? 310
-                                            : 310, // Fixed width for the TextField
-                                        child: TextField(
-                                          decoration: InputDecoration(
-                                            labelText: "Your phone",
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      8), // Rounded corners
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      8), // Rounded corners
-                                              borderSide: BorderSide(
-                                                  color: Colors.blue,
-                                                  width: 2), // Blue border
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Choose Concerned Department",
-                                        style: TextStyle(
-                                          color: black54,
-                                          fontSize: deviceType ==
-                                                  topbar.DeviceScreenType.mobile
-                                              ? 15
-                                              : (deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .tablet
-                                                  ? 15
-                                                  : 17),
-                                        ),
-                                      ),
-                                      SizedBox(height: 10),
-                                      SizedBox(
-                                        width: isMobile
-                                            ? 310
-                                            : 310, // Fixed width for the TextField
-                                        child: DropdownButtonFormField<String>(
-                                          decoration: InputDecoration(
-                                            labelText: "Select a Department",
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      8), // Rounded corners
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      8), // Rounded corners
-                                              borderSide: BorderSide(
-                                                color: Colors.blue,
-                                                width: 2, // Blue border
-                                              ),
-                                            ),
-                                          ),
-                                          items: [
-                                            DropdownMenuItem(
-                                              value: "Defualt",
-                                              child: Text(
-                                                "Select a Department",
-                                              ),
-                                            ),
-                                            DropdownMenuItem(
-                                              value: "Sales",
-                                              child: Text("Sales"),
-                                            ),
-                                            DropdownMenuItem(
-                                              value: "Support",
-                                              child: Text("Support"),
-                                            ),
-                                            DropdownMenuItem(
-                                              value: "Account & Billing",
-                                              child: Text("Account & Billing"),
-                                            ),
-                                          ],
-                                          onChanged: (value) {
-                                            // Handle the selected value
-                                            print(
-                                                "Selected Department: $value");
-                                          },
-                                          value:
-                                              null, // Set the default value or selected value here
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              )
-                            : Column(
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Your Phone Number",
-                                        style: TextStyle(
-                                          color: Colors.black54,
-                                          fontSize: deviceType ==
-                                                  topbar.DeviceScreenType.mobile
-                                              ? 15
-                                              : (deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .tablet
-                                                  ? 15
-                                                  : 17),
-                                        ),
-                                      ),
-                                      SizedBox(height: 10),
-                                      SizedBox(
-                                        width: isMobile
-                                            ? 310
-                                            : 310, // Fixed width for the TextField
-                                        child: TextField(
-                                          decoration: InputDecoration(
-                                            labelText: "Your Phone",
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      8), // Rounded corners
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      8), // Rounded corners
-                                              borderSide: BorderSide(
-                                                  color: Colors.blue,
-                                                  width: 2), // Blue border
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(height: 20),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Choose Concerned Department",
-                                        style: TextStyle(
-                                          color: black54,
-                                          fontSize: deviceType ==
-                                                  topbar.DeviceScreenType.mobile
-                                              ? 15
-                                              : (deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .tablet
-                                                  ? 15
-                                                  : 17),
-                                        ),
-                                      ),
-                                      SizedBox(height: 10),
-                                      SizedBox(
-                                        width: isMobile
-                                            ? 310
-                                            : 310, // Fixed width for the TextField
-                                        child: DropdownButtonFormField<String>(
-                                          decoration: InputDecoration(
-                                            labelText: "Select a Department",
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      8), // Rounded corners
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      8), // Rounded corners
-                                              borderSide: BorderSide(
-                                                color: Colors.blue,
-                                                width: 2, // Blue border
-                                              ),
-                                            ),
-                                          ),
-                                          items: [
-                                            DropdownMenuItem(
-                                              value: "Defualt",
-                                              child: Text(
-                                                "Select a Department",
-                                              ),
-                                            ),
-                                            DropdownMenuItem(
-                                              value: "Sales",
-                                              child: Text("Sales"),
-                                            ),
-                                            DropdownMenuItem(
-                                              value: "Support",
-                                              child: Text("Support"),
-                                            ),
-                                            DropdownMenuItem(
-                                              value: "Account & Billing",
-                                              child: Text("Account & Billing"),
-                                            ),
-                                          ],
-                                          onChanged: (value) {
-                                            // Handle the selected value
-                                            print(
-                                                "Selected Department: $value");
-                                          },
-                                          value:
-                                              null, // Set the default value or selected value here
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                        SizedBox(height: 20),
-                        Text(
-                          "Write your message",
-                          style: TextStyle(
-                            color: black54,
-                            fontSize: deviceType ==
-                                    topbar.DeviceScreenType.mobile
-                                ? 15
-                                : (deviceType == topbar.DeviceScreenType.tablet
-                                    ? 15
-                                    : 17),
-                          ),
-                        ),
-                        SizedBox(height: 10),
-                        TextField(
-                          maxLines: 5, // Number of lines for the textarea
-                          decoration: InputDecoration(
-                            labelText: "Write your Requirements.",
-                            border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.circular(8), // Rounded corners
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.circular(8), // Rounded corners
-                              borderSide: BorderSide(
-                                color: Colors.blue,
-                                width: 2, // Blue border
-                              ),
-                            ),
-                            alignLabelWithHint:
-                                true, // Aligns label with the top of the textarea
-                          ),
-                        ),
-                        SizedBox(height: 20),
-                        ElevatedButton(
-                          onPressed: () {
-                            // Perform login action
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xff2377af),
-                            minimumSize: const Size(150, 40),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.zero,
-                            ),
-                          ),
-                          child: const Text(
-                            "Send Message",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  child:
+                      FirstForm(_firstFormKey, deviceType), // Pass the key here
                 ),
               ),
               SizedBox(
                 height: 20,
               ),
               Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    AutoSizeText(
-                      "Contact Us",
-                      style: TextStyle(
-                        fontSize: deviceType == topbar.DeviceScreenType.mobile
-                            ? 18
-                            : (deviceType == topbar.DeviceScreenType.tablet
-                                ? 20
-                                : 22),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Column(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Your Name",
-                              style: TextStyle(
-                                color: Colors.black54,
-                                fontSize:
-                                    deviceType == topbar.DeviceScreenType.mobile
-                                        ? 15
-                                        : (deviceType ==
-                                                topbar.DeviceScreenType.tablet
-                                            ? 15
-                                            : 17),
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                            SizedBox(
-                              width: isMobile
-                                  ? 310
-                                  : ishub
-                                      ? 200
-                                      : 310, // Fixed width for the TextField
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  labelText: "Your Name",
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        8), // Rounded corners
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        8), // Rounded corners
-                                    borderSide: BorderSide(
-                                        color: Colors.blue,
-                                        width: 2), // Blue border
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Your E-mail",
-                              style: TextStyle(
-                                color: black54,
-                                fontSize:
-                                    deviceType == topbar.DeviceScreenType.mobile
-                                        ? 15
-                                        : (deviceType ==
-                                                topbar.DeviceScreenType.tablet
-                                            ? 15
-                                            : 17),
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                            SizedBox(
-                              width: isMobile
-                                  ? 310
-                                  : ishub
-                                      ? 200
-                                      : 310, // Fixed width for the TextField
-                              child: TextField(
-                                obscureText: true,
-                                decoration: InputDecoration(
-                                  labelText: "Email",
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        8), // Rounded corners
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        8), // Rounded corners
-                                    borderSide: BorderSide(
-                                        color: Colors.blue,
-                                        width: 2), // Blue border
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 20),
-                    Column(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Your Name",
-                              style: TextStyle(
-                                color: Colors.black54,
-                                fontSize:
-                                    deviceType == topbar.DeviceScreenType.mobile
-                                        ? 15
-                                        : (deviceType ==
-                                                topbar.DeviceScreenType.tablet
-                                            ? 15
-                                            : 17),
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                            SizedBox(
-                              width: isMobile
-                                  ? 310
-                                  : 310, // Fixed width for the TextField
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  labelText: "Your Name",
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        8), // Rounded corners
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        8), // Rounded corners
-                                    borderSide: BorderSide(
-                                        color: Colors.blue,
-                                        width: 2), // Blue border
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Choose Concerned Department",
-                              style: TextStyle(
-                                color: black54,
-                                fontSize:
-                                    deviceType == topbar.DeviceScreenType.mobile
-                                        ? 15
-                                        : (deviceType ==
-                                                topbar.DeviceScreenType.tablet
-                                            ? 15
-                                            : 17),
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                            SizedBox(
-                              width: isMobile
-                                  ? 310
-                                  : 310, // Fixed width for the TextField
-                              child: DropdownButtonFormField<String>(
-                                decoration: InputDecoration(
-                                  labelText: "Select a Department",
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        8), // Rounded corners
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        8), // Rounded corners
-                                    borderSide: BorderSide(
-                                      color: Colors.blue,
-                                      width: 2, // Blue border
-                                    ),
-                                  ),
-                                ),
-                                items: [
-                                  DropdownMenuItem(
-                                    value: "Defualt",
-                                    child: Text(
-                                      "Select a Department",
-                                    ),
-                                  ),
-                                  DropdownMenuItem(
-                                    value: "Sales",
-                                    child: Text("Sales"),
-                                  ),
-                                  DropdownMenuItem(
-                                    value: "Support",
-                                    child: Text("Support"),
-                                  ),
-                                  DropdownMenuItem(
-                                    value: "Account & Billing",
-                                    child: Text("Account & Billing"),
-                                  ),
-                                ],
-                                onChanged: (value) {
-                                  // Handle the selected value
-                                  print("Selected Department: $value");
-                                },
-                                value:
-                                    null, // Set the default value or selected value here
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 20),
-                    Text(
-                      "Write your message",
-                      style: TextStyle(
-                        color: black54,
-                        fontSize: deviceType == topbar.DeviceScreenType.mobile
-                            ? 15
-                            : (deviceType == topbar.DeviceScreenType.tablet
-                                ? 15
-                                : 17),
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Expanded(
-                      child: TextField(
-                        maxLines: 5, // Number of lines for the textarea
-                        decoration: InputDecoration(
-                          labelText: "Write your Requirements.",
-                          border: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.circular(8), // Rounded corners
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.circular(8), // Rounded corners
-                            borderSide: BorderSide(
-                              color: Colors.blue,
-                              width: 2, // Blue border
-                            ),
-                          ),
-                          alignLabelWithHint:
-                              true, // Aligns label with the top of the textarea
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Perform login action
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xff2377af),
-                        minimumSize: const Size(150, 40),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.zero,
-                        ),
-                      ),
-                      child: const Text(
-                        "Send Message",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                child:
+                    buildForm(_secondFormKey, deviceType), // Pass the key here
               )
             ],
           )
         : Row(
-            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // Left Image Section
               Flexible(
@@ -1102,916 +71,386 @@ class AmazonFeeCalcState extends State<AmazonFeeCalc> {
                         width: 2,
                         color: Colors.grey.shade400,
                       )),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Column(
+                  child:
+                      FirstForm(_firstFormKey, deviceType), // Pass the key here
+                ),
+              ),
+
+              // Right Content Section
+              Flexible(
+                flex: 50,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.height * 0.05,
+                  ),
+                  child: buildForm(
+                      _secondFormKey, deviceType), // Pass the key here
+                ),
+              ),
+            ],
+          );
+  }
+
+  Widget FirstForm(
+      GlobalKey<FormState> formKey, topbar.DeviceScreenType deviceType) {
+    var screenSize = MediaQuery.of(context).size;
+    var deviceType = topbar.getDeviceType(screenSize);
+
+    bool isMobile = deviceType == topbar.DeviceScreenType.mobile;
+    return Form(
+      key: formKey,
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Image.asset(
+                  "assets/amz.jpeg",
+                  height: 80,
+                ),
+              ),
+              isMobile
+                  ? Column(
+                      children: [
+                        CustomDropdown(
+                          label: "Category",
+                          hintText:
+                              "Clothing, Fashion, Fashion Accessories, Jewellery, Luggage, Shoes",
+                          items: [
+                            "Automative, Car & Accessories",
+                            "Baby Product, Toys & Educations",
+                            "Book, Movie, Music, Video Games, Entertainment",
+                            "Industrial, Medical, Scientific Supplies & Office Product",
+                            "Clothing, Fashion, Fashion Accessories, Jewellery, Luggage, Shoes",
+                            "Electronics (camera, Mobile, PC, Wireless) & Accessories",
+                            "Grocery, Food & Pet Supplies",
+                            "Health, Buety, Personal Care & Personal Care Appliances",
+                            "Home Decure, Home improvement,Furniture, Outdoor, Lawn Garden",
+                            "Kitchen, Large & Small Appliances",
+                            "Sports Gym & Sporting Equipment",
+                            "Others",
+                          ],
+                          onChanged: (value) {
+                            print("Selected Category: $value");
+                          },
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        CustomDropdown(
+                          label: "Category",
+                          hintText:
+                              "Clothing, Fashion, Fashion Accessories, Jewellery, Luggage, Shoes",
+                          items: [
+                            "Automative, Car & Accessories",
+                            "Baby Product, Toys & Educations",
+                            "Book, Movie, Music, Video Games, Entertainment",
+                            "Industrial, Medical, Scientific Supplies & Office Product",
+                            "Clothing, Fashion, Fashion Accessories, Jewellery, Luggage, Shoes",
+                            "Electronics (camera, Mobile, PC, Wireless) & Accessories",
+                            "Grocery, Food & Pet Supplies",
+                            "Health, Buety, Personal Care & Personal Care Appliances",
+                            "Home Decure, Home improvement,Furniture, Outdoor, Lawn Garden",
+                            "Kitchen, Large & Small Appliances",
+                            "Sports Gym & Sporting Equipment",
+                            "Others",
+                          ],
+                          onChanged: (value) {
+                            print("Selected Category: $value");
+                          },
+                        ),
+                      ],
+                    )
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomDropdown(
+                          label: "Category",
+                          hintText:
+                              "Clothing, Fashion, Fashion Accessories, Jewellery, Luggage, Shoes",
+                          items: [
+                            "Automative, Car & Accessories",
+                            "Baby Product, Toys & Educations",
+                            "Book, Movie, Music, Video Games, Entertainment",
+                            "Industrial, Medical, Scientific Supplies & Office Product",
+                            "Clothing, Fashion, Fashion Accessories, Jewellery, Luggage, Shoes",
+                            "Electronics (camera, Mobile, PC, Wireless) & Accessories",
+                            "Grocery, Food & Pet Supplies",
+                            "Health, Buety, Personal Care & Personal Care Appliances",
+                            "Home Decure, Home improvement,Furniture, Outdoor, Lawn Garden",
+                            "Kitchen, Large & Small Appliances",
+                            "Sports Gym & Sporting Equipment",
+                            "Others",
+                          ],
+                          onChanged: (value) {
+                            print("Selected Category: $value");
+                          },
+                        ),
+                        CustomDropdown(
+                          label: "Sub category",
+                          hintText:
+                              "Coin Collectibles",
+                          items: [
+                            "Coin Collectibles",
+                            "Silver Coins & Bars",
+                            "Furniture - Other Products",
+                            "Toys - Other Products",
+                            "Grocery - Other Products",
+                            "Office - Other Products",
+                            "Personal Care & Personal Care Appliances",
+                            "Health, Buety, Personal Care & Personal Care Appliances",
+                            "Health, Personal Care - Other Household Supplies",
+                            "Business & Industrial Supplies - Other Product",
+                            "Loan & Garden - Other Product",
+                            "Luggage - Other Product",
+                            "Fine Art",
+                            "Baby Product - Other Product",
+                            "Apparel - Other Product",
+                            "Indoor Lightings - Others",
+                            "Sports - Other Product",
+                            "Automotive - Other Product",
+                            "Consumable Physical Gift Card",
+                            "Warranty Services",
+                            "Home - Other Product",
+                            "Home - Other Subcategories",
+                          ],
+                          onChanged: (value) {
+                            print("Selected Category: $value");
+                          },
+                        ),
+                      ],
+                    ),
+              SizedBox(height: 20),
+              isMobile
+                  ? Column(
+                      children: [
+                        CustomSpinBox(
+                          label: "Price",
+                          min: 0,
+                          max: 1000000,
+                          initialValue: 0,
+                          step: 1,
+                          onChanged: (value) {
+                            print("Selected Price: $value");
+                          },
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        CustomDropdown(
+                          label: "Tax",
+                          hintText: "FREE GST",
+                          items: ["FREE GST", "5%", "12%", "18%", "28%"],
+                          onChanged: (value) {
+                            print("Selected Tax: $value");
+                          },
+                        ),
+                      ],
+                    )
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomSpinBox(
+                          label: "Price",
+                          min: 0,
+                          max: 1000000,
+                          initialValue: 0,
+                          step: 1,
+                          onChanged: (value) {
+                            print("Selected Price: $value");
+                          },
+                        ),
+                        CustomDropdown(
+                          label: "Tax",
+                          hintText: "FREE GST",
+                          items: ["FREE GST", "5%", "12%", "18%", "28%"],
+                          onChanged: (value) {
+                            print("Selected Tax: $value");
+                          },
+                        ),
+                      ],
+                    ),
+              SizedBox(height: 20),
+             isMobile
+                  ? Column(
+                      children: [
+                        CustomDropdown(
+                          label: "Category",
+                          hintText:
+                              "Clothing, Fashion, Fashion Accessories, Jewellery, Luggage, Shoes",
+                          items: [
+                            "Automative, Car & Accessories",
+                            "Baby Product, Toys & Educations",
+                            "Book, Movie, Music, Video Games, Entertainment",
+                            "Industrial, Medical, Scientific Supplies & Office Product",
+                            "Clothing, Fashion, Fashion Accessories, Jewellery, Luggage, Shoes",
+                            "Electronics (camera, Mobile, PC, Wireless) & Accessories",
+                            "Grocery, Food & Pet Supplies",
+                            "Health, Buety, Personal Care & Personal Care Appliances",
+                            "Home Decure, Home improvement,Furniture, Outdoor, Lawn Garden",
+                            "Kitchen, Large & Small Appliances",
+                            "Sports Gym & Sporting Equipment",
+                            "Others",
+                          ],
+                          onChanged: (value) {
+                            print("Selected Category: $value");
+                          },
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        CustomDropdown(
+                          label: "Category",
+                          hintText:
+                              "Clothing, Fashion, Fashion Accessories, Jewellery, Luggage, Shoes",
+                          items: [
+                            "Automative, Car & Accessories",
+                            "Baby Product, Toys & Educations",
+                            "Book, Movie, Music, Video Games, Entertainment",
+                            "Industrial, Medical, Scientific Supplies & Office Product",
+                            "Clothing, Fashion, Fashion Accessories, Jewellery, Luggage, Shoes",
+                            "Electronics (camera, Mobile, PC, Wireless) & Accessories",
+                            "Grocery, Food & Pet Supplies",
+                            "Health, Buety, Personal Care & Personal Care Appliances",
+                            "Home Decure, Home improvement,Furniture, Outdoor, Lawn Garden",
+                            "Kitchen, Large & Small Appliances",
+                            "Sports Gym & Sporting Equipment",
+                            "Others",
+                          ],
+                          onChanged: (value) {
+                            print("Selected Category: $value");
+                          },
+                        ),
+                        SizedBox(
+                          height: 20,),
+                         CustomSpinBox(
+                          label: "Price",
+                          min: 0,
+                          max: 1000000,
+                          initialValue: 0,
+                          step: 1,
+                          onChanged: (value) {
+                            print("Selected Price: $value");
+                          },
+                        ),
+                      ],
+                    )
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomDropdown(
+                          width: 200,
+                          label: "Ship Method",
+                          hintText:
+                              "Clothing, Fashion, Fashion Accessories, Jewellery, Luggage, Shoes",
+                          items: [
+                            "Automative, Car & Accessories",
+                            "Baby Product, Toys & Educations",
+                            "Book, Movie, Music, Video Games, Entertainment",
+                            "Industrial, Medical, Scientific Supplies & Office Product",
+                            "Clothing, Fashion, Fashion Accessories, Jewellery, Luggage, Shoes",
+                            "Electronics (camera, Mobile, PC, Wireless) & Accessories",
+                            "Grocery, Food & Pet Supplies",
+                            "Health, Buety, Personal Care & Personal Care Appliances",
+                            "Home Decure, Home improvement,Furniture, Outdoor, Lawn Garden",
+                            "Kitchen, Large & Small Appliances",
+                            "Sports Gym & Sporting Equipment",
+                            "Others",
+                          ],
+                          onChanged: (value) {
+                            print("Selected Category: $value");
+                          },
+                        ),
+                        CustomDropdown(
+                          width: 200,
+                          label: "Area",
+                          hintText:
+                              "Coin Collectibles",
+                          items: [
+                            "Coin Collectibles",
+                            "Silver Coins & Bars",
+                            "Furniture - Other Products",
+                            "Toys - Other Products",
+                            "Grocery - Other Products",
+                            "Office - Other Products",
+                            "Personal Care & Personal Care Appliances",
+                            "Health, Buety, Personal Care & Personal Care Appliances",
+                            "Health, Personal Care - Other Household Supplies",
+                            "Business & Industrial Supplies - Other Product",
+                            "Loan & Garden - Other Product",
+                            "Luggage - Other Product",
+                            "Fine Art",
+                            "Baby Product - Other Product",
+                            "Apparel - Other Product",
+                            "Indoor Lightings - Others",
+                            "Sports - Other Product",
+                            "Automotive - Other Product",
+                            "Consumable Physical Gift Card",
+                            "Warranty Services",
+                            "Home - Other Product",
+                            "Home - Other Subcategories",
+                          ],
+                          onChanged: (value) {
+                            print("Selected Category: $value");
+                          },
+                        ),
+                         CustomSpinBox(
+                          width: 200,
+                          label: "Price",
+                          min: 0,
+                          max: 1000000,
+                          initialValue: 0,
+                          step: 1,
+                          onChanged: (value) {
+                            print("Selected Price: $value");
+                          },
+                        ),
+                      ],
+                    ),
+              SizedBox(height: 20),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildForm(
+      GlobalKey<FormState> formKey, topbar.DeviceScreenType deviceType) {
+    var screenSize = MediaQuery.of(context).size;
+    var deviceType = topbar.getDeviceType(screenSize);
+    bool isMobile = deviceType == topbar.DeviceScreenType.mobile;
+
+    return Form(
+      key: _formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Contact Us Title
+          AutoSizeText(
+            "Contact Us",
+            style: TextStyle(
+              fontSize: deviceType == topbar.DeviceScreenType.mobile
+                  ? 18
+                  : (deviceType == topbar.DeviceScreenType.tablet ? 20 : 22),
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 20),
+
+          isMobile
+              ? Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Center(
-                            child: Image.asset(
-                          "assets/amz.jpeg",
-                          height: 80,
-                        )),
-                        isDesktop
-                            ? Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Category",
-                                        style: TextStyle(
-                                          color: white,
-                                          fontSize: deviceType ==
-                                                  topbar.DeviceScreenType.mobile
-                                              ? 15
-                                              : (deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .tablet
-                                                  ? 15
-                                                  : 17),
-                                        ),
-                                      ),
-                                      SizedBox(height: 10),
-                                      SizedBox(
-                                        width: isMobile
-                                            ? 310
-                                            : 600, // Fixed width for the TextField
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: Colors
-                                                .white, // Set background color to white
-                                            borderRadius: BorderRadius.circular(
-                                                8), // Rounded corners
-                                          ),
-                                          child:
-                                              DropdownButtonFormField<String>(
-                                            decoration: InputDecoration(
-                                              hintText:
-                                                  "Clothing, Fashion, Fashion Accessories, Jewellery, Luggage, Shoes",
-                                              border: OutlineInputBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        8), // Rounded corners
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        8), // Rounded corners
-                                                borderSide: BorderSide(
-                                                  color: Colors.blue,
-                                                  width: 2, // Blue border
-                                                ),
-                                              ),
-                                              filled: true,
-                                              fillColor: Colors
-                                                  .white, // Ensure the input area is also white
-                                            ),
-                                            items: [
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Automative, Car & Accessories",
-                                                child: Text(
-                                                  "Automative, Car & Accessories",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Baby Product, Toys & Educations",
-                                                child: Text(
-                                                  "Baby Product, Toys & Educations",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Book, Movie, Music, Video Games, Entertainment",
-                                                child: Text(
-                                                  "Book, Movie, Music, Video Games, Entertainment",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Industrial, Medical, Scientific Supplies & Office Product",
-                                                child: Text(
-                                                  "Industrial, Medical, Scientific Supplies & Office Product",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value: "Default",
-                                                child: Text(
-                                                  "Clothing, Fashion, Fashion Accessories, Jewellery, Luggage, Shoes",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Electronics (camera, Mobile, PC, Wireless) & Accessories",
-                                                child: Text(
-                                                  "Electronics (camera, Mobile, PC, Wireless) & Accessories",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Grocery, Food & Pet Supplies",
-                                                child: Text(
-                                                  "Grocery, Food & Pet Supplies",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Health, Buety, Personal Care & Personal Care Appliances",
-                                                child: Text(
-                                                  "Health, Buety, Personal Care & Personal Care Appliances",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Home Decure, Home improvement,Furniture, Outdoor, Lawn Garden",
-                                                child: Text(
-                                                  "Home Decure, Home improvement,Furniture, Outdoor, Lawn Garden",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Kitchen, Large & Small Appliances",
-                                                child: Text(
-                                                  "Kitchen, Large & Small Appliances",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Sports Gym & Sporting Equipment",
-                                                child: Text(
-                                                  "Sports Gym & Sporting Equipment",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value: "Others",
-                                                child: Text(
-                                                  "Others",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                            ],
-                                            onChanged: (value) {
-                                              // Handle the selected value
-                                              print(
-                                                  "Selected Department: $value");
-                                            },
-                                            value:
-                                                null, // Set the default value or selected value here
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Sub category",
-                                        style: TextStyle(
-                                          color: white,
-                                          fontSize: deviceType ==
-                                                  topbar.DeviceScreenType.mobile
-                                              ? 15
-                                              : (deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .tablet
-                                                  ? 15
-                                                  : 17),
-                                        ),
-                                      ),
-                                      SizedBox(height: 10),
-                                      SizedBox(
-                                        width: isMobile
-                                            ? 310
-                                            : 600, // Fixed width for the TextField
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: Colors
-                                                .white, // Set background color to white
-                                            borderRadius: BorderRadius.circular(
-                                                8), // Rounded corners
-                                          ),
-                                          child:
-                                              DropdownButtonFormField<String>(
-                                            decoration: InputDecoration(
-                                              hintText: "Coin Collectibles",
-                                              border: OutlineInputBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        8), // Rounded corners
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        8), // Rounded corners
-                                                borderSide: BorderSide(
-                                                  color: Colors.blue,
-                                                  width: 2, // Blue border
-                                                ),
-                                              ),
-                                              filled: true,
-                                              fillColor: Colors
-                                                  .white, // Ensure the input area is also white
-                                            ),
-                                            items: [
-                                              DropdownMenuItem(
-                                                value: "Default",
-                                                child: Text(
-                                                  "Coin Collectibles",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value: "Silver Coins & Bars",
-                                                child: Text(
-                                                  "Silver Coins & Bars",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Furniture - Other Products",
-                                                child: Text(
-                                                  "Furniture - Other Products",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value: "Toys - Other Products",
-                                                child: Text(
-                                                  "Toys - Other Products",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Grocery - Other Products",
-                                                child: Text(
-                                                  "Grocery - Other Products",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Office - Other Products",
-                                                child: Text(
-                                                  "Office - Other Products",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Personal Care & Personal Care Appliances",
-                                                child: Text(
-                                                  "Personal Care & Personal Care Appliances",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Health & Personal Care (HPC) - Other Sub Categories",
-                                                child: Text(
-                                                  "Health, Buety, Personal Care & Personal Care Appliances",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Health, Personal Care - Other Household Supplies",
-                                                child: Text(
-                                                  "Health, Personal Care - Other Household Supplies",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Business & Industrial Supplies - Other Product",
-                                                child: Text(
-                                                  "Business & Industrial Supplies - Other Product",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Loan & Garden - Other Product",
-                                                child: Text(
-                                                  "Loan & Garden - Other Product",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Luggage - Other Product",
-                                                child: Text(
-                                                  "Luggage - Other Product",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value: "Fine Art",
-                                                child: Text(
-                                                  "Fine Art",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Baby Product - Other Product",
-                                                child: Text(
-                                                  "Baby Product - Other Product",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Apparel - Other Product",
-                                                child: Text(
-                                                  "Apparel - Other Product",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Indoor Lightings - Others",
-                                                child: Text(
-                                                  "Indoor Lightings - Others",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value: "Sports - Other Product",
-                                                child: Text(
-                                                  "Sports - Other Product",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Automotive - Other Product",
-                                                child: Text(
-                                                  "Automotive - Other Product",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Consumable Physical Gift Card",
-                                                child: Text(
-                                                  "Consumable Physical Gift Card",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value: "Warranty Services",
-                                                child: Text(
-                                                  "Warranty Services",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value: "Home - Other Product",
-                                                child: Text(
-                                                  "Home - Other Product",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Home - Other Subcategories",
-                                                child: Text(
-                                                  "Home - Other Subcategories",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                            ],
-                                            onChanged: (value) {
-                                              // Handle the selected value
-                                              print(
-                                                  "Selected Department: $value");
-                                            },
-                                            value:
-                                                null, // Set the default value or selected value here
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              )
-                            : Column(
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Your Name",
-                                        style: TextStyle(
-                                          color: Colors.black54,
-                                          fontSize: deviceType ==
-                                                  topbar.DeviceScreenType.mobile
-                                              ? 15
-                                              : (deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .tablet
-                                                  ? 15
-                                                  : 17),
-                                        ),
-                                      ),
-                                      SizedBox(height: 10),
-                                      SizedBox(
-                                        width: isMobile
-                                            ? 310
-                                            : 310, // Fixed width for the TextField
-                                        child: TextField(
-                                          decoration: InputDecoration(
-                                            labelText: "Your Name",
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      8), // Rounded corners
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      8), // Rounded corners
-                                              borderSide: BorderSide(
-                                                  color: Colors.blue,
-                                                  width: 2), // Blue border
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(height: 10),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Your E-mail",
-                                        style: TextStyle(
-                                          color: black54,
-                                          fontSize: deviceType ==
-                                                  topbar.DeviceScreenType.mobile
-                                              ? 15
-                                              : (deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .tablet
-                                                  ? 15
-                                                  : 17),
-                                        ),
-                                      ),
-                                      SizedBox(height: 10),
-                                      SizedBox(
-                                        width: isMobile
-                                            ? 310
-                                            : 310, // Fixed width for the TextField
-                                        child: TextField(
-                                          obscureText: true,
-                                          decoration: InputDecoration(
-                                            labelText: "Email",
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      8), // Rounded corners
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      8), // Rounded corners
-                                              borderSide: BorderSide(
-                                                  color: Colors.blue,
-                                                  width: 2), // Blue border
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                        SizedBox(height: 20),
-                        isDesktop
-                            ? Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Price", // Label
-                                        style: TextStyle(
-                                          color: white,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      SizedBox(height: 8),
-                                      SizedBox(
-                                        width:
-                                            310, // Set a fixed width if needed
-                                        child: SpinBox(
-                                          min: 0,
-                                          max: 1000000, // Set the numeric range
-                                          value: 0, // Default starting value
-                                          step: 1, // Increment step
-                                          textStyle: TextStyle(fontSize: 14),
-                                          incrementIcon: Icon(
-                                              Icons.arrow_drop_up,
-                                              size: 24,
-                                              color: Colors
-                                                  .blue), // Up arrow with color
-                                          decrementIcon: Icon(
-                                              Icons.arrow_drop_down,
-                                              size: 24,
-                                              color: Colors.blue),
-                                          decoration: InputDecoration(
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                            ),
-                                            filled: true,
-                                            fillColor: Colors.white,
-                                          ),
-                                          onChanged: (value) {
-                                            print("Selected Price: $value");
-                                          },
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                    Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Tax",
-                                        style: TextStyle(
-                                          color: white,
-                                          fontSize: deviceType ==
-                                                  topbar.DeviceScreenType.mobile
-                                              ? 15
-                                              : (deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .tablet
-                                                  ? 15
-                                                  : 17),
-                                        ),
-                                      ),
-                                      SizedBox(height: 10),
-                                      SizedBox(
-                                        width: 310, // Fixed width for the TextField
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: Colors
-                                                .white, // Set background color to white
-                                            borderRadius: BorderRadius.circular(
-                                                8), // Rounded corners
-                                          ),
-                                          child:
-                                              DropdownButtonFormField<String>(
-                                            decoration: InputDecoration(
-                                              hintText:
-                                                  "FREE GST",
-                                              border: OutlineInputBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        8), // Rounded corners
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        8), // Rounded corners
-                                                borderSide: BorderSide(
-                                                  color: Colors.blue,
-                                                  width: 2, // Blue border
-                                                ),
-                                              ),
-                                              filled: true,
-                                              fillColor: Colors
-                                                  .white, // Ensure the input area is also white
-                                            ),
-                                            items: [
-                                              DropdownMenuItem(
-                                                value:
-                                                    "Default",
-                                                child: Text(
-                                                  "FREE GST",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "5%",
-                                                child: Text(
-                                                  "5%",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "12%",
-                                                child: Text(
-                                                  "12%",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "18%",
-                                                child: Text(
-                                                  "18%",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                              DropdownMenuItem(
-                                                value:
-                                                    "28%",
-                                                child: Text(
-                                                  "28%",
-                                                  overflow: TextOverflow
-                                                      .ellipsis, // Add ellipsis for long text
-                                                  maxLines:
-                                                      3, // Limit to one line
-                                                ),
-                                              ),
-                                            ],
-                                            onChanged: (value) {
-                                              // Handle the selected value
-                                              print(
-                                                  "Selected Tax: $value");
-                                            },
-                                            value:
-                                                null, // Set the default value or selected value here
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                              ],
-                              )
-                            : Column(
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Your Phone Number",
-                                        style: TextStyle(
-                                          color: Colors.black54,
-                                          fontSize: deviceType ==
-                                                  topbar.DeviceScreenType.mobile
-                                              ? 15
-                                              : (deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .tablet
-                                                  ? 15
-                                                  : 17),
-                                        ),
-                                      ),
-                                      SizedBox(height: 10),
-                                      SizedBox(
-                                        width: isMobile
-                                            ? 310
-                                            : 310, // Fixed width for the TextField
-                                        child: TextField(
-                                          decoration: InputDecoration(
-                                            labelText: "Your Phone",
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      8), // Rounded corners
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      8), // Rounded corners
-                                              borderSide: BorderSide(
-                                                  color: Colors.blue,
-                                                  width: 2), // Blue border
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(height: 20),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Choose Concerned Department",
-                                        style: TextStyle(
-                                          color: black54,
-                                          fontSize: deviceType ==
-                                                  topbar.DeviceScreenType.mobile
-                                              ? 15
-                                              : (deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .tablet
-                                                  ? 15
-                                                  : 17),
-                                        ),
-                                      ),
-                                      SizedBox(height: 10),
-                                      SizedBox(
-                                        width: isMobile
-                                            ? 310
-                                            : 310, // Fixed width for the TextField
-                                        child: DropdownButtonFormField<String>(
-                                          decoration: InputDecoration(
-                                            labelText: "Select a Department",
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      8), // Rounded corners
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      8), // Rounded corners
-                                              borderSide: BorderSide(
-                                                color: Colors.blue,
-                                                width: 2, // Blue border
-                                              ),
-                                            ),
-                                          ),
-                                          items: [
-                                            DropdownMenuItem(
-                                              value: "Defualt",
-                                              child: Text(
-                                                "Select a Department",
-                                              ),
-                                            ),
-                                            DropdownMenuItem(
-                                              value: "Sales",
-                                              child: Text("Sales"),
-                                            ),
-                                            DropdownMenuItem(
-                                              value: "Support",
-                                              child: Text("Support"),
-                                            ),
-                                            DropdownMenuItem(
-                                              value: "Account & Billing",
-                                              child: Text("Account & Billing"),
-                                            ),
-                                          ],
-                                          onChanged: (value) {
-                                            // Handle the selected value
-                                            print(
-                                                "Selected Department: $value");
-                                          },
-                                          value:
-                                              null, // Set the default value or selected value here
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                        SizedBox(height: 20),
                         Text(
-                          "Write your message",
+                          "Your Name",
                           style: TextStyle(
-                            color: black54,
+                            color: Colors.black54,
                             fontSize: deviceType ==
                                     topbar.DeviceScreenType.mobile
                                 ? 15
@@ -2021,580 +460,339 @@ class AmazonFeeCalcState extends State<AmazonFeeCalc> {
                           ),
                         ),
                         SizedBox(height: 10),
-                         SizedBox(height: 20),
-                         ],
+                        SizedBox(
+                          width: isMobile ? 310 : 310,
+                          child: TextFormField(
+                            controller: _nameController,
+                            decoration: InputDecoration(
+                              labelText: "Your Name",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide:
+                                    BorderSide(color: Colors.blue, width: 2),
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return "Please enter your name";
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
+                    SizedBox(height: 10),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Your E-mail",
+                          style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: deviceType ==
+                                    topbar.DeviceScreenType.mobile
+                                ? 15
+                                : (deviceType == topbar.DeviceScreenType.tablet
+                                    ? 15
+                                    : 17),
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        SizedBox(
+                          width: isMobile ? 310 : 310,
+                          child: TextFormField(
+                            controller: _emailController,
+                            decoration: InputDecoration(
+                              labelText: "Email",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide:
+                                    BorderSide(color: Colors.blue, width: 2),
+                              ),
+                            ),
+                            keyboardType: TextInputType.emailAddress,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return "Please enter your email";
+                              }
+                              // Basic email validation
+                              if (!RegExp(r'^[^@]+@[^@]+\.[^@]+')
+                                  .hasMatch(value)) {
+                                return "Please enter a valid email address";
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                )
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Your Name",
+                          style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: deviceType ==
+                                    topbar.DeviceScreenType.mobile
+                                ? 15
+                                : (deviceType == topbar.DeviceScreenType.tablet
+                                    ? 15
+                                    : 17),
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        SizedBox(
+                          width: isMobile ? 310 : 310,
+                          child: TextFormField(
+                            controller: _nameController,
+                            decoration: InputDecoration(
+                              labelText: "Your Name",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide:
+                                    BorderSide(color: Colors.blue, width: 2),
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return "Please enter your name";
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Your E-mail",
+                          style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: deviceType ==
+                                    topbar.DeviceScreenType.mobile
+                                ? 15
+                                : (deviceType == topbar.DeviceScreenType.tablet
+                                    ? 15
+                                    : 17),
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        SizedBox(
+                          width: isMobile ? 310 : 310,
+                          child: TextFormField(
+                            controller: _emailController,
+                            decoration: InputDecoration(
+                              labelText: "Email",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide:
+                                    BorderSide(color: Colors.blue, width: 2),
+                              ),
+                            ),
+                            keyboardType: TextInputType.emailAddress,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return "Please enter your email";
+                              }
+                              // Basic email validation
+                              if (!RegExp(r'^[^@]+@[^@]+\.[^@]+')
+                                  .hasMatch(value)) {
+                                return "Please enter a valid email address";
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+
+          SizedBox(height: 10),
+          // Contact Number Field
+          Text(
+            "Your Contact Number",
+            style: TextStyle(
+              color: Colors.black54,
+              fontSize: deviceType == topbar.DeviceScreenType.mobile
+                  ? 15
+                  : (deviceType == topbar.DeviceScreenType.tablet ? 15 : 17),
+            ),
+          ),
+          SizedBox(height: 10),
+          SizedBox(
+            width: isMobile ? 310 : 310,
+            child: TextFormField(
+              controller: _contactNumberController,
+              decoration: InputDecoration(
+                labelText: "Contact Number",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide(color: Colors.blue, width: 2),
                 ),
               ),
+              keyboardType: TextInputType.phone,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return "Please enter your contact number";
+                }
+                if (value.length != 10 ||
+                    !RegExp(r'^[0-9]+$').hasMatch(value)) {
+                  return "Please enter a valid 10-digit contact number";
+                }
+                return null;
+              },
+            ),
+          ),
+          SizedBox(height: 10),
 
-              // Right Content Section
-              Flexible(
-                flex: 50,
-                child: Padding(
-                    padding: EdgeInsets.only(
-                      // Adjust dynamically
-                      left: MediaQuery.of(context).size.height *
-                          0.03, // Adjust dynamically
-                    ),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(
-                            width: 2,
-                            color: Colors.grey.shade400,
-                          )),
-                      child: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Center(
-                              child: AutoSizeText(
-                                "Contact Us",
-                                style: TextStyle(
-                                  fontSize: deviceType ==
-                                          topbar.DeviceScreenType.mobile
-                                      ? 18
-                                      : (deviceType ==
-                                              topbar.DeviceScreenType.tablet
-                                          ? 20
-                                          : 22),
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 20),
-                            isDesktop
-                                ? Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Your Name",
-                                            style: TextStyle(
-                                              color: Colors.black54,
-                                              fontSize: deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .mobile
-                                                  ? 15
-                                                  : (deviceType ==
-                                                          topbar
-                                                              .DeviceScreenType
-                                                              .tablet
-                                                      ? 15
-                                                      : 17),
-                                            ),
-                                          ),
-                                          SizedBox(height: 10),
-                                          SizedBox(
-                                            width: isMobile
-                                                ? 310
-                                                : 310, // Fixed width for the TextField
-                                            child: TextField(
-                                              decoration: InputDecoration(
-                                                labelText: "Your Name",
-                                                border: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8), // Rounded corners
-                                                ),
-                                                focusedBorder:
-                                                    OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8), // Rounded corners
-                                                  borderSide: BorderSide(
-                                                      color: Colors.blue,
-                                                      width: 2), // Blue border
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(height: 10),
-                                          Text(
-                                            "Your E-mail",
-                                            style: TextStyle(
-                                              color: black54,
-                                              fontSize: deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .mobile
-                                                  ? 15
-                                                  : (deviceType ==
-                                                          topbar
-                                                              .DeviceScreenType
-                                                              .tablet
-                                                      ? 15
-                                                      : 17),
-                                            ),
-                                          ),
-                                          SizedBox(height: 10),
-                                          SizedBox(
-                                            width: isMobile
-                                                ? 310
-                                                : 310, // Fixed width for the TextField
-                                            child: TextField(
-                                              obscureText: true,
-                                              decoration: InputDecoration(
-                                                labelText: "Email",
-                                                border: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8), // Rounded corners
-                                                ),
-                                                focusedBorder:
-                                                    OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8), // Rounded corners
-                                                  borderSide: BorderSide(
-                                                      color: Colors.blue,
-                                                      width: 2), // Blue border
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  )
-                                : Column(
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Your Name",
-                                            style: TextStyle(
-                                              color: Colors.black54,
-                                              fontSize: deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .mobile
-                                                  ? 15
-                                                  : (deviceType ==
-                                                          topbar
-                                                              .DeviceScreenType
-                                                              .tablet
-                                                      ? 15
-                                                      : 17),
-                                            ),
-                                          ),
-                                          SizedBox(height: 10),
-                                          SizedBox(
-                                            width: isMobile
-                                                ? 310
-                                                : 310, // Fixed width for the TextField
-                                            child: TextField(
-                                              decoration: InputDecoration(
-                                                labelText: "Your Name",
-                                                border: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8), // Rounded corners
-                                                ),
-                                                focusedBorder:
-                                                    OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8), // Rounded corners
-                                                  borderSide: BorderSide(
-                                                      color: Colors.blue,
-                                                      width: 2), // Blue border
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(height: 10),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Your E-mail",
-                                            style: TextStyle(
-                                              color: black54,
-                                              fontSize: deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .mobile
-                                                  ? 15
-                                                  : (deviceType ==
-                                                          topbar
-                                                              .DeviceScreenType
-                                                              .tablet
-                                                      ? 15
-                                                      : 17),
-                                            ),
-                                          ),
-                                          SizedBox(height: 10),
-                                          SizedBox(
-                                            width: isMobile
-                                                ? 310
-                                                : 310, // Fixed width for the TextField
-                                            child: TextField(
-                                              obscureText: true,
-                                              decoration: InputDecoration(
-                                                labelText: "Email",
-                                                border: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8), // Rounded corners
-                                                ),
-                                                focusedBorder:
-                                                    OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8), // Rounded corners
-                                                  borderSide: BorderSide(
-                                                      color: Colors.blue,
-                                                      width: 2), // Blue border
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                            SizedBox(height: 20),
-                            isDesktop
-                                ? Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Your Phone Number",
-                                            style: TextStyle(
-                                              color: Colors.black54,
-                                              fontSize: deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .mobile
-                                                  ? 15
-                                                  : (deviceType ==
-                                                          topbar
-                                                              .DeviceScreenType
-                                                              .tablet
-                                                      ? 15
-                                                      : 17),
-                                            ),
-                                          ),
-                                          SizedBox(height: 10),
-                                          SizedBox(
-                                            width: isMobile
-                                                ? 310
-                                                : 310, // Fixed width for the TextField
-                                            child: TextField(
-                                              decoration: InputDecoration(
-                                                labelText: "Your phone",
-                                                border: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8), // Rounded corners
-                                                ),
-                                                focusedBorder:
-                                                    OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8), // Rounded corners
-                                                  borderSide: BorderSide(
-                                                      color: Colors.blue,
-                                                      width: 2), // Blue border
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Choose Concerned Department",
-                                            style: TextStyle(
-                                              color: black54,
-                                              fontSize: deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .mobile
-                                                  ? 15
-                                                  : (deviceType ==
-                                                          topbar
-                                                              .DeviceScreenType
-                                                              .tablet
-                                                      ? 15
-                                                      : 17),
-                                            ),
-                                          ),
-                                          SizedBox(height: 10),
-                                          SizedBox(
-                                            width: isMobile
-                                                ? 310
-                                                : 310, // Fixed width for the TextField
-                                            child:
-                                                DropdownButtonFormField<String>(
-                                              decoration: InputDecoration(
-                                                labelText:
-                                                    "Select a Department",
-                                                border: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8), // Rounded corners
-                                                ),
-                                                focusedBorder:
-                                                    OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8), // Rounded corners
-                                                  borderSide: BorderSide(
-                                                    color: Colors.blue,
-                                                    width: 2, // Blue border
-                                                  ),
-                                                ),
-                                              ),
-                                              items: [
-                                                DropdownMenuItem(
-                                                  value: "Defualt",
-                                                  child: Text(
-                                                    "Select a Department",
-                                                  ),
-                                                ),
-                                                DropdownMenuItem(
-                                                  value: "Sales",
-                                                  child: Text("Sales"),
-                                                ),
-                                                DropdownMenuItem(
-                                                  value: "Support",
-                                                  child: Text("Support"),
-                                                ),
-                                                DropdownMenuItem(
-                                                  value: "Account & Billing",
-                                                  child:
-                                                      Text("Account & Billing"),
-                                                ),
-                                              ],
-                                              onChanged: (value) {
-                                                // Handle the selected value
-                                                print(
-                                                    "Selected Department: $value");
-                                              },
-                                              value:
-                                                  null, // Set the default value or selected value here
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  )
-                                : Column(
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Your Phone Number",
-                                            style: TextStyle(
-                                              color: Colors.black54,
-                                              fontSize: deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .mobile
-                                                  ? 15
-                                                  : (deviceType ==
-                                                          topbar
-                                                              .DeviceScreenType
-                                                              .tablet
-                                                      ? 15
-                                                      : 17),
-                                            ),
-                                          ),
-                                          SizedBox(height: 10),
-                                          SizedBox(
-                                            width: isMobile
-                                                ? 310
-                                                : 310, // Fixed width for the TextField
-                                            child: TextField(
-                                              decoration: InputDecoration(
-                                                labelText: "Your Phone",
-                                                border: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8), // Rounded corners
-                                                ),
-                                                focusedBorder:
-                                                    OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8), // Rounded corners
-                                                  borderSide: BorderSide(
-                                                      color: Colors.blue,
-                                                      width: 2), // Blue border
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(height: 20),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Choose Concerned Department",
-                                            style: TextStyle(
-                                              color: black54,
-                                              fontSize: deviceType ==
-                                                      topbar.DeviceScreenType
-                                                          .mobile
-                                                  ? 15
-                                                  : (deviceType ==
-                                                          topbar
-                                                              .DeviceScreenType
-                                                              .tablet
-                                                      ? 15
-                                                      : 17),
-                                            ),
-                                          ),
-                                          SizedBox(height: 10),
-                                          SizedBox(
-                                            width: isMobile
-                                                ? 310
-                                                : 310, // Fixed width for the TextField
-                                            child:
-                                                DropdownButtonFormField<String>(
-                                              decoration: InputDecoration(
-                                                labelText:
-                                                    "Select a Department",
-                                                border: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8), // Rounded corners
-                                                ),
-                                                focusedBorder:
-                                                    OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8), // Rounded corners
-                                                  borderSide: BorderSide(
-                                                    color: Colors.blue,
-                                                    width: 2, // Blue border
-                                                  ),
-                                                ),
-                                              ),
-                                              items: [
-                                                DropdownMenuItem(
-                                                  value: "Defualt",
-                                                  child: Text(
-                                                    "Select a Department",
-                                                  ),
-                                                ),
-                                                DropdownMenuItem(
-                                                  value: "Sales",
-                                                  child: Text("Sales"),
-                                                ),
-                                                DropdownMenuItem(
-                                                  value: "Support",
-                                                  child: Text("Support"),
-                                                ),
-                                                DropdownMenuItem(
-                                                  value: "Account & Billing",
-                                                  child:
-                                                      Text("Account & Billing"),
-                                                ),
-                                              ],
-                                              onChanged: (value) {
-                                                // Handle the selected value
-                                                print(
-                                                    "Selected Department: $value");
-                                              },
-                                              value:
-                                                  null, // Set the default value or selected value here
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                            SizedBox(height: 20),
-                            Text(
-                              "Write your message",
-                              style: TextStyle(
-                                color: black54,
-                                fontSize:
-                                    deviceType == topbar.DeviceScreenType.mobile
-                                        ? 15
-                                        : (deviceType ==
-                                                topbar.DeviceScreenType.tablet
-                                            ? 15
-                                            : 17),
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                            Expanded(
-                              child: TextField(
-                                maxLines: 5, // Number of lines for the textarea
-                                decoration: InputDecoration(
-                                  labelText: "Write your Requirements.",
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        8), // Rounded corners
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        8), // Rounded corners
-                                    borderSide: BorderSide(
-                                      color: Colors.blue,
-                                      width: 2, // Blue border
-                                    ),
-                                  ),
-                                  alignLabelWithHint:
-                                      true, // Aligns label with the top of the textarea
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 20),
-                            ElevatedButton(
-                              onPressed: () {
-                                // Perform login action
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xff2377af),
-                                minimumSize: const Size(150, 40),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.zero,
-                                ),
-                              ),
-                              child: const Text(
-                                "Send Message",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    )),
+          // Department Dropdown
+          Text(
+            "Choose Concerned Department",
+            style: TextStyle(
+              color: Colors.black54,
+              fontSize: deviceType == topbar.DeviceScreenType.mobile
+                  ? 15
+                  : (deviceType == topbar.DeviceScreenType.tablet ? 15 : 17),
+            ),
+          ),
+          SizedBox(height: 10),
+          SizedBox(
+            width: isMobile ? 310 : 310,
+            child: DropdownButtonFormField<String>(
+              value: _selectedDepartment,
+              decoration: InputDecoration(
+                hintText: "Select a Department",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide(color: Colors.blue, width: 2),
+                ),
               ),
-            ],
-          );
+              items: [
+                DropdownMenuItem(
+                  value: null,
+                  child: Text("Select a Department"),
+                ),
+                DropdownMenuItem(
+                  value: "Sales",
+                  child: Text("Sales"),
+                ),
+                DropdownMenuItem(
+                  value: "Support",
+                  child: Text("Support"),
+                ),
+                DropdownMenuItem(
+                  value: "Account & Billing",
+                  child: Text("Account & Billing"),
+                ),
+              ],
+              onChanged: (value) {
+                setState(() {
+                  _selectedDepartment = value;
+                });
+              },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return "Please select a department";
+                }
+                return null;
+              },
+            ),
+          ),
+          SizedBox(height: 10),
+
+          // Message Field
+          Text(
+            "Write your message",
+            style: TextStyle(
+              color: Colors.black54,
+              fontSize: deviceType == topbar.DeviceScreenType.mobile
+                  ? 15
+                  : (deviceType == topbar.DeviceScreenType.tablet ? 15 : 17),
+            ),
+          ),
+          SizedBox(height: 10),
+          TextFormField(
+            controller: _messageController,
+            maxLines: 4,
+            decoration: InputDecoration(
+              labelText: "Write your Requirements.",
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: BorderSide(color: Colors.blue, width: 2),
+              ),
+              alignLabelWithHint: true,
+            ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return "Please enter your message";
+              }
+              return null;
+            },
+          ),
+          SizedBox(height: 20),
+
+          // Submit Button
+          ElevatedButton(
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                // Perform form submission
+                print("Form Submitted");
+                print("Name: ${_nameController.text}");
+                print("Email: ${_emailController.text}");
+                print("Contact Number: ${_contactNumberController.text}");
+                print("Department: $_selectedDepartment");
+                print("Message: ${_messageController.text}");
+              }
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xff2377af),
+              minimumSize: const Size(150, 40),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.zero,
+              ),
+            ),
+            child: const Text(
+              "Send Message",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

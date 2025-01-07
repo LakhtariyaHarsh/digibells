@@ -156,17 +156,23 @@ class _CommonfileState extends State<Commonfile> {
             ),
             Container(
               width: containerWidth,
-              child: Commendetail(name: widget.name,),
+              child: Commendetail(
+                name: widget.name,
+              ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Container(
               width: containerWidth,
               child: HoverCardPage(),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Container(
               width: containerWidth,
-              height: screenSize.height * 1.3,
+              height: 1100,
               // color: orange, // Background color
               child: Contactform(),
             ),
@@ -300,22 +306,28 @@ class _CommonfileState extends State<Commonfile> {
             ),
             Container(
               width: containerWidth,
-              child: Commendetail(name: widget.name,),
+              child: Commendetail(
+                name: widget.name,
+              ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Container(
               width: containerWidth,
               child: HoverCardPage(),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Container(
               width: containerWidth,
-              height: deviceType == topbar.DeviceScreenType.tablet
-                  ? 1050
-                  : 650,
+              height: deviceType == topbar.DeviceScreenType.tablet ? 1200 : 800,
               child: Contactform(),
             ),
-            SizedBox(height: 40,),
+            SizedBox(
+              height: 40,
+            ),
             Container(
               width: containerWidth,
               child: Serviceurl.Serviceurl(),
@@ -464,23 +476,27 @@ class _CommonfileState extends State<Commonfile> {
             ),
             Container(
               width: containerWidth,
-              child: Commendetail(name: widget.name,),
+              child: Commendetail(
+                name: widget.name,
+              ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Container(
               width: containerWidth,
               child: HoverCardPage(),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Container(
               width: containerWidth,
-              height: deviceType == topbar.DeviceScreenType.desktop
-                  ? 650
-                  : deviceType == topbar.DeviceScreenType.hubmax
-                      ? 650
-                      : deviceType == topbar.DeviceScreenType.isWideColumnLayout
-                          ? 650
-                          : 670,
+              height: (deviceType == topbar.DeviceScreenType.desktop ||
+                      deviceType == topbar.DeviceScreenType.hubmax ||
+                      deviceType == topbar.DeviceScreenType.isWideColumnLayout)
+                  ? 750
+                  : 670,
               child: Contactform(),
             ),
             SizedBox(

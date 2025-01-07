@@ -251,17 +251,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
             ),
             Container(
               width: containerWidth,
-              height: deviceType == topbar.DeviceScreenType.desktop
-                  ? 500
-                  : deviceType == topbar.DeviceScreenType.hubmax
-                      ? 700
-                      : deviceType == topbar.DeviceScreenType.isWideColumnLayout
-                          ? 650
-                          : deviceType == topbar.DeviceScreenType.tablet
-                              ? 650
-                              : deviceType == topbar.DeviceScreenType.mobile
-                                  ? 1300
-                                  : screenSize.height,
+              height: 1300,
               // color: orange, // Background color
               child: AmazonFeeCalc(),
             ),
