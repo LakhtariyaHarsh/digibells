@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:digibells/container/amazonpageintro.dart';
 import 'package:digibells/container/serviceurl.dart' as Serviceurl;
 import 'package:digibells/footer/bottompart.dart';
 import 'package:digibells/topbar/appbar.dart';
@@ -76,7 +77,8 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
       containerHeight = 150;
     }
     return Scaffold(
-      appBar: deviceType == topbar.DeviceScreenType.mobile
+      appBar: deviceType == topbar.DeviceScreenType.mobile ||
+              deviceType == topbar.DeviceScreenType.tablet
           ? AppBar(
               title: Text(
                 "MENU",
@@ -128,7 +130,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
             ),
             Container(
               width: containerWidth,
-              height:1500,
+              height: 1500,
               child: AmazonFeeCalc(),
             ),
             SizedBox(
@@ -219,16 +221,20 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              color: white,
-              width: screenSize.width,
-              child: Statusbar(),
-            ),
-            SizedBox(
-                child: Container(
-              width: screenSize.width,
-              child: AppbarforWeb(),
-            )),
+            deviceType == topbar.DeviceScreenType.hubmax
+                ? Container(
+                    color: white,
+                    width: screenSize.width,
+                    child: Statusbar(),
+                  )
+                : SizedBox(),
+            deviceType == topbar.DeviceScreenType.hubmax
+                ? SizedBox(
+                    child: Container(
+                    width: screenSize.width,
+                    child: AppbarforWeb(),
+                  ))
+                : SizedBox(),
             SizedBox(
               height: 40,
             ),
@@ -385,6 +391,13 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
               width: containerWidth,
               height: 700,
               child: AmazonFeeCalc(),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Container(
+              width: containerWidth,
+              child: Amazonpageintro(),
             ),
             SizedBox(
               height: 30,

@@ -17,11 +17,6 @@ class _AppbarforWebState extends State<AppbarforWeb> {
   OverlayEntry? _overlayEntry;
 
   final Map<String, List<String>> popupMenuData = {
-    "Alibaba GGS Services ⮟": [
-      "Alibaba-Account-Management",
-      "Alibaba-Product-Listing-Services",
-      "Alibaba-Global-Gold-Membership",
-    ],
     "Account Management Services ⮟": [
       "Amazon-Account-Management",
       "Flipkart-Account-Management",
@@ -98,15 +93,11 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                         ),
                       ),
                     for (var text1 in [
-                      "Alibaba GGS Services ⮟",
                       "Account Management Services ⮟",
                     ])
                       PopupMenuButton<String>(
                         onSelected: (value) {
                           for (var targetText in [
-                            "Alibaba-Account-Management",
-                            "Alibaba-Product-Listing-Services",
-                            "Alibaba-Global-Gold-Membership",
                             "Amazon-Account-Management",
                             "Flipkart-Account-Management",
                             "Meesho-Account-Management",

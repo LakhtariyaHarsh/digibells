@@ -117,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
       containerHeight = 150;
     }
     return Scaffold(
-      appBar: deviceType == topbar.DeviceScreenType.mobile
+      appBar: deviceType == topbar.DeviceScreenType.mobile || deviceType == topbar.DeviceScreenType.tablet
           ? AppBar(
               title: Text(
                 "MENU",
@@ -301,17 +301,18 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               color: grey,
               child: Column(
-                children: [
+                children: [deviceType == topbar.DeviceScreenType.hubmax ?
                   Container(
                     color: white,
                     width: screenSize.width,
                     child: Statusbar(),
-                  ),
+                  ): SizedBox(),
+                  deviceType == topbar.DeviceScreenType.hubmax ?
                   SizedBox(
                       child: Container(
                     width: screenSize.width,
                     child: AppbarforWeb(),
-                  )),
+                  )) : SizedBox(),
                   Container(
                     width: containerWidth,
                     height: containerHeight,

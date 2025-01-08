@@ -79,7 +79,7 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
       containerHeight = 150;
     }
     return Scaffold(
-      appBar: deviceType == topbar.DeviceScreenType.mobile
+      appBar: deviceType == topbar.DeviceScreenType.mobile ||deviceType == topbar.DeviceScreenType.tablet
           ? AppBar(
               title: Text(
                 "MENU",
@@ -268,16 +268,20 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              color: white,
-              width: screenSize.width,
-              child: Statusbar(),
-            ),
-            SizedBox(
-                child: Container(
-              width: screenSize.width,
-              child: AppbarforWeb(),
-            )),
+            deviceType == topbar.DeviceScreenType.hubmax
+                ? Container(
+                    color: white,
+                    width: screenSize.width,
+                    child: Statusbar(),
+                  )
+                : SizedBox(),
+            deviceType == topbar.DeviceScreenType.hubmax
+                ? SizedBox(
+                    child: Container(
+                    width: screenSize.width,
+                    child: AppbarforWeb(),
+                  ))
+                : SizedBox(),
             Container(
               color: black54,
               width: screenSize.width,

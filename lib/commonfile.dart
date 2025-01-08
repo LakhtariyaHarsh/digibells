@@ -78,7 +78,7 @@ class _CommonfileState extends State<Commonfile> {
       containerHeight = 150;
     }
     return Scaffold(
-      appBar: deviceType == topbar.DeviceScreenType.mobile
+      appBar: deviceType == topbar.DeviceScreenType.mobile || deviceType == topbar.DeviceScreenType.tablet
           ? AppBar(
               title: Text(
                 "MENU",
@@ -161,19 +161,18 @@ class _CommonfileState extends State<Commonfile> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 60,
             ),
             Container(
               width: containerWidth,
               child: HoverCardPage(),
             ),
             SizedBox(
-              height: 20,
+              height: 60,
             ),
             Container(
               width: containerWidth,
-              height: 1100,
-              // color: orange, // Background color
+              height: 1000,
               child: Contactform(),
             ),
             Container(
@@ -258,6 +257,20 @@ class _CommonfileState extends State<Commonfile> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            deviceType == topbar.DeviceScreenType.hubmax
+                ? Container(
+                    color: white,
+                    width: screenSize.width,
+                    child: Statusbar(),
+                  )
+                : SizedBox(),
+            deviceType == topbar.DeviceScreenType.hubmax
+                ? SizedBox(
+                    child: Container(
+                    width: screenSize.width,
+                    child: AppbarforWeb(),
+                  ))
+                : SizedBox(),
             Container(
               color: black54,
               width: screenSize.width,
@@ -322,7 +335,7 @@ class _CommonfileState extends State<Commonfile> {
             ),
             Container(
               width: containerWidth,
-              height: deviceType == topbar.DeviceScreenType.tablet ? 1200 : 800,
+              height: deviceType == topbar.DeviceScreenType.tablet ? 1100 : 680,
               child: Contactform(),
             ),
             SizedBox(
@@ -492,11 +505,7 @@ class _CommonfileState extends State<Commonfile> {
             ),
             Container(
               width: containerWidth,
-              height: (deviceType == topbar.DeviceScreenType.desktop ||
-                      deviceType == topbar.DeviceScreenType.hubmax ||
-                      deviceType == topbar.DeviceScreenType.isWideColumnLayout)
-                  ? 750
-                  : 670,
+              height: 680,
               child: Contactform(),
             ),
             SizedBox(

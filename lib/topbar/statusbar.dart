@@ -78,194 +78,187 @@ class _StatusbarState extends State<Statusbar> {
                   deviceType == topbar.DeviceScreenType.hubmax ||
                   deviceType == topbar.DeviceScreenType.isWideColumnLayout)
                 SizedBox(
-                  width: screenSize.width * 0.7,
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: black12, // Black border color
-                                  width: 2.0, // Border width
-                                ),
+                  width: screenSize.width * 0.75,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: black12, // Black border color
+                                width: 2.0, // Border width
                               ),
-                              child: CircleAvatar(
-                                radius: 20, // Adjust the size of the CircleAvatar
-                                backgroundColor: white,
-                                child: Padding(
-                                  padding: EdgeInsets.all(
-                                      8.0), // Padding between icon and circle
-                                  child: Icon(
-                                    Icons.access_time,
-                                    color: Colors.orange, // Icon color
-                                    size: 20, // Icon size to maintain proportions
-                                  ),
+                            ),
+                            child: CircleAvatar(
+                              radius: 20, // Adjust the size of the CircleAvatar
+                              backgroundColor: white,
+                              child: Padding(
+                                padding: EdgeInsets.all(
+                                    8.0), // Padding between icon and circle
+                                child: Icon(
+                                  Icons.access_time,
+                                  color: Colors.orange, // Icon color
+                                  size: 20, // Icon size to maintain proportions
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Working Hours",
-                                  style: TextStyle(
-                                      color: black54,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 7,
-                                ),
-                                Text(
-                                  "Mon - Sat, 09:30 - 6:30",
-                                  style: TextStyle(
-                                      color: black54,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                        SizedBox(width: 10,),
-                        Row(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: black12, // Black border color
-                                  width: 2.0, // Border width
-                                ),
-                              ),
-                              child: CircleAvatar(
-                                radius: 20, // Adjust the size of the CircleAvatar
-                                backgroundColor: white,
-                                child: Padding(
-                                  padding: EdgeInsets.all(
-                                      8.0), // Padding between icon and circle
-                                  child: Icon(
-                                    Icons.phone_enabled,
-                                    color: Colors.orange, // Icon color
-                                    size: 20, // Icon size to maintain proportions
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Click to Call",
-                                  style: TextStyle(
-                                      color: black54,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 7,
-                                ),
-                                MouseRegion(
-                                  onEnter: (_) {
-                                    setState(() {
-                                      hoveredText = "9643368309 / 888282222";
-                                    });
-                                  },
-                                  onExit: (_) {
-                                    setState(() {
-                                      hoveredText = "";
-                                    });
-                                  },
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      print("Text clicked");
-                                    },
-                                    child: Text(
-                                      "9643368309 / 888282222",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: hoveredText == "9643368309 / 888282222"
-                                            ? Color(0xff007dcc)
-                                            : Colors.blue,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                        SizedBox(width: 10,),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
+                          ),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                    color: black12, // Black border color
-                                    width: 2.0, // Border width
-                                  ),
-                                ),
-                                child: CircleAvatar(
-                                  radius:
-                                      20, // Adjust the size of the CircleAvatar
-                                  backgroundColor: white,
-                                  child: Padding(
-                                    padding: EdgeInsets.all(
-                                        8.0), // Padding between icon and circle
-                                    child: Icon(
-                                      Icons.mail_outline,
-                                      color: Colors.orange, // Icon color
-                                      size:
-                                          20, // Icon size to maintain proportions
-                                    ),
-                                  ),
-                                ),
+                              Text(
+                                "Working Hours",
+                                style: TextStyle(
+                                    color: black54,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
                               ),
                               SizedBox(
-                                width: 15,
+                                height: 7,
                               ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Connect Us",
-                                    style: TextStyle(
-                                        color: black54,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    height: 7,
-                                  ),
-                                  Text(
-                                    "official@digitalsparkteam.com",
-                                    style: TextStyle(
-                                        color: black54,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold),
-                                  )
-                                ],
+                              Text(
+                                "Mon - Sat, 09:30 - 6:30",
+                                style: TextStyle(
+                                    color: black54,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
                               )
                             ],
+                          )
+                        ],
+                      ),
+                     
+                      Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: black12, // Black border color
+                                width: 2.0, // Border width
+                              ),
+                            ),
+                            child: CircleAvatar(
+                              radius: 20, // Adjust the size of the CircleAvatar
+                              backgroundColor: white,
+                              child: Padding(
+                                padding: EdgeInsets.all(
+                                    8.0), // Padding between icon and circle
+                                child: Icon(
+                                  Icons.phone_enabled,
+                                  color: Colors.orange, // Icon color
+                                  size: 20, // Icon size to maintain proportions
+                                ),
+                              ),
+                            ),
                           ),
-                        )
-                      ],
-                    ),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Click to Call",
+                                style: TextStyle(
+                                    color: black54,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 7,
+                              ),
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    hoveredText = "9643368309 / 888282222";
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    hoveredText = "";
+                                  });
+                                },
+                                child: GestureDetector(
+                                  onTap: () {
+                                    print("Text clicked");
+                                  },
+                                  child: Text(
+                                    "9643368309 / 888282222",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: hoveredText == "9643368309 / 888282222"
+                                          ? Color(0xff007dcc)
+                                          : Colors.blue,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: black12, // Black border color
+                                width: 2.0, // Border width
+                              ),
+                            ),
+                            child: CircleAvatar(
+                              radius:
+                                  20, // Adjust the size of the CircleAvatar
+                              backgroundColor: white,
+                              child: Padding(
+                                padding: EdgeInsets.all(
+                                    8.0), // Padding between icon and circle
+                                child: Icon(
+                                  Icons.mail_outline,
+                                  color: Colors.orange, // Icon color
+                                  size:
+                                      20, // Icon size to maintain proportions
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Connect Us",
+                                style: TextStyle(
+                                    color: black54,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 7,
+                              ),
+                              Text(
+                                "official@digitalsparkteam.com",
+                                style: TextStyle(
+                                    color: black54,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          )
+                        ],
+                      )
+                    ],
                   ),
                 ),
             ],

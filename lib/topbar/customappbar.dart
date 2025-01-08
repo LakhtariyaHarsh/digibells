@@ -1,40 +1,33 @@
-import 'package:digibells/commonfile.dart';
-import 'package:digibells/main.dart';
-import 'package:digibells/redirectaboutus.dart';
 import 'package:digibells/utills/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'topbarcontent.dart' as topbar;
 
 class CustomDrawer extends StatelessWidget {
   final Map<String, List<String>> popupMenuData = {
-    "Alibaba GGS Services": [
-      "Alibaba Account Management",
-      "Alibaba Product Listing Services",
-      "Alibaba Global Gold Membership",
-    ],
     "Account Management Services": [
-      "Amazon Account Management",
-      "Flipkart Account Management",
-      "Meesho Account Management",
-      "eBAY Account Management",
-      "Blinkit Account Management",
-      "Walmart Account Management",
+      "Amazon-Account-Management",
+      "Flipkart-Account-Management",
+      "Meesho-Account-Management",
+      "eBAY-Account-Management",
+      "Blinkit-Account-Management",
+      "Walmart-Account-Management",
     ],
     "Calculator": [
-      "Amazon Seller Fees Calculator India",
-      "Flipkart Seller Fees Calculator",
-      "Jiomart Seller Fees Calculator",
+      "Amazon-Seller-Fees-Calculator-India",
+      "Flipkart-Seller-Fees-Calculator",
+      "Jiomart-Seller-Fees-Calculator",
     ],
   };
 
   void navigateTo(BuildContext context, String routeName) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => Commonfile(name: routeName),
-      ),
-    );
+    if (routeName == "Amazon-Seller-Fees-Calculator-India") {
+                            // Redirect to Amazoncalcpage
+                            context
+                                .go('/calculator/${Uri.encodeComponent(routeName)}');
+                          } else {
+                            // Redirect to Commonfile
+                            context.go('/${Uri.encodeComponent(routeName)}');
+                          }
   }
 
   Widget buildPopupMenu(BuildContext context, String title) {
@@ -70,23 +63,22 @@ class CustomDrawer extends StatelessWidget {
           ListTile(
             title: Text('Home'),
             onTap: () {
-              GoRouter.of(context).push('/');
+              context.go('/home');
             },
           ),
           ListTile(
             title: Text('About Us'),
             onTap: () {
               // Navigate using GoRouter and pass the parameter
-              GoRouter.of(context).push('/about');
+              context.go('/about');
             },
           ),
           ListTile(
             title: Text('Contact Us'),
             onTap: () {
-               GoRouter.of(context).push('/Contact-Us');
+              context.go('/Contact-Us');
             },
           ),
-          buildPopupMenu(context, "Alibaba GGS Services"),
           buildPopupMenu(context, "Account Management Services"),
           buildPopupMenu(context, "Calculator"),
         ],

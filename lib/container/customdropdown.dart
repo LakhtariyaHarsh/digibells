@@ -15,7 +15,7 @@ class CustomDropdown extends StatefulWidget {
     required this.items,
     this.initialValue,
     this.onChanged,
-    this.width = 310, // Default value
+    this.width = double.infinity, // Default to double.infinity
   });
 
   @override
@@ -46,7 +46,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
         ),
         SizedBox(height: 10),
         SizedBox(
-          width: widget.width, // Use the custom width
+          width: widget.width, // Use the provided width
           child: Container(
             decoration: BoxDecoration(
               color: Colors.white,
@@ -96,7 +96,6 @@ class _CustomDropdownState extends State<CustomDropdown> {
   }
 }
 
-
 // CustomSpinBox widget
 
 class CustomSpinBox extends StatefulWidget {
@@ -115,7 +114,7 @@ class CustomSpinBox extends StatefulWidget {
     required this.initialValue,
     required this.step,
     this.onChanged,
-    this.width = 310, // Default value
+    this.width = double.infinity, // Default to double.infinity
   });
 
   @override
@@ -146,7 +145,7 @@ class _CustomSpinBoxState extends State<CustomSpinBox> {
         ),
         SizedBox(height: 10),
         SizedBox(
-          width: widget.width, // Use the custom width
+          width: widget.width, // Use the provided width
           child: SpinBox(
             min: widget.min,
             max: widget.max,
