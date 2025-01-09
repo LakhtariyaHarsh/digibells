@@ -5,7 +5,9 @@ import 'package:digibells/topbar/topbarcontent.dart' as topbar;
 import 'package:auto_size_text/auto_size_text.dart';
 
 class AmazonFeeCalc extends StatefulWidget {
-  const AmazonFeeCalc({super.key});
+  final String image;
+  final String name;
+  const AmazonFeeCalc({super.key, required this.image, required this.name});
 
   @override
   State<AmazonFeeCalc> createState() => AmazonFeeCalcState();
@@ -46,7 +48,7 @@ class AmazonFeeCalcState extends State<AmazonFeeCalc> {
                         width: 2,
                         color: Colors.grey.shade400,
                       )),
-                  child: FirstForm(_firstFormKey, deviceType),
+                  child: FirstForm(_firstFormKey, deviceType,widget.image as String, widget.name),
                 ),
                 const SizedBox(
                   height: 20,
@@ -69,7 +71,8 @@ class AmazonFeeCalcState extends State<AmazonFeeCalc> {
                         width: 2,
                         color: Colors.grey.shade400,
                       )),
-                  child: FirstForm(_firstFormKey, deviceType),
+                  child: FirstForm(_firstFormKey, deviceType,widget.image as String, widget.name),
+
                 ),
               ),
               Flexible(
@@ -88,7 +91,7 @@ class AmazonFeeCalcState extends State<AmazonFeeCalc> {
   }
 
   Widget FirstForm(
-      GlobalKey<FormState> formKey, topbar.DeviceScreenType deviceType) {
+      GlobalKey<FormState> formKey, topbar.DeviceScreenType deviceType, String image, String name) {
     var screenSize = MediaQuery.of(context).size;
     var deviceType = topbar.getDeviceType(screenSize);
     bool isHub = deviceType == topbar.DeviceScreenType.hubmax;
@@ -106,10 +109,13 @@ class AmazonFeeCalcState extends State<AmazonFeeCalc> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(
-                  child: Image.asset(
-                    "assets/amz.jpeg",
-                    height: 80,
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Center(
+                    child: Image.asset(
+                      image,
+                      height: 80,
+                    ),
                   ),
                 ),
                 (isMobile || isTablet || isHub)
@@ -407,12 +413,12 @@ class AmazonFeeCalcState extends State<AmazonFeeCalc> {
                       ),
                 SizedBox(height: 20),
                 AutoSizeText(
-                  "Amazon referral fee: 9.99",
+                  "${name} referral fee: 9.99",
                   style: TextStyle(fontSize: 16, color: white),
                 ),
                 SizedBox(height: 10),
                 AutoSizeText(
-                  "Amazon Shipping Fees 44",
+                  "${name} Shipping Fees 44",
                   style: TextStyle(fontSize: 16, color: white),
                 ),
                 SizedBox(height: 10),

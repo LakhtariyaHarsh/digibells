@@ -14,16 +14,16 @@ import 'footer/footer.dart' as footer;
 import 'package:digibells/container/amazonfeecalc.dart';
 import 'responsive.dart' as res;
 
-class Amazoncalcpage extends StatefulWidget {
+class Jiomartcalcpage extends StatefulWidget {
   final String name;
-  const Amazoncalcpage({super.key, required this.name});
+  const Jiomartcalcpage({super.key, required this.name});
 
   @override
-  State<Amazoncalcpage> createState() => _AmazoncalcpageState();
+  State<Jiomartcalcpage> createState() => _JiomartcalcpageState();
 }
 
-class _AmazoncalcpageState extends State<Amazoncalcpage> {
-  final ScrollController _scrollController = ScrollController();
+class _JiomartcalcpageState extends State<Jiomartcalcpage> {
+final ScrollController _scrollController = ScrollController();
   @override
   void dispose() {
     _scrollController
@@ -115,7 +115,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
               width: containerWidth,
               child: Center(
                 child: AutoSizeText(
-                  "Amazon Seller Fees Calculator India",
+                  "Jiomart Seller Fees Calculator India",
                   style: TextStyle(
                       fontSize: deviceType == topbar.DeviceScreenType.tablet
                           ? 30
@@ -131,7 +131,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
             Container(
               width: containerWidth,
               height: 1500,
-              child: AmazonFeeCalc(image: 'assets/amz.jpeg', name: 'Amazon',),
+              child: AmazonFeeCalc(image: 'assets/jiomart.png', name: 'Jiomart',),
             ),
             SizedBox(
               height: 30,
@@ -249,7 +249,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
               width: containerWidth,
               child: Center(
                 child: AutoSizeText(
-                  "Amazon Seller Fees Calculator India",
+                  "Jiomart Seller Fees Calculator India",
                   style: TextStyle(
                       fontSize: deviceType == topbar.DeviceScreenType.tablet
                           ? 30
@@ -266,7 +266,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
               width: containerWidth,
               height: 1300,
               // color: orange, // Background color
-              child: AmazonFeeCalc(image: 'assets/amz.jpeg', name: 'Amazon',),
+              child: AmazonFeeCalc(image: 'assets/jiomart.png', name: 'Jiomart',),
             ),
             SizedBox(
               height: 30,
@@ -388,7 +388,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
               width: containerWidth,
               child: Center(
                 child: AutoSizeText(
-                  "Amazon Seller Fees Calculator India",
+                  "Jiomart Seller Fees Calculator India",
                   style: TextStyle(
                       fontSize: deviceType == topbar.DeviceScreenType.tablet
                           ? 30
@@ -404,7 +404,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
             Container(
               width: containerWidth,
               height: 700,
-              child: AmazonFeeCalc(image: 'assets/amz.jpeg', name: 'Amazon',),
+              child: AmazonFeeCalc(image: 'assets/jiomart.png', name: 'Jiomart',),
             ),
             SizedBox(
               height: 30,

@@ -142,9 +142,13 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                             // Redirect to Amazoncalcpage
                             context
                                 .go('/calculator/${Uri.encodeComponent(value)}');
-                          } else {
+                          }else if (value == "Flipkart-Seller-Fees-Calculator") {
+                            // Redirect to Flipcartcalcpage
+                            context
+                                .go('/Flipkartcalculator/${Uri.encodeComponent(value)}');
+                          }  else {
                             // Redirect to Commonfile
-                            context.go('/${Uri.encodeComponent(value)}');
+                            context.go('/Jiomartcalculator/${Uri.encodeComponent(value)}');
                           }
                         },
                         itemBuilder: (_) => popupMenuData[text2]!
