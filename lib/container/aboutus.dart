@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:digibells/utills/constant.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:digibells/responsive.dart' as res;
-import 'package:digibells/topbar/topbarcontent.dart' as topbar;
 
 class Aboutus extends StatelessWidget {
   const Aboutus({super.key});

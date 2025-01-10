@@ -74,7 +74,7 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                             redirectHomepage();
                           } else {
                             context.go(
-                                '/Ecommerce-Website-Designing'); // Replace with your About Us page widget
+                                '/websiteDesigning'); // Replace with your About Us page widget
                           }
                         },
                         child: Padding(

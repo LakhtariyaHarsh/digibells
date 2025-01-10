@@ -78,7 +78,7 @@ class _StatusbarState extends State<Statusbar> {
                   deviceType == topbar.DeviceScreenType.hubmax ||
                   deviceType == topbar.DeviceScreenType.isWideColumnLayout)
                 SizedBox(
-                  width: screenSize.width * 0.75,
+                  width: screenSize.width * 0.7,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
