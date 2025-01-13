@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:digibells/topbar/topbarcontent.dart' as topbar;
 import 'package:auto_size_text/auto_size_text.dart';
 
-class Webservice1 extends StatefulWidget {
-  const Webservice1({super.key});
+class Webservice3 extends StatefulWidget {
+  const Webservice3({super.key});
 
   @override
-  State<Webservice1> createState() => _Webservice1State();
+  State<Webservice3> createState() => _Webservice3State();
 }
 
-class _Webservice1State extends State<Webservice1> {
+class _Webservice3State extends State<Webservice3> {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -23,7 +23,7 @@ class _Webservice1State extends State<Webservice1> {
               Padding(
                 padding: const EdgeInsets.only(right: 40.0, bottom: 40),
                 child: Image.asset(
-                  "assets/creative-website.webp",
+                  "assets/mobile-app.webp",
                   fit: BoxFit.cover,
                   width: double.infinity, // Ensure it fills the container
                   height: screenSize.height * 0.3, // Adjust for mobile/tablet
@@ -38,7 +38,7 @@ class _Webservice1State extends State<Webservice1> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     AutoSizeText(
-                      "Creative and Unique Website Designs",
+                      "Mobile App Development",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -46,12 +46,7 @@ class _Webservice1State extends State<Webservice1> {
                     ),
                     SizedBox(height: 10),
                     AutoSizeText(
-                      "Undoubtedly, Desire Div is an amazing website designing company in Gurgaon. It creates an innovative or creative website that attracts your customers and leaves a lasting impression. As we all know, a creative website plays an important role in grabbing the attention of online visitors and improving the user experience. In a digital environment where first impressions matter, a visually appealing and innovative website designing can help your brand stand out.",
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    SizedBox(height: 10),
-                    AutoSizeText(
-                      "Creative design focuses not only on aesthetics, but also on functionality and user interface to ensure seamless navigation and accessibility. Elements like unique layouts, attractive graphics, and thoughtful use of color schemes contribute to the overall appeal of your website. Additionally, responsive design principles are important to adapt to different devices and ensure a pleasant user experience.",
+                      "In a world where mobile phones have become a part of everyday life, companies are using mobile apps to connect with their audiences. We provide you with user-friendly, attractive and secure applications to help you grow your business. The application development process requires creativity, technical expertise and versatility towards new trends and we are the best website designing company in Gurgaon. We know that every user has different application needs and our team of experts is ready to meet them all for businesses and individuals.",
                       style: TextStyle(fontSize: 16),
                     ),
                   ],
@@ -70,7 +65,7 @@ class _Webservice1State extends State<Webservice1> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     AutoSizeText(
-                      "Creative and Unique Website Designs",
+                      "Mobile App Development",
                       style: TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.bold,
@@ -78,12 +73,7 @@ class _Webservice1State extends State<Webservice1> {
                     ),
                     SizedBox(height: 10),
                     AutoSizeText(
-                      "Undoubtedly, Desire Div is an amazing website designing company in Gurgaon. It creates an innovative or creative website that attracts your customers and leaves a lasting impression. As we all know, a creative website plays an important role in grabbing the attention of online visitors and improving the user experience. In a digital environment where first impressions matter, a visually appealing and innovative website designing can help your brand stand out.",
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    SizedBox(height: 10),
-                    AutoSizeText(
-                      "Creative design focuses not only on aesthetics, but also on functionality and user interface to ensure seamless navigation and accessibility. Elements like unique layouts, attractive graphics, and thoughtful use of color schemes contribute to the overall appeal of your website. Additionally, responsive design principles are important to adapt to different devices and ensure a pleasant user experience.",
+                      "In a world where mobile phones have become a part of everyday life, companies are using mobile apps to connect with their audiences. We provide you with user-friendly, attractive and secure applications to help you grow your business. The application development process requires creativity, technical expertise and versatility towards new trends and we are the best website designing company in Gurgaon. We know that every user has different application needs and our team of experts is ready to meet them all for businesses and individuals.",
                       style: TextStyle(fontSize: 16),
                     ),
                   ],
@@ -95,7 +85,7 @@ class _Webservice1State extends State<Webservice1> {
                 flex: 30,
                 child: Center(
                   child: Image.asset(
-                    "assets/creative-website.webp",
+                    "assets/mobile-app.webp",
                     fit: BoxFit.cover, // Maintain aspect ratio
                   ),
                 ),

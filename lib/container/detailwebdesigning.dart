@@ -154,17 +154,37 @@ class _DetailwebdesigningState extends State<Detailwebdesigning> {
             ),
           ),
           AutoSizeText(
-            "Website Designing Company in Gurgaon",
+            "Best Website Designing Company in Gurgaon",
             style: TextStyle(
               fontSize: 40,
             ), // Changed to white
           ),
           const SizedBox(height: 30),
-          AutoSizeText(
-            "Discover the power of Desire Div, an expert website design company in Gurgaon. With a commitment to transform old websites from the 90s into modern websites. Our team of talented website designers and developers have a deep understanding of the latest languages and technologies, ensuring that every website we create is not only visually appealing but also highly functional. Our portfolio includes a diverse range of projects, from elegant and modern corporate websites to vibrant and user-friendly e-commerce platforms.",
-            style: TextStyle(
-              fontSize: 16,
-            ), // Changed to white
+          RichText(
+            text: TextSpan(
+              text: "Discover the power of Desire Div ",
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black, // Adjust color as needed
+              ),
+              children: [
+               
+                TextSpan(
+                  text:
+                      ", an expert website design company in Gurgaon. With a commitment to transform old websites from the 90s into modern websites. Our team of talented ",
+                ),
+                TextSpan(
+                  text: "website designers and developers",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                TextSpan(
+                  text:
+                      " have a deep understanding of the latest languages and technologies, ensuring that every website we create is not only visually appealing but also highly functional. Our portfolio includes a diverse range of projects, from elegant and modern corporate websites to vibrant and user-friendly e-commerce platforms.",
+                ),
+              ],
+            ),
           ),
           const SizedBox(height: 24),
           (isMobile || isTablet)

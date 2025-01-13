@@ -115,6 +115,15 @@ class CustomDrawer extends StatelessWidget {
           ),
           Divider(),
           ListTile(
+            leading: Icon(Icons.web),
+            title: Text('Website Designing'),
+            onTap: () {
+              // Navigate using GoRouter and pass the parameter
+              context.go('/websiteDesigning');
+            },
+          ),
+          Divider(),
+          ListTile(
             leading: Icon(Icons.quick_contacts_dialer_sharp),
             title: Text('Contact Us'),
             onTap: () {

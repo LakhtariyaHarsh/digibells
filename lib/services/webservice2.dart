@@ -31,6 +31,9 @@ class _Webservice2State extends State<Webservice2> {
                   height: screenSize.height * 0.3, // Adjust height for mobile
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Column(
@@ -59,18 +62,21 @@ class _Webservice2State extends State<Webservice2> {
             ],
           )
         : Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               // Left Image Section
-              Expanded(
-                flex: 40,
-                child: Image.asset(
-                  "assets/ecommerce.webp",
-                  fit: BoxFit.cover,
+              Flexible(
+                flex: 30,
+                child: Center(
+                  child: Image.asset(
+                    "assets/ecommerce.webp",
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               // Right Content Section
               Flexible(
-                flex: 60,
+                flex: 30,
                 child: Padding(
                   padding: EdgeInsets.only(
                     left: screenSize.height * 0.05, // Adjust dynamically

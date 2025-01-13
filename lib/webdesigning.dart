@@ -1,13 +1,18 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:digibells/container/amazonpageintro.dart';
 import 'package:digibells/container/detailwebdesigning.dart';
+import 'package:digibells/container/howwebdesign.dart';
 import 'package:digibells/container/serviceurl.dart' as Serviceurl;
 import 'package:digibells/container/webdesigningintro.dart';
 import 'package:digibells/container/webquality.dart';
+import 'package:digibells/container/whychoose.dart';
+import 'package:digibells/container/whychooseweb.dart';
 import 'package:digibells/footer/bottompart.dart';
 import 'package:digibells/services/service1.dart';
 import 'package:digibells/services/webservice1.dart';
 import 'package:digibells/services/webservice2.dart';
+import 'package:digibells/services/webservice3.dart';
+import 'package:digibells/services/webservice4.dart';
 import 'package:digibells/topbar/appbar.dart';
 import 'package:digibells/topbar/customappbar.dart';
 import 'package:digibells/topbar/statusbar.dart';
@@ -133,10 +138,25 @@ class _WebdesigningState extends State<Webdesigning> {
               width: containerWidth,
               child: Detailwebdesigning(),
             ),
+           
             SizedBox(
               height: 30,
             ),
             _buildServiceSections(screenSize, containerWidth),
+             SizedBox(
+              height: 30,
+            ),
+            Container(
+              width: containerWidth,
+              child: Howwebdesign(),
+            ),
+             SizedBox(
+              height: 40,
+            ),
+            Container(
+              color: Colors.black87,
+              child: Whychooseweb(),
+            ),
             SizedBox(
               height: 30,
             ),
@@ -261,9 +281,23 @@ class _WebdesigningState extends State<Webdesigning> {
               child: Detailwebdesigning(),
             ),
             SizedBox(
-              height: 30,
+              height: 50,
             ),
             _buildServiceSections(screenSize, containerWidth),
+            SizedBox(
+              height: 30,
+            ),
+            Container(
+              width: containerWidth,
+              child: Howwebdesign(),
+            ),
+             SizedBox(
+              height: 40,
+            ),
+            Container(
+              color: Colors.black87,
+              child: Whychooseweb(),
+            ),
             SizedBox(
               height: 30,
             ),
@@ -391,9 +425,23 @@ class _WebdesigningState extends State<Webdesigning> {
               child: Detailwebdesigning(),
             ),
             SizedBox(
-              height: 30,
+              height: 50,
             ),
             _buildServiceSections(screenSize, containerWidth),
+             SizedBox(
+              height: 100,
+            ),
+            Container(
+              width: containerWidth,
+              child: Howwebdesign(),
+            ),
+            SizedBox(
+              height: 100,
+            ),
+            Container(
+              color: Colors.black87,
+              child: Whychooseweb(),
+            ),
             SizedBox(
               height: 30,
             ),
@@ -401,6 +449,7 @@ class _WebdesigningState extends State<Webdesigning> {
               width: containerWidth,
               child: Serviceurl.Serviceurl(),
             ),
+            
             SizedBox(
               height: 20,
             ),
@@ -483,25 +532,25 @@ class _WebdesigningState extends State<Webdesigning> {
           child: Webservice1(),
         ),
         SizedBox(
-          height: 60,
+          height: 100,
         ),
         Container(
           width: containerWidth,
           child: Webservice2(),
         ),
         SizedBox(
-          height: 60,
+          height: 100,
         ),
         Container(
           width: containerWidth,
-          child: Webservice1(),
+          child: Webservice3(),
         ),
         SizedBox(
-          height: 60,
+          height: 100,
         ),
         Container(
           width: containerWidth,
-          child: Webservice2(),
+          child: Webservice4(),
         ),
       ],
     );
