@@ -1,8 +1,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    
     <application
         android:label="digibells"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <!-- Add Google Maps API Key Here -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDEbV8pJrdpVk5sFC0pGaxXyag4IpRoRTA" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -24,11 +24,9 @@ class _Service3State extends State<Service3> {
                 child: Padding(
                   padding:
                       const EdgeInsets.only(right: 40.0, top: 40, bottom: 40),
-                  child: Positioned.fill(
-                    child: Image.asset(
-                      "assets/features-3.png",
-                      fit: BoxFit.cover,
-                    ),
+                  child: Image.asset(
+                    "assets/features-3.png",
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),

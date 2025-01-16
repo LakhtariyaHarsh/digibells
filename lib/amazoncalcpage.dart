@@ -131,7 +131,10 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
             Container(
               width: containerWidth,
               height: 1500,
-              child: AmazonFeeCalc(image: 'assets/amz.jpeg', name: 'Amazon',),
+              child: AmazonFeeCalc(
+                image: 'assets/amz.jpeg',
+                name: 'Amazon',
+              ),
             ),
             SizedBox(
               height: 30,
@@ -159,6 +162,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
         right: 20, // Position at bottom-right
         bottom: 20,
         child: FloatingActionButton(
+          heroTag: 'scrollToTop', // Unique tag for this button
           backgroundColor: blue,
           onPressed: () {
             _scrollToTop();
@@ -174,10 +178,10 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
         left: 20, // Position at bottom-left
         bottom: 20,
         child: FloatingActionButton(
+          heroTag: 'callNow', // Unique tag for this button
           backgroundColor: black,
           onPressed: () async {
-            final phoneNumber =
-                "tel:+91 9643368309 / 8882822264"; // Replace with the phone number you want to call
+            const phoneNumber = "tel:+91 9643368309 / 8882822264";
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -197,11 +201,11 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
         right: 20, // Position at bottom-left
         bottom: 90,
         child: FloatingActionButton(
+          heroTag: 'openWhatsApp', // Unique tag for this button
           backgroundColor: green,
           onPressed: () async {
-            final phoneNumber =
-                "tel:+91 9643368309 / 8882822264"; // Replace with the phone number you want to call
-            final url = Uri.parse(phoneNumber);
+            const whatsappUrl = "https://wa.me/+919643368309";
+            final url = Uri.parse(whatsappUrl);
 
             if (await canLaunchUrl(url)) {
               await launchUrl(url, mode: LaunchMode.externalApplication);
@@ -266,7 +270,10 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
               width: containerWidth,
               height: 1300,
               // color: orange, // Background color
-              child: AmazonFeeCalc(image: 'assets/amz.jpeg', name: 'Amazon',),
+              child: AmazonFeeCalc(
+                image: 'assets/amz.jpeg',
+                name: 'Amazon',
+              ),
             ),
             SizedBox(
               height: 30,
@@ -294,6 +301,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
         right: 20, // Position at bottom-right
         bottom: 20,
         child: FloatingActionButton(
+          heroTag: 'scrollToTop', // Unique tag for this button
           backgroundColor: blue,
           onPressed: () {
             _scrollToTop();
@@ -309,10 +317,10 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
         left: 20, // Position at bottom-left
         bottom: 20,
         child: FloatingActionButton(
+          heroTag: 'callNow', // Unique tag for this button
           backgroundColor: black,
           onPressed: () async {
-            final phoneNumber =
-                "tel:+91 9643368309 / 8882822264"; // Replace with the phone number you want to call
+            const phoneNumber = "tel:+91 9643368309 / 8882822264";
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -332,11 +340,11 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
         right: 20, // Position at bottom-left
         bottom: 90,
         child: FloatingActionButton(
+          heroTag: 'openWhatsApp', // Unique tag for this button
           backgroundColor: green,
           onPressed: () async {
-            final phoneNumber =
-                "tel:+91 9643368309 / 8882822264"; // Replace with the phone number you want to call
-            final url = Uri.parse(phoneNumber);
+            const whatsappUrl = "https://wa.me/+919643368309";
+            final url = Uri.parse(whatsappUrl);
 
             if (await canLaunchUrl(url)) {
               await launchUrl(url, mode: LaunchMode.externalApplication);
@@ -404,7 +412,10 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
             Container(
               width: containerWidth,
               height: 700,
-              child: AmazonFeeCalc(image: 'assets/amz.jpeg', name: 'Amazon',),
+              child: AmazonFeeCalc(
+                image: 'assets/amz.jpeg',
+                name: 'Amazon',
+              ),
             ),
             SizedBox(
               height: 30,
@@ -432,6 +443,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
         right: 20, // Position at bottom-right
         bottom: 20,
         child: FloatingActionButton(
+          heroTag: 'scrollToTop', // Unique tag for this button
           backgroundColor: blue,
           onPressed: () {
             _scrollToTop();
@@ -447,10 +459,10 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
         left: 20, // Position at bottom-left
         bottom: 20,
         child: FloatingActionButton(
+          heroTag: 'callNow', // Unique tag for this button
           backgroundColor: black,
           onPressed: () async {
-            final phoneNumber =
-                "tel:+91 9643368309 / 8882822264"; // Replace with the phone number you want to call
+            const phoneNumber = "tel:+91 9643368309 / 8882822264";
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -470,11 +482,11 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
         right: 20, // Position at bottom-left
         bottom: 90,
         child: FloatingActionButton(
+          heroTag: 'openWhatsApp', // Unique tag for this button
           backgroundColor: green,
           onPressed: () async {
-            final phoneNumber =
-                "tel:+91 9643368309"; // Replace with the phone number you want to call
-            final url = Uri.parse(phoneNumber);
+            const whatsappUrl = "https://wa.me/+919643368309";
+            final url = Uri.parse(whatsappUrl);
 
             if (await canLaunchUrl(url)) {
               await launchUrl(url, mode: LaunchMode.externalApplication);

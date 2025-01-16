@@ -112,128 +112,116 @@ class _WebdesigningState extends State<Webdesigning> {
   Widget _buildMobileView(
       Size screenSize, double containerWidth, double containerHeight) {
     var deviceType = topbar.getDeviceType(screenSize);
-    return Stack(children: [
-      SingleChildScrollView(
-        controller: _scrollController,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SizedBox(
-              height: 1500,
-              width: screenSize.width,
-              child: Webdesigningintro(),
-            ),
-            SizedBox(
-              height: 40,
-            ),
-            SizedBox(
-              // height: 850,
-              width: containerWidth,
-              child: Webquality(),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Container(
-              width: containerWidth,
-              child: Detailwebdesigning(),
-            ),
-           
-            SizedBox(
-              height: 30,
-            ),
-            _buildServiceSections(screenSize, containerWidth),
-             SizedBox(
-              height: 30,
-            ),
-            Container(
-              width: containerWidth,
-              child: Howwebdesign(),
-            ),
-             SizedBox(
-              height: 40,
-            ),
-            Container(
-              color: Colors.black87,
-              child: Whychooseweb(),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Container(
-              width: containerWidth,
-              child: Serviceurl.Serviceurl(),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            _buildFooter(screenSize, containerWidth),
-          ],
-        ),
-      ),
-      // Floating Action Buttons in Stack
-      Positioned(
-        right: 20, // Position at bottom-right
-        bottom: 20,
-        child: FloatingActionButton(
-          backgroundColor: blue,
-          onPressed: () {
-            _scrollToTop();
-          },
-          tooltip: 'Scroll to Top',
-          child: const Icon(
-            Icons.arrow_upward,
-            color: white,
-          ),
-        ),
-      ),
-      Positioned(
-        left: 20, // Position at bottom-left
-        bottom: 20,
-        child: FloatingActionButton(
-          backgroundColor: black,
-          onPressed: () async {
-            final phoneNumber =
-                "tel:+91 9643368309 / 8882822264"; // Replace with the phone number you want to call
-            final url = Uri.parse(phoneNumber);
 
-            if (await canLaunchUrl(url)) {
-              await launchUrl(url, mode: LaunchMode.externalApplication);
-            } else {
-              throw "Could not launch $url";
-            }
-          },
-          tooltip: 'Call Now',
-          child: const Icon(
-            Icons.call,
-            color: white,
+    return Stack(
+      children: [
+        SingleChildScrollView(
+          controller: _scrollController,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(
+                height: 1800,
+                width: screenSize.width,
+                child: Webdesigningintro(),
+              ),
+              SizedBox(height: 40),
+              SizedBox(
+                width: containerWidth,
+                child: Webquality(),
+              ),
+              SizedBox(height: 30),
+              Container(
+                width: containerWidth,
+                child: Detailwebdesigning(),
+              ),
+              SizedBox(height: 30),
+              _buildServiceSections(screenSize, containerWidth),
+              SizedBox(height: 30),
+              Container(
+                width: containerWidth,
+                child: Howwebdesign(),
+              ),
+              SizedBox(height: 40),
+              Container(
+                color: Colors.black87,
+                child: Whychooseweb(),
+              ),
+              SizedBox(height: 30),
+              Container(
+                width: containerWidth,
+                child: Serviceurl.Serviceurl(),
+              ),
+              SizedBox(height: 20),
+              _buildFooter(screenSize, containerWidth),
+            ],
           ),
         ),
-      ),
-      Positioned(
-        right: 20, // Position at bottom-left
-        bottom: 90,
-        child: FloatingActionButton(
-          backgroundColor: green,
-          onPressed: () async {
-            final phoneNumber =
-                "tel:+91 9643368309 / 8882822264"; // Replace with the phone number you want to call
-            final url = Uri.parse(phoneNumber);
+        // Floating Action Buttons in Stack
+        Positioned(
+          right: 20, // Position at bottom-right
+          bottom: 20,
+          child: FloatingActionButton(
+            heroTag: 'scrollToTop', // Unique tag for this button
+            backgroundColor: blue,
+            onPressed: () {
+              _scrollToTop();
+            },
+            tooltip: 'Scroll to Top',
+            child: const Icon(
+              Icons.arrow_upward,
+              color: white,
+            ),
+          ),
+        ),
+        Positioned(
+          left: 20, // Position at bottom-left
+          bottom: 20,
+          child: FloatingActionButton(
+            heroTag: 'callNow', // Unique tag for this button
+            backgroundColor: black,
+            onPressed: () async {
+              const phoneNumber = "tel:+91 9643368309 / 8882822264";
+              final url = Uri.parse(phoneNumber);
 
-            if (await canLaunchUrl(url)) {
-              await launchUrl(url, mode: LaunchMode.externalApplication);
-            } else {
-              throw "Could not launch $url";
-            }
-          },
-          tooltip: 'Open WhatsApp',
-          child: const Icon(
-            FontAwesomeIcons.whatsapp,
-            color: white,
+              if (await canLaunchUrl(url)) {
+                await launchUrl(url, mode: LaunchMode.externalApplication);
+              } else {
+                throw "Could not launch $url";
+              }
+            },
+            tooltip: 'Call Now',
+            child: const Icon(
+              Icons.call,
+              color: white,
+            ),
           ),
         ),
-      ),
-    ]);
+        Positioned(
+          right: 20, // Position at bottom-left
+          bottom: 90,
+          child: FloatingActionButton(
+            heroTag: 'openWhatsApp', // Unique tag for this button
+            backgroundColor: green,
+            onPressed: () async {
+              const whatsappUrl = "https://wa.me/+919643368309";
+              final url = Uri.parse(whatsappUrl);
+
+              if (await canLaunchUrl(url)) {
+                await launchUrl(url, mode: LaunchMode.externalApplication);
+              } else {
+                throw "Could not launch $url";
+              }
+            },
+            tooltip: 'Open WhatsApp',
+            child: const Icon(
+              FontAwesomeIcons.whatsapp,
+              color: white,
+            ),
+          ),
+        ),
+      ],
+    );
   }
 
   Widget _buildTabletView(
@@ -291,7 +279,7 @@ class _WebdesigningState extends State<Webdesigning> {
               width: containerWidth,
               child: Howwebdesign(),
             ),
-             SizedBox(
+            SizedBox(
               height: 40,
             ),
             Container(
@@ -317,6 +305,7 @@ class _WebdesigningState extends State<Webdesigning> {
         right: 20, // Position at bottom-right
         bottom: 20,
         child: FloatingActionButton(
+          heroTag: 'scrollToTop', // Unique tag for this button
           backgroundColor: blue,
           onPressed: () {
             _scrollToTop();
@@ -332,10 +321,10 @@ class _WebdesigningState extends State<Webdesigning> {
         left: 20, // Position at bottom-left
         bottom: 20,
         child: FloatingActionButton(
+          heroTag: 'callNow', // Unique tag for this button
           backgroundColor: black,
           onPressed: () async {
-            final phoneNumber =
-                "tel:+91 9643368309 / 8882822264"; // Replace with the phone number you want to call
+            const phoneNumber = "tel:+91 9643368309 / 8882822264";
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -355,11 +344,11 @@ class _WebdesigningState extends State<Webdesigning> {
         right: 20, // Position at bottom-left
         bottom: 90,
         child: FloatingActionButton(
+          heroTag: 'openWhatsApp', // Unique tag for this button
           backgroundColor: green,
           onPressed: () async {
-            final phoneNumber =
-                "tel:+91 9643368309 / 8882822264"; // Replace with the phone number you want to call
-            final url = Uri.parse(phoneNumber);
+            const whatsappUrl = "https://wa.me/+919643368309";
+            final url = Uri.parse(whatsappUrl);
 
             if (await canLaunchUrl(url)) {
               await launchUrl(url, mode: LaunchMode.externalApplication);
@@ -428,7 +417,7 @@ class _WebdesigningState extends State<Webdesigning> {
               height: 50,
             ),
             _buildServiceSections(screenSize, containerWidth),
-             SizedBox(
+            SizedBox(
               height: 100,
             ),
             Container(
@@ -449,7 +438,6 @@ class _WebdesigningState extends State<Webdesigning> {
               width: containerWidth,
               child: Serviceurl.Serviceurl(),
             ),
-            
             SizedBox(
               height: 20,
             ),
@@ -462,6 +450,7 @@ class _WebdesigningState extends State<Webdesigning> {
         right: 20, // Position at bottom-right
         bottom: 20,
         child: FloatingActionButton(
+          heroTag: 'scrollToTop', // Unique tag for this button
           backgroundColor: blue,
           onPressed: () {
             _scrollToTop();
@@ -477,10 +466,10 @@ class _WebdesigningState extends State<Webdesigning> {
         left: 20, // Position at bottom-left
         bottom: 20,
         child: FloatingActionButton(
+          heroTag: 'callNow', // Unique tag for this button
           backgroundColor: black,
           onPressed: () async {
-            final phoneNumber =
-                "tel:+91 9643368309 / 8882822264"; // Replace with the phone number you want to call
+            const phoneNumber = "tel:+91 9643368309 / 8882822264";
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -500,11 +489,11 @@ class _WebdesigningState extends State<Webdesigning> {
         right: 20, // Position at bottom-left
         bottom: 90,
         child: FloatingActionButton(
+          heroTag: 'openWhatsApp', // Unique tag for this button
           backgroundColor: green,
           onPressed: () async {
-            final phoneNumber =
-                "tel:+91 9643368309"; // Replace with the phone number you want to call
-            final url = Uri.parse(phoneNumber);
+            const whatsappUrl = "https://wa.me/+919643368309";
+            final url = Uri.parse(whatsappUrl);
 
             if (await canLaunchUrl(url)) {
               await launchUrl(url, mode: LaunchMode.externalApplication);

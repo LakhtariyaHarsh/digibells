@@ -41,6 +41,66 @@ class _AppbarforWebState extends State<AppbarforWeb> {
     context.go('/home');
   }
 
+  void _showPaymentDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15.0),
+            color: white,
+            ),
+            width: 600, // Adjust based on your UI needs
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Title
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "SCAN QR CODE",
+                      style:
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.close),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                Divider(),
+                const SizedBox(height: 20),
+                SizedBox(
+                  width: 400,
+                  height: 400,
+                  child: Image.asset("assets/QRcode.jpg")) ,
+                // Done Button
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                  ),
+                  child: const Text(
+                    "Done",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -134,21 +194,23 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                           ),
                         ),
                       ),
-          
+
                     for (var text2 in ["Calculator ⮟"])
                       PopupMenuButton<String>(
                         onSelected: (value) {
                           if (value == "Amazon-Seller-Fees-Calculator-India") {
                             // Redirect to Amazoncalcpage
-                            context
-                                .go('/calculator/${Uri.encodeComponent(value)}');
-                          }else if (value == "Flipkart-Seller-Fees-Calculator") {
+                            context.go(
+                                '/calculator/${Uri.encodeComponent(value)}');
+                          } else if (value ==
+                              "Flipkart-Seller-Fees-Calculator") {
                             // Redirect to Flipcartcalcpage
-                            context
-                                .go('/Flipkartcalculator/${Uri.encodeComponent(value)}');
-                          }  else {
+                            context.go(
+                                '/Flipkartcalculator/${Uri.encodeComponent(value)}');
+                          } else {
                             // Redirect to Commonfile
-                            context.go('/Jiomartcalculator/${Uri.encodeComponent(value)}');
+                            context.go(
+                                '/Jiomartcalculator/${Uri.encodeComponent(value)}');
                           }
                         },
                         itemBuilder: (_) => popupMenuData[text2]!
@@ -174,7 +236,7 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                           ),
                         ),
                       ),
-          
+
                     // Contact Us
                     GestureDetector(
                       onTap: () {
@@ -185,9 +247,10 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                         child: Text(
                           "Contact Us",
                           style: TextStyle(
-                            fontSize: deviceType == topbar.DeviceScreenType.tablet
-                                ? 14
-                                : 16,
+                            fontSize:
+                                deviceType == topbar.DeviceScreenType.tablet
+                                    ? 14
+                                    : 16,
                             fontWeight: FontWeight.bold,
                             color: white, // Fixed text color
                           ),
@@ -197,7 +260,7 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                   ],
                 ),
               ),
-          
+
               // Pay Button
               if (deviceType != topbar.DeviceScreenType.mobile)
                 Padding(
@@ -209,7 +272,7 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                       Padding(
                         padding: EdgeInsets.only(top: screenSize.height * 0.02),
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: _showPaymentDialog,
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blue,
                             minimumSize: Size(

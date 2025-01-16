@@ -79,7 +79,8 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
       containerHeight = 150;
     }
     return Scaffold(
-      appBar: deviceType == topbar.DeviceScreenType.mobile ||deviceType == topbar.DeviceScreenType.tablet
+      appBar: deviceType == topbar.DeviceScreenType.mobile ||
+              deviceType == topbar.DeviceScreenType.tablet
           ? AppBar(
               title: Text(
                 "MENU",
@@ -199,6 +200,7 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
         right: 20, // Position at bottom-right
         bottom: 20,
         child: FloatingActionButton(
+          heroTag: 'scrollToTop', // Unique tag for this button
           backgroundColor: blue,
           onPressed: () {
             _scrollToTop();
@@ -214,10 +216,10 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
         left: 20, // Position at bottom-left
         bottom: 20,
         child: FloatingActionButton(
+          heroTag: 'callNow', // Unique tag for this button
           backgroundColor: black,
           onPressed: () async {
-            final phoneNumber =
-                "tel:+91 9643368309 / 888282222"; // Replace with the phone number you want to call
+            const phoneNumber = "tel:+91 9643368309 / 8882822264";
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -237,11 +239,11 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
         right: 20, // Position at bottom-left
         bottom: 90,
         child: FloatingActionButton(
+          heroTag: 'openWhatsApp', // Unique tag for this button
           backgroundColor: green,
           onPressed: () async {
-            final phoneNumber =
-                "tel:+91 9643368309 / 888282222"; // Replace with the phone number you want to call
-            final url = Uri.parse(phoneNumber);
+            const whatsappUrl = "https://wa.me/+919643368309";
+            final url = Uri.parse(whatsappUrl);
 
             if (await canLaunchUrl(url)) {
               await launchUrl(url, mode: LaunchMode.externalApplication);
@@ -376,6 +378,7 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
         right: 20, // Position at bottom-right
         bottom: 20,
         child: FloatingActionButton(
+          heroTag: 'scrollToTop', // Unique tag for this button
           backgroundColor: blue,
           onPressed: () {
             _scrollToTop();
@@ -391,10 +394,10 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
         left: 20, // Position at bottom-left
         bottom: 20,
         child: FloatingActionButton(
+          heroTag: 'callNow', // Unique tag for this button
           backgroundColor: black,
           onPressed: () async {
-            final phoneNumber =
-                "tel:+91 9643368309 / 888282222"; // Replace with the phone number you want to call
+            const phoneNumber = "tel:+91 9643368309 / 8882822264";
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -414,11 +417,11 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
         right: 20, // Position at bottom-left
         bottom: 90,
         child: FloatingActionButton(
+          heroTag: 'openWhatsApp', // Unique tag for this button
           backgroundColor: green,
           onPressed: () async {
-            final phoneNumber =
-                "tel:+91 9643368309 / 888282222"; // Replace with the phone number you want to call
-            final url = Uri.parse(phoneNumber);
+            const whatsappUrl = "https://wa.me/+919643368309";
+            final url = Uri.parse(whatsappUrl);
 
             if (await canLaunchUrl(url)) {
               await launchUrl(url, mode: LaunchMode.externalApplication);
@@ -561,6 +564,7 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
         right: 20, // Position at bottom-right
         bottom: 20,
         child: FloatingActionButton(
+          heroTag: 'scrollToTop', // Unique tag for this button
           backgroundColor: blue,
           onPressed: () {
             _scrollToTop();
@@ -576,10 +580,10 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
         left: 20, // Position at bottom-left
         bottom: 20,
         child: FloatingActionButton(
+          heroTag: 'callNow', // Unique tag for this button
           backgroundColor: black,
           onPressed: () async {
-            final phoneNumber =
-                "tel:+91 9643368309 / 888282222"; // Replace with the phone number you want to call
+            const phoneNumber = "tel:+91 9643368309 / 8882822264";
             final url = Uri.parse(phoneNumber);
 
             if (await canLaunchUrl(url)) {
@@ -599,11 +603,11 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
         right: 20, // Position at bottom-left
         bottom: 90,
         child: FloatingActionButton(
+          heroTag: 'openWhatsApp', // Unique tag for this button
           backgroundColor: green,
           onPressed: () async {
-            final phoneNumber =
-                "tel:+91 9643368309"; // Replace with the phone number you want to call
-            final url = Uri.parse(phoneNumber);
+            const whatsappUrl = "https://wa.me/+919643368309";
+            final url = Uri.parse(whatsappUrl);
 
             if (await canLaunchUrl(url)) {
               await launchUrl(url, mode: LaunchMode.externalApplication);

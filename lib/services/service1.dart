@@ -15,9 +15,11 @@ class _Service1State extends State<Service1> {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     var deviceType = topbar.getDeviceType(screenSize);
+
     // Decide whether to use Row or Column
     bool isMobile = deviceType == topbar.DeviceScreenType.mobile;
     bool isTablet = deviceType == topbar.DeviceScreenType.tablet;
+
     return (isMobile)
         ? Column(
             children: [
@@ -25,11 +27,9 @@ class _Service1State extends State<Service1> {
                 child: Padding(
                   padding:
                       const EdgeInsets.only(right: 40.0, top: 40, bottom: 40),
-                  child: Positioned.fill(
-                    child: Image.asset(
-                      "assets/features-1.png",
-                      fit: BoxFit.cover,
-                    ),
+                  child: Image.asset(
+                    "assets/features-1.png",
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),

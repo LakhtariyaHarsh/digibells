@@ -71,7 +71,7 @@ class _WhychooseState extends State<Whychoose> {
             ? screenSize.width
             : screenSize.width;
     final double imageHeight = deviceType == topbar.DeviceScreenType.mobile
-        ? 600
+        ? 500
         : deviceType == topbar.DeviceScreenType.tablet
             ? 600
             : 500;
@@ -80,6 +80,7 @@ class _WhychooseState extends State<Whychoose> {
     bool isTablet = deviceType == topbar.DeviceScreenType.tablet;
     return (isMobile || isTablet)
         ? SingleChildScrollView(
+          physics: NeverScrollableScrollPhysics(),
             child: Column(
               children: [
                 Padding(

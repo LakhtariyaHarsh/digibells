@@ -27,10 +27,73 @@ class CustomDrawer extends StatelessWidget {
     } else if (routeName == "Flipkart-Seller-Fees-Calculator") {
       // Redirect to Flipcartcalcpage
       context.go('/Flipkartcalculator/${Uri.encodeComponent(routeName)}');
-    } else {
+    } else if (routeName == "Jiomart-Seller-Fees-Calculator") {
       // Redirect to Commonfile
       context.go('/Jiomartcalculator/${Uri.encodeComponent(routeName)}');
+    } else {
+      // Redirect to Commonfile
+      context.go('/${Uri.encodeComponent(routeName)}');
     }
+  }
+
+  void _showPaymentDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15.0),
+              color: white,
+            ),
+            width: 500, // Adjust based on your UI needs
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Title
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "SCAN QR CODE",
+                      style:
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.close),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                Divider(),
+                const SizedBox(height: 20),
+                SizedBox(
+                  width: 300,
+                  height: 300,
+                  child: Image.asset("assets/QRcode.jpg")) ,
+                // Done Button
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                  ),
+                  child: const Text(
+                    "Done",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
   Widget buildPopupMenu(
@@ -60,7 +123,7 @@ class CustomDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           SizedBox(
-            height: 200,
+            height: 220,
             child: DrawerHeader(
                 padding: EdgeInsets.zero,
                 decoration: const BoxDecoration(
@@ -128,6 +191,14 @@ class CustomDrawer extends StatelessWidget {
             title: Text('Contact Us'),
             onTap: () {
               context.go('/Contact-Us');
+            },
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.payments_outlined),
+            title: Text('Pay Now'),
+            onTap: () {
+              _showPaymentDialog(context); // Pass the BuildContext explicitly
             },
           ),
           Divider(),

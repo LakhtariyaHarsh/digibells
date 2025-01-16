@@ -26,7 +26,7 @@ class _WebdesigningintroState extends State<Webdesigningintro> {
     // Determine image height based on device type
     bool isMobile = deviceType == topbar.DeviceScreenType.mobile;
     bool isTablet = deviceType == topbar.DeviceScreenType.tablet;
-    bool ishub = deviceType == topbar.DeviceScreenType.hubmax;
+
     return Stack(
       children: <Widget>[
         // Fullscreen Background Image
@@ -44,12 +44,10 @@ class _WebdesigningintroState extends State<Webdesigningintro> {
             ? Padding(
                 padding: const EdgeInsets.all(30.0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     // Left Content Section
-                    Flexible(
-                      child: _buildContentSection(context),
-                    ),
+                    _buildContentSection(context),
+                    SizedBox(height: 20,),
                     // Right Form Section
                     Flexible(
                       child: buildForm(deviceType),
@@ -81,32 +79,30 @@ class _WebdesigningintroState extends State<Webdesigningintro> {
 
   Widget _buildContentSection(BuildContext context,
       {bool isMobile = false, bool isTablet = false}) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          AutoSizeText(
-            "Website Designing Company in Gurgaon",
-            style: TextStyle(
-                fontSize: 50,
-                fontWeight: FontWeight.bold,
-                color: Colors.white), // Changed to white
-          ),
-          const SizedBox(height: 20),
-          AutoSizeText(
-            "The best website designing company in Gurgaon is your one-stop solution for all of your business problems. We are a team of expert website designers, graphic designers, SEO executives, digital marketing experts, and app developers. We are fully dedicated to transforming your online presence into a dynamic and engaging platform. Our commitment to satisfy every customer we serve sets us apart in the world of agencies. Whether you are starting your business and looking to build a successful online business or an established business looking to redesign your websites or boost your online journey, We are always available to take every single step with your business.",
-            style: TextStyle(
-                fontSize: 16, color: Colors.white), // Changed to white
-          ),
-          const SizedBox(height: 20),
-          AutoSizeText(
-            "We are not just a website development company, we are your partners for digital success. Let us transform your dream into a visually stunning website where innovation, aesthetics and functionality are at the core of our website development service in Gurgaon. Join us on this journey to create exceptional digital experiences and together we will shape the future of your online presence.",
-            style: TextStyle(
-                fontSize: 16, color: Colors.white), // Changed to white
-          ),
-          const SizedBox(height: 24),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        AutoSizeText(
+          "Website Designing Company in Gurgaon",
+          style: TextStyle(
+              fontSize: 50,
+              fontWeight: FontWeight.bold,
+              color: Colors.white), // Changed to white
+        ),
+        const SizedBox(height: 20),
+        AutoSizeText(
+          "The best website designing company in Gurgaon is your one-stop solution for all of your business problems. We are a team of expert website designers, graphic designers, SEO executives, digital marketing experts, and app developers. We are fully dedicated to transforming your online presence into a dynamic and engaging platform. Our commitment to satisfy every customer we serve sets us apart in the world of agencies. Whether you are starting your business and looking to build a successful online business or an established business looking to redesign your websites or boost your online journey, We are always available to take every single step with your business.",
+          style: TextStyle(
+              fontSize: 16, color: Colors.white), // Changed to white
+        ),
+        const SizedBox(height: 20),
+        AutoSizeText(
+          "We are not just a website development company, we are your partners for digital success. Let us transform your dream into a visually stunning website where innovation, aesthetics and functionality are at the core of our website development service in Gurgaon. Join us on this journey to create exceptional digital experiences and together we will shape the future of your online presence.",
+          style: TextStyle(
+              fontSize: 16, color: Colors.white), // Changed to white
+        ),
+        const SizedBox(height: 24),
+      ],
     );
   }
 

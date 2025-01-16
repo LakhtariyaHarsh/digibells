@@ -73,7 +73,7 @@ class _ContactformState extends State<Contactform> {
                         mapType: MapType.terrain,
                         initialCameraPosition: CameraPosition(
                           target: LatLng(28.5818476, 77.3635537),
-                          zoom: 20,
+                          zoom: 15,
                         ),
                       )
                     : Center(child: CircularProgressIndicator()),

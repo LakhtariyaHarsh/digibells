@@ -23,11 +23,9 @@ class _Service2State extends State<Service2> {
               Flexible(
                 child: Padding(
                   padding: const EdgeInsets.only(right: 40.0, bottom: 40),
-                  child: Positioned.fill(
-                    child: Image.asset(
-                      "assets/features-2.png",
-                      fit: BoxFit.cover,
-                    ),
+                  child: Image.asset(
+                    "assets/features-2.png",
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
