@@ -29,7 +29,6 @@ class _AmazonpageintroState extends State<Amazonpageintro> {
                   fontSize: 24.0,
                   fontWeight: FontWeight.bold,
                 ),
-                maxLines: 2,
               ),
               SizedBox(height: 16.0),
               AutoSizeText(
@@ -38,7 +37,6 @@ class _AmazonpageintroState extends State<Amazonpageintro> {
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
-                maxLines: 1,
               ),
               SizedBox(height: 8.0),
               AutoSizeText(
@@ -56,14 +54,12 @@ class _AmazonpageintroState extends State<Amazonpageintro> {
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
-                maxLines: 1,
               ),
               SizedBox(height: 8.0),
               AutoSizeText(
                 'An ${widget.name} seller calculator India is a tool that helps sellers estimate their potential profits by taking into account the various fees and costs associated with selling on ${widget.name} India. '
                 'These fees include referral fees, closing fees, shipping and handling fees, storage fees, and other miscellaneous fees. By factoring in these fees, sellers can determine their net profit margin and make informed pricing decisions.',
                 style: TextStyle(fontSize: 16.0),
-                maxLines: 6,
               ),
               SizedBox(height: 16.0),
               AutoSizeText(
@@ -72,13 +68,11 @@ class _AmazonpageintroState extends State<Amazonpageintro> {
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
-                maxLines: 1,
               ),
               SizedBox(height: 8.0),
               AutoSizeText(
                 'A comprehensive ${widget.name} seller calculator India typically includes the following features:',
                 style: TextStyle(fontSize: 16.0),
-                maxLines: 3,
               ),
               SizedBox(height: 8.0),
               Column(
@@ -101,13 +95,11 @@ class _AmazonpageintroState extends State<Amazonpageintro> {
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
-                maxLines: 1,
               ),
               SizedBox(height: 8.0),
               AutoSizeText(
                 'Utilizing an ${widget.name} seller calculator India offers several advantages:',
                 style: TextStyle(fontSize: 16.0),
-                maxLines: 3,
               ),
               SizedBox(height: 8.0),
               Column(
@@ -132,13 +124,11 @@ class _AmazonpageintroState extends State<Amazonpageintro> {
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
-                maxLines: 1,
               ),
               SizedBox(height: 8.0),
               AutoSizeText(
                 'Using an ${widget.name} seller calculator India is straightforward:',
                 style: TextStyle(fontSize: 16.0),
-                maxLines: 3,
               ),
               SizedBox(height: 8.0),
               Column(
@@ -159,13 +149,11 @@ class _AmazonpageintroState extends State<Amazonpageintro> {
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
-                maxLines: 1,
               ),
               SizedBox(height: 8.0),
               AutoSizeText(
                 '${widget.name} India charges various fees to sellers, including:',
                 style: TextStyle(fontSize: 16.0),
-                maxLines: 3,
               ),
               SizedBox(height: 8.0),
               Column(
@@ -190,13 +178,11 @@ class _AmazonpageintroState extends State<Amazonpageintro> {
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
-                maxLines: 1,
               ),
               SizedBox(height: 8.0),
               AutoSizeText(
                 '"${widget.name} Kitna Milega" is a Hindi phrase that translates to "How much will I get from ${widget.name}?" This phrase is often used by aspiring ${widget.name} sellers to inquire about their potential earnings. An ${widget.name} seller calculator India can help answer this question by providing an estimated profit margin based on product category, price, and applicable fees.',
                 style: TextStyle(fontSize: 16.0),
-                maxLines: 3,
               ),
               SizedBox(height: 16.0),
               AutoSizeText(
@@ -205,7 +191,6 @@ class _AmazonpageintroState extends State<Amazonpageintro> {
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
-                maxLines: 1,
               ),
               SizedBox(height: 8.0),
               AutoSizeText(
@@ -236,13 +221,11 @@ class _AmazonpageintroState extends State<Amazonpageintro> {
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
-                maxLines: 1,
               ),
               SizedBox(height: 8.0),
               AutoSizeText(
                 'An ${widget.name} seller price calculator is an essential tool for sellers to determine the right price for their products, ensuring profitability while maintaining competitiveness.',
                 style: TextStyle(fontSize: 16.0),
-                maxLines: 3,
               ),
               SizedBox(height: 16.0),
               AutoSizeText(
@@ -251,13 +234,11 @@ class _AmazonpageintroState extends State<Amazonpageintro> {
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
-                maxLines: 1,
               ),
               SizedBox(height: 8.0),
               AutoSizeText(
                 "An ${widget.name} seller calculator India is an invaluable resource for sellers to navigate the complexities of ${widget.name} India's fee structure and make informed pricing decisions. By understanding and factoring in these fees, sellers can maximize their profits and achieve long-term success on the platform.",
                 style: TextStyle(fontSize: 16.0),
-                maxLines: 3,
               ),
             ],
           ),
