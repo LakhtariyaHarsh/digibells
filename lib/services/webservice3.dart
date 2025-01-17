@@ -46,7 +46,7 @@ class _Webservice3State extends State<Webservice3> {
                     ),
                     SizedBox(height: 10),
                     AutoSizeText(
-                      "In a world where mobile phones have become a part of everyday life, companies are using mobile apps to connect with their audiences. We provide you with user-friendly, attractive and secure applications to help you grow your business. The application development process requires creativity, technical expertise and versatility towards new trends and we are the best website designing company in Gurgaon. We know that every user has different application needs and our team of experts is ready to meet them all for businesses and individuals.",
+                      "In a world where mobile phones have become a part of everyday life, companies are using mobile apps to connect with their audiences. We provide you with user-friendly, attractive and secure applications to help you grow your business. The application development process requires creativity, technical expertise and versatility towards new trends and we are the best website designing company in Delhi NCR. We know that every user has different application needs and our team of experts is ready to meet them all for businesses and individuals.",
                       style: TextStyle(fontSize: 16),
                     ),
                   ],
@@ -73,7 +73,7 @@ class _Webservice3State extends State<Webservice3> {
                     ),
                     SizedBox(height: 10),
                     AutoSizeText(
-                      "In a world where mobile phones have become a part of everyday life, companies are using mobile apps to connect with their audiences. We provide you with user-friendly, attractive and secure applications to help you grow your business. The application development process requires creativity, technical expertise and versatility towards new trends and we are the best website designing company in Gurgaon. We know that every user has different application needs and our team of experts is ready to meet them all for businesses and individuals.",
+                      "In a world where mobile phones have become a part of everyday life, companies are using mobile apps to connect with their audiences. We provide you with user-friendly, attractive and secure applications to help you grow your business. The application development process requires creativity, technical expertise and versatility towards new trends and we are the best website designing company in Delhi NCR. We know that every user has different application needs and our team of experts is ready to meet them all for businesses and individuals.",
                       style: TextStyle(fontSize: 16),
                     ),
                   ],

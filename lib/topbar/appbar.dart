@@ -240,7 +240,8 @@ class _AppbarforWebState extends State<AppbarforWeb> {
                     // Contact Us
                     GestureDetector(
                       onTap: () {
-                        context.go('/Contact-Us'); // Pass the parameter
+                        context.go(
+                                '/contact/${Uri.encodeComponent("Contact Us")}'); // Pass the parameter
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),

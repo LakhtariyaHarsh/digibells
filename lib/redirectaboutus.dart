@@ -168,7 +168,7 @@ class _RedirectaboutusState extends State<Redirectaboutus> {
             ),
             Container(
               width: containerWidth,
-              height: 950,
+              height: 1000,
               // color: orange, // Background color
               child: about.Aboutus(),
             ),

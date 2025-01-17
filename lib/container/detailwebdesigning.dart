@@ -154,7 +154,7 @@ class _DetailwebdesigningState extends State<Detailwebdesigning> {
             ),
           ),
           AutoSizeText(
-            "Best Website Designing Company in Gurgaon",
+            "Best Website Designing Company in Delhi NCR",
             style: TextStyle(
               fontSize: 40,
             ), // Changed to white
@@ -171,7 +171,7 @@ class _DetailwebdesigningState extends State<Detailwebdesigning> {
                
                 TextSpan(
                   text:
-                      ", an expert website design company in Gurgaon. With a commitment to transform old websites from the 90s into modern websites. Our team of talented ",
+                      ", an expert website design company in Delhi NCR. With a commitment to transform old websites from the 90s into modern websites. Our team of talented ",
                 ),
                 TextSpan(
                   text: "website designers and developers",
@@ -225,7 +225,7 @@ class _DetailwebdesigningState extends State<Detailwebdesigning> {
                                     height: 10,
                                   ),
                                   AutoSizeText(
-                                    "Desire Div's expertise in website designing in Gurgaon can help you create a compelling website that attracts your audience and drives success.",
+                                    "Desire Div's expertise in website designing in Delhi NCR can help you create a compelling website that attracts your audience and drives success.",
                                     style: TextStyle(),
                                     maxLines: 10,
                                     overflow: TextOverflow.ellipsis,
@@ -324,7 +324,7 @@ class _DetailwebdesigningState extends State<Detailwebdesigning> {
                                     height: 10,
                                   ),
                                   AutoSizeText(
-                                    "Desire Div's expertise in website designing in Gurgaon can help you create a compelling website that attracts your audience and drives success.",
+                                    "Desire Div's expertise in website designing in Delhi NCR can help you create a compelling website that attracts your audience and drives success.",
                                     style: TextStyle(),
                                     maxLines: 10,
                                     overflow: TextOverflow.ellipsis,

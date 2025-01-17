@@ -185,6 +185,9 @@ class _MyHomePageState extends State<MyHomePage> {
               child: services.Services(),
             ),
             _buildServiceSections(screenSize, containerWidth),
+            SizedBox(
+              height: 30,
+            ),
             Container(
               width: containerWidth,
               height: 1100,
@@ -201,23 +204,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
               width: containerWidth,
-              child: Ourteam(),
-            ),
-            Container(
-              width: containerWidth,
-              height: 950,
-              child: Hoverteam(),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              width: containerWidth,
               child: Testimonial(),
             ),
             Container(
               width: containerWidth,
               child: Cardcarousel(),
+            ),
+            SizedBox(
+              height: 20,
             ),
             Container(
               width: containerWidth,
@@ -332,7 +326,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    height: 860,
+                    height: 880,
                     child: about.Aboutus(),
                   ),
                   Container(
@@ -351,6 +345,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: services.Services(),
                   ),
                   _buildServiceSections(screenSize, containerWidth),
+                  SizedBox(
+                    height: 30,
+                  ),
                   Container(
                     width: containerWidth,
                     height: screenSize.width > 1045 && screenSize.width <= 1100
@@ -365,7 +362,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: containerWidth,
                     height: deviceType == topbar.DeviceScreenType.hubmax
                         ? 750
-                        : 1000,
+                        : 1070,
                     // color: orange, // Background color
                     child: Whychoose(),
                   ),
@@ -374,24 +371,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     width: containerWidth,
-                    child: Ourteam(),
-                  ),
-                  Container(
-                    width: containerWidth,
-                    height: deviceType == topbar.DeviceScreenType.hubmax
-                        ? 700
-                        : screenSize.width > 910 && screenSize.width <= 1100
-                            ? 700
-                            : 1000,
-                    child: Hoverteam(),
-                  ),
-                  Container(
-                    width: containerWidth,
                     child: Testimonial(),
                   ),
                   Container(
                     width: containerWidth,
                     child: Cardcarousel(),
+                  ),
+                  SizedBox(
+                    height: 20,
                   ),
                   Container(
                     width: containerWidth,
@@ -539,7 +526,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: containerWidth,
                     child: services.Services(),
                   ),
+                   SizedBox(
+                    height: 40,
+                  ),
                   _buildServiceSections(screenSize, containerWidth),
+                  SizedBox(
+                    height: 40,
+                  ),
                   Container(
                     width: containerWidth,
                     height: screenSize.width > 1600 && screenSize.width < 1908
@@ -573,7 +566,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Cardcarousel(),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 40,
                   ),
                   Container(
                     width: containerWidth,
@@ -660,50 +653,27 @@ class _MyHomePageState extends State<MyHomePage> {
       children: [
         Container(
           width: containerWidth,
-          height: deviceType == topbar.DeviceScreenType.tablet ||
-                  deviceType == topbar.DeviceScreenType.hubmax
-              ? 350
-              : deviceType == res.Responsive.isMobileDevice
-                  ? 600
-                  : deviceType == topbar.DeviceScreenType.desktop
-                      ? 400
-                      : 600,
           child: Service1(),
         ),
+        SizedBox(
+          height: deviceType == topbar.DeviceScreenType.mobile ? 50 : 70,
+        ),
         Container(
           width: containerWidth,
-          height: deviceType == topbar.DeviceScreenType.tablet ||
-                  deviceType == topbar.DeviceScreenType.hubmax
-              ? 300
-              : deviceType == res.Responsive.isMobileDevice
-                  ? 500
-                  : deviceType == topbar.DeviceScreenType.desktop
-                      ? 400
-                      : 500,
           child: Service2(),
         ),
-        Container(
-          width: containerWidth,
-          height: deviceType == topbar.DeviceScreenType.tablet ||
-                  deviceType == topbar.DeviceScreenType.hubmax
-              ? 300
-              : deviceType == res.Responsive.isMobileDevice
-                  ? 500
-                  : deviceType == topbar.DeviceScreenType.desktop
-                      ? 400
-                      : 500,
-          child: Service3(),
+        SizedBox(
+          height: deviceType == topbar.DeviceScreenType.mobile ? 50 : 70,
         ),
         Container(
           width: containerWidth,
-          height: deviceType == topbar.DeviceScreenType.tablet ||
-                  deviceType == topbar.DeviceScreenType.hubmax
-              ? 400
-              : deviceType == res.Responsive.isMobileDevice
-                  ? 500
-                  : deviceType == topbar.DeviceScreenType.desktop
-                      ? 400
-                      : 500,
+          child: Service3(),
+        ),
+        SizedBox(
+          height: deviceType == topbar.DeviceScreenType.mobile ? 50 : 70,
+        ),
+        Container(
+          width: containerWidth,
           child: Service4(),
         ),
       ],

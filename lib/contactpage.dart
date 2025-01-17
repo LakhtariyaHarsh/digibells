@@ -1,6 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:digibells/container/amazonpageintro.dart';
+import 'package:digibells/commendetail.dart';
+import 'package:digibells/container/contactform.dart';
 import 'package:digibells/container/serviceurl.dart' as Serviceurl;
+import 'package:digibells/container/hovercard.dart';
 import 'package:digibells/footer/bottompart.dart';
 import 'package:digibells/topbar/appbar.dart';
 import 'package:digibells/topbar/customappbar.dart';
@@ -11,18 +13,17 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'topbar/topbarcontent.dart' as topbar;
 import 'footer/footer.dart' as footer;
-import 'package:digibells/container/amazonfeecalc.dart';
 import 'responsive.dart' as res;
 
-class Jiomartcalcpage extends StatefulWidget {
+class Contactpage extends StatefulWidget {
   final String name;
-  const Jiomartcalcpage({super.key, required this.name});
+  const Contactpage({super.key, required this.name});
 
   @override
-  State<Jiomartcalcpage> createState() => _JiomartcalcpageState();
+  State<Contactpage> createState() => _ContactpageState();
 }
 
-class _JiomartcalcpageState extends State<Jiomartcalcpage> {
+class _ContactpageState extends State<Contactpage> {
   final ScrollController _scrollController = ScrollController();
   @override
   void dispose() {
@@ -108,50 +109,63 @@ class _JiomartcalcpageState extends State<Jiomartcalcpage> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(
-              height: 40,
-            ),
             Container(
-              width: containerWidth,
+              color: black54,
+              width: screenSize.width,
+              height: screenSize.height * 0.5,
               child: Center(
-                child: AutoSizeText(
-                  "Jiomart Seller Fees Calculator India",
-                  style: TextStyle(
-                      fontSize: deviceType == topbar.DeviceScreenType.tablet
-                          ? 30
-                          : 40,
-                      fontWeight: FontWeight.bold,
-                      color: black54),
+                  child: Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AutoSizeText(widget.name,
+                        style: TextStyle(
+                            fontSize: deviceType ==
+                                    topbar.DeviceScreenType.mobile
+                                ? 35
+                                : deviceType == topbar.DeviceScreenType.tablet
+                                    ? 40
+                                    : 50,
+                            fontWeight: FontWeight.bold,
+                            color: white)),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: "Home  /  ",
+                            style: TextStyle(
+                                color: white,
+                                fontSize: 20 // Use default text color
+                                ),
+                          ),
+                          TextSpan(
+                            text: widget.name,
+                            style: TextStyle(
+                                color: orange, fontSize: 20 // Highlighted text
+                                ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-              ),
+              )),
             ),
             SizedBox(
-              height: 40,
+              height: 20,
             ),
             Container(
               width: containerWidth,
-              height: 1500,
-              child: AmazonFeeCalc(
-                image: 'assets/jiomart.png',
-                name: 'Jiomart',
-              ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Container(
-              width: containerWidth,
-              child: Amazonpageintro(name: 'Jiomart',),
-            ),
-            SizedBox(
-              height: 30,
+              height: 1000,
+              child: Contactform(),
             ),
             Container(
               width: containerWidth,
               child: Serviceurl.Serviceurl(),
-            ),
-            SizedBox(
-              height: 20,
             ),
             _buildFooter(screenSize, containerWidth),
           ],
@@ -246,51 +260,66 @@ class _JiomartcalcpageState extends State<Jiomartcalcpage> {
                     child: AppbarforWeb(),
                   ))
                 : SizedBox(),
-            SizedBox(
-              height: 40,
-            ),
             Container(
-              width: containerWidth,
+              color: black54,
+              width: screenSize.width,
+              height: screenSize.height * 0.5,
               child: Center(
-                child: AutoSizeText(
-                  "Jiomart Seller Fees Calculator India",
-                  style: TextStyle(
-                      fontSize: deviceType == topbar.DeviceScreenType.tablet
-                          ? 30
-                          : 40,
-                      fontWeight: FontWeight.bold,
-                      color: black54),
+                  child: Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AutoSizeText(widget.name,
+                        style: TextStyle(
+                            fontSize: deviceType ==
+                                    topbar.DeviceScreenType.mobile
+                                ? 35
+                                : deviceType == topbar.DeviceScreenType.tablet
+                                    ? 40
+                                    : 50,
+                            fontWeight: FontWeight.bold,
+                            color: white)),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: "Home  /  ",
+                            style: TextStyle(
+                                color: white,
+                                fontSize: 20 // Use default text color
+                                ),
+                          ),
+                          TextSpan(
+                            text: widget.name,
+                            style: TextStyle(
+                                color: orange, fontSize: 20 // Highlighted text
+                                ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-              ),
+              )),
             ),
             SizedBox(
               height: 40,
             ),
             Container(
               width: containerWidth,
-              height: 1300,
-              // color: orange, // Background color
-              child: AmazonFeeCalc(
-                image: 'assets/jiomart.png',
-                name: 'Jiomart',
-              ),
+              height: deviceType == topbar.DeviceScreenType.tablet ? 1100 : 680,
+              child: Contactform(),
             ),
             SizedBox(
-              height: 30,
-            ),
-            Container(
-              width: containerWidth,
-              child: Amazonpageintro(name: 'Jiomart',),
-            ),
-            SizedBox(
-              height: 30,
+              height: 40,
             ),
             Container(
               width: containerWidth,
               child: Serviceurl.Serviceurl(),
-            ),
-            SizedBox(
-              height: 20,
             ),
             _buildFooter(screenSize, containerWidth),
           ],
@@ -389,43 +418,62 @@ class _JiomartcalcpageState extends State<Jiomartcalcpage> {
               width: screenSize.width,
               child: AppbarforWeb(),
             )),
-            SizedBox(
-              height: 40,
-            ),
             Container(
-              width: containerWidth,
+              color: black54,
+              width: screenSize.width,
+              height: screenSize.height * 0.5,
               child: Center(
-                child: AutoSizeText(
-                  "Jiomart Seller Fees Calculator India",
-                  style: TextStyle(
-                      fontSize: deviceType == topbar.DeviceScreenType.tablet
-                          ? 30
-                          : 40,
-                      fontWeight: FontWeight.bold,
-                      color: black54),
+                  child: Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AutoSizeText(widget.name,
+                        style: TextStyle(
+                            fontSize: deviceType ==
+                                    topbar.DeviceScreenType.mobile
+                                ? 35
+                                : deviceType == topbar.DeviceScreenType.tablet
+                                    ? 40
+                                    : 50,
+                            fontWeight: FontWeight.bold,
+                            color: white)),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: "Home  /  ",
+                            style: TextStyle(
+                                color: white,
+                                fontSize: 20 // Use default text color
+                                ),
+                          ),
+                          TextSpan(
+                            text: widget.name,
+                            style: TextStyle(
+                                color: orange, fontSize: 20 // Highlighted text
+                                ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-              ),
+              )),
             ),
             SizedBox(
-              height: 40,
+              height: 60,
             ),
             Container(
               width: containerWidth,
-              height: 700,
-              child: AmazonFeeCalc(
-                image: 'assets/jiomart.png',
-                name: 'Jiomart',
-              ),
+              height: 680,
+              child: Contactform(),
             ),
             SizedBox(
-              height: 30,
-            ),
-            Container(
-              width: screenSize.width * 0.7,
-              child: Amazonpageintro(name: 'Jiomart',),
-            ),
-            SizedBox(
-              height: 30,
+              height: 40,
             ),
             Container(
               width: containerWidth,

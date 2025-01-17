@@ -525,7 +525,7 @@ class _FooterState extends State<Footer> {
                 ),
                 Expanded(
                   child: AutoSizeText(
-                    "+91 9643368309 / 888282222",
+                    "+91 9643368309 / 8882822264",
                     style: TextStyle(
                       color: white54,
                       fontSize: 15,

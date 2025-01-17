@@ -141,7 +141,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
             ),
             Container(
               width: containerWidth,
-              child: Amazonpageintro(),
+              child: Amazonpageintro(name: 'Amazon',),
             ),
             SizedBox(
               height: 30,
@@ -280,7 +280,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
             ),
             Container(
               width: containerWidth,
-              child: Amazonpageintro(),
+              child: Amazonpageintro(name: 'Amazon',),
             ),
             SizedBox(
               height: 30,
@@ -422,7 +422,7 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
             ),
             Container(
               width: screenSize.width * 0.7,
-              child: Amazonpageintro(),
+              child: Amazonpageintro(name: 'Amazon',),
             ),
             SizedBox(
               height: 30,

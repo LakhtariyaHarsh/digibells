@@ -141,7 +141,7 @@ class _FlipcartcalcpageState extends State<Flipcartcalcpage> {
             ),
             Container(
               width: containerWidth,
-              child: Amazonpageintro(),
+              child: Amazonpageintro(name: 'Flipkart',),
             ),
             SizedBox(
               height: 30,
@@ -279,7 +279,7 @@ class _FlipcartcalcpageState extends State<Flipcartcalcpage> {
             ),
             Container(
               width: containerWidth,
-              child: Amazonpageintro(),
+              child: Amazonpageintro(name: 'Flipkart',),
             ),
             SizedBox(
               height: 30,
@@ -421,7 +421,7 @@ class _FlipcartcalcpageState extends State<Flipcartcalcpage> {
             ),
             Container(
               width: screenSize.width * 0.7,
-              child: Amazonpageintro(),
+              child: Amazonpageintro(name: 'Flipkart',),
             ),
             SizedBox(
               height: 30,

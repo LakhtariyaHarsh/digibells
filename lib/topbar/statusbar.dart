@@ -31,7 +31,7 @@ class _StatusbarState extends State<Statusbar> {
               MouseRegion(
                 onEnter: (_) {
                   setState(() {
-                    hoveredText = "+91 9643368309 / 888282222";
+                    hoveredText = "+91 9643368309 / 8882822264";
                   });
                 },
                 onExit: (_) {
@@ -44,11 +44,11 @@ class _StatusbarState extends State<Statusbar> {
                     print("Text clicked");
                   },
                   child: Text(
-                    "+91 9643368309 / 888282222",
+                    "+91 9643368309 / 8882822264",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
-                      color: hoveredText == "+91 9643368309 / 888282222"
+                      color: hoveredText == "+91 9643368309 / 8882822264"
                           ? Color(0xff007dcc)
                           : Colors.blue,
                     ),
@@ -73,6 +73,7 @@ class _StatusbarState extends State<Statusbar> {
               Image.asset(
                 "assets/logo.png",
                 width: 200,
+                color: Colors.black,
               ),
               if (deviceType == topbar.DeviceScreenType.desktop ||
                   deviceType == topbar.DeviceScreenType.hubmax ||
@@ -177,7 +178,7 @@ class _StatusbarState extends State<Statusbar> {
                               MouseRegion(
                                 onEnter: (_) {
                                   setState(() {
-                                    hoveredText = "9643368309 / 888282222";
+                                    hoveredText = "9643368309 / 8882822264";
                                   });
                                 },
                                 onExit: (_) {
@@ -190,11 +191,11 @@ class _StatusbarState extends State<Statusbar> {
                                     print("Text clicked");
                                   },
                                   child: Text(
-                                    "9643368309 / 888282222",
+                                    "9643368309 / 8882822264",
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
-                                      color: hoveredText == "9643368309 / 888282222"
+                                      color: hoveredText == "9643368309 / 8882822264"
                                           ? Color(0xff007dcc)
                                           : Colors.blue,
                                     ),

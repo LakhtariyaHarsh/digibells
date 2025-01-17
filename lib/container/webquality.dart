@@ -104,7 +104,7 @@ class _WebqualityState extends State<Webquality> {
                                 height: 10,
                               ),
                               AutoSizeText(
-                                "As a leading website development company in gurgaon, We are a team of highly skilled and creative website designers, who are dedicated to transforming your online presence into a dynamic and engaging platform.F",
+                                "As a leading website development company in Delhi NCR, We are a team of highly skilled and creative website designers, who are dedicated to transforming your online presence into a dynamic and engaging platform.F",
                                 style: TextStyle(),
                                 maxLines: 15,
                                 overflow: TextOverflow.ellipsis,
@@ -209,7 +209,7 @@ class _WebqualityState extends State<Webquality> {
                                 height: 10,
                               ),
                               AutoSizeText(
-                                "As a leading website development company in gurgaon, We are a team of highly skilled and creative website designers, who are dedicated to transforming your online presence into a dynamic and engaging platform.",
+                                "As a leading website development company in Delhi NCR, We are a team of highly skilled and creative website designers, who are dedicated to transforming your online presence into a dynamic and engaging platform.",
                                 style: TextStyle(),
                                 maxLines: 5,
                                 overflow: TextOverflow.ellipsis,

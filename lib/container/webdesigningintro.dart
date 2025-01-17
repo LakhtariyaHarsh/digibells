@@ -83,7 +83,7 @@ class _WebdesigningintroState extends State<Webdesigningintro> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AutoSizeText(
-          "Website Designing Company in Gurgaon",
+          "Website Designing Company in Delhi NCR",
           style: TextStyle(
               fontSize: 50,
               fontWeight: FontWeight.bold,
@@ -91,13 +91,13 @@ class _WebdesigningintroState extends State<Webdesigningintro> {
         ),
         const SizedBox(height: 20),
         AutoSizeText(
-          "The best website designing company in Gurgaon is your one-stop solution for all of your business problems. We are a team of expert website designers, graphic designers, SEO executives, digital marketing experts, and app developers. We are fully dedicated to transforming your online presence into a dynamic and engaging platform. Our commitment to satisfy every customer we serve sets us apart in the world of agencies. Whether you are starting your business and looking to build a successful online business or an established business looking to redesign your websites or boost your online journey, We are always available to take every single step with your business.",
+          "The best website designing company in Delhi NCR is your one-stop solution for all of your business problems. We are a team of expert website designers, graphic designers, SEO executives, digital marketing experts, and app developers. We are fully dedicated to transforming your online presence into a dynamic and engaging platform. Our commitment to satisfy every customer we serve sets us apart in the world of agencies. Whether you are starting your business and looking to build a successful online business or an established business looking to redesign your websites or boost your online journey, We are always available to take every single step with your business.",
           style: TextStyle(
               fontSize: 16, color: Colors.white), // Changed to white
         ),
         const SizedBox(height: 20),
         AutoSizeText(
-          "We are not just a website development company, we are your partners for digital success. Let us transform your dream into a visually stunning website where innovation, aesthetics and functionality are at the core of our website development service in Gurgaon. Join us on this journey to create exceptional digital experiences and together we will shape the future of your online presence.",
+          "We are not just a website development company, we are your partners for digital success. Let us transform your dream into a visually stunning website where innovation, aesthetics and functionality are at the core of our website development service in Delhi NCR. Join us on this journey to create exceptional digital experiences and together we will shape the future of your online presence.",
           style: TextStyle(
               fontSize: 16, color: Colors.white), // Changed to white
         ),

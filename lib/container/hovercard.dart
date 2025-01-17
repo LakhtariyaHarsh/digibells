@@ -1,23 +1,66 @@
 import 'package:digibells/utills/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:digibells/topbar/topbarcontent.dart' as topbar;
 
 class HoverCardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
+    var deviceType = topbar.getDeviceType(screenSize);
     return Center(
       child: Container(
         width: screenSize.width * 0.87,
-        child: Wrap(
-          spacing: 40, // Space between cards
-          runSpacing: 20,
-          children: [
-            buildHoverCard("Years Experience", "2", Icons.wb_sunny_rounded),
-            buildHoverCard("Team Members", "20", Icons.supervised_user_circle_outlined),
-            buildHoverCard("Clients", "1000 +", Icons.supervised_user_circle),
-            buildHoverCard("Projects", "7", Icons.system_security_update_good_rounded),
-          ],
-        ),
+        child: deviceType == topbar.DeviceScreenType.mobile
+            ? Column(
+                spacing: 40, // Space between cards
+                children: [
+                  buildHoverCard(
+                      "Years Experience", "2", Icons.wb_sunny_rounded),
+                  buildHoverCard("Team Members", "20",
+                      Icons.supervised_user_circle_outlined),
+                  buildHoverCard(
+                      "Clients", "1000 +", Icons.supervised_user_circle),
+                  buildHoverCard("Projects", "7",
+                      Icons.system_security_update_good_rounded),
+                ],
+              )
+            : deviceType == topbar.DeviceScreenType.tablet || deviceType == topbar.DeviceScreenType.hubmax || deviceType == topbar.DeviceScreenType.isWideColumnLayout
+                ? Column(
+                    spacing: 40, // Space between cards
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          buildHoverCard(
+                              "Years Experience", "2", Icons.wb_sunny_rounded),
+                          buildHoverCard("Team Members", "20",
+                              Icons.supervised_user_circle_outlined),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          buildHoverCard("Clients", "1000 +",
+                              Icons.supervised_user_circle),
+                          buildHoverCard("Projects", "7",
+                              Icons.system_security_update_good_rounded),
+                        ],
+                      ),
+                    ],
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      buildHoverCard(
+                          "Years Experience", "2", Icons.wb_sunny_rounded),
+                      buildHoverCard("Team Members", "20",
+                          Icons.supervised_user_circle_outlined),
+                      buildHoverCard(
+                          "Clients", "1000 +", Icons.supervised_user_circle),
+                      buildHoverCard("Projects", "7",
+                          Icons.system_security_update_good_rounded),
+                    ],
+                  ),
       ),
     );
   }
@@ -75,11 +118,13 @@ class _HoverCardState extends State<HoverCard> {
               Icon(widget.iconData, size: 80, color: orange),
               Text(
                 widget.title,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: black),
+                style: TextStyle(
+                    fontSize: 18, fontWeight: FontWeight.bold, color: black),
               ),
               Text(
                 widget.rank,
-                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: black),
+                style: TextStyle(
+                    fontSize: 40, fontWeight: FontWeight.bold, color: black),
               ),
             ],
           ),

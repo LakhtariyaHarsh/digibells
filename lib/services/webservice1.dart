@@ -46,7 +46,7 @@ class _Webservice1State extends State<Webservice1> {
                     ),
                     SizedBox(height: 10),
                     AutoSizeText(
-                      "Undoubtedly, Desire Div is an amazing website designing company in Gurgaon. It creates an innovative or creative website that attracts your customers and leaves a lasting impression. As we all know, a creative website plays an important role in grabbing the attention of online visitors and improving the user experience. In a digital environment where first impressions matter, a visually appealing and innovative website designing can help your brand stand out.",
+                      "Undoubtedly, Desire Div is an amazing website designing company in Delhi NCR. It creates an innovative or creative website that attracts your customers and leaves a lasting impression. As we all know, a creative website plays an important role in grabbing the attention of online visitors and improving the user experience. In a digital environment where first impressions matter, a visually appealing and innovative website designing can help your brand stand out.",
                       style: TextStyle(fontSize: 16),
                     ),
                     SizedBox(height: 10),
@@ -78,7 +78,7 @@ class _Webservice1State extends State<Webservice1> {
                     ),
                     SizedBox(height: 10),
                     AutoSizeText(
-                      "Undoubtedly, Desire Div is an amazing website designing company in Gurgaon. It creates an innovative or creative website that attracts your customers and leaves a lasting impression. As we all know, a creative website plays an important role in grabbing the attention of online visitors and improving the user experience. In a digital environment where first impressions matter, a visually appealing and innovative website designing can help your brand stand out.",
+                      "Undoubtedly, Desire Div is an amazing website designing company in Delhi NCR. It creates an innovative or creative website that attracts your customers and leaves a lasting impression. As we all know, a creative website plays an important role in grabbing the attention of online visitors and improving the user experience. In a digital environment where first impressions matter, a visually appealing and innovative website designing can help your brand stand out.",
                       style: TextStyle(fontSize: 16),
                     ),
                     SizedBox(height: 10),

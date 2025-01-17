@@ -48,54 +48,56 @@ class _CardcarouselState extends State<Cardcarousel> {
           : deviceType == topbar.DeviceScreenType.tablet
               ? 900
               : 350, // Fixed width
-      child: Card(
-        color: grey250,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  CircleAvatar(
-                    radius: 30, // Fixed size for the avatar
-                    backgroundImage: AssetImage(item['image']!),
-                  ),
-                  SizedBox(width: 15),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        item['title']!,
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
+      child: SingleChildScrollView(
+        child: Card(
+          color: grey250,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 30, // Fixed size for the avatar
+                      backgroundImage: AssetImage(item['image']!),
+                    ),
+                    SizedBox(width: 15),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          item['title']!,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 5),
-                      Text(
-                        item['subtitle']!,
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: black54,
+                        SizedBox(height: 5),
+                        Text(
+                          item['subtitle']!,
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: black54,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-              AutoSizeText(
-                item['description']!,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: black54,
+                      ],
+                    ),
+                  ],
                 ),
-              ),
-            ],
+                SizedBox(height: 20),
+                AutoSizeText(
+                  item['description']!,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: black54,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -111,13 +113,9 @@ class _CardcarouselState extends State<Cardcarousel> {
       child: CarouselSlider.builder(
         itemCount: items.length,
         options: CarouselOptions(
-          height: deviceType == topbar.DeviceScreenType.hubmax
-              ? 680
-              :  deviceType == topbar.DeviceScreenType.tablet
-              ? 390
-              : deviceType == topbar.DeviceScreenType.mobile
-              ? 700
-              :  570, // Ensure enough space for the card and padding
+          height: deviceType == topbar.DeviceScreenType.tablet
+              ? 250
+              : 350, // Ensure enough space for the card and padding
           viewportFraction: deviceType == topbar.DeviceScreenType.desktop ||
                   deviceType == topbar.DeviceScreenType.hubmax ||
                   deviceType == topbar.DeviceScreenType.isWideColumnLayout

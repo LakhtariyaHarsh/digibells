@@ -72,9 +72,9 @@ class CustomDrawer extends StatelessWidget {
                 Divider(),
                 const SizedBox(height: 20),
                 SizedBox(
-                  width: 300,
-                  height: 300,
-                  child: Image.asset("assets/QRcode.jpg")) ,
+                    width: 300,
+                    height: 300,
+                    child: Image.asset("assets/QRcode.jpg")),
                 // Done Button
                 ElevatedButton(
                   onPressed: () {
@@ -190,7 +190,7 @@ class CustomDrawer extends StatelessWidget {
             leading: Icon(Icons.quick_contacts_dialer_sharp),
             title: Text('Contact Us'),
             onTap: () {
-              context.go('/Contact-Us');
+              context.go('/contact/${Uri.encodeComponent("Contact Us")}');
             },
           ),
           Divider(),

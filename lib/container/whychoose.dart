@@ -214,7 +214,7 @@ class _WhychooseState extends State<Whychoose> {
                 flex: 50,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 30.0, right: 40),
-                  child: SizedBox(
+                  child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

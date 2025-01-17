@@ -184,7 +184,7 @@ class _WhychoosewebState extends State<Whychooseweb> {
                                       height: 10,
                                     ),
                                     AutoSizeText(
-                                      "Don't just take our word for it, our portfolio speaks for itself. Explore our past projects and see the quality of work we deliver. Make the smart choice for your website designing needs in Gurgaon. Choose Desire Div for creativity, professionalism, and results that exceed your expectations.",
+                                      "Don't just take our word for it, our portfolio speaks for itself. Explore our past projects and see the quality of work we deliver. Make the smart choice for your website designing needs in Delhi NCR. Choose Desire Div for creativity, professionalism, and results that exceed your expectations.",
                                       style: TextStyle(),
                                       maxLines: 5,
                                       overflow: TextOverflow.ellipsis,
@@ -351,7 +351,7 @@ class _WhychoosewebState extends State<Whychooseweb> {
                                       height: 10,
                                     ),
                                     AutoSizeText(
-                                      "Don't just take our word for it, our portfolio speaks for itself. Explore our past projects and see the quality of work we deliver. Make the smart choice for your website designing needs in Gurgaon. Choose Desire Div for creativity, professionalism, and results that exceed your expectations.",
+                                      "Don't just take our word for it, our portfolio speaks for itself. Explore our past projects and see the quality of work we deliver. Make the smart choice for your website designing needs in Delhi NCR. Choose Desire Div for creativity, professionalism, and results that exceed your expectations.",
                                       style: TextStyle(),
                                       maxLines: 5,
                                       overflow: TextOverflow.ellipsis,

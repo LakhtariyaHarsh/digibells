@@ -53,7 +53,7 @@ class _Webservice2State extends State<Webservice2> {
                     ),
                     SizedBox(height: 10),
                     AutoSizeText(
-                      "Responsive design is paramount to ensuring a consistent experience across devices and promoting accessibility for a wide range of users. Additionally, security features and transparent policies are essential to building trust among online shoppers. A carefully designed e-commerce website not only improves the overall online shopping experience, but also strengthens your brand's credibility and competitiveness in the digital marketplace. So, what are you waiting for? Contact Desire Div, the best web designing company in Gurgaon, Delhi and promote your product.",
+                      "Responsive design is paramount to ensuring a consistent experience across devices and promoting accessibility for a wide range of users. Additionally, security features and transparent policies are essential to building trust among online shoppers. A carefully designed e-commerce website not only improves the overall online shopping experience, but also strengthens your brand's credibility and competitiveness in the digital marketplace. So, what are you waiting for? Contact Desire Div, the best web designing company in Delhi NCR, Delhi and promote your product.",
                       style: TextStyle(fontSize: 16),
                     ),
                   ],
@@ -99,7 +99,7 @@ class _Webservice2State extends State<Webservice2> {
                       ),
                       SizedBox(height: 10),
                       AutoSizeText(
-                        "Responsive design is paramount to ensuring a consistent experience across devices and promoting accessibility for a wide range of users. Additionally, security features and transparent policies are essential to building trust among online shoppers. A carefully designed e-commerce website not only improves the overall online shopping experience, but also strengthens your brand's credibility and competitiveness in the digital marketplace. So, what are you waiting for? Contact Desire Div, the best web designing company in Gurgaon, Delhi and promote your product.",
+                        "Responsive design is paramount to ensuring a consistent experience across devices and promoting accessibility for a wide range of users. Additionally, security features and transparent policies are essential to building trust among online shoppers. A carefully designed e-commerce website not only improves the overall online shopping experience, but also strengthens your brand's credibility and competitiveness in the digital marketplace. So, what are you waiting for? Contact Desire Div, the best web designing company in Delhi NCR, Delhi and promote your product.",
                         style: TextStyle(fontSize: 16),
                       ),
                     ],
