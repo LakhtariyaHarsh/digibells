@@ -130,7 +130,6 @@ class _JiomartcalcpageState extends State<Jiomartcalcpage> {
             ),
             Container(
               width: containerWidth,
-              height: 1500,
               child: AmazonFeeCalc(
                 image: 'assets/jiomart.png',
                 name: 'Jiomart',
@@ -268,8 +267,6 @@ class _JiomartcalcpageState extends State<Jiomartcalcpage> {
             ),
             Container(
               width: containerWidth,
-              height: 1300,
-              // color: orange, // Background color
               child: AmazonFeeCalc(
                 image: 'assets/jiomart.png',
                 name: 'Jiomart',
@@ -411,7 +408,6 @@ class _JiomartcalcpageState extends State<Jiomartcalcpage> {
             ),
             Container(
               width: containerWidth,
-              height: 700,
               child: AmazonFeeCalc(
                 image: 'assets/jiomart.png',
                 name: 'Jiomart',

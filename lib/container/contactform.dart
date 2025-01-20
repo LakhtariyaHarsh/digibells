@@ -11,16 +11,26 @@ class Contactform extends StatefulWidget {
 }
 
 class _ContactformState extends State<Contactform> {
+  // Controllers and form key
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _messageController = TextEditingController();
+  final TextEditingController _contactNumberController =
+      TextEditingController();
+  String? _selectedDepartment;
+
   late GoogleMapController mapController;
   List<Marker> _markers = [];
   bool showMap = true;
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _markers.add(Marker(
-        markerId: MarkerId("mylocation"),
-        position: LatLng(28.5818476, 77.3635537)));
+      markerId: MarkerId("mylocation"),
+      position: LatLng(28.5818476, 77.3635537),
+    ));
     if (_markers.isNotEmpty) {
       setState(() {
         showMap = true;
@@ -30,24 +40,14 @@ class _ContactformState extends State<Contactform> {
 
   @override
   void dispose() {
-    mapController?.dispose(); // Dispose of the map controller
+    mapController.dispose();
     super.dispose();
   }
-
-  final _formKey = GlobalKey<FormState>();
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _messageController = TextEditingController();
-  final TextEditingController _contactNumberController =
-      TextEditingController();
-
-  String? _selectedDepartment;
 
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     var deviceType = topbar.getDeviceType(screenSize);
-    // Determine image height based on device type
     bool isMobile = deviceType == topbar.DeviceScreenType.mobile;
     bool isTablet = deviceType == topbar.DeviceScreenType.tablet;
     bool ishub = deviceType == topbar.DeviceScreenType.hubmax;
@@ -56,11 +56,7 @@ class _ContactformState extends State<Contactform> {
         ? Column(
             children: [
               SizedBox(
-                height: isTablet
-                    ? 400
-                    : ishub
-                        ? 400
-                        : 300,
+                height: isTablet ? 400 : (ishub ? 400 : 300),
                 width: isTablet ? 700 : 500,
                 child: showMap
                     ? GoogleMap(
@@ -78,37 +74,35 @@ class _ContactformState extends State<Contactform> {
                       )
                     : Center(child: CircularProgressIndicator()),
               ),
+              SizedBox(height: 20),
               SizedBox(
-                height: 20,
-              ),
-              Expanded(
                 child: buildForm(deviceType),
-              )
+              ),
             ],
           )
         : Row(
             children: [
-              // Left Image Section
               Expanded(
                 flex: 50,
-                child: showMap
-                    ? GoogleMap(
-                        onMapCreated: (controller) {
-                          setState(() {
-                            mapController = controller;
-                          });
-                        },
-                        markers: Set<Marker>.of(_markers),
-                        mapType: MapType.terrain,
-                        initialCameraPosition: CameraPosition(
-                          target: LatLng(28.5818476, 77.3635537),
-                          zoom: 20,
-                        ),
-                      )
-                    : Center(child: CircularProgressIndicator()),
+                child: SizedBox(
+                  height: 600, // Ensure it has a finite height
+                  child: showMap
+                      ? GoogleMap(
+                          onMapCreated: (controller) {
+                            setState(() {
+                              mapController = controller;
+                            });
+                          },
+                          markers: Set<Marker>.of(_markers),
+                          mapType: MapType.terrain,
+                          initialCameraPosition: CameraPosition(
+                            target: LatLng(28.5818476, 77.3635537),
+                            zoom: 15,
+                          ),
+                        )
+                      : Center(child: CircularProgressIndicator()),
+                ),
               ),
-
-              // Right Content Section
               Flexible(
                 flex: 50,
                 child: Padding(
@@ -123,267 +117,165 @@ class _ContactformState extends State<Contactform> {
   }
 
   Widget buildForm(topbar.DeviceScreenType deviceType) {
-    var screenSize = MediaQuery.of(context).size;
-    var deviceType = topbar.getDeviceType(screenSize);
-    // Determine image height based on device type
     bool isMobile = deviceType == topbar.DeviceScreenType.mobile;
 
-    return SingleChildScrollView(
-      // Added SingleChildScrollView
-      child: Form(
-        key: _formKey,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Contact Us Title
-            AutoSizeText(
-              "Contact Us",
+    return Form(
+      key: _formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AutoSizeText(
+            "Contact Us",
+            style: TextStyle(
+              fontSize: isMobile ? 18 : 22,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 20),
+          buildTextField(
+              "Your Name", _nameController, "Please enter your name"),
+          SizedBox(height: 10),
+          buildTextField(
+              "Your Email", _emailController, "Please enter a valid email",
+              isEmail: true),
+          SizedBox(height: 10),
+          buildTextField("Your Contact Number", _contactNumberController,
+              "Please enter a valid 10-digit contact number",
+              isPhone: true),
+          SizedBox(height: 10),
+          buildDropdownField(),
+          SizedBox(height: 10),
+          buildMessageField(),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                print("Form Submitted");
+                print("Name: ${_nameController.text}");
+                print("Email: ${_emailController.text}");
+                print("Contact Number: ${_contactNumberController.text}");
+                print("Department: $_selectedDepartment");
+                print("Message: ${_messageController.text}");
+              }
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xff2377af),
+              minimumSize: const Size(150, 40),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.zero,
+              ),
+            ),
+            child: const Text(
+              "Send Message",
               style: TextStyle(
-                fontSize: deviceType == topbar.DeviceScreenType.mobile
-                    ? 18
-                    : (deviceType == topbar.DeviceScreenType.tablet ? 20 : 22),
+                color: Colors.white,
+                fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 20),
-
-            // Name Field
-            Text(
-              "Your Name",
-              style: TextStyle(
-                color: Colors.black54,
-                fontSize: deviceType == topbar.DeviceScreenType.mobile
-                    ? 15
-                    : (deviceType == topbar.DeviceScreenType.tablet ? 15 : 17),
-              ),
-            ),
-            SizedBox(height: 10),
-            SizedBox(
-              // width: double.infinity,
-              child: TextFormField(
-                controller: _nameController,
-                decoration: InputDecoration(
-                  labelText: "Your Name",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(color: Colors.blue, width: 2),
-                  ),
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please enter your name";
-                  }
-                  return null;
-                },
-              ),
-            ),
-            SizedBox(height: 10),
-
-            // Email Field
-            Text(
-              "Your E-mail",
-              style: TextStyle(
-                color: Colors.black54,
-                fontSize: deviceType == topbar.DeviceScreenType.mobile
-                    ? 15
-                    : (deviceType == topbar.DeviceScreenType.tablet ? 15 : 17),
-              ),
-            ),
-            SizedBox(height: 10),
-            SizedBox(
-              // width: double.infinity,
-              child: TextFormField(
-                controller: _emailController,
-                decoration: InputDecoration(
-                  labelText: "Email",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(color: Colors.blue, width: 2),
-                  ),
-                ),
-                keyboardType: TextInputType.emailAddress,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please enter your email";
-                  }
-                  // Basic email validation
-                  if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                    return "Please enter a valid email address";
-                  }
-                  return null;
-                },
-              ),
-            ),
-            SizedBox(height: 10),
-            // Contact Number Field
-            Text(
-              "Your Contact Number",
-              style: TextStyle(
-                color: Colors.black54,
-                fontSize: deviceType == topbar.DeviceScreenType.mobile
-                    ? 15
-                    : (deviceType == topbar.DeviceScreenType.tablet ? 15 : 17),
-              ),
-            ),
-            SizedBox(height: 10),
-            SizedBox(
-              // width: double.infinity,
-              child: TextFormField(
-                controller: _contactNumberController,
-                decoration: InputDecoration(
-                  labelText: "Contact Number",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(color: Colors.blue, width: 2),
-                  ),
-                ),
-                keyboardType: TextInputType.phone,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please enter your contact number";
-                  }
-                  if (value.length != 10 ||
-                      !RegExp(r'^[0-9]+$').hasMatch(value)) {
-                    return "Please enter a valid 10-digit contact number";
-                  }
-                  return null;
-                },
-              ),
-            ),
-            SizedBox(height: 10),
-
-            // Department Dropdown
-            Text(
-              "Choose Concerned Department",
-              style: TextStyle(
-                color: Colors.black54,
-                fontSize: deviceType == topbar.DeviceScreenType.mobile
-                    ? 15
-                    : (deviceType == topbar.DeviceScreenType.tablet ? 15 : 17),
-              ),
-            ),
-            SizedBox(height: 10),
-            SizedBox(
-              child: DropdownButtonFormField<String>(
-                value: _selectedDepartment,
-                decoration: InputDecoration(
-                  hintText: "Select a Department",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(color: Colors.blue, width: 2),
-                  ),
-                ),
-                items: [
-                  DropdownMenuItem(
-                    value: null,
-                    child: Text("Select a Department"),
-                  ),
-                  DropdownMenuItem(
-                    value: "Sales",
-                    child: Text("Sales"),
-                  ),
-                  DropdownMenuItem(
-                    value: "Support",
-                    child: Text("Support"),
-                  ),
-                  DropdownMenuItem(
-                    value: "Account & Billing",
-                    child: Text("Account & Billing"),
-                  ),
-                ],
-                onChanged: (value) {
-                  setState(() {
-                    _selectedDepartment = value;
-                  });
-                },
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please select a department";
-                  }
-                  return null;
-                },
-              ),
-            ),
-            SizedBox(height: 10),
-
-            // Message Field
-            Text(
-              "Write your message",
-              style: TextStyle(
-                color: Colors.black54,
-                fontSize: deviceType == topbar.DeviceScreenType.mobile
-                    ? 15
-                    : (deviceType == topbar.DeviceScreenType.tablet ? 15 : 17),
-              ),
-            ),
-            SizedBox(height: 10),
-            TextFormField(
-              controller: _messageController,
-              maxLines: 4,
-              decoration: InputDecoration(
-                labelText: "Write your Requirements.",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: Colors.blue, width: 2),
-                ),
-                alignLabelWithHint: true,
-              ),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return "Please enter your message";
-                }
-                return null;
-              },
-            ),
-            SizedBox(height: 20),
-
-            // Submit Button
-            ElevatedButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  // Perform form submission
-                  print("Form Submitted");
-                  print("Name: ${_nameController.text}");
-                  print("Email: ${_emailController.text}");
-                  print("Contact Number: ${_contactNumberController.text}");
-                  print("Department: $_selectedDepartment");
-                  print("Message: ${_messageController.text}");
-                }
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xff2377af),
-                minimumSize: const Size(150, 40),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.zero,
-                ),
-              ),
-              child: const Text(
-                "Send Message",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
+    );
+  }
+
+  Widget buildTextField(
+      String label, TextEditingController controller, String validationMsg,
+      {bool isEmail = false, bool isPhone = false}) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: TextStyle(color: Colors.black54, fontSize: 15),
+        ),
+        SizedBox(height: 10),
+        TextFormField(
+          controller: controller,
+          decoration: InputDecoration(
+            labelText: label,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: Colors.blue, width: 2),
+            ),
+          ),
+          keyboardType: isEmail
+              ? TextInputType.emailAddress
+              : (isPhone ? TextInputType.phone : TextInputType.text),
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return validationMsg;
+            }
+            if (isEmail && !RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+              return "Please enter a valid email address";
+            }
+            if (isPhone &&
+                (value.length != 10 || !RegExp(r'^[0-9]+$').hasMatch(value))) {
+              return "Please enter a valid 10-digit contact number";
+            }
+            return null;
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget buildDropdownField() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Choose Concerned Department",
+          style: TextStyle(color: Colors.black54, fontSize: 15),
+        ),
+        SizedBox(height: 10),
+        DropdownButtonFormField<String>(
+          value: _selectedDepartment,
+          decoration: InputDecoration(
+            hintText: "Select a Department",
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: Colors.blue, width: 2),
+            ),
+          ),
+          items: [
+            DropdownMenuItem(value: null, child: Text("Select a Department")),
+            DropdownMenuItem(value: "Sales", child: Text("Sales")),
+            DropdownMenuItem(value: "Support", child: Text("Support")),
+            DropdownMenuItem(
+                value: "Account & Billing", child: Text("Account & Billing")),
+          ],
+          onChanged: (value) {
+            setState(() {
+              _selectedDepartment = value;
+            });
+          },
+          validator: (value) =>
+              value == null ? "Please select a department" : null,
+        ),
+      ],
+    );
+  }
+
+  Widget buildMessageField() {
+    return TextFormField(
+      controller: _messageController,
+      maxLines: 4,
+      decoration: InputDecoration(
+        labelText: "Write your Requirements.",
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        alignLabelWithHint: true,
+      ),
+      validator: (value) =>
+          value == null || value.isEmpty ? "Please enter your message" : null,
     );
   }
 }

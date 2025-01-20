@@ -130,7 +130,6 @@ class _FlipcartcalcpageState extends State<Flipcartcalcpage> {
             ),
             Container(
               width: containerWidth,
-              height: 1500,
               child: AmazonFeeCalc(
                 image: 'assets/flipkart.png',
                 name: 'Flipkart',
@@ -268,8 +267,6 @@ class _FlipcartcalcpageState extends State<Flipcartcalcpage> {
             ),
             Container(
                 width: containerWidth,
-                height: 1300,
-                // color: orange, // Background color
                 child: AmazonFeeCalc(
                   image: 'assets/flipkart.png',
                   name: 'Flipkart',
@@ -410,7 +407,6 @@ class _FlipcartcalcpageState extends State<Flipcartcalcpage> {
             ),
             Container(
               width: containerWidth,
-              height: 700,
               child: AmazonFeeCalc(
                 image: 'assets/flipkart.png',
                 name: 'Flipkart',

@@ -173,8 +173,10 @@ class _CommonfileState extends State<Commonfile> {
             ),
             Container(
               width: containerWidth,
-              height: 1000,
               child: Contactform(),
+            ),
+             SizedBox(
+              height: 20,
             ),
             Container(
               width: containerWidth,
@@ -337,7 +339,6 @@ class _CommonfileState extends State<Commonfile> {
             ),
             Container(
               width: containerWidth,
-              height: deviceType == topbar.DeviceScreenType.tablet ? 1100 : 680,
               child: Contactform(),
             ),
             SizedBox(
@@ -508,7 +509,6 @@ class _CommonfileState extends State<Commonfile> {
             ),
             Container(
               width: containerWidth,
-              height: 680,
               child: Contactform(),
             ),
             SizedBox(

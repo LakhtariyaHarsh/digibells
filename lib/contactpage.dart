@@ -160,8 +160,10 @@ class _ContactpageState extends State<Contactpage> {
             ),
             Container(
               width: containerWidth,
-              height: 1000,
               child: Contactform(),
+            ),
+             SizedBox(
+              height: 20,
             ),
             Container(
               width: containerWidth,
@@ -311,7 +313,6 @@ class _ContactpageState extends State<Contactpage> {
             ),
             Container(
               width: containerWidth,
-              height: deviceType == topbar.DeviceScreenType.tablet ? 1100 : 680,
               child: Contactform(),
             ),
             SizedBox(
@@ -469,7 +470,6 @@ class _ContactpageState extends State<Contactpage> {
             ),
             Container(
               width: containerWidth,
-              height: 680,
               child: Contactform(),
             ),
             SizedBox(

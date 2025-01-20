@@ -130,7 +130,6 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
             ),
             Container(
               width: containerWidth,
-              height: 1500,
               child: AmazonFeeCalc(
                 image: 'assets/amz.jpeg',
                 name: 'Amazon',
@@ -268,8 +267,6 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
             ),
             Container(
               width: containerWidth,
-              height: 1300,
-              // color: orange, // Background color
               child: AmazonFeeCalc(
                 image: 'assets/amz.jpeg',
                 name: 'Amazon',
@@ -411,7 +408,6 @@ class _AmazoncalcpageState extends State<Amazoncalcpage> {
             ),
             Container(
               width: containerWidth,
-              height: 700,
               child: AmazonFeeCalc(
                 image: 'assets/amz.jpeg',
                 name: 'Amazon',
